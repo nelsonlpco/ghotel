@@ -101,7 +101,7 @@
             // reservasToolStripMenuItem
             // 
             this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
-            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.reservasToolStripMenuItem.Text = "&Reservas";
             // 
             // hóspedesToolStripMenuItem
@@ -110,6 +110,7 @@
             this.hóspedesToolStripMenuItem.Name = "hóspedesToolStripMenuItem";
             this.hóspedesToolStripMenuItem.Size = new System.Drawing.Size(178, 22);
             this.hóspedesToolStripMenuItem.Text = "&Hóspedes";
+            this.hóspedesToolStripMenuItem.Click += new System.EventHandler(this.hóspedesToolStripMenuItem_Click);
             // 
             // quartosToolStripMenuItem
             // 
@@ -150,7 +151,7 @@
             // 
             this.hospedagemToolStripMenuItem.Image = global::GestorHoteleiro.Properties.Resources.checkin;
             this.hospedagemToolStripMenuItem.Name = "hospedagemToolStripMenuItem";
-            this.hospedagemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hospedagemToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.hospedagemToolStripMenuItem.Text = "&Hospedagem";
             // 
             // frmMenu
@@ -162,7 +163,9 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMenu";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestor Hoteleiro";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

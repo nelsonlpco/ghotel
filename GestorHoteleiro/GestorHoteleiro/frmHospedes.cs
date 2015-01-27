@@ -10,18 +10,18 @@ using System.Windows.Forms;
 
 namespace GestorHoteleiro
 {
-    public partial class frmMenu : Form
+    public partial class frmHospedes : Form
     {
-        public frmMenu()
+        public frmHospedes()
         {
             InitializeComponent();
         }
 
-        private void hóspedesToolStripMenuItem_Click(object sender, EventArgs e)
+        private void frmHospedes_Load(object sender, EventArgs e)
         {
-            frmHospedes frm = new frmHospedes();
-            frm.ShowDialog();
-            frm.Dispose();
+            // TODO: This line of code loads data into the 'hotelDBDataSet.CLIENTE' table. You can move, or remove it, as needed.
+            
+
         }
     }
 }

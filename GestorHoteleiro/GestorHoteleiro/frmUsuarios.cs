@@ -10,18 +10,11 @@ using System.Windows.Forms;
 
 namespace GestorHoteleiro
 {
-    public partial class frmMenu : Form
+    public partial class frmUsuarios : Form
     {
-        public frmMenu()
+        public frmUsuarios()
         {
             InitializeComponent();
-        }
-
-        private void hóspedesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmHospedes frm = new frmHospedes();
-            frm.ShowDialog();
-            frm.Dispose();
         }
     }
 }

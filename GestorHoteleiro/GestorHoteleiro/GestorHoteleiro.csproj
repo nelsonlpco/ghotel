@@ -68,47 +68,23 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="database\CLIENTE.cs">
-      <DependentUpon>edmHotel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="database\CONSUMO.cs">
-      <DependentUpon>edmHotel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="database\edmHotel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>edmHotel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="database\edmHotel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>edmHotel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="database\edmHotel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>edmHotel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="database\HOSPEDAGEM.cs">
-      <DependentUpon>edmHotel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="database\HOTEL.cs">
-      <DependentUpon>edmHotel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="database\ITEMCONSUMO.cs">
-      <DependentUpon>edmHotel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="database\QUARTO.cs">
-      <DependentUpon>edmHotel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="database\USUARIOS.cs">
-      <DependentUpon>edmHotel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHospedes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHospedes.Designer.cs">
+      <DependentUpon>frmHospedes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmItens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItens.Designer.cs">
+      <DependentUpon>frmItens.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLogin.cs">
       <SubType>Form</SubType>
@@ -116,13 +92,51 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmQuartos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuartos.Designer.cs">
+      <DependentUpon>frmQuartos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmServicos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmServicos.Designer.cs">
+      <DependentUpon>frmServicos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmUsuarios.Designer.cs">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotelDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmHospedes.resx">
+      <DependentUpon>frmHospedes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItens.resx">
+      <DependentUpon>frmItens.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLogin.resx">
       <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuartos.resx">
+      <DependentUpon>frmQuartos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmServicos.resx">
+      <DependentUpon>frmServicos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmUsuarios.resx">
+      <DependentUpon>frmUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -134,22 +148,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EntityDeploy Include="database\edmHotel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>edmHotel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="database\edmHotel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>edmHotel.edmx</DependentUpon>
-      <LastGenOutput>edmHotel.Context.cs</LastGenOutput>
+    <None Include="HotelDBDataSet.xsc">
+      <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
     </None>
-    <None Include="database\edmHotel.edmx.diagram">
-      <DependentUpon>edmHotel.edmx</DependentUpon>
+    <None Include="HotelDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </None>
-    <None Include="database\edmHotel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>edmHotel.edmx</DependentUpon>
-      <LastGenOutput>edmHotel.cs</LastGenOutput>
+    <None Include="HotelDBDataSet.xss">
+      <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -167,13 +175,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="database\HotelDB.mdf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Content Include="database\HotelDB_log.ldf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-      <DependentUpon>HotelDB.mdf</DependentUpon>
-    </Content>
     <Content Include="HotelDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

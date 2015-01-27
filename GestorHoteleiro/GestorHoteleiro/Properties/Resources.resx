@@ -121,8 +121,8 @@
   <data name="exit" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\exit.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="itens" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\itens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="checkout" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\checkout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="hospedes" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\hospedes.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -130,8 +130,23 @@
   <data name="hotel" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\hotel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ok32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\ok32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="delete" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\delete.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Add32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\Add32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="quarto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\quarto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="ok32x321" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\ok32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="itens" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\itens.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="usuario" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\usuario.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -139,7 +154,7 @@
   <data name="checkin" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\resources\icons\checkin.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="checkout" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\resources\icons\checkout.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Cancel32x32" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\resources\icons\Cancel32x32.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace GestorHoteleiro
 {
-    public partial class frmMenu : Form
+    public partial class frmLogin : Form
     {
-        public frmMenu()
+        private bool fLogado;
+
+        public frmLogin()
         {
             InitializeComponent();
+            fLogado = false;
         }
+
+        public bool UsuarioLogado { get { return fLogado; } }
     }
 }

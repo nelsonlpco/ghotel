@@ -1,0 +1,432 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="HotelDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="NNUMECLIENTE" />
+          </Key>
+          <Property Name="NNUMECLIENTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CNOME" Type="varchar" MaxLength="50" />
+          <Property Name="CCPF" Type="varchar" MaxLength="24" />
+          <Property Name="CRG" Type="varchar" MaxLength="24" />
+          <Property Name="DDATANASC" Type="datetime" />
+          <Property Name="DDATACADASTRO" Type="datetime" />
+          <Property Name="COBSERVACAO" Type="text" />
+          <Property Name="CCEP" Type="varchar" MaxLength="15" />
+          <Property Name="CCIDADE" Type="varchar" MaxLength="50" />
+          <Property Name="CUF" Type="varchar" MaxLength="2" />
+          <Property Name="CRUA" Type="varchar" MaxLength="50" />
+          <Property Name="CBAIRRO" Type="varchar" MaxLength="50" />
+          <Property Name="CFONE" Type="varchar" MaxLength="25" />
+          <Property Name="CFONE2" Type="varchar" MaxLength="25" />
+          <Property Name="CEMAIL" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="CONSUMO">
+          <Key>
+            <PropertyRef Name="NIDCONSUMO" />
+          </Key>
+          <Property Name="NIDCONSUMO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NIDHOSPEDAGEM" Type="int" Nullable="false" />
+          <Property Name="NIDITEMCONSUMO" Type="int" Nullable="false" />
+          <Property Name="NQUANTIDADE" Type="int" />
+          <Property Name="NVALORBRUTO" Type="money" />
+          <Property Name="DDATAHORA" Type="datetime" />
+        </EntityType>
+        <EntityType Name="HOSPEDAGEM">
+          <Key>
+            <PropertyRef Name="NIDHOSPEDAGEM" />
+          </Key>
+          <Property Name="NIDHOSPEDAGEM" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="NIDCLIENTE" Type="int" Nullable="false" />
+          <Property Name="NIDQUARTO" Type="int" Nullable="false" />
+          <Property Name="DDATAIN" Type="datetime" />
+          <Property Name="DDATAOUT" Type="datetime" />
+          <Property Name="CESTATUS" Type="varchar" MaxLength="1" />
+          <Property Name="COBSERVACAO" Type="text" />
+          <Property Name="FFORMAPAGAMENTO" Type="varchar" MaxLength="50" />
+          <Property Name="VVALORTOTAL" Type="money" />
+          <Property Name="VVALORDESCONTO" Type="money" />
+          <Property Name="DDATAFECHAMENTO" Type="datetime" />
+          <Property Name="NDIARIAS" Type="int" />
+        </EntityType>
+        <EntityType Name="HOTEL">
+          <Key>
+            <PropertyRef Name="NIDHOTEL" />
+          </Key>
+          <Property Name="NIDHOTEL" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CNOME" Type="varchar" MaxLength="50" />
+          <Property Name="CCNPJ" Type="varchar" MaxLength="24" />
+          <Property Name="CINSC" Type="varchar" MaxLength="24" />
+          <Property Name="CFONE" Type="varchar" MaxLength="24" />
+          <Property Name="CFONE2" Type="varchar" MaxLength="24" />
+          <Property Name="CFONE3" Type="varchar" MaxLength="24" />
+          <Property Name="CEMAILS" Type="text" />
+          <Property Name="CCEP" Type="nchar" MaxLength="11" />
+          <Property Name="CCIDADE" Type="varchar" MaxLength="60" />
+          <Property Name="CUF" Type="varchar" MaxLength="2" />
+          <Property Name="CBAIRRO" Type="varchar" MaxLength="50" />
+          <Property Name="CRUA" Type="varchar" MaxLength="50" />
+          <Property Name="CNUMERO" Type="int" />
+        </EntityType>
+        <EntityType Name="ITEMCONSUMO">
+          <Key>
+            <PropertyRef Name="NIDITEMCONSUMO" />
+          </Key>
+          <Property Name="NIDITEMCONSUMO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CDESCRICAO" Type="varchar" MaxLength="60" />
+          <Property Name="NVALORITEM" Type="money" />
+        </EntityType>
+        <EntityType Name="QUARTO">
+          <Key>
+            <PropertyRef Name="NIDQUARTO" />
+          </Key>
+          <Property Name="NIDQUARTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CDESCRICAO" Type="text" />
+          <Property Name="NNUMERO" Type="int" />
+          <Property Name="NANDAR" Type="int" />
+          <Property Name="NMAXPESSOAS" Type="int" />
+          <Property Name="CESTATUS" Type="varchar" MaxLength="1" />
+          <Property Name="NVALORBASE" Type="money" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CNOME" Type="varchar" MaxLength="50" />
+          <Property Name="CEMAIL" Type="varchar" MaxLength="100" />
+          <Property Name="CFONE" Type="varchar" MaxLength="24" />
+          <Property Name="CFONE2" Type="varchar" MaxLength="24" />
+          <Property Name="CNICK" Type="varchar" MaxLength="25" />
+          <Property Name="CSENHA" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <Association Name="FK_HOSPEDAGEM_CLIENTE">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="HOSPEDAGEM" Type="Self.HOSPEDAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="NNUMECLIENTE" />
+            </Principal>
+            <Dependent Role="HOSPEDAGEM">
+              <PropertyRef Name="NIDCLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOSPEDAGEM_QUARTO">
+          <End Role="QUARTO" Type="Self.QUARTO" Multiplicity="1" />
+          <End Role="HOSPEDAGEM" Type="Self.HOSPEDAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUARTO">
+              <PropertyRef Name="NIDQUARTO" />
+            </Principal>
+            <Dependent Role="HOSPEDAGEM">
+              <PropertyRef Name="NIDQUARTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDBModelStoreContainer">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="CONSUMO" EntityType="Self.CONSUMO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOSPEDAGEM" EntityType="Self.HOSPEDAGEM" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HOTEL" EntityType="Self.HOTEL" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ITEMCONSUMO" EntityType="Self.ITEMCONSUMO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="QUARTO" EntityType="Self.QUARTO" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_HOSPEDAGEM_CLIENTE" Association="Self.FK_HOSPEDAGEM_CLIENTE">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="HOSPEDAGEM" EntitySet="HOSPEDAGEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOSPEDAGEM_QUARTO" Association="Self.FK_HOSPEDAGEM_QUARTO">
+            <End Role="QUARTO" EntitySet="QUARTO" />
+            <End Role="HOSPEDAGEM" EntitySet="HOSPEDAGEM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="HotelDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CLIENTE">
+          <Key>
+            <PropertyRef Name="NNUMECLIENTE" />
+          </Key>
+          <Property Name="NNUMECLIENTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CNOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CCPF" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="CRG" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="DDATANASC" Type="DateTime" Precision="3" />
+          <Property Name="DDATACADASTRO" Type="DateTime" Precision="3" />
+          <Property Name="COBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CCEP" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="CCIDADE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CUF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CRUA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CBAIRRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CFONE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CFONE2" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CEMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="HOSPEDAGEM" Relationship="Self.FK_HOSPEDAGEM_CLIENTE" FromRole="CLIENTE" ToRole="HOSPEDAGEM" />
+        </EntityType>
+        <EntityType Name="CONSUMO">
+          <Key>
+            <PropertyRef Name="NIDCONSUMO" />
+          </Key>
+          <Property Name="NIDCONSUMO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NIDHOSPEDAGEM" Type="Int32" Nullable="false" />
+          <Property Name="NIDITEMCONSUMO" Type="Int32" Nullable="false" />
+          <Property Name="NQUANTIDADE" Type="Int32" />
+          <Property Name="NVALORBRUTO" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DDATAHORA" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="HOSPEDAGEM">
+          <Key>
+            <PropertyRef Name="NIDHOSPEDAGEM" />
+          </Key>
+          <Property Name="NIDHOSPEDAGEM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NIDCLIENTE" Type="Int32" Nullable="false" />
+          <Property Name="NIDQUARTO" Type="Int32" Nullable="false" />
+          <Property Name="DDATAIN" Type="DateTime" Precision="3" />
+          <Property Name="DDATAOUT" Type="DateTime" Precision="3" />
+          <Property Name="CESTATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="COBSERVACAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="FFORMAPAGAMENTO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="VVALORTOTAL" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="VVALORDESCONTO" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="DDATAFECHAMENTO" Type="DateTime" Precision="3" />
+          <Property Name="NDIARIAS" Type="Int32" />
+          <NavigationProperty Name="CLIENTE" Relationship="Self.FK_HOSPEDAGEM_CLIENTE" FromRole="HOSPEDAGEM" ToRole="CLIENTE" />
+          <NavigationProperty Name="QUARTO" Relationship="Self.FK_HOSPEDAGEM_QUARTO" FromRole="HOSPEDAGEM" ToRole="QUARTO" />
+        </EntityType>
+        <EntityType Name="HOTEL">
+          <Key>
+            <PropertyRef Name="NIDHOTEL" />
+          </Key>
+          <Property Name="NIDHOTEL" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CNOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CCNPJ" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="CINSC" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="CFONE" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="CFONE2" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="CFONE3" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="CEMAILS" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="CCEP" Type="String" MaxLength="11" FixedLength="true" Unicode="true" />
+          <Property Name="CCIDADE" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="CUF" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
+          <Property Name="CBAIRRO" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CRUA" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CNUMERO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ITEMCONSUMO">
+          <Key>
+            <PropertyRef Name="NIDITEMCONSUMO" />
+          </Key>
+          <Property Name="NIDITEMCONSUMO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CDESCRICAO" Type="String" MaxLength="60" FixedLength="false" Unicode="false" />
+          <Property Name="NVALORITEM" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="QUARTO">
+          <Key>
+            <PropertyRef Name="NIDQUARTO" />
+          </Key>
+          <Property Name="NIDQUARTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CDESCRICAO" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="NNUMERO" Type="Int32" />
+          <Property Name="NANDAR" Type="Int32" />
+          <Property Name="NMAXPESSOAS" Type="Int32" />
+          <Property Name="CESTATUS" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="NVALORBASE" Type="Decimal" Precision="19" Scale="4" />
+          <NavigationProperty Name="HOSPEDAGEM" Relationship="Self.FK_HOSPEDAGEM_QUARTO" FromRole="QUARTO" ToRole="HOSPEDAGEM" />
+        </EntityType>
+        <EntityType Name="USUARIOS">
+          <Key>
+            <PropertyRef Name="IDUSUARIO" />
+          </Key>
+          <Property Name="IDUSUARIO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CNOME" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CEMAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="CFONE" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="CFONE2" Type="String" MaxLength="24" FixedLength="false" Unicode="false" />
+          <Property Name="CNICK" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="CSENHA" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <Association Name="FK_HOSPEDAGEM_CLIENTE">
+          <End Role="CLIENTE" Type="Self.CLIENTE" Multiplicity="1" />
+          <End Role="HOSPEDAGEM" Type="Self.HOSPEDAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CLIENTE">
+              <PropertyRef Name="NNUMECLIENTE" />
+            </Principal>
+            <Dependent Role="HOSPEDAGEM">
+              <PropertyRef Name="NIDCLIENTE" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_HOSPEDAGEM_QUARTO">
+          <End Role="QUARTO" Type="Self.QUARTO" Multiplicity="1" />
+          <End Role="HOSPEDAGEM" Type="Self.HOSPEDAGEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="QUARTO">
+              <PropertyRef Name="NIDQUARTO" />
+            </Principal>
+            <Dependent Role="HOSPEDAGEM">
+              <PropertyRef Name="NIDQUARTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="HotelDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CLIENTE" EntityType="Self.CLIENTE" />
+          <EntitySet Name="CONSUMO" EntityType="Self.CONSUMO" />
+          <EntitySet Name="HOSPEDAGEM" EntityType="Self.HOSPEDAGEM" />
+          <EntitySet Name="HOTEL" EntityType="Self.HOTEL" />
+          <EntitySet Name="ITEMCONSUMO" EntityType="Self.ITEMCONSUMO" />
+          <EntitySet Name="QUARTO" EntityType="Self.QUARTO" />
+          <EntitySet Name="USUARIOS" EntityType="Self.USUARIOS" />
+          <AssociationSet Name="FK_HOSPEDAGEM_CLIENTE" Association="Self.FK_HOSPEDAGEM_CLIENTE">
+            <End Role="CLIENTE" EntitySet="CLIENTE" />
+            <End Role="HOSPEDAGEM" EntitySet="HOSPEDAGEM" />
+          </AssociationSet>
+          <AssociationSet Name="FK_HOSPEDAGEM_QUARTO" Association="Self.FK_HOSPEDAGEM_QUARTO">
+            <End Role="QUARTO" EntitySet="QUARTO" />
+            <End Role="HOSPEDAGEM" EntitySet="HOSPEDAGEM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="HotelDBModelStoreContainer" CdmEntityContainer="HotelDBEntities">
+          <EntitySetMapping Name="CLIENTE">
+            <EntityTypeMapping TypeName="HotelDBModel.CLIENTE">
+              <MappingFragment StoreEntitySet="CLIENTE">
+                <ScalarProperty Name="NNUMECLIENTE" ColumnName="NNUMECLIENTE" />
+                <ScalarProperty Name="CNOME" ColumnName="CNOME" />
+                <ScalarProperty Name="CCPF" ColumnName="CCPF" />
+                <ScalarProperty Name="CRG" ColumnName="CRG" />
+                <ScalarProperty Name="DDATANASC" ColumnName="DDATANASC" />
+                <ScalarProperty Name="DDATACADASTRO" ColumnName="DDATACADASTRO" />
+                <ScalarProperty Name="COBSERVACAO" ColumnName="COBSERVACAO" />
+                <ScalarProperty Name="CCEP" ColumnName="CCEP" />
+                <ScalarProperty Name="CCIDADE" ColumnName="CCIDADE" />
+                <ScalarProperty Name="CUF" ColumnName="CUF" />
+                <ScalarProperty Name="CRUA" ColumnName="CRUA" />
+                <ScalarProperty Name="CBAIRRO" ColumnName="CBAIRRO" />
+                <ScalarProperty Name="CFONE" ColumnName="CFONE" />
+                <ScalarProperty Name="CFONE2" ColumnName="CFONE2" />
+                <ScalarProperty Name="CEMAIL" ColumnName="CEMAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="CONSUMO">
+            <EntityTypeMapping TypeName="HotelDBModel.CONSUMO">
+              <MappingFragment StoreEntitySet="CONSUMO">
+                <ScalarProperty Name="NIDCONSUMO" ColumnName="NIDCONSUMO" />
+                <ScalarProperty Name="NIDHOSPEDAGEM" ColumnName="NIDHOSPEDAGEM" />
+                <ScalarProperty Name="NIDITEMCONSUMO" ColumnName="NIDITEMCONSUMO" />
+                <ScalarProperty Name="NQUANTIDADE" ColumnName="NQUANTIDADE" />
+                <ScalarProperty Name="NVALORBRUTO" ColumnName="NVALORBRUTO" />
+                <ScalarProperty Name="DDATAHORA" ColumnName="DDATAHORA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOSPEDAGEM">
+            <EntityTypeMapping TypeName="HotelDBModel.HOSPEDAGEM">
+              <MappingFragment StoreEntitySet="HOSPEDAGEM">
+                <ScalarProperty Name="NIDHOSPEDAGEM" ColumnName="NIDHOSPEDAGEM" />
+                <ScalarProperty Name="NIDCLIENTE" ColumnName="NIDCLIENTE" />
+                <ScalarProperty Name="NIDQUARTO" ColumnName="NIDQUARTO" />
+                <ScalarProperty Name="DDATAIN" ColumnName="DDATAIN" />
+                <ScalarProperty Name="DDATAOUT" ColumnName="DDATAOUT" />
+                <ScalarProperty Name="CESTATUS" ColumnName="CESTATUS" />
+                <ScalarProperty Name="COBSERVACAO" ColumnName="COBSERVACAO" />
+                <ScalarProperty Name="FFORMAPAGAMENTO" ColumnName="FFORMAPAGAMENTO" />
+                <ScalarProperty Name="VVALORTOTAL" ColumnName="VVALORTOTAL" />
+                <ScalarProperty Name="VVALORDESCONTO" ColumnName="VVALORDESCONTO" />
+                <ScalarProperty Name="DDATAFECHAMENTO" ColumnName="DDATAFECHAMENTO" />
+                <ScalarProperty Name="NDIARIAS" ColumnName="NDIARIAS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HOTEL">
+            <EntityTypeMapping TypeName="HotelDBModel.HOTEL">
+              <MappingFragment StoreEntitySet="HOTEL">
+                <ScalarProperty Name="NIDHOTEL" ColumnName="NIDHOTEL" />
+                <ScalarProperty Name="CNOME" ColumnName="CNOME" />
+                <ScalarProperty Name="CCNPJ" ColumnName="CCNPJ" />
+                <ScalarProperty Name="CINSC" ColumnName="CINSC" />
+                <ScalarProperty Name="CFONE" ColumnName="CFONE" />
+                <ScalarProperty Name="CFONE2" ColumnName="CFONE2" />
+                <ScalarProperty Name="CFONE3" ColumnName="CFONE3" />
+                <ScalarProperty Name="CEMAILS" ColumnName="CEMAILS" />
+                <ScalarProperty Name="CCEP" ColumnName="CCEP" />
+                <ScalarProperty Name="CCIDADE" ColumnName="CCIDADE" />
+                <ScalarProperty Name="CUF" ColumnName="CUF" />
+                <ScalarProperty Name="CBAIRRO" ColumnName="CBAIRRO" />
+                <ScalarProperty Name="CRUA" ColumnName="CRUA" />
+                <ScalarProperty Name="CNUMERO" ColumnName="CNUMERO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ITEMCONSUMO">
+            <EntityTypeMapping TypeName="HotelDBModel.ITEMCONSUMO">
+              <MappingFragment StoreEntitySet="ITEMCONSUMO">
+                <ScalarProperty Name="NIDITEMCONSUMO" ColumnName="NIDITEMCONSUMO" />
+                <ScalarProperty Name="CDESCRICAO" ColumnName="CDESCRICAO" />
+                <ScalarProperty Name="NVALORITEM" ColumnName="NVALORITEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="QUARTO">
+            <EntityTypeMapping TypeName="HotelDBModel.QUARTO">
+              <MappingFragment StoreEntitySet="QUARTO">
+                <ScalarProperty Name="NIDQUARTO" ColumnName="NIDQUARTO" />
+                <ScalarProperty Name="CDESCRICAO" ColumnName="CDESCRICAO" />
+                <ScalarProperty Name="NNUMERO" ColumnName="NNUMERO" />
+                <ScalarProperty Name="NANDAR" ColumnName="NANDAR" />
+                <ScalarProperty Name="NMAXPESSOAS" ColumnName="NMAXPESSOAS" />
+                <ScalarProperty Name="CESTATUS" ColumnName="CESTATUS" />
+                <ScalarProperty Name="NVALORBASE" ColumnName="NVALORBASE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="USUARIOS">
+            <EntityTypeMapping TypeName="HotelDBModel.USUARIOS">
+              <MappingFragment StoreEntitySet="USUARIOS">
+                <ScalarProperty Name="IDUSUARIO" ColumnName="IDUSUARIO" />
+                <ScalarProperty Name="CNOME" ColumnName="CNOME" />
+                <ScalarProperty Name="CEMAIL" ColumnName="CEMAIL" />
+                <ScalarProperty Name="CFONE" ColumnName="CFONE" />
+                <ScalarProperty Name="CFONE2" ColumnName="CFONE2" />
+                <ScalarProperty Name="CNICK" ColumnName="CNICK" />
+                <ScalarProperty Name="CSENHA" ColumnName="CSENHA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

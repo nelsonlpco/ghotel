@@ -11,6 +11,21 @@
     <AssemblyName>GestorHoteleiro</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -32,8 +47,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,14 +68,62 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="database\CLIENTE.cs">
+      <DependentUpon>edmHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database\CONSUMO.cs">
+      <DependentUpon>edmHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database\edmHotel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>edmHotel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database\edmHotel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>edmHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database\edmHotel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>edmHotel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="database\HOSPEDAGEM.cs">
+      <DependentUpon>edmHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database\HOTEL.cs">
+      <DependentUpon>edmHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database\ITEMCONSUMO.cs">
+      <DependentUpon>edmHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database\QUARTO.cs">
+      <DependentUpon>edmHotel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="database\USUARIOS.cs">
+      <DependentUpon>edmHotel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -60,7 +132,26 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EntityDeploy Include="database\edmHotel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>edmHotel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="database\edmHotel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>edmHotel.edmx</DependentUpon>
+      <LastGenOutput>edmHotel.Context.cs</LastGenOutput>
+    </None>
+    <None Include="database\edmHotel.edmx.diagram">
+      <DependentUpon>edmHotel.edmx</DependentUpon>
+    </None>
+    <None Include="database\edmHotel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>edmHotel.edmx</DependentUpon>
+      <LastGenOutput>edmHotel.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -70,9 +161,94 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="resources\icons\LOGOEMPRESA.icon" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="database\HotelDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="database\HotelDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>HotelDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="HotelDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="HotelDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>HotelDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="resources\icons\aberto.png" />
+    <Content Include="resources\icons\Add16x16.png" />
+    <Content Include="resources\icons\Add32x32.png" />
+    <Content Include="resources\icons\buy.png" />
+    <Content Include="resources\icons\Cancel16x16.png" />
+    <Content Include="resources\icons\Cancel32x32.png" />
+    <Content Include="resources\icons\checkin.png" />
+    <Content Include="resources\icons\checkout.png" />
+    <Content Include="resources\icons\comprar.png" />
+    <Content Include="resources\icons\csv16x16.png" />
+    <Content Include="resources\icons\csv32x32.png" />
+    <Content Include="resources\icons\delete.png" />
+    <Content Include="resources\icons\delete16x16.png" />
+    <Content Include="resources\icons\excel16x16.png" />
+    <Content Include="resources\icons\excel32x32.png" />
+    <Content Include="resources\icons\exit.png" />
+    <Content Include="resources\icons\exit16x16.png" />
+    <Content Include="resources\icons\exit32x32.png" />
+    <Content Include="resources\icons\fatura.png" />
+    <Content Include="resources\icons\frmuser.ico" />
+    <Content Include="resources\icons\Help16x16.png" />
+    <Content Include="resources\icons\Help32x32.png" />
+    <Content Include="resources\icons\hospedes.png" />
+    <Content Include="resources\icons\hotel.png" />
+    <Content Include="resources\icons\icoapp.ico" />
+    <Content Include="resources\icons\iconev2.ico" />
+    <Content Include="resources\icons\Information16x16.png" />
+    <Content Include="resources\icons\Information32x32.png" />
+    <Content Include="resources\icons\itens.png" />
+    <Content Include="resources\icons\LOGOEMPRESA.png" />
+    <Content Include="resources\icons\LOGOEMPRESAAlpha.ico" />
+    <Content Include="resources\icons\LOGOEMPRESAAlpha.png" />
+    <Content Include="resources\icons\ok16x16.png" />
+    <Content Include="resources\icons\ok32x32.png" />
+    <Content Include="resources\icons\pagamento.png" />
+    <Content Include="resources\icons\pdf16x16.png" />
+    <Content Include="resources\icons\pdf32x32.png" />
+    <Content Include="resources\icons\quarto.png" />
+    <Content Include="resources\icons\Search16x16.png" />
+    <Content Include="resources\icons\Search32x32.png" />
+    <Content Include="resources\icons\selecionar16x16.png" />
+    <Content Include="resources\icons\selecionar32x32.png" />
+    <Content Include="resources\icons\sendmail16x16.png" />
+    <Content Include="resources\icons\sendmail32x32.png" />
+    <Content Include="resources\icons\trancado.png" />
+    <Content Include="resources\icons\usuario.png" />
+    <Content Include="resources\icons\word16x16.png" />
+    <Content Include="resources\icons\word32x32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

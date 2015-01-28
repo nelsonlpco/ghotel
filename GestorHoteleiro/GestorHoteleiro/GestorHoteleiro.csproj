@@ -175,10 +175,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="HotelDB.mdf">
+    <Content Include="database\HotelDB.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <Content Include="HotelDB_log.ldf">
+    <Content Include="database\HotelDB_log.ldf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
       <DependentUpon>HotelDB.mdf</DependentUpon>
     </Content>

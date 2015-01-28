@@ -20,7 +20,16 @@ namespace GestorHoteleiro
         private void frmHospedes_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'hotelDBDataSet.CLIENTE' table. You can move, or remove it, as needed.
-            
+            this.cLIENTETableAdapter.Fill(this.hotelDBDataSet.CLIENTE);
+            // TODO: This line of code loads data into the 'hotelDBDataSet.CLIENTE' table. You can move, or remove it, as needed.
+            this.cLIENTETableAdapter.Fill(this.hotelDBDataSet.CLIENTE);
+        }
+
+        private void cLIENTEBindingNavigatorSaveItem_Click(object sender, EventArgs e)
+        {
+            this.Validate();
+            this.cLIENTEBindingSource.EndEdit();
+            this.tableAdapterManager.UpdateAll(this.hotelDBDataSet);
 
         }
     }

@@ -33,5 +33,16 @@ namespace GestorHoteleiro.Properties {
                 return ((string)(this["HotelDBConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=(LocalDB)\\v11.0;AttachDbFilename=|DataDirectory|\\database\\HotelDB.mdf" +
+            ";Integrated Security=True")]
+        public string HotelDBConnectionString1 {
+            get {
+                return ((string)(this["HotelDBConnectionString1"]));
+            }
+        }
     }
 }

@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{8395A331-EBF7-493D-A6FE-CE9C181253F5}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>HotelGestor</RootNamespace>
+    <AssemblyName>HotelGestor</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libraries\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libraries\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>libraries\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Comum.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmEmpresa.Designer.cs">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmFormasPagamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFormasPagamento.Designer.cs">
+      <DependentUpon>frmFormasPagamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHospedagem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHospedagem.Designer.cs">
+      <DependentUpon>frmHospedagem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHospedes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHospedes.Designer.cs">
+      <DependentUpon>frmHospedes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmItens.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmItens.Designer.cs">
+      <DependentUpon>frmItens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmQuartos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmQuartos.Designer.cs">
+      <DependentUpon>frmQuartos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HotelDBDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="template\frmCadastroSimples.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="template\frmCadastroSimples.Designer.cs">
+      <DependentUpon>frmCadastroSimples.cs</DependentUpon>
+    </Compile>
+    <Compile Include="template\frmMainCadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="template\frmMainCadastro.Designer.cs">
+      <DependentUpon>frmMainCadastro.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmEmpresa.resx">
+      <DependentUpon>frmEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFormasPagamento.resx">
+      <DependentUpon>frmFormasPagamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHospedagem.resx">
+      <DependentUpon>frmHospedagem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHospedes.resx">
+      <DependentUpon>frmHospedes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmItens.resx">
+      <DependentUpon>frmItens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmQuartos.resx">
+      <DependentUpon>frmQuartos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="template\frmCadastroSimples.resx">
+      <DependentUpon>frmCadastroSimples.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="template\frmMainCadastro.resx">
+      <DependentUpon>frmMainCadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="HotelDBDataSet.xsc">
+      <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HotelDBDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelDBDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HotelDBDataSet.xss">
+      <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="resources\LOGOEMPRESA.icon" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="database\HotelDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="database\HotelDB_log.ldf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      <DependentUpon>HotelDB.mdf</DependentUpon>
+    </Content>
+    <Content Include="libraries\AForge.dll" />
+    <Content Include="libraries\AForge.Video.DirectShow.dll" />
+    <Content Include="libraries\AForge.Video.dll" />
+    <Content Include="resources\aberto.png" />
+    <Content Include="resources\Add16x16 - Copia.png" />
+    <Content Include="resources\Add16x16.png" />
+    <Content Include="resources\Add32x32 - Copia.png" />
+    <Content Include="resources\Add32x32.png" />
+    <Content Include="resources\buy.png" />
+    <Content Include="resources\cam16x16.png" />
+    <Content Include="resources\cam32x32.png" />
+    <Content Include="resources\Cancel16x16 - Copia.png" />
+    <Content Include="resources\Cancel16x16.png" />
+    <Content Include="resources\Cancel32x32 - Copia.png" />
+    <Content Include="resources\Cancel32x32.png" />
+    <Content Include="resources\checkin.png" />
+    <Content Include="resources\checkout.png" />
+    <Content Include="resources\comprar.png" />
+    <Content Include="resources\csv16x16.png" />
+    <Content Include="resources\csv32x32.png" />
+    <Content Include="resources\default2.jpg" />
+    <Content Include="resources\delete - Copia.png" />
+    <Content Include="resources\delete.png" />
+    <Content Include="resources\delete16x16 - Copia.png" />
+    <Content Include="resources\delete16x16.png" />
+    <Content Include="resources\excel16x16.png" />
+    <Content Include="resources\excel32x32.png" />
+    <Content Include="resources\exit - Copia.png" />
+    <Content Include="resources\exit.png" />
+    <Content Include="resources\exit16x16 - Copia.png" />
+    <Content Include="resources\exit16x16.png" />
+    <Content Include="resources\exit32x32 - Copia.png" />
+    <Content Include="resources\exit32x32.png" />
+    <Content Include="resources\fatura.png" />
+    <Content Include="resources\frmuser.ico" />
+    <Content Include="resources\Help16x16.png" />
+    <Content Include="resources\Help32x32.png" />
+    <Content Include="resources\hospedes.png" />
+    <Content Include="resources\hotel.png" />
+    <Content Include="resources\icoapp.ico" />
+    <Content Include="resources\iconev2.ico" />
+    <Content Include="resources\imagfold16x16.png" />
+    <Content Include="resources\imagfold32x32.png" />
+    <Content Include="resources\Information16x16.png" />
+    <Content Include="resources\Information32x32.png" />
+    <Content Include="resources\itens.png" />
+    <Content Include="resources\LOGOEMPRESA.png" />
+    <Content Include="resources\LOGOEMPRESAAlpha.ico" />
+    <Content Include="resources\LOGOEMPRESAAlpha.png" />
+    <Content Include="resources\ok16x16 - Copia.png" />
+    <Content Include="resources\ok16x16.png" />
+    <Content Include="resources\ok32x32 - Copia.png" />
+    <Content Include="resources\ok32x32.png" />
+    <Content Include="resources\pagamento.png" />
+    <Content Include="resources\pdf16x16.png" />
+    <Content Include="resources\pdf32x32.png" />
+    <Content Include="resources\quarto.png" />
+    <Content Include="resources\Search16x16 - Copia.png" />
+    <Content Include="resources\Search16x16.png" />
+    <Content Include="resources\Search32x32 - Copia.png" />
+    <Content Include="resources\Search32x32.png" />
+    <Content Include="resources\selecionar16x16.png" />
+    <Content Include="resources\selecionar32x32.png" />
+    <Content Include="resources\sendmail16x16.png" />
+    <Content Include="resources\sendmail32x32.png" />
+    <Content Include="resources\trancado.png" />
+    <Content Include="resources\usuario.png" />
+    <Content Include="resources\word16x16.png" />
+    <Content Include="resources\word32x32.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

@@ -398,9 +398,11 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
             this.tableAdapterManager.CLIENTETableAdapter = this.cLIENTETableAdapter;
             this.tableAdapterManager.CONSUMOTableAdapter = null;
             this.tableAdapterManager.enderecoTableAdapter = null;
+            this.tableAdapterManager.FORMASDEPAGAMENTOTableAdapter = null;
             this.tableAdapterManager.HOTELTableAdapter = null;
             this.tableAdapterManager.ITEMCONSUMOTableAdapter = null;
             this.tableAdapterManager.QUARTOTableAdapter = null;
@@ -414,6 +416,7 @@
             this.cNOMETextBox.Name = "cNOMETextBox";
             this.cNOMETextBox.Size = new System.Drawing.Size(375, 23);
             this.cNOMETextBox.TabIndex = 38;
+            this.cNOMETextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // fOTOPictureBox
             // 
@@ -434,6 +437,8 @@
             this.cCPFMaskedTextBox.Name = "cCPFMaskedTextBox";
             this.cCPFMaskedTextBox.Size = new System.Drawing.Size(124, 23);
             this.cCPFMaskedTextBox.TabIndex = 40;
+            this.cCPFMaskedTextBox.Click += new System.EventHandler(this.cCPFMaskedTextBox_Enter);
+            this.cCPFMaskedTextBox.Enter += new System.EventHandler(this.cCPFMaskedTextBox_Enter);
             // 
             // cRGTextBox
             // 
@@ -442,6 +447,7 @@
             this.cRGTextBox.Name = "cRGTextBox";
             this.cRGTextBox.Size = new System.Drawing.Size(201, 23);
             this.cRGTextBox.TabIndex = 41;
+            this.cRGTextBox.Leave += new System.EventHandler(this.cRGTextBox_Leave);
             // 
             // dDATANASCDateTimePicker
             // 
@@ -467,6 +473,7 @@
             this.cCIDADETextBox.Name = "cCIDADETextBox";
             this.cCIDADETextBox.Size = new System.Drawing.Size(303, 23);
             this.cCIDADETextBox.TabIndex = 45;
+            this.cCIDADETextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // cUFTextBox
             // 
@@ -475,6 +482,7 @@
             this.cUFTextBox.Name = "cUFTextBox";
             this.cUFTextBox.Size = new System.Drawing.Size(39, 23);
             this.cUFTextBox.TabIndex = 46;
+            this.cUFTextBox.Leave += new System.EventHandler(this.cRGTextBox_Leave);
             // 
             // cBAIRROTextBox
             // 
@@ -483,6 +491,7 @@
             this.cBAIRROTextBox.Name = "cBAIRROTextBox";
             this.cBAIRROTextBox.Size = new System.Drawing.Size(378, 23);
             this.cBAIRROTextBox.TabIndex = 47;
+            this.cBAIRROTextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // cRUATextBox
             // 
@@ -491,6 +500,7 @@
             this.cRUATextBox.Name = "cRUATextBox";
             this.cRUATextBox.Size = new System.Drawing.Size(378, 23);
             this.cRUATextBox.TabIndex = 48;
+            this.cRUATextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // cEMAILTextBox
             // 
@@ -508,6 +518,8 @@
             this.cCEPMaskedTextBox.Name = "cCEPMaskedTextBox";
             this.cCEPMaskedTextBox.Size = new System.Drawing.Size(100, 23);
             this.cCEPMaskedTextBox.TabIndex = 52;
+            this.cCEPMaskedTextBox.Click += new System.EventHandler(this.cCPFMaskedTextBox_Enter);
+            this.cCEPMaskedTextBox.Enter += new System.EventHandler(this.cCPFMaskedTextBox_Enter);
             // 
             // cFONEMaskedTextBox
             // 
@@ -517,6 +529,8 @@
             this.cFONEMaskedTextBox.Name = "cFONEMaskedTextBox";
             this.cFONEMaskedTextBox.Size = new System.Drawing.Size(134, 23);
             this.cFONEMaskedTextBox.TabIndex = 53;
+            this.cFONEMaskedTextBox.Click += new System.EventHandler(this.cFONEMaskedTextBox_Enter);
+            this.cFONEMaskedTextBox.Enter += new System.EventHandler(this.cFONEMaskedTextBox_Enter);
             // 
             // cFONE2MaskedTextBox
             // 
@@ -526,6 +540,8 @@
             this.cFONE2MaskedTextBox.Name = "cFONE2MaskedTextBox";
             this.cFONE2MaskedTextBox.Size = new System.Drawing.Size(137, 23);
             this.cFONE2MaskedTextBox.TabIndex = 54;
+            this.cFONE2MaskedTextBox.Click += new System.EventHandler(this.cFONEMaskedTextBox_Enter);
+            this.cFONE2MaskedTextBox.Enter += new System.EventHandler(this.cFONEMaskedTextBox_Enter);
             // 
             // btnBuscaCep
             // 

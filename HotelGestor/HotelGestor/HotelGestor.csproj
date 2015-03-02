@@ -78,6 +78,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCategoriaQuarto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCategoriaQuarto.Designer.cs">
+      <DependentUpon>frmCategoriaQuarto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -114,6 +120,10 @@
     <Compile Include="frmQuartos.Designer.cs">
       <DependentUpon>frmQuartos.cs</DependentUpon>
     </Compile>
+    <Compile Include="HotelDBDataSet.cs">
+      <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="HotelDBDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -135,6 +145,9 @@
     </Compile>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCategoriaQuarto.resx">
+      <DependentUpon>frmCategoriaQuarto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmEmpresa.resx">
       <DependentUpon>frmEmpresa.cs</DependentUpon>

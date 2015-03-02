@@ -69,7 +69,6 @@ namespace HotelGestor
             }
 
             this.Text = Comum.EMPRESA;
-
         }
 
         private void formasDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -82,6 +81,13 @@ namespace HotelGestor
         private void hospedagemToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmHospedagem frm = new frmHospedagem();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
+
+        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCategoriaQuarto frm = new frmCategoriaQuarto();
             frm.ShowDialog();
             frm.Dispose();
         }

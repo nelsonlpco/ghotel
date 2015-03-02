@@ -266,7 +266,8 @@ namespace HotelGestor
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            string filter = string.Format(" CNOME LIKE '%{0}%'", txtFiltro.Text);
+            string filter = string.Format(" CNOME LIKE '{0}%'", txtFiltro.Text);
+            cLIENTEBindingSource.Filter = filter;
         }
 
         private void btnBuscaCep_Click(object sender, EventArgs e)
@@ -286,6 +287,26 @@ namespace HotelGestor
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             tbMain.SelectedIndex = 1;
+        }
+
+        private void cNOMETextBox_Leave(object sender, EventArgs e)
+        {
+            Comum.confNomeProprio(sender);
+        }
+
+        private void cRGTextBox_Leave(object sender, EventArgs e)
+        {
+            Comum.toUpper(sender);
+        }
+
+        private void cCPFMaskedTextBox_Enter(object sender, EventArgs e)
+        {
+            ((MaskedTextBox)sender).SelectionStart = 0;
+        }
+
+        private void cFONEMaskedTextBox_Enter(object sender, EventArgs e)
+        {
+            ((MaskedTextBox)sender).SelectionStart = 1;
         }
     }
 }

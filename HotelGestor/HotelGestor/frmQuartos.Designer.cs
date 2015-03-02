@@ -34,20 +34,22 @@
             System.Windows.Forms.Label nANDARLabel;
             System.Windows.Forms.Label nMAXPESSOASLabel;
             System.Windows.Forms.Label nVALORBASELabel;
+            System.Windows.Forms.Label nCATEGORIALabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cDESCRICAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.CATEGORIA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nNUMERODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nANDARDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nMAXPESSOASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nVALORBASEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cESTATUSDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.STATUS = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.qUARTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
             this.cDESCRICAOTextBox = new System.Windows.Forms.TextBox();
             this.nNUMERONumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.nANDARNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.nMAXPESSOASNumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.nVALORBASENumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.qUARTOTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.QUARTOTableAdapter();
             this.tableAdapterManager = new HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager();
             this.label1 = new System.Windows.Forms.Label();
@@ -55,17 +57,24 @@
             this.npFiltroAndar = new System.Windows.Forms.NumericUpDown();
             this.npFiltroPessoa = new System.Windows.Forms.NumericUpDown();
             this.btnFiltrar = new System.Windows.Forms.Button();
-            this.npFiltroDiariaFim = new System.Windows.Forms.NumericUpDown();
-            this.npFiltroDiariaIni = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.cbFiltroStatus = new System.Windows.Forms.ComboBox();
+            this.nCATEGORIAComboBox = new System.Windows.Forms.ComboBox();
+            this.cATEGORIAQUARTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cATEGORIAQUARTOTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.CATEGORIAQUARTOTableAdapter();
+            this.cbCategoria = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.nVALORBASETextBox = new System.Windows.Forms.TextBox();
+            this.txtFiltroDiariaIni = new System.Windows.Forms.TextBox();
+            this.txtFiltroDiariaFim = new System.Windows.Forms.TextBox();
             cDESCRICAOLabel = new System.Windows.Forms.Label();
             nNUMEROLabel = new System.Windows.Forms.Label();
             nANDARLabel = new System.Windows.Forms.Label();
             nMAXPESSOASLabel = new System.Windows.Forms.Label();
             nVALORBASELabel = new System.Windows.Forms.Label();
+            nCATEGORIALabel = new System.Windows.Forms.Label();
             this.tbMain.SuspendLayout();
             this.tbCadastro.SuspendLayout();
             this.pnFiltros.SuspendLayout();
@@ -77,11 +86,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nNUMERONumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nANDARNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nMAXPESSOASNumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nVALORBASENumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npFiltroAndar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.npFiltroPessoa)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npFiltroDiariaFim)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npFiltroDiariaIni)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIAQUARTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tbMain
@@ -96,10 +103,12 @@
             // 
             // pnFiltros
             // 
+            this.pnFiltros.Controls.Add(this.txtFiltroDiariaFim);
+            this.pnFiltros.Controls.Add(this.txtFiltroDiariaIni);
+            this.pnFiltros.Controls.Add(this.label6);
+            this.pnFiltros.Controls.Add(this.cbCategoria);
             this.pnFiltros.Controls.Add(this.cbFiltroStatus);
             this.pnFiltros.Controls.Add(this.label5);
-            this.pnFiltros.Controls.Add(this.npFiltroDiariaFim);
-            this.pnFiltros.Controls.Add(this.npFiltroDiariaIni);
             this.pnFiltros.Controls.Add(this.label3);
             this.pnFiltros.Controls.Add(this.label4);
             this.pnFiltros.Controls.Add(this.btnFiltrar);
@@ -107,12 +116,14 @@
             this.pnFiltros.Controls.Add(this.npFiltroAndar);
             this.pnFiltros.Controls.Add(this.label2);
             this.pnFiltros.Controls.Add(this.label1);
-            this.pnFiltros.Size = new System.Drawing.Size(770, 144);
+            this.pnFiltros.Size = new System.Drawing.Size(770, 173);
             // 
             // tbConsulta
             // 
+            this.tbConsulta.Controls.Add(this.nVALORBASETextBox);
+            this.tbConsulta.Controls.Add(nCATEGORIALabel);
+            this.tbConsulta.Controls.Add(this.nCATEGORIAComboBox);
             this.tbConsulta.Controls.Add(nVALORBASELabel);
-            this.tbConsulta.Controls.Add(this.nVALORBASENumericUpDown);
             this.tbConsulta.Controls.Add(nMAXPESSOASLabel);
             this.tbConsulta.Controls.Add(this.nMAXPESSOASNumericUpDown);
             this.tbConsulta.Controls.Add(nANDARLabel);
@@ -200,6 +211,15 @@
             nVALORBASELabel.TabIndex = 8;
             nVALORBASELabel.Text = "Valor diaria:";
             // 
+            // nCATEGORIALabel
+            // 
+            nCATEGORIALabel.AutoSize = true;
+            nCATEGORIALabel.Location = new System.Drawing.Point(46, 30);
+            nCATEGORIALabel.Name = "nCATEGORIALabel";
+            nCATEGORIALabel.Size = new System.Drawing.Size(135, 18);
+            nCATEGORIALabel.TabIndex = 10;
+            nCATEGORIALabel.Text = "Categoria do quarto:";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -208,18 +228,19 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cDESCRICAODataGridViewTextBoxColumn,
+            this.CATEGORIA,
             this.nNUMERODataGridViewTextBoxColumn,
             this.nANDARDataGridViewTextBoxColumn,
             this.nMAXPESSOASDataGridViewTextBoxColumn,
             this.nVALORBASEDataGridViewTextBoxColumn,
-            this.cESTATUSDataGridViewTextBoxColumn});
+            this.STATUS});
             this.dataGridView1.DataSource = this.qUARTOBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 148);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 177);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 286);
+            this.dataGridView1.Size = new System.Drawing.Size(770, 257);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 
@@ -229,7 +250,15 @@
             this.cDESCRICAODataGridViewTextBoxColumn.HeaderText = "Descrição";
             this.cDESCRICAODataGridViewTextBoxColumn.Name = "cDESCRICAODataGridViewTextBoxColumn";
             this.cDESCRICAODataGridViewTextBoxColumn.ReadOnly = true;
-            this.cDESCRICAODataGridViewTextBoxColumn.Width = 200;
+            this.cDESCRICAODataGridViewTextBoxColumn.Width = 180;
+            // 
+            // CATEGORIA
+            // 
+            this.CATEGORIA.DataPropertyName = "CATEGORIA";
+            this.CATEGORIA.HeaderText = "Categoria";
+            this.CATEGORIA.Name = "CATEGORIA";
+            this.CATEGORIA.ReadOnly = true;
+            this.CATEGORIA.Width = 150;
             // 
             // nNUMERODataGridViewTextBoxColumn
             // 
@@ -237,6 +266,7 @@
             this.nNUMERODataGridViewTextBoxColumn.HeaderText = "Número";
             this.nNUMERODataGridViewTextBoxColumn.Name = "nNUMERODataGridViewTextBoxColumn";
             this.nNUMERODataGridViewTextBoxColumn.ReadOnly = true;
+            this.nNUMERODataGridViewTextBoxColumn.Width = 70;
             // 
             // nANDARDataGridViewTextBoxColumn
             // 
@@ -244,6 +274,7 @@
             this.nANDARDataGridViewTextBoxColumn.HeaderText = "Andar";
             this.nANDARDataGridViewTextBoxColumn.Name = "nANDARDataGridViewTextBoxColumn";
             this.nANDARDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nANDARDataGridViewTextBoxColumn.Width = 70;
             // 
             // nMAXPESSOASDataGridViewTextBoxColumn
             // 
@@ -251,20 +282,26 @@
             this.nMAXPESSOASDataGridViewTextBoxColumn.HeaderText = "Pessoas";
             this.nMAXPESSOASDataGridViewTextBoxColumn.Name = "nMAXPESSOASDataGridViewTextBoxColumn";
             this.nMAXPESSOASDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nMAXPESSOASDataGridViewTextBoxColumn.Width = 70;
             // 
             // nVALORBASEDataGridViewTextBoxColumn
             // 
             this.nVALORBASEDataGridViewTextBoxColumn.DataPropertyName = "NVALORBASE";
-            this.nVALORBASEDataGridViewTextBoxColumn.HeaderText = "Diaria";
+            dataGridViewCellStyle1.Format = "C2";
+            dataGridViewCellStyle1.NullValue = null;
+            this.nVALORBASEDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            this.nVALORBASEDataGridViewTextBoxColumn.HeaderText = "Diária";
             this.nVALORBASEDataGridViewTextBoxColumn.Name = "nVALORBASEDataGridViewTextBoxColumn";
             this.nVALORBASEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nVALORBASEDataGridViewTextBoxColumn.Width = 70;
             // 
-            // cESTATUSDataGridViewTextBoxColumn
+            // STATUS
             // 
-            this.cESTATUSDataGridViewTextBoxColumn.DataPropertyName = "STATUS";
-            this.cESTATUSDataGridViewTextBoxColumn.HeaderText = "Status";
-            this.cESTATUSDataGridViewTextBoxColumn.Name = "cESTATUSDataGridViewTextBoxColumn";
-            this.cESTATUSDataGridViewTextBoxColumn.ReadOnly = true;
+            this.STATUS.DataPropertyName = "STATUS";
+            this.STATUS.HeaderText = "Status";
+            this.STATUS.Name = "STATUS";
+            this.STATUS.ReadOnly = true;
+            this.STATUS.Width = 90;
             // 
             // qUARTOBindingSource
             // 
@@ -301,7 +338,7 @@
             0});
             this.nNUMERONumericUpDown.Name = "nNUMERONumericUpDown";
             this.nNUMERONumericUpDown.Size = new System.Drawing.Size(120, 23);
-            this.nNUMERONumericUpDown.TabIndex = 3;
+            this.nNUMERONumericUpDown.TabIndex = 2;
             this.nNUMERONumericUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -324,7 +361,7 @@
             0});
             this.nANDARNumericUpDown.Name = "nANDARNumericUpDown";
             this.nANDARNumericUpDown.Size = new System.Drawing.Size(120, 23);
-            this.nANDARNumericUpDown.TabIndex = 5;
+            this.nANDARNumericUpDown.TabIndex = 3;
             this.nANDARNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
@@ -347,26 +384,12 @@
             0});
             this.nMAXPESSOASNumericUpDown.Name = "nMAXPESSOASNumericUpDown";
             this.nMAXPESSOASNumericUpDown.Size = new System.Drawing.Size(120, 23);
-            this.nMAXPESSOASNumericUpDown.TabIndex = 7;
+            this.nMAXPESSOASNumericUpDown.TabIndex = 5;
             this.nMAXPESSOASNumericUpDown.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            // 
-            // nVALORBASENumericUpDown
-            // 
-            this.nVALORBASENumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.qUARTOBindingSource, "NVALORBASE", true));
-            this.nVALORBASENumericUpDown.DecimalPlaces = 2;
-            this.nVALORBASENumericUpDown.Location = new System.Drawing.Point(187, 350);
-            this.nVALORBASENumericUpDown.Maximum = new decimal(new int[] {
-            99999999,
-            0,
-            0,
-            0});
-            this.nVALORBASENumericUpDown.Name = "nVALORBASENumericUpDown";
-            this.nVALORBASENumericUpDown.Size = new System.Drawing.Size(120, 23);
-            this.nVALORBASENumericUpDown.TabIndex = 9;
             // 
             // qUARTOTableAdapter
             // 
@@ -375,9 +398,11 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
             this.tableAdapterManager.CLIENTETableAdapter = null;
             this.tableAdapterManager.CONSUMOTableAdapter = null;
             this.tableAdapterManager.enderecoTableAdapter = null;
+            this.tableAdapterManager.FORMASDEPAGAMENTOTableAdapter = null;
             this.tableAdapterManager.HOTELTableAdapter = null;
             this.tableAdapterManager.ITEMCONSUMOTableAdapter = null;
             this.tableAdapterManager.QUARTOTableAdapter = this.qUARTOTableAdapter;
@@ -387,16 +412,16 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(108, 76);
+            this.label1.Location = new System.Drawing.Point(103, 108);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 18);
+            this.label1.Size = new System.Drawing.Size(47, 18);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Andar";
+            this.label1.Text = "Andar:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 107);
+            this.label2.Location = new System.Drawing.Point(27, 139);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(123, 18);
             this.label2.TabIndex = 1;
@@ -404,7 +429,7 @@
             // 
             // npFiltroAndar
             // 
-            this.npFiltroAndar.Location = new System.Drawing.Point(156, 74);
+            this.npFiltroAndar.Location = new System.Drawing.Point(156, 106);
             this.npFiltroAndar.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -416,7 +441,7 @@
             // 
             // npFiltroPessoa
             // 
-            this.npFiltroPessoa.Location = new System.Drawing.Point(156, 105);
+            this.npFiltroPessoa.Location = new System.Drawing.Point(156, 137);
             this.npFiltroPessoa.Maximum = new decimal(new int[] {
             99999999,
             0,
@@ -430,7 +455,7 @@
             // 
             this.btnFiltrar.Image = global::HotelGestor.Properties.Resources.Search32x32;
             this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFiltrar.Location = new System.Drawing.Point(285, 74);
+            this.btnFiltrar.Location = new System.Drawing.Point(285, 106);
             this.btnFiltrar.Name = "btnFiltrar";
             this.btnFiltrar.Size = new System.Drawing.Size(149, 54);
             this.btnFiltrar.TabIndex = 7;
@@ -438,36 +463,10 @@
             this.btnFiltrar.UseVisualStyleBackColor = true;
             this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
-            // npFiltroDiariaFim
-            // 
-            this.npFiltroDiariaFim.DecimalPlaces = 2;
-            this.npFiltroDiariaFim.Location = new System.Drawing.Point(314, 13);
-            this.npFiltroDiariaFim.Maximum = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            this.npFiltroDiariaFim.Name = "npFiltroDiariaFim";
-            this.npFiltroDiariaFim.Size = new System.Drawing.Size(120, 23);
-            this.npFiltroDiariaFim.TabIndex = 11;
-            // 
-            // npFiltroDiariaIni
-            // 
-            this.npFiltroDiariaIni.DecimalPlaces = 2;
-            this.npFiltroDiariaIni.Location = new System.Drawing.Point(156, 13);
-            this.npFiltroDiariaIni.Maximum = new decimal(new int[] {
-            999999999,
-            0,
-            0,
-            0});
-            this.npFiltroDiariaIni.Name = "npFiltroDiariaIni";
-            this.npFiltroDiariaIni.Size = new System.Drawing.Size(120, 23);
-            this.npFiltroDiariaIni.TabIndex = 10;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(282, 15);
+            this.label3.Location = new System.Drawing.Point(281, 17);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(28, 18);
             this.label3.TabIndex = 9;
@@ -476,7 +475,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(34, 15);
+            this.label4.Location = new System.Drawing.Point(34, 17);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(116, 18);
             this.label4.TabIndex = 8;
@@ -504,6 +503,81 @@
             this.cbFiltroStatus.Size = new System.Drawing.Size(278, 26);
             this.cbFiltroStatus.TabIndex = 13;
             // 
+            // nCATEGORIAComboBox
+            // 
+            this.nCATEGORIAComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.qUARTOBindingSource, "NCATEGORIA", true));
+            this.nCATEGORIAComboBox.DataSource = this.cATEGORIAQUARTOBindingSource;
+            this.nCATEGORIAComboBox.DisplayMember = "CDESCRICAO";
+            this.nCATEGORIAComboBox.FormattingEnabled = true;
+            this.nCATEGORIAComboBox.Location = new System.Drawing.Point(187, 26);
+            this.nCATEGORIAComboBox.Name = "nCATEGORIAComboBox";
+            this.nCATEGORIAComboBox.Size = new System.Drawing.Size(380, 26);
+            this.nCATEGORIAComboBox.TabIndex = 0;
+            this.nCATEGORIAComboBox.ValueMember = "idcategoria";
+            // 
+            // cATEGORIAQUARTOBindingSource
+            // 
+            this.cATEGORIAQUARTOBindingSource.DataMember = "CATEGORIAQUARTO";
+            this.cATEGORIAQUARTOBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // cATEGORIAQUARTOTableAdapter
+            // 
+            this.cATEGORIAQUARTOTableAdapter.ClearBeforeFill = true;
+            // 
+            // cbCategoria
+            // 
+            this.cbCategoria.DataSource = this.cATEGORIAQUARTOBindingSource;
+            this.cbCategoria.DisplayMember = "CDESCRICAO";
+            this.cbCategoria.FormattingEnabled = true;
+            this.cbCategoria.Location = new System.Drawing.Point(156, 74);
+            this.cbCategoria.Name = "cbCategoria";
+            this.cbCategoria.Size = new System.Drawing.Size(278, 26);
+            this.cbCategoria.TabIndex = 14;
+            this.cbCategoria.ValueMember = "idcategoria";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(80, 82);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(70, 18);
+            this.label6.TabIndex = 15;
+            this.label6.Text = "Categoria:";
+            // 
+            // nVALORBASETextBox
+            // 
+            this.nVALORBASETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.qUARTOBindingSource, "NVALORBASE", true));
+            this.nVALORBASETextBox.Location = new System.Drawing.Point(187, 349);
+            this.nVALORBASETextBox.Name = "nVALORBASETextBox";
+            this.nVALORBASETextBox.Size = new System.Drawing.Size(120, 23);
+            this.nVALORBASETextBox.TabIndex = 6;
+            this.nVALORBASETextBox.Text = "0,00";
+            this.nVALORBASETextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nVALORBASETextBox.Click += new System.EventHandler(this.nVALORBASETextBox_Click);
+            this.nVALORBASETextBox.TextChanged += new System.EventHandler(this.nVALORBASETextBox_TextChanged);
+            // 
+            // txtFiltroDiariaIni
+            // 
+            this.txtFiltroDiariaIni.Location = new System.Drawing.Point(156, 15);
+            this.txtFiltroDiariaIni.Name = "txtFiltroDiariaIni";
+            this.txtFiltroDiariaIni.Size = new System.Drawing.Size(119, 23);
+            this.txtFiltroDiariaIni.TabIndex = 16;
+            this.txtFiltroDiariaIni.Text = "0,00";
+            this.txtFiltroDiariaIni.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFiltroDiariaIni.Click += new System.EventHandler(this.txtFiltroDiariaIni_Click);
+            this.txtFiltroDiariaIni.TextChanged += new System.EventHandler(this.txtFiltroDiariaIni_TextChanged);
+            // 
+            // txtFiltroDiariaFim
+            // 
+            this.txtFiltroDiariaFim.Location = new System.Drawing.Point(315, 15);
+            this.txtFiltroDiariaFim.Name = "txtFiltroDiariaFim";
+            this.txtFiltroDiariaFim.Size = new System.Drawing.Size(119, 23);
+            this.txtFiltroDiariaFim.TabIndex = 17;
+            this.txtFiltroDiariaFim.Text = "0,00";
+            this.txtFiltroDiariaFim.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.txtFiltroDiariaFim.Click += new System.EventHandler(this.txtFiltroDiariaFim_Click);
+            this.txtFiltroDiariaFim.TextChanged += new System.EventHandler(this.txtFiltroDiariaFim_TextChanged);
+            // 
             // frmQuartos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -525,11 +599,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.nNUMERONumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nANDARNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.nMAXPESSOASNumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nVALORBASENumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.npFiltroAndar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.npFiltroPessoa)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npFiltroDiariaFim)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.npFiltroDiariaIni)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cATEGORIAQUARTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -541,22 +613,14 @@
         private HotelDBDataSet hotelDBDataSet;
         private System.Windows.Forms.BindingSource qUARTOBindingSource;
         private HotelDBDataSetTableAdapters.QUARTOTableAdapter qUARTOTableAdapter;
-        private System.Windows.Forms.NumericUpDown nVALORBASENumericUpDown;
         private System.Windows.Forms.NumericUpDown nMAXPESSOASNumericUpDown;
         private System.Windows.Forms.NumericUpDown nANDARNumericUpDown;
         private System.Windows.Forms.NumericUpDown nNUMERONumericUpDown;
         private System.Windows.Forms.TextBox cDESCRICAOTextBox;
         private HotelDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cDESCRICAODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nNUMERODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nANDARDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nMAXPESSOASDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nVALORBASEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cESTATUSDataGridViewTextBoxColumn;
         private System.Windows.Forms.ComboBox cbFiltroStatus;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.NumericUpDown npFiltroDiariaFim;
-        private System.Windows.Forms.NumericUpDown npFiltroDiariaIni;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnFiltrar;
@@ -564,5 +628,20 @@
         private System.Windows.Forms.NumericUpDown npFiltroAndar;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox nCATEGORIAComboBox;
+        private System.Windows.Forms.BindingSource cATEGORIAQUARTOBindingSource;
+        private HotelDBDataSetTableAdapters.CATEGORIAQUARTOTableAdapter cATEGORIAQUARTOTableAdapter;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ComboBox cbCategoria;
+        private System.Windows.Forms.TextBox nVALORBASETextBox;
+        private System.Windows.Forms.TextBox txtFiltroDiariaFim;
+        private System.Windows.Forms.TextBox txtFiltroDiariaIni;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cDESCRICAODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CATEGORIA;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nNUMERODataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nANDARDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nMAXPESSOASDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nVALORBASEDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn STATUS;
     }
 }

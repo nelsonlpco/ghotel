@@ -35,7 +35,8 @@ namespace HotelGestor
             nANDARNumericUpDown.ValueChanged += onEdit;
             nNUMERONumericUpDown.ValueChanged += onEdit;
             nMAXPESSOASNumericUpDown.ValueChanged += onEdit;
-            nVALORBASENumericUpDown.ValueChanged += onEdit;
+            //nVALORBASENumericUpDown.ValueChanged += onEdit;
+            nCATEGORIAComboBox.SelectedValueChanged += onEdit;
         }
 
         private void onEdit(object sender, EventArgs e)
@@ -91,8 +92,13 @@ namespace HotelGestor
         public void salvar()
         {
             currentRow = (DataRowView)qUARTOBindingSource.Current;
-            currentRow["DDATACADASTRO"] = System.DateTime.Now;
-
+            currentRow["NVALORBASE"] = Double.Parse(nVALORBASETextBox.Text);
+            if (string.IsNullOrEmpty(currentRow["CESTATUS"].ToString()))
+            {
+                currentRow["CESTATUS"] = "L";
+                
+            }
+            currentRow["NCATEGORIA"] = 1;
 
             qUARTOBindingSource.EndEdit();
             qUARTOTableAdapter.Update(hotelDBDataSet.QUARTO);
@@ -148,17 +154,17 @@ namespace HotelGestor
         public void filtro()
         {
             string filtro = "";
-            if (npFiltroDiariaIni.Value > 0)
-                filtro += "NVALORBASE >= " + npFiltroDiariaIni.Value.ToString();
-            if (!string.IsNullOrEmpty(filtro) && npFiltroDiariaFim.Value > 0)
+            if (!txtFiltroDiariaIni.Text.Equals("0,00"))
+                filtro += String.Format(" NVALORBASE >=  {0} ", double.Parse(txtFiltroDiariaIni.Text));
+            if (!string.IsNullOrEmpty(filtro) && !txtFiltroDiariaFim.Text.Equals("0,00"))
                 filtro += " AND ";
-            if (npFiltroDiariaFim.Value > 0)
-                filtro += "NVALORBASE <= " + npFiltroDiariaFim.Value.ToString();
+            if (!txtFiltroDiariaFim.Text.Equals("0,00"))
+                filtro += String.Format(" NVALORBASE <=  {0} ", Double.Parse(txtFiltroDiariaFim.Text));
             if (!string.IsNullOrEmpty(filtro) && cbFiltroStatus.SelectedIndex > 0)
                 filtro += " AND ";
             switch (cbFiltroStatus.SelectedIndex)
             {
-                case 0: filtro += " "; break;
+                case 0: filtro += ""; break;
                 case 1: filtro += " CESTATUS = 'L'"; break;
                 case 2: filtro += " CESTATUS = 'O'"; break;
                 case 3: filtro += " CESTATUS = 'R'"; break;
@@ -171,6 +177,10 @@ namespace HotelGestor
                 filtro += " AND ";
             if (npFiltroPessoa.Value > 0)
                 filtro += " NMAXPESSOAS >=  " + npFiltroPessoa.Value;
+            if (!string.IsNullOrEmpty(filtro) && cbCategoria.SelectedIndex >= 0)
+                filtro += " AND ";
+            if (cbCategoria.SelectedIndex > 0)
+            filtro += string.Format(" NCATEGORIA = {0} ",cbCategoria.SelectedIndex);
 
             qUARTOBindingSource.Filter = filtro;
                
@@ -178,8 +188,10 @@ namespace HotelGestor
 
         private void frmQuartos_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'hotelDBDataSet.CATEGORIAQUARTO' table. You can move, or remove it, as needed.
+            this.cATEGORIAQUARTOTableAdapter.FillToSelect(this.hotelDBDataSet.CATEGORIAQUARTO);
             // TODO: This line of code loads data into the 'hotelDBDataSet.QUARTO' table. You can move, or remove it, as needed.
-            this.qUARTOTableAdapter.Fill(this.hotelDBDataSet.QUARTO);
+            this.qUARTOTableAdapter.FillToView(this.hotelDBDataSet.QUARTO);
             buttonStates();
             if(btnTransferir.Visible)
                 cbFiltroStatus.SelectedIndex = 1;
@@ -219,12 +231,19 @@ namespace HotelGestor
             {
                 Comum.msgAlert(Comum.MSG_EMEDICAO);
                 e.Cancel = true;
+                return;
             }
             else if (isEmptyDataSet() && !fincluir && tbMain.SelectedIndex == 1)
             {
                 Comum.msgAlert(Comum.MSG_SEMREGISTRO);
                 e.Cancel = true;
+                return;
             }
+            if(tbMain.SelectedIndex == 0)
+                this.cATEGORIAQUARTOTableAdapter.FillToSelect(this.hotelDBDataSet.CATEGORIAQUARTO);
+            else
+                this.cATEGORIAQUARTOTableAdapter.Fill(this.hotelDBDataSet.CATEGORIAQUARTO);
+            
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
@@ -241,6 +260,58 @@ namespace HotelGestor
         {
             filtro();
         }
+
+        private void fillDescricaoToolStripButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                this.qUARTOTableAdapter.Fill(this.hotelDBDataSet.QUARTO);
+            }
+            catch (System.Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            Comum.dinamicMasck(sender);
+        }
+
+        private void nVALORBASETextBox_TextChanged(object sender, EventArgs e)
+        {
+            Comum.moneyMask(sender);
+        }
+
+        private void nVALORBASETextBox_Click(object sender, EventArgs e)
+        {
+            ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+        }
+
+        private void txtFiltroDiariaIni_TextChanged(object sender, EventArgs e)
+        {
+            Comum.moneyMask(sender);
+        }
+
+        private void txtFiltroDiariaFim_TextChanged(object sender, EventArgs e)
+        {
+            Comum.moneyMask(sender);
+        }
+
+        private void txtFiltroDiariaIni_Click(object sender, EventArgs e)
+        {
+            ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+        }
+
+        private void txtFiltroDiariaFim_Click(object sender, EventArgs e)
+        {
+            ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+        }
+
+       
+
+      
 
     }
 }

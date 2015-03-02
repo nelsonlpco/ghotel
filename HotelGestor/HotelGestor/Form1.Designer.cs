@@ -46,6 +46,7 @@
             this.hOTELTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOTELTableAdapter();
             this.tableAdapterManager = new HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager();
             this.lOGOPictureBox = new System.Windows.Forms.PictureBox();
+            this.categoriasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTELBindingSource)).BeginInit();
@@ -72,6 +73,7 @@
             this.itensParaConsumoToolStripMenuItem,
             this.hóspedesToolStripMenuItem,
             this.quartosToolStripMenuItem,
+            this.categoriasToolStripMenuItem,
             this.toolStripMenuItem2,
             this.sairToolStripMenuItem});
             this.cadastrosToolStripMenuItem.Name = "cadastrosToolStripMenuItem";
@@ -141,7 +143,7 @@
             // hospedagemToolStripMenuItem
             // 
             this.hospedagemToolStripMenuItem.Name = "hospedagemToolStripMenuItem";
-            this.hospedagemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hospedagemToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.hospedagemToolStripMenuItem.Text = "&Hospedagem";
             this.hospedagemToolStripMenuItem.Click += new System.EventHandler(this.hospedagemToolStripMenuItem_Click);
             // 
@@ -162,6 +164,7 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
             this.tableAdapterManager.CLIENTETableAdapter = null;
             this.tableAdapterManager.CONSUMOTableAdapter = null;
             this.tableAdapterManager.enderecoTableAdapter = null;
@@ -182,6 +185,13 @@
             this.lOGOPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.lOGOPictureBox.TabIndex = 3;
             this.lOGOPictureBox.TabStop = false;
+            // 
+            // categoriasToolStripMenuItem
+            // 
+            this.categoriasToolStripMenuItem.Name = "categoriasToolStripMenuItem";
+            this.categoriasToolStripMenuItem.Size = new System.Drawing.Size(193, 22);
+            this.categoriasToolStripMenuItem.Text = "&Categorias";
+            this.categoriasToolStripMenuItem.Click += new System.EventHandler(this.categoriasToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -225,6 +235,7 @@
         private HotelDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.PictureBox lOGOPictureBox;
         private System.Windows.Forms.ToolStripMenuItem formasDePagamentoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem;
     }
 }
 

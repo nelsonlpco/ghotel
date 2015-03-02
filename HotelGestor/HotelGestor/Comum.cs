@@ -119,12 +119,66 @@ namespace HotelGestor
                     Comum.msgErro("Problema ao buscar CEP no sistema de correios.");
                 }
             }
-            
-            
-            
-
+         
             return saida;
         }
+
+        public static void confNomeProprio(object Sender )
+        {
+            string entrada = ((TextBox)Sender).Text;
+            if (string.IsNullOrEmpty(entrada))
+                return;
+            string saida = "";
+            saida += Char.ToUpper(entrada[0]);
+            for (int i = 1; i < entrada.Length; i++)
+            {
+
+                if (entrada[i - 1] == ' ' && ((entrada[i+2] != ' ') && (entrada[i+3] != ' ')))
+                {
+                    saida += Char.ToUpper(entrada[i]);
+                }
+                else
+                    saida += entrada[i];
+            }
+            ((TextBox)Sender).Text = saida;
+        }
+
+        public static void toUpper(object Sender)
+        {
+            string entrada = ((TextBox)Sender).Text;
+            ((TextBox)Sender).Text = entrada.ToUpper();
+        }
+
+        public static void dinamicMasck(object sender)
+        {  
+            TextBox tb = sender as TextBox;
+            if (tb.Text.Length > 0)
+            {
+                decimal cubic = Convert.ToDecimal(tb.Text);
+                tb.Text = string.Format("{0:c}", Convert.ToDecimal(cubic));
+            }
+        }
+
+     
+        public static void moneyMask(object sender)
+        {
+            TextBox txt = sender as TextBox;
+            
+
+            string n = txt.Text.Replace(",", "").Replace(".", "");
+            double v = 0;
+            if (n.Equals(""))
+                n = "";
+            n = n.PadLeft(3, '0');
+            if ((n.Length > 3) && n.Substring(0, 1) == "0")
+            {
+                n = n.Substring(1, n.Length-1);
+            }
+            v = Convert.ToDouble(n) / 100;
+            txt.Text = string.Format("{0:N}", v);
+            txt.SelectionStart = txt.Text.Length;
+        }
+        
 
     
     }

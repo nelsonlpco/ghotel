@@ -35,7 +35,7 @@ namespace HotelGestor
             nANDARNumericUpDown.ValueChanged += onEdit;
             nNUMERONumericUpDown.ValueChanged += onEdit;
             nMAXPESSOASNumericUpDown.ValueChanged += onEdit;
-            //nVALORBASENumericUpDown.ValueChanged += onEdit;
+            nVALORBASETextBox.TextChanged += onEdit;
             nCATEGORIAComboBox.SelectedValueChanged += onEdit;
         }
 
@@ -96,9 +96,7 @@ namespace HotelGestor
             if (string.IsNullOrEmpty(currentRow["CESTATUS"].ToString()))
             {
                 currentRow["CESTATUS"] = "L";
-                
             }
-            currentRow["NCATEGORIA"] = 1;
 
             qUARTOBindingSource.EndEdit();
             qUARTOTableAdapter.Update(hotelDBDataSet.QUARTO);
@@ -191,7 +189,7 @@ namespace HotelGestor
             // TODO: This line of code loads data into the 'hotelDBDataSet.CATEGORIAQUARTO' table. You can move, or remove it, as needed.
             this.cATEGORIAQUARTOTableAdapter.FillToSelect(this.hotelDBDataSet.CATEGORIAQUARTO);
             // TODO: This line of code loads data into the 'hotelDBDataSet.QUARTO' table. You can move, or remove it, as needed.
-            this.qUARTOTableAdapter.FillToView(this.hotelDBDataSet.QUARTO);
+            this.qUARTOTableAdapter.Fill(this.hotelDBDataSet.QUARTO);
             buttonStates();
             if(btnTransferir.Visible)
                 cbFiltroStatus.SelectedIndex = 1;
@@ -239,8 +237,10 @@ namespace HotelGestor
                 e.Cancel = true;
                 return;
             }
-            if(tbMain.SelectedIndex == 0)
+            if (tbMain.SelectedIndex == 0)
+            {
                 this.cATEGORIAQUARTOTableAdapter.FillToSelect(this.hotelDBDataSet.CATEGORIAQUARTO);
+            }
             else
                 this.cATEGORIAQUARTOTableAdapter.Fill(this.hotelDBDataSet.CATEGORIAQUARTO);
             

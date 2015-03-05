@@ -63,7 +63,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 70);
+            this.panel1.Size = new System.Drawing.Size(784, 60);
             this.panel1.TabIndex = 7;
             // 
             // btnSair
@@ -76,7 +76,7 @@
             this.btnSair.Location = new System.Drawing.Point(695, 0);
             this.btnSair.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(87, 68);
+            this.btnSair.Size = new System.Drawing.Size(87, 58);
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -88,7 +88,7 @@
             this.pnFiltros.BackColor = System.Drawing.Color.Gainsboro;
             this.pnFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnFiltros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnFiltros.Location = new System.Drawing.Point(0, 70);
+            this.pnFiltros.Location = new System.Drawing.Point(0, 60);
             this.pnFiltros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pnFiltros.Name = "pnFiltros";
             this.pnFiltros.Size = new System.Drawing.Size(784, 140);

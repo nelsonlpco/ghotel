@@ -17,12 +17,21 @@ namespace HotelGestor.relatorios.hospedes
             InitializeComponent();
         }
 
+        public void setReport()
+        {
+            this.rpv.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.listadehospedes.rdlc";
+            // TODO: This line of code loads data into the 'hotelDBDataSet.HOTEL' table. You can move, or remove it, as needed.
+            this.hOTELTableAdapter.Fill(this.hotelDBDataSet.HOTEL);
+
+            this.rpv.RefreshReport();
+        }
+
         private void frmView_Load(object sender, EventArgs e)
         {
             // TODO: This line of code loads data into the 'hotelDBDataSet.HOTEL' table. You can move, or remove it, as needed.
             this.hOTELTableAdapter.Fill(this.hotelDBDataSet.HOTEL);
 
-            this.reportViewer1.RefreshReport();
+            this.rpv.RefreshReport();
         }
     }
 }

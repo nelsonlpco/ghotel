@@ -48,11 +48,11 @@
             this.tbMain.Controls.Add(this.tbConsulta);
             this.tbMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbMain.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMain.Location = new System.Drawing.Point(0, 70);
+            this.tbMain.Location = new System.Drawing.Point(0, 60);
             this.tbMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbMain.Name = "tbMain";
             this.tbMain.SelectedIndex = 0;
-            this.tbMain.Size = new System.Drawing.Size(784, 469);
+            this.tbMain.Size = new System.Drawing.Size(784, 479);
             this.tbMain.TabIndex = 8;
             // 
             // tbConsulta
@@ -61,7 +61,7 @@
             this.tbConsulta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbConsulta.Name = "tbConsulta";
             this.tbConsulta.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbConsulta.Size = new System.Drawing.Size(776, 438);
+            this.tbConsulta.Size = new System.Drawing.Size(776, 448);
             this.tbConsulta.TabIndex = 1;
             this.tbConsulta.Text = "Cadastro";
             this.tbConsulta.UseVisualStyleBackColor = true;
@@ -79,7 +79,7 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 70);
+            this.panel1.Size = new System.Drawing.Size(784, 60);
             this.panel1.TabIndex = 6;
             // 
             // btnSair
@@ -92,7 +92,7 @@
             this.btnSair.Location = new System.Drawing.Point(695, 0);
             this.btnSair.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(87, 68);
+            this.btnSair.Size = new System.Drawing.Size(87, 58);
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -109,7 +109,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(261, 0);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(87, 68);
+            this.btnCancelar.Size = new System.Drawing.Size(87, 58);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -125,7 +125,7 @@
             this.btnGravar.Location = new System.Drawing.Point(174, 0);
             this.btnGravar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(87, 68);
+            this.btnGravar.Size = new System.Drawing.Size(87, 58);
             this.btnGravar.TabIndex = 3;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -141,7 +141,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(87, 0);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(87, 68);
+            this.btnExcluir.Size = new System.Drawing.Size(87, 58);
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -157,7 +157,7 @@
             this.btnIncluir.Location = new System.Drawing.Point(0, 0);
             this.btnIncluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(87, 68);
+            this.btnIncluir.Size = new System.Drawing.Size(87, 58);
             this.btnIncluir.TabIndex = 1;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;

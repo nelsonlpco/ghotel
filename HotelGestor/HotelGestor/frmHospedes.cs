@@ -272,7 +272,7 @@ namespace HotelGestor
 
         private void btnRelatorio_Click(object sender, EventArgs e)
         {
-            frmView frm = new frmView();
+            frmRelatoriosHospedes frm = new frmRelatoriosHospedes();
             frm.ShowDialog();
             frm.Dispose();
         }

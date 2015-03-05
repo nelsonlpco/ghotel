@@ -252,6 +252,11 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Lista de Hóspedes.",
+            "Ficha do Hóspede.",
+            "Lista de Aniversáriantes.",
+            "Histórico do Hóspede."});
             this.comboBox1.Location = new System.Drawing.Point(156, 6);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(407, 26);
@@ -375,6 +380,7 @@
             this.button2.Text = "Gerar relatório";
             this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // frmRelatoriosHospedes
             // 

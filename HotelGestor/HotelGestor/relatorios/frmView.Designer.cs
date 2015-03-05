@@ -30,35 +30,35 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
             this.hOTELBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
+            this.rpv = new Microsoft.Reporting.WinForms.ReportViewer();
             this.hOTELTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOTELTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTELBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
-            // reportViewer1
+            // hOTELBindingSource
             // 
-            this.reportViewer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.hOTELBindingSource;
-            this.reportViewer1.LocalReport.DataSources.Add(reportDataSource1);
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.listadehospedes.rdlc";
-            this.reportViewer1.Location = new System.Drawing.Point(0, 0);
-            this.reportViewer1.Name = "reportViewer1";
-            this.reportViewer1.Size = new System.Drawing.Size(784, 562);
-            this.reportViewer1.TabIndex = 0;
+            this.hOTELBindingSource.DataMember = "HOTEL";
+            this.hOTELBindingSource.DataSource = this.hotelDBDataSet;
             // 
             // hotelDBDataSet
             // 
             this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
             this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
-            // hOTELBindingSource
+            // rpv
             // 
-            this.hOTELBindingSource.DataMember = "HOTEL";
-            this.hOTELBindingSource.DataSource = this.hotelDBDataSet;
+            this.rpv.Dock = System.Windows.Forms.DockStyle.Fill;
+            reportDataSource1.Name = "DataSet1";
+            reportDataSource1.Value = this.hOTELBindingSource;
+            this.rpv.LocalReport.DataSources.Add(reportDataSource1);
+            this.rpv.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.listadehospedes.rdlc";
+            this.rpv.Location = new System.Drawing.Point(0, 0);
+            this.rpv.Name = "rpv";
+            this.rpv.Size = new System.Drawing.Size(784, 562);
+            this.rpv.TabIndex = 0;
             // 
             // hOTELTableAdapter
             // 
@@ -69,20 +69,20 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
-            this.Controls.Add(this.reportViewer1);
+            this.Controls.Add(this.rpv);
             this.Name = "frmView";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmView";
             this.Load += new System.EventHandler(this.frmView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTELBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
+        private Microsoft.Reporting.WinForms.ReportViewer rpv;
         private HotelDBDataSet hotelDBDataSet;
         private System.Windows.Forms.BindingSource hOTELBindingSource;
         private HotelDBDataSetTableAdapters.HOTELTableAdapter hOTELTableAdapter;

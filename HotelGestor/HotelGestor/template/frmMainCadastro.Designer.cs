@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btnRelatorio = new System.Windows.Forms.Button();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
@@ -41,7 +42,6 @@
             this.tbCadastro = new System.Windows.Forms.TabPage();
             this.pnFiltros = new System.Windows.Forms.Panel();
             this.tbMain = new System.Windows.Forms.TabControl();
-            this.btnRelatorio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tbCadastro.SuspendLayout();
@@ -63,8 +63,25 @@
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(784, 70);
+            this.panel1.Size = new System.Drawing.Size(784, 60);
             this.panel1.TabIndex = 3;
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.Image = global::HotelGestor.Properties.Resources.report32x32;
+            this.btnRelatorio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRelatorio.Location = new System.Drawing.Point(435, 0);
+            this.btnRelatorio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(87, 58);
+            this.btnRelatorio.TabIndex = 6;
+            this.btnRelatorio.Text = "Relatórios";
+            this.btnRelatorio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            this.btnRelatorio.Visible = false;
             // 
             // btnSair
             // 
@@ -76,7 +93,7 @@
             this.btnSair.Location = new System.Drawing.Point(695, 0);
             this.btnSair.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnSair.Name = "btnSair";
-            this.btnSair.Size = new System.Drawing.Size(87, 68);
+            this.btnSair.Size = new System.Drawing.Size(87, 58);
             this.btnSair.TabIndex = 5;
             this.btnSair.Text = "Sair";
             this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -93,7 +110,7 @@
             this.btnCancelar.Location = new System.Drawing.Point(348, 0);
             this.btnCancelar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(87, 68);
+            this.btnCancelar.Size = new System.Drawing.Size(87, 58);
             this.btnCancelar.TabIndex = 4;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -110,7 +127,7 @@
             this.btnGravar.Location = new System.Drawing.Point(261, 0);
             this.btnGravar.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(87, 68);
+            this.btnGravar.Size = new System.Drawing.Size(87, 58);
             this.btnGravar.TabIndex = 3;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -127,7 +144,7 @@
             this.btnExcluir.Location = new System.Drawing.Point(174, 0);
             this.btnExcluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnExcluir.Name = "btnExcluir";
-            this.btnExcluir.Size = new System.Drawing.Size(87, 68);
+            this.btnExcluir.Size = new System.Drawing.Size(87, 58);
             this.btnExcluir.TabIndex = 2;
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -144,7 +161,7 @@
             this.btnIncluir.Location = new System.Drawing.Point(87, 0);
             this.btnIncluir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnIncluir.Name = "btnIncluir";
-            this.btnIncluir.Size = new System.Drawing.Size(87, 68);
+            this.btnIncluir.Size = new System.Drawing.Size(87, 58);
             this.btnIncluir.TabIndex = 1;
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -161,7 +178,7 @@
             this.btnTransferir.Location = new System.Drawing.Point(0, 0);
             this.btnTransferir.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.btnTransferir.Name = "btnTransferir";
-            this.btnTransferir.Size = new System.Drawing.Size(87, 68);
+            this.btnTransferir.Size = new System.Drawing.Size(87, 58);
             this.btnTransferir.TabIndex = 0;
             this.btnTransferir.Text = "Transferir";
             this.btnTransferir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
@@ -205,7 +222,7 @@
             this.tbCadastro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbCadastro.Name = "tbCadastro";
             this.tbCadastro.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbCadastro.Size = new System.Drawing.Size(776, 438);
+            this.tbCadastro.Size = new System.Drawing.Size(776, 448);
             this.tbCadastro.TabIndex = 0;
             this.tbCadastro.Text = "Consulta";
             this.tbCadastro.UseVisualStyleBackColor = true;
@@ -227,29 +244,12 @@
             this.tbMain.Controls.Add(this.tbConsulta);
             this.tbMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tbMain.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMain.Location = new System.Drawing.Point(0, 70);
+            this.tbMain.Location = new System.Drawing.Point(0, 60);
             this.tbMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.tbMain.Name = "tbMain";
             this.tbMain.SelectedIndex = 0;
-            this.tbMain.Size = new System.Drawing.Size(784, 469);
+            this.tbMain.Size = new System.Drawing.Size(784, 479);
             this.tbMain.TabIndex = 5;
-            // 
-            // btnRelatorio
-            // 
-            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnRelatorio.FlatAppearance.BorderSize = 0;
-            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnRelatorio.Image = global::HotelGestor.Properties.Resources.fatura;
-            this.btnRelatorio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnRelatorio.Location = new System.Drawing.Point(435, 0);
-            this.btnRelatorio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.btnRelatorio.Name = "btnRelatorio";
-            this.btnRelatorio.Size = new System.Drawing.Size(87, 68);
-            this.btnRelatorio.TabIndex = 6;
-            this.btnRelatorio.Text = "Relatórios";
-            this.btnRelatorio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnRelatorio.UseVisualStyleBackColor = true;
-            this.btnRelatorio.Visible = false;
             // 
             // frmMainCadastro
             // 

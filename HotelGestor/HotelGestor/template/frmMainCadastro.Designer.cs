@@ -41,6 +41,7 @@
             this.tbCadastro = new System.Windows.Forms.TabPage();
             this.pnFiltros = new System.Windows.Forms.Panel();
             this.tbMain = new System.Windows.Forms.TabControl();
+            this.btnRelatorio = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.tbCadastro.SuspendLayout();
@@ -51,6 +52,7 @@
             // 
             this.panel1.BackColor = System.Drawing.Color.PowderBlue;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnRelatorio);
             this.panel1.Controls.Add(this.btnSair);
             this.panel1.Controls.Add(this.btnCancelar);
             this.panel1.Controls.Add(this.btnGravar);
@@ -231,7 +233,23 @@
             this.tbMain.SelectedIndex = 0;
             this.tbMain.Size = new System.Drawing.Size(784, 469);
             this.tbMain.TabIndex = 5;
-            
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnRelatorio.Image = global::HotelGestor.Properties.Resources.fatura;
+            this.btnRelatorio.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnRelatorio.Location = new System.Drawing.Point(435, 0);
+            this.btnRelatorio.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnRelatorio.Name = "btnRelatorio";
+            this.btnRelatorio.Size = new System.Drawing.Size(87, 68);
+            this.btnRelatorio.TabIndex = 6;
+            this.btnRelatorio.Text = "Relatórios";
+            this.btnRelatorio.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnRelatorio.UseVisualStyleBackColor = true;
+            this.btnRelatorio.Visible = false;
             // 
             // frmMainCadastro
             // 
@@ -272,5 +290,6 @@
         public System.Windows.Forms.TabPage tbCadastro;
         public System.Windows.Forms.Panel pnFiltros;
         public System.Windows.Forms.TabControl tbMain;
+        public System.Windows.Forms.Button btnRelatorio;
     }
 }

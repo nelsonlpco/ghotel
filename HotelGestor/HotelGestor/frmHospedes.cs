@@ -1,4 +1,5 @@
 ﻿using AForge.Video.DirectShow;
+using HotelGestor.relatorios.hospedes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -54,11 +55,18 @@ namespace HotelGestor
             buttonStates();
             if (videosources != null)
             {
+                try
+                {
+                    videoSource = new VideoCaptureDevice(videosources[0].MonikerString);
 
-                videoSource = new VideoCaptureDevice(videosources[0].MonikerString);
-
-                videoSource.NewFrame += (s, e) => fOTOPictureBox.Image = (Bitmap)e.Frame.Clone();
-                videoSource.Start();
+                    videoSource.NewFrame += (s, e) => fOTOPictureBox.Image = (Bitmap)e.Frame.Clone();
+                    videoSource.Start();
+                }
+                catch (Exception ex)
+                {
+                    Comum.msgErro("Não foi encontrada camera ligada ao computador");
+                }
+                
             }
         }
 
@@ -258,6 +266,13 @@ namespace HotelGestor
                 e.Cancel = true;
                 return;
             }
+        }
+
+        private void btnRelatorio_Click(object sender, EventArgs e)
+        {
+            frmView frm = new frmView();
+            frm.ShowDialog();
+            frm.Dispose();
         }
     }
 }

@@ -109,6 +109,7 @@
             // 
             this.btnGravar.FlatAppearance.BorderSize = 0;
             this.btnGravar.Location = new System.Drawing.Point(261, 0);
+            this.btnGravar.TabIndex = 0;
             // 
             // btnExcluir
             // 
@@ -172,6 +173,12 @@
             // tbMain
             // 
             this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
+            this.btnRelatorio.Visible = true;
+            this.btnRelatorio.Click += new System.EventHandler(this.btnRelatorio_Click);
             // 
             // cNOMELabel
             // 
@@ -277,7 +284,7 @@
             cFONELabel.AutoSize = true;
             cFONELabel.Location = new System.Drawing.Point(53, 350);
             cFONELabel.Name = "cFONELabel";
-            cFONELabel.Size = new System.Drawing.Size(65, 18);
+            cFONELabel.Size = new System.Drawing.Size(66, 18);
             cFONELabel.TabIndex = 52;
             cFONELabel.Text = "Telefone:";
             // 
@@ -286,7 +293,7 @@
             cFONE2Label.AutoSize = true;
             cFONE2Label.Location = new System.Drawing.Point(282, 350);
             cFONE2Label.Name = "cFONE2Label";
-            cFONE2Label.Size = new System.Drawing.Size(77, 18);
+            cFONE2Label.Size = new System.Drawing.Size(78, 18);
             cFONE2Label.TabIndex = 53;
             cFONE2Label.Text = "Telefone 2:";
             // 
@@ -360,7 +367,7 @@
             this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel2.Controls.Add(this.btnArquivo);
             this.panel2.Controls.Add(this.btnCamera);
-            this.panel2.Location = new System.Drawing.Point(523, 231);
+            this.panel2.Location = new System.Drawing.Point(523, 202);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(245, 50);
             this.panel2.TabIndex = 37;
@@ -410,7 +417,7 @@
             this.cNOMETextBox.Location = new System.Drawing.Point(124, 38);
             this.cNOMETextBox.Name = "cNOMETextBox";
             this.cNOMETextBox.Size = new System.Drawing.Size(375, 23);
-            this.cNOMETextBox.TabIndex = 38;
+            this.cNOMETextBox.TabIndex = 0;
             this.cNOMETextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // fOTOPictureBox
@@ -419,7 +426,7 @@
             this.fOTOPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.cLIENTEBindingSource, "FOTO", true));
             this.fOTOPictureBox.Location = new System.Drawing.Point(523, 38);
             this.fOTOPictureBox.Name = "fOTOPictureBox";
-            this.fOTOPictureBox.Size = new System.Drawing.Size(245, 193);
+            this.fOTOPictureBox.Size = new System.Drawing.Size(245, 164);
             this.fOTOPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.fOTOPictureBox.TabIndex = 39;
             this.fOTOPictureBox.TabStop = false;
@@ -431,7 +438,7 @@
             this.cCPFMaskedTextBox.Mask = "999.999.999-99";
             this.cCPFMaskedTextBox.Name = "cCPFMaskedTextBox";
             this.cCPFMaskedTextBox.Size = new System.Drawing.Size(124, 23);
-            this.cCPFMaskedTextBox.TabIndex = 40;
+            this.cCPFMaskedTextBox.TabIndex = 1;
             this.cCPFMaskedTextBox.Click += new System.EventHandler(this.cCPFMaskedTextBox_Enter);
             this.cCPFMaskedTextBox.Enter += new System.EventHandler(this.cCPFMaskedTextBox_Enter);
             // 
@@ -441,7 +448,7 @@
             this.cRGTextBox.Location = new System.Drawing.Point(298, 67);
             this.cRGTextBox.Name = "cRGTextBox";
             this.cRGTextBox.Size = new System.Drawing.Size(201, 23);
-            this.cRGTextBox.TabIndex = 41;
+            this.cRGTextBox.TabIndex = 2;
             this.cRGTextBox.Leave += new System.EventHandler(this.cRGTextBox_Leave);
             // 
             // dDATANASCDateTimePicker
@@ -450,7 +457,7 @@
             this.dDATANASCDateTimePicker.Location = new System.Drawing.Point(124, 96);
             this.dDATANASCDateTimePicker.Name = "dDATANASCDateTimePicker";
             this.dDATANASCDateTimePicker.Size = new System.Drawing.Size(378, 23);
-            this.dDATANASCDateTimePicker.TabIndex = 42;
+            this.dDATANASCDateTimePicker.TabIndex = 3;
             // 
             // cOBSERVACAOTextBox
             // 
@@ -459,7 +466,7 @@
             this.cOBSERVACAOTextBox.Multiline = true;
             this.cOBSERVACAOTextBox.Name = "cOBSERVACAOTextBox";
             this.cOBSERVACAOTextBox.Size = new System.Drawing.Size(378, 98);
-            this.cOBSERVACAOTextBox.TabIndex = 43;
+            this.cOBSERVACAOTextBox.TabIndex = 4;
             // 
             // cCIDADETextBox
             // 
@@ -467,7 +474,7 @@
             this.cCIDADETextBox.Location = new System.Drawing.Point(124, 260);
             this.cCIDADETextBox.Name = "cCIDADETextBox";
             this.cCIDADETextBox.Size = new System.Drawing.Size(303, 23);
-            this.cCIDADETextBox.TabIndex = 45;
+            this.cCIDADETextBox.TabIndex = 7;
             this.cCIDADETextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // cUFTextBox
@@ -476,7 +483,7 @@
             this.cUFTextBox.Location = new System.Drawing.Point(463, 260);
             this.cUFTextBox.Name = "cUFTextBox";
             this.cUFTextBox.Size = new System.Drawing.Size(39, 23);
-            this.cUFTextBox.TabIndex = 46;
+            this.cUFTextBox.TabIndex = 8;
             this.cUFTextBox.Leave += new System.EventHandler(this.cRGTextBox_Leave);
             // 
             // cBAIRROTextBox
@@ -485,7 +492,7 @@
             this.cBAIRROTextBox.Location = new System.Drawing.Point(124, 289);
             this.cBAIRROTextBox.Name = "cBAIRROTextBox";
             this.cBAIRROTextBox.Size = new System.Drawing.Size(378, 23);
-            this.cBAIRROTextBox.TabIndex = 47;
+            this.cBAIRROTextBox.TabIndex = 9;
             this.cBAIRROTextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // cRUATextBox
@@ -494,7 +501,7 @@
             this.cRUATextBox.Location = new System.Drawing.Point(124, 318);
             this.cRUATextBox.Name = "cRUATextBox";
             this.cRUATextBox.Size = new System.Drawing.Size(378, 23);
-            this.cRUATextBox.TabIndex = 48;
+            this.cRUATextBox.TabIndex = 10;
             this.cRUATextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // cEMAILTextBox
@@ -503,7 +510,7 @@
             this.cEMAILTextBox.Location = new System.Drawing.Point(124, 376);
             this.cEMAILTextBox.Name = "cEMAILTextBox";
             this.cEMAILTextBox.Size = new System.Drawing.Size(378, 23);
-            this.cEMAILTextBox.TabIndex = 51;
+            this.cEMAILTextBox.TabIndex = 13;
             // 
             // cCEPMaskedTextBox
             // 
@@ -512,7 +519,7 @@
             this.cCEPMaskedTextBox.Mask = "99999-999";
             this.cCEPMaskedTextBox.Name = "cCEPMaskedTextBox";
             this.cCEPMaskedTextBox.Size = new System.Drawing.Size(100, 23);
-            this.cCEPMaskedTextBox.TabIndex = 52;
+            this.cCEPMaskedTextBox.TabIndex = 5;
             this.cCEPMaskedTextBox.Click += new System.EventHandler(this.cCPFMaskedTextBox_Enter);
             this.cCEPMaskedTextBox.Enter += new System.EventHandler(this.cCPFMaskedTextBox_Enter);
             // 
@@ -523,7 +530,7 @@
             this.cFONEMaskedTextBox.Mask = "(99) 0000-0000";
             this.cFONEMaskedTextBox.Name = "cFONEMaskedTextBox";
             this.cFONEMaskedTextBox.Size = new System.Drawing.Size(134, 23);
-            this.cFONEMaskedTextBox.TabIndex = 53;
+            this.cFONEMaskedTextBox.TabIndex = 11;
             this.cFONEMaskedTextBox.Click += new System.EventHandler(this.cFONEMaskedTextBox_Enter);
             this.cFONEMaskedTextBox.Enter += new System.EventHandler(this.cFONEMaskedTextBox_Enter);
             // 
@@ -534,7 +541,7 @@
             this.cFONE2MaskedTextBox.Mask = "(99) 0000-0000";
             this.cFONE2MaskedTextBox.Name = "cFONE2MaskedTextBox";
             this.cFONE2MaskedTextBox.Size = new System.Drawing.Size(137, 23);
-            this.cFONE2MaskedTextBox.TabIndex = 54;
+            this.cFONE2MaskedTextBox.TabIndex = 12;
             this.cFONE2MaskedTextBox.Click += new System.EventHandler(this.cFONEMaskedTextBox_Enter);
             this.cFONE2MaskedTextBox.Enter += new System.EventHandler(this.cFONEMaskedTextBox_Enter);
             // 
@@ -543,7 +550,7 @@
             this.btnBuscaCep.Location = new System.Drawing.Point(238, 231);
             this.btnBuscaCep.Name = "btnBuscaCep";
             this.btnBuscaCep.Size = new System.Drawing.Size(121, 24);
-            this.btnBuscaCep.TabIndex = 55;
+            this.btnBuscaCep.TabIndex = 6;
             this.btnBuscaCep.Text = "Busca Endereço";
             this.btnBuscaCep.UseVisualStyleBackColor = true;
             this.btnBuscaCep.Click += new System.EventHandler(this.btnBuscaCep_Click);
@@ -553,7 +560,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(102, 26);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 18);
+            this.label1.Size = new System.Drawing.Size(123, 18);
             this.label1.TabIndex = 0;
             this.label1.Text = "Pesquisar Hóspede:";
             // 
@@ -570,7 +577,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Name = "frmHospedes";
-            this.Text = "7";
+            this.Text = "Registro de hóspedes";
             this.Load += new System.EventHandler(this.frmHospedes_Load);
             this.panel1.ResumeLayout(false);
             this.tbConsulta.ResumeLayout(false);

@@ -123,6 +123,12 @@
     <Compile Include="frmQuartos.Designer.cs">
       <DependentUpon>frmQuartos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRelatoriosHospedes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatoriosHospedes.Designer.cs">
+      <DependentUpon>frmRelatoriosHospedes.cs</DependentUpon>
+    </Compile>
     <Compile Include="HotelDBDataSet.cs">
       <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -182,6 +188,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuartos.resx">
       <DependentUpon>frmQuartos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatoriosHospedes.resx">
+      <DependentUpon>frmRelatoriosHospedes.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -295,7 +304,12 @@
     <Content Include="resources\pagamento.png" />
     <Content Include="resources\pdf16x16.png" />
     <Content Include="resources\pdf32x32.png" />
+    <None Include="resources\printer16x16.png" />
+    <None Include="resources\printer32x32.png" />
+    <None Include="resources\printer48x48.png" />
     <Content Include="resources\quarto.png" />
+    <None Include="resources\report32x32.png" />
+    <None Include="resources\report48x48.png" />
     <Content Include="resources\Search16x16 - Copia.png" />
     <Content Include="resources\Search16x16.png" />
     <Content Include="resources\Search32x32 - Copia.png" />

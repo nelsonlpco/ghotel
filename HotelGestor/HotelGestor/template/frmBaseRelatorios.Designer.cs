@@ -28,24 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.pnFiltros = new System.Windows.Forms.Panel();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.btnSair = new System.Windows.Forms.Button();
+            this.pnFiltros = new System.Windows.Forms.Panel();
             this.statusStrip1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // pnFiltros
-            // 
-            this.pnFiltros.BackColor = System.Drawing.Color.Gainsboro;
-            this.pnFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnFiltros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnFiltros.Location = new System.Drawing.Point(0, 0);
-            this.pnFiltros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnFiltros.Name = "pnFiltros";
-            this.pnFiltros.Size = new System.Drawing.Size(784, 129);
-            this.pnFiltros.TabIndex = 1;
             // 
             // statusStrip1
             // 
@@ -64,26 +54,54 @@
             this.lbStatus.Size = new System.Drawing.Size(12, 17);
             this.lbStatus.Text = "s";
             // 
-            // dataGridView1
+            // panel1
             // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 129);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(784, 411);
-            this.dataGridView1.TabIndex = 6;
+            this.panel1.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.btnSair);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(784, 70);
+            this.panel1.TabIndex = 7;
+            // 
+            // btnSair
+            // 
+            this.btnSair.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.btnSair.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSair.Image = global::HotelGestor.Properties.Resources.exit___Copia;
+            this.btnSair.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnSair.Location = new System.Drawing.Point(695, 0);
+            this.btnSair.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.btnSair.Name = "btnSair";
+            this.btnSair.Size = new System.Drawing.Size(87, 68);
+            this.btnSair.TabIndex = 5;
+            this.btnSair.Text = "Sair";
+            this.btnSair.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnSair.UseVisualStyleBackColor = true;
+            this.btnSair.Click += new System.EventHandler(this.btnSair_Click);
+            // 
+            // pnFiltros
+            // 
+            this.pnFiltros.BackColor = System.Drawing.Color.Gainsboro;
+            this.pnFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnFiltros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnFiltros.Location = new System.Drawing.Point(0, 70);
+            this.pnFiltros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnFiltros.Name = "pnFiltros";
+            this.pnFiltros.Size = new System.Drawing.Size(784, 140);
+            this.pnFiltros.TabIndex = 8;
             // 
             // frmBaseRelatorios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 562);
-            this.Controls.Add(this.dataGridView1);
-            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.pnFiltros);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.statusStrip1);
             this.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.Name = "frmBaseRelatorios";
@@ -91,7 +109,7 @@
             this.Text = "frmBaseRelatorios";
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -99,9 +117,10 @@
 
         #endregion
 
-        public System.Windows.Forms.Panel pnFiltros;
         public System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel lbStatus;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        public System.Windows.Forms.Panel panel1;
+        public System.Windows.Forms.Button btnSair;
+        public System.Windows.Forms.Panel pnFiltros;
     }
 }

@@ -65,6 +65,8 @@ namespace HotelGestor
                 catch (Exception ex)
                 {
                     Comum.msgErro("Não foi encontrada camera ligada ao computador");
+                    ffoto = false;
+                    buttonStates();
                 }
                 
             }

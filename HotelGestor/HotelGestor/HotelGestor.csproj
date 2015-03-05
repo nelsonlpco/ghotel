@@ -141,6 +141,12 @@
     <Compile Include="relatorios\hospedes\frmView.Designer.cs">
       <DependentUpon>frmView.cs</DependentUpon>
     </Compile>
+    <Compile Include="template\frmBaseRelatorios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="template\frmBaseRelatorios.Designer.cs">
+      <DependentUpon>frmBaseRelatorios.cs</DependentUpon>
+    </Compile>
     <Compile Include="template\frmCadastroSimples.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -191,6 +197,9 @@
       <DependentUpon>frmView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="relatorios\hospedes\listadehospedes.rdlc" />
+    <EmbeddedResource Include="template\frmBaseRelatorios.resx">
+      <DependentUpon>frmBaseRelatorios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="template\frmCadastroSimples.resx">
       <DependentUpon>frmCadastroSimples.cs</DependentUpon>
     </EmbeddedResource>

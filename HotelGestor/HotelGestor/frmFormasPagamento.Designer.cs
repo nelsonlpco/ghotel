@@ -40,31 +40,15 @@
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             cDESCRICAOLabel = new System.Windows.Forms.Label();
-            this.tbMain.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tbConsulta.SuspendLayout();
             this.tbCadastro.SuspendLayout();
             this.pnFiltros.SuspendLayout();
-            this.tbConsulta.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tbCadastro
-            // 
-            this.tbCadastro.Controls.Add(this.dataGridView1);
-            this.tbCadastro.Controls.SetChildIndex(this.pnFiltros, 0);
-            this.tbCadastro.Controls.SetChildIndex(this.dataGridView1, 0);
-            // 
-            // pnFiltros
-            // 
-            this.pnFiltros.Controls.Add(this.txtFiltro);
-            this.pnFiltros.Controls.Add(this.label1);
-            // 
-            // tbConsulta
-            // 
-            this.tbConsulta.Controls.Add(cDESCRICAOLabel);
-            this.tbConsulta.Controls.Add(this.cDESCRICAOTextBox);
             // 
             // btnSair
             // 
@@ -93,6 +77,26 @@
             // btnTransferir
             // 
             this.btnTransferir.FlatAppearance.BorderSize = 0;
+            // 
+            // tbConsulta
+            // 
+            this.tbConsulta.Controls.Add(cDESCRICAOLabel);
+            this.tbConsulta.Controls.Add(this.cDESCRICAOTextBox);
+            // 
+            // tbCadastro
+            // 
+            this.tbCadastro.Controls.Add(this.dataGridView1);
+            this.tbCadastro.Controls.SetChildIndex(this.pnFiltros, 0);
+            this.tbCadastro.Controls.SetChildIndex(this.dataGridView1, 0);
+            // 
+            // pnFiltros
+            // 
+            this.pnFiltros.Controls.Add(this.txtFiltro);
+            this.pnFiltros.Controls.Add(this.label1);
+            // 
+            // tbMain
+            // 
+            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
             // 
             // cDESCRICAOLabel
             // 
@@ -188,13 +192,13 @@
             this.Name = "frmFormasPagamento";
             this.Text = "Registro de formas de pagamento";
             this.Load += new System.EventHandler(this.frmFormasPagamento_Load);
-            this.tbMain.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tbConsulta.ResumeLayout(false);
+            this.tbConsulta.PerformLayout();
             this.tbCadastro.ResumeLayout(false);
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
-            this.tbConsulta.ResumeLayout(false);
-            this.tbConsulta.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.tbMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

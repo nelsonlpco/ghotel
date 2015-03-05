@@ -28,10 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.tbMain = new System.Windows.Forms.TabControl();
-            this.tbCadastro = new System.Windows.Forms.TabPage();
-            this.pnFiltros = new System.Windows.Forms.Panel();
-            this.tbConsulta = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -41,60 +37,15 @@
             this.btnTransferir = new System.Windows.Forms.Button();
             this.statusStrip1 = new System.Windows.Forms.StatusStrip();
             this.lbStatus = new System.Windows.Forms.ToolStripStatusLabel();
-            this.tbMain.SuspendLayout();
-            this.tbCadastro.SuspendLayout();
+            this.tbConsulta = new System.Windows.Forms.TabPage();
+            this.tbCadastro = new System.Windows.Forms.TabPage();
+            this.pnFiltros = new System.Windows.Forms.Panel();
+            this.tbMain = new System.Windows.Forms.TabControl();
             this.panel1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
+            this.tbCadastro.SuspendLayout();
+            this.tbMain.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // tbMain
-            // 
-            this.tbMain.Controls.Add(this.tbCadastro);
-            this.tbMain.Controls.Add(this.tbConsulta);
-            this.tbMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tbMain.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbMain.Location = new System.Drawing.Point(0, 70);
-            this.tbMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbMain.Name = "tbMain";
-            this.tbMain.SelectedIndex = 0;
-            this.tbMain.Size = new System.Drawing.Size(784, 469);
-            this.tbMain.TabIndex = 5;
-            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
-            // 
-            // tbCadastro
-            // 
-            this.tbCadastro.Controls.Add(this.pnFiltros);
-            this.tbCadastro.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tbCadastro.Location = new System.Drawing.Point(4, 27);
-            this.tbCadastro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbCadastro.Name = "tbCadastro";
-            this.tbCadastro.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbCadastro.Size = new System.Drawing.Size(776, 438);
-            this.tbCadastro.TabIndex = 0;
-            this.tbCadastro.Text = "Consulta";
-            this.tbCadastro.UseVisualStyleBackColor = true;
-            // 
-            // pnFiltros
-            // 
-            this.pnFiltros.BackColor = System.Drawing.Color.Gainsboro;
-            this.pnFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnFiltros.Dock = System.Windows.Forms.DockStyle.Top;
-            this.pnFiltros.Location = new System.Drawing.Point(3, 4);
-            this.pnFiltros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.pnFiltros.Name = "pnFiltros";
-            this.pnFiltros.Size = new System.Drawing.Size(770, 87);
-            this.pnFiltros.TabIndex = 0;
-            // 
-            // tbConsulta
-            // 
-            this.tbConsulta.Location = new System.Drawing.Point(4, 27);
-            this.tbConsulta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbConsulta.Name = "tbConsulta";
-            this.tbConsulta.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.tbConsulta.Size = new System.Drawing.Size(776, 438);
-            this.tbConsulta.TabIndex = 1;
-            this.tbConsulta.Text = "Cadastro";
-            this.tbConsulta.UseVisualStyleBackColor = true;
             // 
             // panel1
             // 
@@ -233,6 +184,55 @@
             this.lbStatus.Size = new System.Drawing.Size(12, 17);
             this.lbStatus.Text = "s";
             // 
+            // tbConsulta
+            // 
+            this.tbConsulta.Location = new System.Drawing.Point(4, 27);
+            this.tbConsulta.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbConsulta.Name = "tbConsulta";
+            this.tbConsulta.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbConsulta.Size = new System.Drawing.Size(776, 438);
+            this.tbConsulta.TabIndex = 1;
+            this.tbConsulta.Text = "Cadastro";
+            this.tbConsulta.UseVisualStyleBackColor = true;
+            // 
+            // tbCadastro
+            // 
+            this.tbCadastro.Controls.Add(this.pnFiltros);
+            this.tbCadastro.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbCadastro.Location = new System.Drawing.Point(4, 27);
+            this.tbCadastro.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbCadastro.Name = "tbCadastro";
+            this.tbCadastro.Padding = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbCadastro.Size = new System.Drawing.Size(776, 438);
+            this.tbCadastro.TabIndex = 0;
+            this.tbCadastro.Text = "Consulta";
+            this.tbCadastro.UseVisualStyleBackColor = true;
+            // 
+            // pnFiltros
+            // 
+            this.pnFiltros.BackColor = System.Drawing.Color.Gainsboro;
+            this.pnFiltros.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnFiltros.Dock = System.Windows.Forms.DockStyle.Top;
+            this.pnFiltros.Location = new System.Drawing.Point(3, 4);
+            this.pnFiltros.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.pnFiltros.Name = "pnFiltros";
+            this.pnFiltros.Size = new System.Drawing.Size(770, 87);
+            this.pnFiltros.TabIndex = 0;
+            // 
+            // tbMain
+            // 
+            this.tbMain.Controls.Add(this.tbCadastro);
+            this.tbMain.Controls.Add(this.tbConsulta);
+            this.tbMain.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tbMain.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbMain.Location = new System.Drawing.Point(0, 70);
+            this.tbMain.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.tbMain.Name = "tbMain";
+            this.tbMain.SelectedIndex = 0;
+            this.tbMain.Size = new System.Drawing.Size(784, 469);
+            this.tbMain.TabIndex = 5;
+            
+            // 
             // frmMainCadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -247,11 +247,11 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMainCadastro";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainCadastro_FormClosing);
-            this.tbMain.ResumeLayout(false);
-            this.tbCadastro.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
             this.statusStrip1.ResumeLayout(false);
             this.statusStrip1.PerformLayout();
+            this.tbCadastro.ResumeLayout(false);
+            this.tbMain.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -259,10 +259,6 @@
 
         #endregion
 
-        public System.Windows.Forms.TabControl tbMain;
-        public System.Windows.Forms.TabPage tbCadastro;
-        public System.Windows.Forms.Panel pnFiltros;
-        public System.Windows.Forms.TabPage tbConsulta;
         public System.Windows.Forms.Panel panel1;
         public System.Windows.Forms.Button btnSair;
         public System.Windows.Forms.Button btnCancelar;
@@ -272,5 +268,9 @@
         public System.Windows.Forms.StatusStrip statusStrip1;
         public System.Windows.Forms.ToolStripStatusLabel lbStatus;
         public System.Windows.Forms.Button btnTransferir;
+        public System.Windows.Forms.TabPage tbConsulta;
+        public System.Windows.Forms.TabPage tbCadastro;
+        public System.Windows.Forms.Panel pnFiltros;
+        public System.Windows.Forms.TabControl tbMain;
     }
 }

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Globalization;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -149,6 +150,12 @@ namespace HotelGestor
             ((TextBox)Sender).Text = entrada.ToUpper();
         }
 
+        public static void firstUpper(object Sender)
+        {
+            string entrada = ((TextBox)Sender).Text;
+            ((TextBox)Sender).Text = Char.ToUpper(entrada[0]) + entrada.Substring(1);
+        }
+
         public static void dinamicMasck(object sender)
         {  
             TextBox tb = sender as TextBox;
@@ -178,7 +185,15 @@ namespace HotelGestor
             txt.Text = string.Format("{0:N}", v);
             txt.SelectionStart = txt.Text.Length;
         }
-        
+
+        public static double strToDouble(string entrada)
+        {
+            if (string.IsNullOrEmpty(entrada))
+                return 0;
+            entrada.Replace(".","");
+            entrada.Replace(",",".");
+            return double.Parse(entrada, NumberStyles.AllowDecimalPoint);
+        }
 
     
     }

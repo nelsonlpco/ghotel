@@ -84,11 +84,11 @@
             cCEPLabel = new System.Windows.Forms.Label();
             cFONELabel = new System.Windows.Forms.Label();
             cFONE2Label = new System.Windows.Forms.Label();
-            this.tbMain.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tbConsulta.SuspendLayout();
             this.tbCadastro.SuspendLayout();
             this.pnFiltros.SuspendLayout();
-            this.tbConsulta.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
@@ -96,21 +96,33 @@
             ((System.ComponentModel.ISupportInitialize)(this.fOTOPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // tbMain
+            // btnSair
             // 
-            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
+            this.btnSair.FlatAppearance.BorderSize = 0;
             // 
-            // tbCadastro
+            // btnCancelar
             // 
-            this.tbCadastro.Controls.Add(this.dataGridView1);
-            this.tbCadastro.Controls.SetChildIndex(this.pnFiltros, 0);
-            this.tbCadastro.Controls.SetChildIndex(this.dataGridView1, 0);
+            this.btnCancelar.FlatAppearance.BorderSize = 0;
+            this.btnCancelar.Location = new System.Drawing.Point(348, 0);
             // 
-            // pnFiltros
+            // btnGravar
             // 
-            this.pnFiltros.Controls.Add(this.txtFiltro);
-            this.pnFiltros.Controls.Add(this.label1);
-            this.pnFiltros.Size = new System.Drawing.Size(770, 66);
+            this.btnGravar.FlatAppearance.BorderSize = 0;
+            this.btnGravar.Location = new System.Drawing.Point(261, 0);
+            // 
+            // btnExcluir
+            // 
+            this.btnExcluir.FlatAppearance.BorderSize = 0;
+            this.btnExcluir.Location = new System.Drawing.Point(174, 0);
+            // 
+            // btnIncluir
+            // 
+            this.btnIncluir.FlatAppearance.BorderSize = 0;
+            this.btnIncluir.Location = new System.Drawing.Point(87, 0);
+            // 
+            // btnTransferir
+            // 
+            this.btnTransferir.FlatAppearance.BorderSize = 0;
             // 
             // tbConsulta
             // 
@@ -145,33 +157,21 @@
             this.tbConsulta.Controls.Add(this.cNOMETextBox);
             this.tbConsulta.Controls.Add(this.panel2);
             // 
-            // btnSair
+            // tbCadastro
             // 
-            this.btnSair.FlatAppearance.BorderSize = 0;
+            this.tbCadastro.Controls.Add(this.dataGridView1);
+            this.tbCadastro.Controls.SetChildIndex(this.pnFiltros, 0);
+            this.tbCadastro.Controls.SetChildIndex(this.dataGridView1, 0);
             // 
-            // btnCancelar
+            // pnFiltros
             // 
-            this.btnCancelar.FlatAppearance.BorderSize = 0;
-            this.btnCancelar.Location = new System.Drawing.Point(348, 0);
+            this.pnFiltros.Controls.Add(this.txtFiltro);
+            this.pnFiltros.Controls.Add(this.label1);
+            this.pnFiltros.Size = new System.Drawing.Size(770, 66);
             // 
-            // btnGravar
+            // tbMain
             // 
-            this.btnGravar.FlatAppearance.BorderSize = 0;
-            this.btnGravar.Location = new System.Drawing.Point(261, 0);
-            // 
-            // btnExcluir
-            // 
-            this.btnExcluir.FlatAppearance.BorderSize = 0;
-            this.btnExcluir.Location = new System.Drawing.Point(174, 0);
-            // 
-            // btnIncluir
-            // 
-            this.btnIncluir.FlatAppearance.BorderSize = 0;
-            this.btnIncluir.Location = new System.Drawing.Point(87, 0);
-            // 
-            // btnTransferir
-            // 
-            this.btnTransferir.FlatAppearance.BorderSize = 0;
+            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
             // 
             // cNOMELabel
             // 
@@ -572,13 +572,13 @@
             this.Name = "frmHospedes";
             this.Text = "7";
             this.Load += new System.EventHandler(this.frmHospedes_Load);
-            this.tbMain.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tbConsulta.ResumeLayout(false);
+            this.tbConsulta.PerformLayout();
             this.tbCadastro.ResumeLayout(false);
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
-            this.tbConsulta.ResumeLayout(false);
-            this.tbConsulta.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.tbMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();

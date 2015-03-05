@@ -16,18 +16,9 @@ namespace HotelGestor
             addeventos();
             lbStatus.Text = Comum.screenStats('c');
         }
-      
-
-        private bool fsaveprompt;
-        private bool fincluir;
 
         private DataRowView currentRow;
 
-        private int selectId;
-        private string selectDescription;
-
-        public int SelectId { get { return selectId; } }
-        public string SelectDescription { get { return selectDescription; } }
 
         public void addeventos()
         {
@@ -70,11 +61,12 @@ namespace HotelGestor
 
             qUARTOBindingSource.EndEdit();
             qUARTOTableAdapter.Update(hotelDBDataSet.QUARTO);
-            fsaveprompt = false;
-            fincluir = false;
+            SavePrompt = false;
+            IsInclude = false;
             lbStatus.Text = Comum.screenStats('c');
             tbMain.SelectedIndex = 0;
             buttonStates();
+            this.qUARTOTableAdapter.FillToView(this.hotelDBDataSet.QUARTO);
         }
 
         public override void excluir()
@@ -93,8 +85,8 @@ namespace HotelGestor
         public override void cancelar()
         {
             qUARTOBindingSource.CancelEdit();
-            fincluir = false;
-            fsaveprompt = false;
+            IsInclude = false;
+            SavePrompt = false;
             lbStatus.Text = Comum.screenStats('c');
             tbMain.SelectedIndex = 0;
             buttonStates();
@@ -103,8 +95,8 @@ namespace HotelGestor
         public override void incluir()
         {
             lbStatus.Text = Comum.screenStats('i');
-            fincluir = true;
-            fsaveprompt = true;
+            IsInclude = true;
+            SavePrompt = true;
             qUARTOBindingSource.AddNew();
             cDESCRICAOTextBox.Focus();
             buttonStates();
@@ -114,20 +106,22 @@ namespace HotelGestor
         public override void selecionar()
         {
             currentRow = (DataRowView)qUARTOBindingSource.Current;
-            selectId = (int)currentRow["NIDQUARTO"];
-            selectDescription = string.Format("{0} - Andar :{1} - Numero: {2} ", currentRow["CDESCRICAO"], currentRow["NANDAR"], currentRow["NNUMERO"]);
+            SelectId = (int)currentRow["NIDQUARTO"];
+            SelectDescription = string.Format("{0} - Andar :{1} - Numero: {2} ", currentRow["CDESCRICAO"], currentRow["NANDAR"], currentRow["NNUMERO"]);
             this.Close();
         } 
 
         public override void filtro()
         {
             string filtro = "";
-            if (!txtFiltroDiariaIni.Text.Equals("0,00"))
-                filtro += String.Format(" NVALORBASE >=  {0} ", double.Parse(txtFiltroDiariaIni.Text));
-            if (!string.IsNullOrEmpty(filtro) && !txtFiltroDiariaFim.Text.Equals("0,00"))
+            if (Comum.strToDouble(txtFiltroDiariaIni.Text) > 0)
+            {
+                filtro += string.Format(" NVALORBASE >= '{0:N}' " , Comum.strToDouble(txtFiltroDiariaIni.Text));
+            }
+            if (!string.IsNullOrEmpty(filtro) && Comum.strToDouble(txtFiltroDiariaFim.Text) > 0)
                 filtro += " AND ";
-            if (!txtFiltroDiariaFim.Text.Equals("0,00"))
-                filtro += String.Format(" NVALORBASE <=  {0} ", Double.Parse(txtFiltroDiariaFim.Text));
+            if (Comum.strToDouble(txtFiltroDiariaFim.Text) > 0)
+                filtro += string.Format(" NVALORBASE <=  '{0:N}' ", Comum.strToDouble(txtFiltroDiariaFim.Text));
             if (!string.IsNullOrEmpty(filtro) && cbFiltroStatus.SelectedIndex > 0)
                 filtro += " AND ";
             switch (cbFiltroStatus.SelectedIndex)
@@ -145,7 +139,7 @@ namespace HotelGestor
                 filtro += " AND ";
             if (npFiltroPessoa.Value > 0)
                 filtro += " NMAXPESSOAS >=  " + npFiltroPessoa.Value;
-            if (!string.IsNullOrEmpty(filtro) && cbCategoria.SelectedIndex >= 0)
+            if (!string.IsNullOrEmpty(filtro) && cbCategoria.SelectedIndex > 0)
                 filtro += " AND ";
             if (cbCategoria.SelectedIndex > 0)
             filtro += string.Format(" NCATEGORIA = {0} ",cbCategoria.SelectedIndex);
@@ -159,7 +153,7 @@ namespace HotelGestor
             // TODO: This line of code loads data into the 'hotelDBDataSet.CATEGORIAQUARTO' table. You can move, or remove it, as needed.
             this.cATEGORIAQUARTOTableAdapter.FillToSelect(this.hotelDBDataSet.CATEGORIAQUARTO);
             // TODO: This line of code loads data into the 'hotelDBDataSet.QUARTO' table. You can move, or remove it, as needed.
-            this.qUARTOTableAdapter.Fill(this.hotelDBDataSet.QUARTO);
+            this.qUARTOTableAdapter.FillToView(this.hotelDBDataSet.QUARTO);
             buttonStates();
             if(btnTransferir.Visible)
                 cbFiltroStatus.SelectedIndex = 1;
@@ -168,15 +162,7 @@ namespace HotelGestor
 
         }
 
-        public override void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (tbMain.SelectedIndex == 0)
-            {
-                this.cATEGORIAQUARTOTableAdapter.FillToSelect(this.hotelDBDataSet.CATEGORIAQUARTO);
-            }
-            else
-                this.cATEGORIAQUARTOTableAdapter.Fill(this.hotelDBDataSet.CATEGORIAQUARTO);
-        }
+       
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
@@ -235,6 +221,31 @@ namespace HotelGestor
         {
             ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
         }
+
+       
+        private void tbMain_Selecting_2(object sender, TabControlCancelEventArgs e)
+        {
+            if (this.SavePrompt && tbMain.SelectedIndex == 0)
+            {
+                Comum.msgAlert(Comum.MSG_EMEDICAO);
+                e.Cancel = true;
+                return;
+            }
+            else if (isEmptyDataset() && !IsInclude && tbMain.SelectedIndex == 1)
+            {
+                Comum.msgAlert(Comum.MSG_SEMREGISTRO);
+                e.Cancel = true;
+                return;
+            }
+            
+        }
+
+        private void cDESCRICAOTextBox_Leave(object sender, EventArgs e)
+        {
+            Comum.firstUpper(sender);
+        }
+
+       
 
     }
 }

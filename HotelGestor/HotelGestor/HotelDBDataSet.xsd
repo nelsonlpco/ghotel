@@ -723,8 +723,8 @@ SELECT NIDQUARTO, CDESCRICAO, NNUMERO, NANDAR, NMAXPESSOAS, CESTATUS, NVALORBASE
               <DbSource ConnectionRef="HotelDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="FillToView" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataToView" GeneratorSourceName="FillToView" GetMethodModifier="Public" GetMethodName="GetDataToView" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataToView" UserSourceName="FillToView">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        CASE QUARTO.CESTATUS WHEN 'L' THEN 'Livre' ELSE CASE QUARTO.CESTATUS WHEN 'O' THEN 'Ocupado' ELSE 'Reservado' END END AS STATUS, A.CDESCRICAO AS CATEGORIA, QUARTO.NIDQUARTO, 
-                         QUARTO.CDESCRICAO, QUARTO.NANDAR, QUARTO.NNUMERO, QUARTO.NMAXPESSOAS, QUARTO.NVALORBASE
+                    <CommandText>SELECT        A.CDESCRICAO AS CATEGORIA, QUARTO.NIDQUARTO, QUARTO.CDESCRICAO, QUARTO.NANDAR, QUARTO.NNUMERO, QUARTO.NMAXPESSOAS, QUARTO.NVALORBASE, QUARTO.CESTATUS, 
+                         QUARTO.NCATEGORIA
 FROM            QUARTO LEFT OUTER JOIN
                          CATEGORIAQUARTO AS A ON A.idcategoria = QUARTO.NCATEGORIA</CommandText>
                     <Parameters />
@@ -802,7 +802,7 @@ FROM            CATEGORIAQUARTO</CommandText>
   <xs:element name="HotelDBDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="HotelDBDataSet" msprop:Generator_UserDSName="HotelDBDataSet">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="CLIENTE" msprop:Generator_TableClassName="CLIENTEDataTable" msprop:Generator_TableVarName="tableCLIENTE" msprop:Generator_RowChangedName="CLIENTERowChanged" msprop:Generator_TablePropName="CLIENTE" msprop:Generator_RowDeletingName="CLIENTERowDeleting" msprop:Generator_RowChangingName="CLIENTERowChanging" msprop:Generator_RowEvHandlerName="CLIENTERowChangeEventHandler" msprop:Generator_RowDeletedName="CLIENTERowDeleted" msprop:Generator_RowClassName="CLIENTERow" msprop:Generator_UserTableName="CLIENTE" msprop:Generator_RowEvArgName="CLIENTERowChangeEvent">
+        <xs:element name="CLIENTE" msprop:Generator_TableClassName="CLIENTEDataTable" msprop:Generator_TableVarName="tableCLIENTE" msprop:Generator_TablePropName="CLIENTE" msprop:Generator_RowDeletingName="CLIENTERowDeleting" msprop:Generator_RowChangingName="CLIENTERowChanging" msprop:Generator_RowEvHandlerName="CLIENTERowChangeEventHandler" msprop:Generator_RowDeletedName="CLIENTERowDeleted" msprop:Generator_UserTableName="CLIENTE" msprop:Generator_RowChangedName="CLIENTERowChanged" msprop:Generator_RowEvArgName="CLIENTERowChangeEvent" msprop:Generator_RowClassName="CLIENTERow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NNUMECLIENTE" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNNUMECLIENTE" msprop:Generator_ColumnPropNameInRow="NNUMECLIENTE" msprop:Generator_ColumnPropNameInTable="NNUMECLIENTEColumn" msprop:Generator_UserColumnName="NNUMECLIENTE" type="xs:int" />
@@ -896,7 +896,7 @@ FROM            CATEGORIAQUARTO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CONSUMO" msprop:Generator_TableClassName="CONSUMODataTable" msprop:Generator_TableVarName="tableCONSUMO" msprop:Generator_RowChangedName="CONSUMORowChanged" msprop:Generator_TablePropName="CONSUMO" msprop:Generator_RowDeletingName="CONSUMORowDeleting" msprop:Generator_RowChangingName="CONSUMORowChanging" msprop:Generator_RowEvHandlerName="CONSUMORowChangeEventHandler" msprop:Generator_RowDeletedName="CONSUMORowDeleted" msprop:Generator_RowClassName="CONSUMORow" msprop:Generator_UserTableName="CONSUMO" msprop:Generator_RowEvArgName="CONSUMORowChangeEvent">
+        <xs:element name="CONSUMO" msprop:Generator_TableClassName="CONSUMODataTable" msprop:Generator_TableVarName="tableCONSUMO" msprop:Generator_TablePropName="CONSUMO" msprop:Generator_RowDeletingName="CONSUMORowDeleting" msprop:Generator_RowChangingName="CONSUMORowChanging" msprop:Generator_RowEvHandlerName="CONSUMORowChangeEventHandler" msprop:Generator_RowDeletedName="CONSUMORowDeleted" msprop:Generator_UserTableName="CONSUMO" msprop:Generator_RowChangedName="CONSUMORowChanged" msprop:Generator_RowEvArgName="CONSUMORowChangeEvent" msprop:Generator_RowClassName="CONSUMORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NIDCONSUMO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNIDCONSUMO" msprop:Generator_ColumnPropNameInRow="NIDCONSUMO" msprop:Generator_ColumnPropNameInTable="NIDCONSUMOColumn" msprop:Generator_UserColumnName="NIDCONSUMO" type="xs:int" />
@@ -908,7 +908,7 @@ FROM            CATEGORIAQUARTO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="endereco" msprop:Generator_TableClassName="enderecoDataTable" msprop:Generator_TableVarName="tableendereco" msprop:Generator_RowChangedName="enderecoRowChanged" msprop:Generator_TablePropName="endereco" msprop:Generator_RowDeletingName="enderecoRowDeleting" msprop:Generator_RowChangingName="enderecoRowChanging" msprop:Generator_RowEvHandlerName="enderecoRowChangeEventHandler" msprop:Generator_RowDeletedName="enderecoRowDeleted" msprop:Generator_RowClassName="enderecoRow" msprop:Generator_UserTableName="endereco" msprop:Generator_RowEvArgName="enderecoRowChangeEvent">
+        <xs:element name="endereco" msprop:Generator_TableClassName="enderecoDataTable" msprop:Generator_TableVarName="tableendereco" msprop:Generator_TablePropName="endereco" msprop:Generator_RowDeletingName="enderecoRowDeleting" msprop:Generator_RowChangingName="enderecoRowChanging" msprop:Generator_RowEvHandlerName="enderecoRowChangeEventHandler" msprop:Generator_RowDeletedName="enderecoRowDeleted" msprop:Generator_UserTableName="endereco" msprop:Generator_RowChangedName="enderecoRowChanged" msprop:Generator_RowEvArgName="enderecoRowChangeEvent" msprop:Generator_RowClassName="enderecoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idendereco" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidendereco" msprop:Generator_ColumnPropNameInRow="idendereco" msprop:Generator_ColumnPropNameInTable="idenderecoColumn" msprop:Generator_UserColumnName="idendereco" type="xs:int" />
@@ -950,7 +950,7 @@ FROM            CATEGORIAQUARTO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HOSPEDAGEM" msprop:Generator_TableClassName="HOSPEDAGEMDataTable" msprop:Generator_TableVarName="tableHOSPEDAGEM" msprop:Generator_RowChangedName="HOSPEDAGEMRowChanged" msprop:Generator_TablePropName="HOSPEDAGEM" msprop:Generator_RowDeletingName="HOSPEDAGEMRowDeleting" msprop:Generator_RowChangingName="HOSPEDAGEMRowChanging" msprop:Generator_RowEvHandlerName="HOSPEDAGEMRowChangeEventHandler" msprop:Generator_RowDeletedName="HOSPEDAGEMRowDeleted" msprop:Generator_RowClassName="HOSPEDAGEMRow" msprop:Generator_UserTableName="HOSPEDAGEM" msprop:Generator_RowEvArgName="HOSPEDAGEMRowChangeEvent">
+        <xs:element name="HOSPEDAGEM" msprop:Generator_TableClassName="HOSPEDAGEMDataTable" msprop:Generator_TableVarName="tableHOSPEDAGEM" msprop:Generator_TablePropName="HOSPEDAGEM" msprop:Generator_RowDeletingName="HOSPEDAGEMRowDeleting" msprop:Generator_RowChangingName="HOSPEDAGEMRowChanging" msprop:Generator_RowEvHandlerName="HOSPEDAGEMRowChangeEventHandler" msprop:Generator_RowDeletedName="HOSPEDAGEMRowDeleted" msprop:Generator_UserTableName="HOSPEDAGEM" msprop:Generator_RowChangedName="HOSPEDAGEMRowChanged" msprop:Generator_RowEvArgName="HOSPEDAGEMRowChangeEvent" msprop:Generator_RowClassName="HOSPEDAGEMRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NIDHOSPEDAGEM" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNIDHOSPEDAGEM" msprop:Generator_ColumnPropNameInRow="NIDHOSPEDAGEM" msprop:Generator_ColumnPropNameInTable="NIDHOSPEDAGEMColumn" msprop:Generator_UserColumnName="NIDHOSPEDAGEM" type="xs:int" />
@@ -1000,7 +1000,7 @@ FROM            CATEGORIAQUARTO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="ITEMCONSUMO" msprop:Generator_TableClassName="ITEMCONSUMODataTable" msprop:Generator_TableVarName="tableITEMCONSUMO" msprop:Generator_RowChangedName="ITEMCONSUMORowChanged" msprop:Generator_TablePropName="ITEMCONSUMO" msprop:Generator_RowDeletingName="ITEMCONSUMORowDeleting" msprop:Generator_RowChangingName="ITEMCONSUMORowChanging" msprop:Generator_RowEvHandlerName="ITEMCONSUMORowChangeEventHandler" msprop:Generator_RowDeletedName="ITEMCONSUMORowDeleted" msprop:Generator_RowClassName="ITEMCONSUMORow" msprop:Generator_UserTableName="ITEMCONSUMO" msprop:Generator_RowEvArgName="ITEMCONSUMORowChangeEvent">
+        <xs:element name="ITEMCONSUMO" msprop:Generator_TableClassName="ITEMCONSUMODataTable" msprop:Generator_TableVarName="tableITEMCONSUMO" msprop:Generator_TablePropName="ITEMCONSUMO" msprop:Generator_RowDeletingName="ITEMCONSUMORowDeleting" msprop:Generator_RowChangingName="ITEMCONSUMORowChanging" msprop:Generator_RowEvHandlerName="ITEMCONSUMORowChangeEventHandler" msprop:Generator_RowDeletedName="ITEMCONSUMORowDeleted" msprop:Generator_UserTableName="ITEMCONSUMO" msprop:Generator_RowChangedName="ITEMCONSUMORowChanged" msprop:Generator_RowEvArgName="ITEMCONSUMORowChangeEvent" msprop:Generator_RowClassName="ITEMCONSUMORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NIDITEMCONSUMO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNIDITEMCONSUMO" msprop:Generator_ColumnPropNameInRow="NIDITEMCONSUMO" msprop:Generator_ColumnPropNameInTable="NIDITEMCONSUMOColumn" msprop:Generator_UserColumnName="NIDITEMCONSUMO" type="xs:int" />
@@ -1015,7 +1015,7 @@ FROM            CATEGORIAQUARTO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="USUARIOS" msprop:Generator_TableClassName="USUARIOSDataTable" msprop:Generator_TableVarName="tableUSUARIOS" msprop:Generator_RowChangedName="USUARIOSRowChanged" msprop:Generator_TablePropName="USUARIOS" msprop:Generator_RowDeletingName="USUARIOSRowDeleting" msprop:Generator_RowChangingName="USUARIOSRowChanging" msprop:Generator_RowEvHandlerName="USUARIOSRowChangeEventHandler" msprop:Generator_RowDeletedName="USUARIOSRowDeleted" msprop:Generator_RowClassName="USUARIOSRow" msprop:Generator_UserTableName="USUARIOS" msprop:Generator_RowEvArgName="USUARIOSRowChangeEvent">
+        <xs:element name="USUARIOS" msprop:Generator_TableClassName="USUARIOSDataTable" msprop:Generator_TableVarName="tableUSUARIOS" msprop:Generator_TablePropName="USUARIOS" msprop:Generator_RowDeletingName="USUARIOSRowDeleting" msprop:Generator_RowChangingName="USUARIOSRowChanging" msprop:Generator_RowEvHandlerName="USUARIOSRowChangeEventHandler" msprop:Generator_RowDeletedName="USUARIOSRowDeleted" msprop:Generator_UserTableName="USUARIOS" msprop:Generator_RowChangedName="USUARIOSRowChanged" msprop:Generator_RowEvArgName="USUARIOSRowChangeEvent" msprop:Generator_RowClassName="USUARIOSRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="IDUSUARIO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnIDUSUARIO" msprop:Generator_ColumnPropNameInRow="IDUSUARIO" msprop:Generator_ColumnPropNameInTable="IDUSUARIOColumn" msprop:Generator_UserColumnName="IDUSUARIO" type="xs:int" />
@@ -1065,7 +1065,7 @@ FROM            CATEGORIAQUARTO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="HOTEL" msprop:Generator_TableClassName="HOTELDataTable" msprop:Generator_TableVarName="tableHOTEL" msprop:Generator_RowChangedName="HOTELRowChanged" msprop:Generator_TablePropName="HOTEL" msprop:Generator_RowDeletingName="HOTELRowDeleting" msprop:Generator_RowChangingName="HOTELRowChanging" msprop:Generator_RowEvHandlerName="HOTELRowChangeEventHandler" msprop:Generator_RowDeletedName="HOTELRowDeleted" msprop:Generator_RowClassName="HOTELRow" msprop:Generator_UserTableName="HOTEL" msprop:Generator_RowEvArgName="HOTELRowChangeEvent">
+        <xs:element name="HOTEL" msprop:Generator_TableClassName="HOTELDataTable" msprop:Generator_TableVarName="tableHOTEL" msprop:Generator_TablePropName="HOTEL" msprop:Generator_RowDeletingName="HOTELRowDeleting" msprop:Generator_RowChangingName="HOTELRowChanging" msprop:Generator_RowEvHandlerName="HOTELRowChangeEventHandler" msprop:Generator_RowDeletedName="HOTELRowDeleted" msprop:Generator_UserTableName="HOTEL" msprop:Generator_RowChangedName="HOTELRowChanged" msprop:Generator_RowEvArgName="HOTELRowChangeEvent" msprop:Generator_RowClassName="HOTELRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NIDHOTEL" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNIDHOTEL" msprop:Generator_ColumnPropNameInRow="NIDHOTEL" msprop:Generator_ColumnPropNameInTable="NIDHOTELColumn" msprop:Generator_UserColumnName="NIDHOTEL" type="xs:int" />
@@ -1157,7 +1157,7 @@ FROM            CATEGORIAQUARTO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="FORMASDEPAGAMENTO" msprop:Generator_TableClassName="FORMASDEPAGAMENTODataTable" msprop:Generator_TableVarName="tableFORMASDEPAGAMENTO" msprop:Generator_TablePropName="FORMASDEPAGAMENTO" msprop:Generator_RowDeletingName="FORMASDEPAGAMENTORowDeleting" msprop:Generator_RowChangingName="FORMASDEPAGAMENTORowChanging" msprop:Generator_RowEvHandlerName="FORMASDEPAGAMENTORowChangeEventHandler" msprop:Generator_RowDeletedName="FORMASDEPAGAMENTORowDeleted" msprop:Generator_UserTableName="FORMASDEPAGAMENTO" msprop:Generator_RowChangedName="FORMASDEPAGAMENTORowChanged" msprop:Generator_RowEvArgName="FORMASDEPAGAMENTORowChangeEvent" msprop:Generator_RowClassName="FORMASDEPAGAMENTORow">
+        <xs:element name="FORMASDEPAGAMENTO" msprop:Generator_TableClassName="FORMASDEPAGAMENTODataTable" msprop:Generator_TableVarName="tableFORMASDEPAGAMENTO" msprop:Generator_RowChangedName="FORMASDEPAGAMENTORowChanged" msprop:Generator_TablePropName="FORMASDEPAGAMENTO" msprop:Generator_RowDeletingName="FORMASDEPAGAMENTORowDeleting" msprop:Generator_RowChangingName="FORMASDEPAGAMENTORowChanging" msprop:Generator_RowEvHandlerName="FORMASDEPAGAMENTORowChangeEventHandler" msprop:Generator_RowDeletedName="FORMASDEPAGAMENTORowDeleted" msprop:Generator_RowClassName="FORMASDEPAGAMENTORow" msprop:Generator_UserTableName="FORMASDEPAGAMENTO" msprop:Generator_RowEvArgName="FORMASDEPAGAMENTORowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="NIDPAGFORM" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNIDPAGFORM" msprop:Generator_ColumnPropNameInRow="NIDPAGFORM" msprop:Generator_ColumnPropNameInTable="NIDPAGFORMColumn" msprop:Generator_UserColumnName="NIDPAGFORM" type="xs:int" />
@@ -1171,7 +1171,7 @@ FROM            CATEGORIAQUARTO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="QUARTO" msprop:Generator_TableClassName="QUARTODataTable" msprop:Generator_TableVarName="tableQUARTO" msprop:Generator_RowChangedName="QUARTORowChanged" msprop:Generator_TablePropName="QUARTO" msprop:Generator_RowDeletingName="QUARTORowDeleting" msprop:Generator_RowChangingName="QUARTORowChanging" msprop:Generator_RowEvHandlerName="QUARTORowChangeEventHandler" msprop:Generator_RowDeletedName="QUARTORowDeleted" msprop:Generator_RowClassName="QUARTORow" msprop:Generator_UserTableName="QUARTO" msprop:Generator_RowEvArgName="QUARTORowChangeEvent">
+        <xs:element name="QUARTO" msprop:Generator_TableClassName="QUARTODataTable" msprop:Generator_TableVarName="tableQUARTO" msprop:Generator_TablePropName="QUARTO" msprop:Generator_RowDeletingName="QUARTORowDeleting" msprop:Generator_RowChangingName="QUARTORowChanging" msprop:Generator_RowEvHandlerName="QUARTORowChangeEventHandler" msprop:Generator_RowDeletedName="QUARTORowDeleted" msprop:Generator_UserTableName="QUARTO" msprop:Generator_RowChangedName="QUARTORowChanged" msprop:Generator_RowEvArgName="QUARTORowChangeEvent" msprop:Generator_RowClassName="QUARTORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="CDESCRICAO" msprop:Generator_ColumnVarNameInTable="columnCDESCRICAO" msprop:Generator_ColumnPropNameInRow="CDESCRICAO" msprop:Generator_ColumnPropNameInTable="CDESCRICAOColumn" msprop:Generator_UserColumnName="CDESCRICAO" minOccurs="0">
@@ -1194,10 +1194,11 @@ FROM            CATEGORIAQUARTO</CommandText>
                 </xs:simpleType>
               </xs:element>
               <xs:element name="NIDQUARTO" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNIDQUARTO" msprop:Generator_ColumnPropNameInRow="NIDQUARTO" msprop:Generator_ColumnPropNameInTable="NIDQUARTOColumn" msprop:Generator_UserColumnName="NIDQUARTO" type="xs:int" />
+              <xs:element name="STATUS" msdata:ReadOnly="true" msdata:Expression="IIF([CESTATUS] = 'L', 'Livre',IIF([CESTATUS] = 'O','Ocupado','Reservado'))" msprop:Generator_ColumnVarNameInTable="columnSTATUS" msprop:Generator_ColumnPropNameInRow="STATUS" msprop:Generator_ColumnPropNameInTable="STATUSColumn" msprop:Generator_UserColumnName="STATUS" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="CATEGORIAQUARTO" msprop:Generator_TableClassName="CATEGORIAQUARTODataTable" msprop:Generator_TableVarName="tableCATEGORIAQUARTO" msprop:Generator_RowChangedName="CATEGORIAQUARTORowChanged" msprop:Generator_TablePropName="CATEGORIAQUARTO" msprop:Generator_RowDeletingName="CATEGORIAQUARTORowDeleting" msprop:Generator_RowChangingName="CATEGORIAQUARTORowChanging" msprop:Generator_RowEvHandlerName="CATEGORIAQUARTORowChangeEventHandler" msprop:Generator_RowDeletedName="CATEGORIAQUARTORowDeleted" msprop:Generator_RowClassName="CATEGORIAQUARTORow" msprop:Generator_UserTableName="CATEGORIAQUARTO" msprop:Generator_RowEvArgName="CATEGORIAQUARTORowChangeEvent">
+        <xs:element name="CATEGORIAQUARTO" msprop:Generator_TableClassName="CATEGORIAQUARTODataTable" msprop:Generator_TableVarName="tableCATEGORIAQUARTO" msprop:Generator_TablePropName="CATEGORIAQUARTO" msprop:Generator_RowDeletingName="CATEGORIAQUARTORowDeleting" msprop:Generator_RowChangingName="CATEGORIAQUARTORowChanging" msprop:Generator_RowEvHandlerName="CATEGORIAQUARTORowChangeEventHandler" msprop:Generator_RowDeletedName="CATEGORIAQUARTORowDeleted" msprop:Generator_UserTableName="CATEGORIAQUARTO" msprop:Generator_RowChangedName="CATEGORIAQUARTORowChanged" msprop:Generator_RowEvArgName="CATEGORIAQUARTORowChangeEvent" msprop:Generator_RowClassName="CATEGORIAQUARTORow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="idcategoria" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnidcategoria" msprop:Generator_ColumnPropNameInRow="idcategoria" msprop:Generator_ColumnPropNameInTable="idcategoriaColumn" msprop:Generator_UserColumnName="idcategoria" type="xs:int" />
@@ -1256,7 +1257,7 @@ FROM            CATEGORIAQUARTO</CommandText>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_HOSPEDAGEM_CLIENTE" msdata:parent="CLIENTE" msdata:child="HOSPEDAGEM" msdata:parentkey="NNUMECLIENTE" msdata:childkey="NIDCLIENTE" msprop:Generator_UserChildTable="HOSPEDAGEM" msprop:Generator_ChildPropName="GetHOSPEDAGEMRows" msprop:Generator_UserRelationName="FK_HOSPEDAGEM_CLIENTE" msprop:Generator_RelationVarName="relationFK_HOSPEDAGEM_CLIENTE" msprop:Generator_UserParentTable="CLIENTE" msprop:Generator_ParentPropName="CLIENTERow" />
+      <msdata:Relationship name="FK_HOSPEDAGEM_CLIENTE" msdata:parent="CLIENTE" msdata:child="HOSPEDAGEM" msdata:parentkey="NNUMECLIENTE" msdata:childkey="NIDCLIENTE" msprop:Generator_UserChildTable="HOSPEDAGEM" msprop:Generator_ChildPropName="GetHOSPEDAGEMRows" msprop:Generator_UserRelationName="FK_HOSPEDAGEM_CLIENTE" msprop:Generator_ParentPropName="CLIENTERow" msprop:Generator_RelationVarName="relationFK_HOSPEDAGEM_CLIENTE" msprop:Generator_UserParentTable="CLIENTE" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

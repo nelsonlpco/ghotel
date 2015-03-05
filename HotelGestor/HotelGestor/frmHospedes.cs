@@ -243,5 +243,21 @@ namespace HotelGestor
         {
             ((MaskedTextBox)sender).SelectionStart = 1;
         }
+
+        private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
+        {
+            if (this.SavePrompt && tbMain.SelectedIndex == 0)
+            {
+                Comum.msgAlert(Comum.MSG_EMEDICAO);
+                e.Cancel = true;
+                return;
+            }
+            else if (isEmptyDataset() && !IsInclude && tbMain.SelectedIndex == 1)
+            {
+                Comum.msgAlert(Comum.MSG_SEMREGISTRO);
+                e.Cancel = true;
+                return;
+            }
+        }
     }
 }

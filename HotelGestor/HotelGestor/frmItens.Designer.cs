@@ -45,38 +45,16 @@
             this.label1 = new System.Windows.Forms.Label();
             cDESCRICAOLabel = new System.Windows.Forms.Label();
             nVALORITEMLabel = new System.Windows.Forms.Label();
-            this.tbMain.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.tbConsulta.SuspendLayout();
             this.tbCadastro.SuspendLayout();
             this.pnFiltros.SuspendLayout();
-            this.tbConsulta.SuspendLayout();
-            this.panel1.SuspendLayout();
+            this.tbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMCONSUMOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nVALORITEMNumericUpDown)).BeginInit();
             this.SuspendLayout();
-            // 
-            // tbMain
-            // 
-            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
-            // 
-            // tbCadastro
-            // 
-            this.tbCadastro.Controls.Add(this.dgvItens);
-            this.tbCadastro.Controls.SetChildIndex(this.pnFiltros, 0);
-            this.tbCadastro.Controls.SetChildIndex(this.dgvItens, 0);
-            // 
-            // pnFiltros
-            // 
-            this.pnFiltros.Controls.Add(this.txtFiltro);
-            this.pnFiltros.Controls.Add(this.label1);
-            // 
-            // tbConsulta
-            // 
-            this.tbConsulta.Controls.Add(nVALORITEMLabel);
-            this.tbConsulta.Controls.Add(this.nVALORITEMNumericUpDown);
-            this.tbConsulta.Controls.Add(cDESCRICAOLabel);
-            this.tbConsulta.Controls.Add(this.cDESCRICAOTextBox);
             // 
             // btnSair
             // 
@@ -105,6 +83,28 @@
             // btnTransferir
             // 
             this.btnTransferir.FlatAppearance.BorderSize = 0;
+            // 
+            // tbConsulta
+            // 
+            this.tbConsulta.Controls.Add(nVALORITEMLabel);
+            this.tbConsulta.Controls.Add(this.nVALORITEMNumericUpDown);
+            this.tbConsulta.Controls.Add(cDESCRICAOLabel);
+            this.tbConsulta.Controls.Add(this.cDESCRICAOTextBox);
+            // 
+            // tbCadastro
+            // 
+            this.tbCadastro.Controls.Add(this.dgvItens);
+            this.tbCadastro.Controls.SetChildIndex(this.pnFiltros, 0);
+            this.tbCadastro.Controls.SetChildIndex(this.dgvItens, 0);
+            // 
+            // pnFiltros
+            // 
+            this.pnFiltros.Controls.Add(this.txtFiltro);
+            this.pnFiltros.Controls.Add(this.label1);
+            // 
+            // tbMain
+            // 
+            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
             // 
             // cDESCRICAOLabel
             // 
@@ -135,10 +135,10 @@
             this.nVALORITEMDataGridViewTextBoxColumn});
             this.dgvItens.DataSource = this.iTEMCONSUMOBindingSource;
             this.dgvItens.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvItens.Location = new System.Drawing.Point(3, 96);
+            this.dgvItens.Location = new System.Drawing.Point(3, 91);
             this.dgvItens.Name = "dgvItens";
             this.dgvItens.ReadOnly = true;
-            this.dgvItens.Size = new System.Drawing.Size(770, 338);
+            this.dgvItens.Size = new System.Drawing.Size(770, 343);
             this.dgvItens.TabIndex = 1;
             this.dgvItens.DoubleClick += new System.EventHandler(this.dgvItens_DoubleClick);
             // 
@@ -177,9 +177,11 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
             this.tableAdapterManager.CLIENTETableAdapter = null;
             this.tableAdapterManager.CONSUMOTableAdapter = null;
             this.tableAdapterManager.enderecoTableAdapter = null;
+            this.tableAdapterManager.FORMASDEPAGAMENTOTableAdapter = null;
             this.tableAdapterManager.HOTELTableAdapter = null;
             this.tableAdapterManager.ITEMCONSUMOTableAdapter = this.iTEMCONSUMOTableAdapter;
             this.tableAdapterManager.QUARTOTableAdapter = null;
@@ -232,13 +234,13 @@
             this.Name = "frmItens";
             this.Text = "Registro de Itens de consumo";
             this.Load += new System.EventHandler(this.frmItens_Load);
-            this.tbMain.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
+            this.tbConsulta.ResumeLayout(false);
+            this.tbConsulta.PerformLayout();
             this.tbCadastro.ResumeLayout(false);
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
-            this.tbConsulta.ResumeLayout(false);
-            this.tbConsulta.PerformLayout();
-            this.panel1.ResumeLayout(false);
+            this.tbMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMCONSUMOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();

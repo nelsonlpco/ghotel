@@ -57,6 +57,7 @@ namespace HotelGestor {
             base.Tables.CollectionChanged += schemaChangedHandler;
             base.Relations.CollectionChanged += schemaChangedHandler;
             this.EndInit();
+            this.InitExpressions();
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -68,6 +69,9 @@ namespace HotelGestor {
                 global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler1 = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
                 this.Tables.CollectionChanged += schemaChangedHandler1;
                 this.Relations.CollectionChanged += schemaChangedHandler1;
+                if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.ExcludeSchema)) {
+                    this.InitExpressions();
+                }
                 return;
             }
             string strSchema = ((string)(info.GetValue("XmlSchema", typeof(string))));
@@ -115,6 +119,7 @@ namespace HotelGestor {
             }
             else {
                 this.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
+                this.InitExpressions();
             }
             this.GetSerializationData(info, context);
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -266,6 +271,7 @@ namespace HotelGestor {
         public override global::System.Data.DataSet Clone() {
             HotelDBDataSet cln = ((HotelDBDataSet)(base.Clone()));
             cln.InitVars();
+            cln.InitExpressions();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
         }
@@ -439,7 +445,7 @@ namespace HotelGestor {
             base.Tables.Add(this.tableHOTEL);
             this.tableFORMASDEPAGAMENTO = new FORMASDEPAGAMENTODataTable();
             base.Tables.Add(this.tableFORMASDEPAGAMENTO);
-            this.tableQUARTO = new QUARTODataTable();
+            this.tableQUARTO = new QUARTODataTable(false);
             base.Tables.Add(this.tableQUARTO);
             this.tableCATEGORIAQUARTO = new CATEGORIAQUARTODataTable();
             base.Tables.Add(this.tableCATEGORIAQUARTO);
@@ -562,6 +568,12 @@ namespace HotelGestor {
             }
             xs.Add(dsSchema);
             return type;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private void InitExpressions() {
+            this.QUARTO.STATUSColumn.Expression = "IIF([CESTATUS] = \'L\', \'Livre\',IIF([CESTATUS] = \'O\',\'Ocupado\',\'Reservado\'))";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -3615,12 +3627,23 @@ namespace HotelGestor {
             
             private global::System.Data.DataColumn columnNIDQUARTO;
             
+            private global::System.Data.DataColumn columnSTATUS;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public QUARTODataTable() {
+            public QUARTODataTable() : 
+                    this(false) {
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public QUARTODataTable(bool initExpressions) {
                 this.TableName = "QUARTO";
                 this.BeginInit();
                 this.InitClass();
+                if ((initExpressions == true)) {
+                    this.InitExpressions();
+                }
                 this.EndInit();
             }
             
@@ -3714,6 +3737,14 @@ namespace HotelGestor {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn STATUSColumn {
+                get {
+                    return this.columnSTATUS;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3749,6 +3780,25 @@ namespace HotelGestor {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public QUARTORow AddQUARTORow(string CDESCRICAO, int NNUMERO, int NANDAR, int NMAXPESSOAS, decimal NVALORBASE, int NCATEGORIA, string CESTATUS, string STATUS) {
+                QUARTORow rowQUARTORow = ((QUARTORow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        CDESCRICAO,
+                        NNUMERO,
+                        NANDAR,
+                        NMAXPESSOAS,
+                        NVALORBASE,
+                        NCATEGORIA,
+                        CESTATUS,
+                        null,
+                        STATUS};
+                rowQUARTORow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowQUARTORow);
+                return rowQUARTORow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public QUARTORow AddQUARTORow(string CDESCRICAO, int NNUMERO, int NANDAR, int NMAXPESSOAS, decimal NVALORBASE, int NCATEGORIA, string CESTATUS) {
                 QUARTORow rowQUARTORow = ((QUARTORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -3759,6 +3809,7 @@ namespace HotelGestor {
                         NVALORBASE,
                         NCATEGORIA,
                         CESTATUS,
+                        null,
                         null};
                 rowQUARTORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowQUARTORow);
@@ -3797,6 +3848,7 @@ namespace HotelGestor {
                 this.columnNCATEGORIA = base.Columns["NCATEGORIA"];
                 this.columnCESTATUS = base.Columns["CESTATUS"];
                 this.columnNIDQUARTO = base.Columns["NIDQUARTO"];
+                this.columnSTATUS = base.Columns["STATUS"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3818,6 +3870,8 @@ namespace HotelGestor {
                 base.Columns.Add(this.columnCESTATUS);
                 this.columnNIDQUARTO = new global::System.Data.DataColumn("NIDQUARTO", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnNIDQUARTO);
+                this.columnSTATUS = new global::System.Data.DataColumn("STATUS", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSTATUS);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnNIDQUARTO}, true));
                 this.columnCDESCRICAO.MaxLength = 2147483647;
@@ -3828,6 +3882,7 @@ namespace HotelGestor {
                 this.columnNIDQUARTO.AllowDBNull = false;
                 this.columnNIDQUARTO.ReadOnly = true;
                 this.columnNIDQUARTO.Unique = true;
+                this.columnSTATUS.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3846,6 +3901,12 @@ namespace HotelGestor {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(QUARTORow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitExpressions() {
+                this.STATUSColumn.Expression = "IIF([CESTATUS] = \'L\', \'Livre\',IIF([CESTATUS] = \'O\',\'Ocupado\',\'Reservado\'))";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6274,6 +6335,22 @@ namespace HotelGestor {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string STATUS {
+                get {
+                    try {
+                        return ((string)(this[this.tableQUARTO.STATUSColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'STATUS\' in table \'QUARTO\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableQUARTO.STATUSColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsCDESCRICAONull() {
                 return this.IsNull(this.tableQUARTO.CDESCRICAOColumn);
             }
@@ -6354,6 +6431,18 @@ namespace HotelGestor {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetCESTATUSNull() {
                 this[this.tableQUARTO.CESTATUSColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSTATUSNull() {
+                return this.IsNull(this.tableQUARTO.STATUSColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSTATUSNull() {
+                this[this.tableQUARTO.STATUSColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -10837,8 +10926,8 @@ SELECT NIDQUARTO, CDESCRICAO, NNUMERO, NANDAR, NMAXPESSOAS, CESTATUS, NVALORBASE
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        CASE QUARTO.CESTATUS WHEN 'L' THEN 'Livre' ELSE CASE QUARTO.CESTATUS WHEN 'O' THEN 'Ocupado' ELSE 'Reservado' END END AS STATUS, A.CDESCRICAO AS CATEGORIA, QUARTO.NIDQUARTO, 
-                         QUARTO.CDESCRICAO, QUARTO.NANDAR, QUARTO.NNUMERO, QUARTO.NMAXPESSOAS, QUARTO.NVALORBASE
+            this._commandCollection[1].CommandText = @"SELECT        A.CDESCRICAO AS CATEGORIA, QUARTO.NIDQUARTO, QUARTO.CDESCRICAO, QUARTO.NANDAR, QUARTO.NNUMERO, QUARTO.NMAXPESSOAS, QUARTO.NVALORBASE, QUARTO.CESTATUS, 
+                         QUARTO.NCATEGORIA
 FROM            QUARTO LEFT OUTER JOIN
                          CATEGORIAQUARTO AS A ON A.idcategoria = QUARTO.NCATEGORIA";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
@@ -10863,7 +10952,7 @@ FROM            QUARTO LEFT OUTER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual HotelDBDataSet.QUARTODataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HotelDBDataSet.QUARTODataTable dataTable = new HotelDBDataSet.QUARTODataTable();
+            HotelDBDataSet.QUARTODataTable dataTable = new HotelDBDataSet.QUARTODataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -10887,7 +10976,7 @@ FROM            QUARTO LEFT OUTER JOIN
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual HotelDBDataSet.QUARTODataTable GetDataToView() {
             this.Adapter.SelectCommand = this.CommandCollection[1];
-            HotelDBDataSet.QUARTODataTable dataTable = new HotelDBDataSet.QUARTODataTable();
+            HotelDBDataSet.QUARTODataTable dataTable = new HotelDBDataSet.QUARTODataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

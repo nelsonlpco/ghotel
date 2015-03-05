@@ -131,6 +131,7 @@ namespace HotelGestor.template
         }
 
         
+        
         private void btnTransferir_Click(object sender, EventArgs e)
         {
             selecionar();
@@ -156,25 +157,14 @@ namespace HotelGestor.template
             cancelar();
         }
 
-        public virtual void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (this.saveprompt && tbMain.SelectedIndex == 0)
-            {
-                Comum.msgAlert(Comum.MSG_EMEDICAO);
-                e.Cancel = true;
-                return;
-            }
-            else if (isEmptyDataset() && !isInclude && tbMain.SelectedIndex == 1)
-            {
-                Comum.msgAlert(Comum.MSG_SEMREGISTRO);
-                e.Cancel = true;
-                return;
-            }
-        }
+        
 
         private void frmMainCadastro_FormClosing(object sender, FormClosingEventArgs e)
         {
             e.Cancel = !Sair();
         }
+
+        
+       
     }
 }

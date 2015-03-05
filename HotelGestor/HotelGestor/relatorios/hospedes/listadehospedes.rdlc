@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.19697cm</Width>
+              <Width>6.11098cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.9426cm</Width>
+              <Width>2.85661cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.9426cm</Width>
+              <Width>2.85661cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.23487cm</Width>
+              <Width>5.83138cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -32,7 +32,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>CNOME</Value>
-                              <Style />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -44,6 +48,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -62,7 +67,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>CFONE</Value>
-                              <Style />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -74,6 +83,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -92,7 +102,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>CFONE2</Value>
-                              <Style />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -104,6 +118,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -122,7 +137,11 @@
                           <TextRuns>
                             <TextRun>
                               <Value>CEMAIL</Value>
-                              <Style />
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -134,6 +153,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>LightGrey</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -157,7 +177,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!CNOME.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -187,7 +209,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!CFONE.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -217,7 +241,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!CFONE2.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -247,7 +273,9 @@
                           <TextRuns>
                             <TextRun>
                               <Value>=Fields!CEMAIL.Value</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>9pt</FontSize>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style />
@@ -291,8 +319,9 @@
         </TablixRowHierarchy>
         <DataSetName>dsHospede</DataSetName>
         <Top>0.60537cm</Top>
+        <Left>0.34396cm</Left>
         <Height>1.2cm</Height>
-        <Width>18.31703cm</Width>
+        <Width>17.65558cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -303,16 +332,176 @@
     <Height>2in</Height>
     <Style>
       <Border>
-        <Style>Solid</Style>
+        <Style>None</Style>
       </Border>
     </Style>
   </Body>
   <Width>7.21143in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>2.87266cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
+      <ReportItems>
+        <Line Name="Line3">
+          <Top>2.5371cm</Top>
+          <Left>0.34396cm</Left>
+          <Height>0cm</Height>
+          <Width>17.65558cm</Width>
+          <Style>
+            <Border>
+              <Color>DimGray</Color>
+              <Style>Solid</Style>
+              <Width>4pt</Width>
+            </Border>
+          </Style>
+        </Line>
+        <Image Name="Logo">
+          <Source>Database</Source>
+          <Value>=First(Fields!LOGO.Value, "dsHotel")</Value>
+          <MIMEType>image/png</MIMEType>
+          <Sizing>Fit</Sizing>
+          <Top>0.3937cm</Top>
+          <Left>0.60537cm</Left>
+          <Height>1.8175cm</Height>
+          <Width>1.87042cm</Width>
+          <ZIndex>1</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <RightBorder>
+              <Style>Solid</Style>
+            </RightBorder>
+          </Style>
+        </Image>
+        <Textbox Name="CNOME1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!CNOME.Value, "dsHotel")</Value>
+                  <Style>
+                    <FontSize>14pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>CNOME1</rd:DefaultName>
+          <Top>0.3937cm</Top>
+          <Left>2.98662cm</Left>
+          <Height>0.74965cm</Height>
+          <Width>12.10438cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="CCNPJ">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!CCNPJ.Value, "dsHotel")</Value>
+                  <Style>
+                    <FontSize>12pt</FontSize>
+                    <FontWeight>Bold</FontWeight>
+                  </Style>
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>CCNPJ</rd:DefaultName>
+          <Top>1.31974cm</Top>
+          <Left>2.98662cm</Left>
+          <Height>0.6cm</Height>
+          <Width>6.04542cm</Width>
+          <ZIndex>3</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox22">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Globals!PageNumber</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox22</rd:DefaultName>
+          <Top>1.31974cm</Top>
+          <Left>15.49953cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <ZIndex>4</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="Textbox23">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=Now()</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>Textbox23</rd:DefaultName>
+          <Top>1.31974cm</Top>
+          <Left>9.97162cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.11938cm</Width>
+          <ZIndex>5</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+      </ReportItems>
       <Style>
         <Border>
           <Style>None</Style>

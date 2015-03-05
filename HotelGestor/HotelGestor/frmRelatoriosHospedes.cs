@@ -23,6 +23,8 @@ namespace HotelGestor
             // TODO: This line of code loads data into the 'hotelDBDataSet.CLIENTE' table. You can move, or remove it, as needed.
             this.cLIENTETableAdapter.Fill(this.hotelDBDataSet.CLIENTE);
 
+            cbRelatorios.SelectedIndex = 0;
+
             this.reportViewer1.RefreshReport();
         }
 

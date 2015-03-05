@@ -31,10 +31,11 @@
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.cLIENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.HOTELBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
+            this.cLIENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.cLIENTETableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.CLIENTETableAdapter();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbRelatorios = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
@@ -49,13 +50,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.reportViewer1 = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.HOTELBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.HOTELTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOTELTableAdapter();
             this.panel1.SuspendLayout();
             this.pnFiltros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.HOTELBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -77,35 +77,40 @@
             this.pnFiltros.Controls.Add(this.maskedTextBox2);
             this.pnFiltros.Controls.Add(this.maskedTextBox1);
             this.pnFiltros.Controls.Add(this.textBox1);
-            this.pnFiltros.Controls.Add(this.comboBox1);
+            this.pnFiltros.Controls.Add(this.cbRelatorios);
             this.pnFiltros.Size = new System.Drawing.Size(784, 131);
             // 
-            // cLIENTEBindingSource
+            // HOTELBindingSource
             // 
-            this.cLIENTEBindingSource.DataMember = "CLIENTE";
-            this.cLIENTEBindingSource.DataSource = this.hotelDBDataSet;
+            this.HOTELBindingSource.DataMember = "HOTEL";
+            this.HOTELBindingSource.DataSource = this.hotelDBDataSet;
             // 
             // hotelDBDataSet
             // 
             this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
             this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // cLIENTEBindingSource
+            // 
+            this.cLIENTEBindingSource.DataMember = "CLIENTE";
+            this.cLIENTEBindingSource.DataSource = this.hotelDBDataSet;
+            // 
             // cLIENTETableAdapter
             // 
             this.cLIENTETableAdapter.ClearBeforeFill = true;
             // 
-            // comboBox1
+            // cbRelatorios
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbRelatorios.FormattingEnabled = true;
+            this.cbRelatorios.Items.AddRange(new object[] {
             "Lista de Hóspedes.",
             "Ficha do Hóspede.",
             "Lista de Aniversáriantes.",
             "Histórico do Hóspede."});
-            this.comboBox1.Location = new System.Drawing.Point(156, 6);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(407, 26);
-            this.comboBox1.TabIndex = 0;
+            this.cbRelatorios.Location = new System.Drawing.Point(156, 6);
+            this.cbRelatorios.Name = "cbRelatorios";
+            this.cbRelatorios.Size = new System.Drawing.Size(407, 26);
+            this.cbRelatorios.TabIndex = 0;
             // 
             // textBox1
             // 
@@ -242,11 +247,6 @@
             this.reportViewer1.Size = new System.Drawing.Size(784, 349);
             this.reportViewer1.TabIndex = 9;
             // 
-            // HOTELBindingSource
-            // 
-            this.HOTELBindingSource.DataMember = "HOTEL";
-            this.HOTELBindingSource.DataSource = this.hotelDBDataSet;
-            // 
             // HOTELTableAdapter
             // 
             this.HOTELTableAdapter.ClearBeforeFill = true;
@@ -264,9 +264,9 @@
             this.panel1.ResumeLayout(false);
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.HOTELBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -289,7 +289,7 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox2;
         private System.Windows.Forms.MaskedTextBox maskedTextBox1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbRelatorios;
         private System.Windows.Forms.Button button2;
         private Microsoft.Reporting.WinForms.ReportViewer reportViewer1;
         private System.Windows.Forms.BindingSource HOTELBindingSource;

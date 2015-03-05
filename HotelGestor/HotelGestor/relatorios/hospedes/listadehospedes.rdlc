@@ -6,7 +6,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.11098cm</Width>
+              <Width>5.83147cm</Width>
             </TablixColumn>
             <TablixColumn>
               <Width>2.85661cm</Width>
@@ -15,12 +15,12 @@
               <Width>2.85661cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.83138cm</Width>
+              <Width>5.69909cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.65292cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -31,7 +31,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CNOME</Value>
+                              <Value>Nome</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>12pt</FontSize>
@@ -66,7 +66,20 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CFONE</Value>
+                              <Value>Telefone 1</Value>
+                              <Style>
+                                <FontStyle>Normal</FontStyle>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value />
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>12pt</FontSize>
@@ -101,7 +114,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CFONE2</Value>
+                              <Value>Telefone 2</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>12pt</FontSize>
@@ -136,7 +149,7 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>CEMAIL</Value>
+                              <Value>E-mail</Value>
                               <Style>
                                 <FontStyle>Normal</FontStyle>
                                 <FontSize>12pt</FontSize>
@@ -320,8 +333,8 @@
         <DataSetName>dsHospede</DataSetName>
         <Top>0.60537cm</Top>
         <Left>0.34396cm</Left>
-        <Height>1.2cm</Height>
-        <Width>17.65558cm</Width>
+        <Height>1.25292cm</Height>
+        <Width>17.24377cm</Width>
         <Style>
           <Border>
             <Style>None</Style>

@@ -205,6 +205,7 @@
     <EmbeddedResource Include="relatorios\frmView.resx">
       <DependentUpon>frmView.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="relatorios\hospedes\fichaHospede.rdlc" />
     <EmbeddedResource Include="relatorios\hospedes\listadehospedes.rdlc" />
     <EmbeddedResource Include="template\frmBaseRelatorios.resx">
       <DependentUpon>frmBaseRelatorios.cs</DependentUpon>

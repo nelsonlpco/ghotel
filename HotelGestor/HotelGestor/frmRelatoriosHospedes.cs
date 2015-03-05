@@ -30,7 +30,14 @@ namespace HotelGestor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            this.reportViewer1.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.listadehospedes.rdlc";
+            switch (cbRelatorios.SelectedIndex)
+            {
+                case 0: this.reportViewer1.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.listadehospedes.rdlc";
+                    break;
+                case 1: this.reportViewer1.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.fichaHospede.rdlc";
+                    break;
+            }
+            
             this.reportViewer1.RefreshReport();
         }
     }

@@ -25,17 +25,10 @@ namespace HotelGestor
         }
 
 
-        private bool fsaveprompt;
-        private bool fincluir;
-
         private DataRowView currentRow;
 
-        private int selectId;
-        private string selectDescription;
         private double selectValue;
 
-        public int SelectId { get { return selectId; } }
-        public string SelectDescription { get { return selectDescription; } }
         public double SelectValue { get { return selectValue; } }
 
         private void addeventos()
@@ -44,17 +37,8 @@ namespace HotelGestor
             nVALORITEMNumericUpDown.ValueChanged += onEdit;
         }
 
-        private void onEdit(object sender, EventArgs e)
-        {
-            if (!fsaveprompt && tbMain.SelectedIndex == 1)
-            {
-                fsaveprompt = true;
-                buttonStates();
-                lbStatus.Text = Comum.screenStats('e');
-            }
-        }
 
-        public bool isEmptyDataSet()
+        public override bool isEmptyDataset()
         {
             bool saida = true;
             if (hotelDBDataSet.ITEMCONSUMO.Rows.Count > 0)
@@ -62,15 +46,6 @@ namespace HotelGestor
             return saida;
         }
 
-        public void buttonStates()
-        {
-            btnTransferir.Enabled = !fsaveprompt && !isEmptyDataSet();
-            btnIncluir.Enabled = !fsaveprompt;
-            btnGravar.Enabled = fsaveprompt;
-            btnCancelar.Enabled = fsaveprompt;
-            btnExcluir.Enabled = !fsaveprompt && !isEmptyDataSet();
-            btnSair.Enabled = !fsaveprompt;
-        }
 
         public void selectMod()
         {
@@ -78,31 +53,21 @@ namespace HotelGestor
             lbStatus.Text = Comum.screenStats('t');
         }
 
-        public bool sair()
-        {
-            bool saida = true;
-            if (fincluir || fsaveprompt)
-            {
-                Comum.msgAlert(Comum.MSG_EMEDICAO);
-                saida = false;
-            }
-            return saida;
-        }
 
-        public void salvar()
+        public override void salvar()
         {
             currentRow = (DataRowView)iTEMCONSUMOBindingSource.Current;
             
             iTEMCONSUMOBindingSource.EndEdit();
             iTEMCONSUMOTableAdapter.Update(hotelDBDataSet.ITEMCONSUMO);
-            fsaveprompt = false;
-            fincluir = false;
+            SavePrompt = false;
+            IsInclude = false;
             lbStatus.Text = Comum.screenStats('c');
             tbMain.SelectedIndex = 0;
             buttonStates();
         }
 
-        public void excluir()
+        public override void excluir()
         {
             lbStatus.Text = Comum.screenStats('d');
             if (Comum.msgExcluir(Comum.MSG_EXCLUIR))
@@ -115,37 +80,37 @@ namespace HotelGestor
             buttonStates();
         }
 
-        public void cancelar()
+        public override void cancelar()
         {
             iTEMCONSUMOBindingSource.CancelEdit();
-            fincluir = false;
-            fsaveprompt = false;
+            IsInclude = false;
+            SavePrompt = false;
             lbStatus.Text = Comum.screenStats('c');
             tbMain.SelectedIndex = 0;
             buttonStates();
         }
 
-        public void incluir()
+        public override void incluir()
         {
             lbStatus.Text = Comum.screenStats('i');
-            fincluir = true;
-            fsaveprompt = true;
+            IsInclude = true;
+            SavePrompt = true;
             iTEMCONSUMOBindingSource.AddNew();
             cDESCRICAOTextBox.Focus();
             buttonStates();
             tbMain.SelectedIndex = 1;
         }
 
-        public void selecionar()
+        public override void selecionar()
         {
             currentRow = (DataRowView)iTEMCONSUMOBindingSource.Current;
-            selectId = (int)currentRow["NIDITEMCONSUMO"];
-            selectDescription = (string)currentRow["CDESCRICAO"];
+            SelectId = (int)currentRow["NIDITEMCONSUMO"];
+            SelectDescription = (string)currentRow["CDESCRICAO"];
             selectValue = (double)currentRow["NVALORITEM"];
             this.Close();
         }
 
-        public void filtro()
+        public override void filtro()
         {
             string filtro = string.Format(" CDESCRICAO like '%{0}%'", txtFiltro.Text);
             
@@ -153,49 +118,6 @@ namespace HotelGestor
 
         }
 
-        private void btnTransferir_Click(object sender, EventArgs e)
-        {
-            selecionar();
-        }
-
-        private void btnIncluir_Click(object sender, EventArgs e)
-        {
-            incluir();
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            excluir();
-        }
-
-        private void btnGravar_Click(object sender, EventArgs e)
-        {
-            salvar();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            cancelar();
-        }
-
-        private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (fsaveprompt && tbMain.SelectedIndex == 0)
-            {
-                Comum.msgAlert(Comum.MSG_EMEDICAO);
-                e.Cancel = true;
-            }
-            else if (isEmptyDataSet() && !fincluir && tbMain.SelectedIndex == 1)
-            {
-                Comum.msgAlert(Comum.MSG_SEMREGISTRO);
-                e.Cancel = true;
-            }
-        }
-
-        private void frmItens_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = !sair();
-        }
 
         private void dgvItens_DoubleClick(object sender, EventArgs e)
         {
@@ -206,8 +128,6 @@ namespace HotelGestor
         {
             filtro();
         }
-
-        
 
     }
 }

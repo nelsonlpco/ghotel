@@ -18,18 +18,9 @@ namespace HotelGestor
             lbStatus.Text = Comum.screenStats('c');
         }
         private VideoCaptureDevice videoSource;
-
-        private bool fsaveprompt;
-        private bool fincluir;
         private bool ffoto;
 
         private DataRowView currentRow;
-
-        private int selectId;
-        private string selectDescription;
-
-        public int SelectId { get { return selectId; } }
-        public string SelectDescription { get { return selectDescription; } }
 
         private void addeventos()
         {
@@ -47,17 +38,8 @@ namespace HotelGestor
             cEMAILTextBox.TextChanged += onEdit;
         }
 
-        private void onEdit(object sender, EventArgs e)
-        {
-            if (!fsaveprompt && tbMain.SelectedIndex == 1)
-            {
-                fsaveprompt = true;
-                buttonStates();
-                lbStatus.Text = Comum.screenStats('e');
-            }
-        }
 
-        public bool isEmptyDataSet()
+        public override bool isEmptyDataset()
         {
             bool saida = true;
             if (hotelDBDataSet.CLIENTE.Rows.Count > 0)
@@ -120,14 +102,14 @@ namespace HotelGestor
             }
         }
 
-        public void buttonStates()
+        public override void buttonStates()
         {
-            btnTransferir.Enabled = !fsaveprompt && !isEmptyDataSet() && !ffoto;
-            btnIncluir.Enabled = !fsaveprompt && !ffoto;
-            btnGravar.Enabled = fsaveprompt && !ffoto;
-            btnCancelar.Enabled = fsaveprompt;
-            btnExcluir.Enabled = !fsaveprompt && !isEmptyDataSet() && !ffoto;
-            btnSair.Enabled = !fsaveprompt && !ffoto;
+            btnTransferir.Enabled = !SavePrompt && !isEmptyDataset() && !ffoto;
+            btnIncluir.Enabled = !SavePrompt && !ffoto;
+            btnGravar.Enabled = SavePrompt && !ffoto;
+            btnCancelar.Enabled = SavePrompt;
+            btnExcluir.Enabled = !SavePrompt && !isEmptyDataset() && !ffoto;
+            btnSair.Enabled = !SavePrompt && !ffoto;
         }
 
         public void selectMod()
@@ -136,18 +118,8 @@ namespace HotelGestor
             lbStatus.Text = Comum.screenStats('t');
         }
 
-        public bool sair()
-        {
-            bool saida = true;
-            if (fincluir || fsaveprompt)
-            {
-                Comum.msgAlert(Comum.MSG_EMEDICAO);
-                saida = false;
-            }
-            return saida;
-        }
 
-        public void salvar()
+        public override void salvar()
         {
             currentRow = (DataRowView)cLIENTEBindingSource.Current;
             currentRow["DDATACADASTRO"] = System.DateTime.Now;
@@ -155,14 +127,14 @@ namespace HotelGestor
 
             cLIENTEBindingSource.EndEdit();
             cLIENTETableAdapter.Update(hotelDBDataSet.CLIENTE);
-            fsaveprompt = false;
-            fincluir = false;
+            SavePrompt = false;
+            IsInclude = false;
             lbStatus.Text = Comum.screenStats('c');
             tbMain.SelectedIndex = 0;
             buttonStates();
         }
 
-        public void excluir()
+        public override void excluir()
         {
             lbStatus.Text = Comum.screenStats('d');
             if (Comum.msgExcluir(Comum.MSG_EXCLUIR))
@@ -175,33 +147,33 @@ namespace HotelGestor
             buttonStates();
         }
 
-        public void cancelar()
+        public override void cancelar()
         {
             cLIENTEBindingSource.CancelEdit();
             stopPhotoLibrary();
-            fincluir = false;
-            fsaveprompt = false;
+            SavePrompt = false;
+            IsInclude = false;
             lbStatus.Text = Comum.screenStats('c');
             tbMain.SelectedIndex = 0;
             buttonStates();
         }
 
-        public void incluir()
+        public override void incluir()
         {
             lbStatus.Text = Comum.screenStats('i');
-            fincluir = true;
-            fsaveprompt = true;
+            IsInclude = true;
+            SavePrompt = true;
             cLIENTEBindingSource.AddNew();
             cNOMETextBox.Focus();
             buttonStates();
             tbMain.SelectedIndex = 1;
         }
 
-        public void selecionar()
+        public override void selecionar()
         {
             currentRow = (DataRowView)cLIENTEBindingSource.Current;
-            selectId = (int)currentRow["NNUMECLIENTE"];
-            selectDescription = (string)currentRow["CNOME"];
+            SelectId = (int)currentRow["NNUMECLIENTE"];
+            SelectDescription = (string)currentRow["CNOME"];
             this.Close();
         }
 
@@ -213,30 +185,6 @@ namespace HotelGestor
 
         }
 
-        private void btnTransferir_Click(object sender, EventArgs e)
-        {
-            selecionar();
-        }
-
-        private void btnIncluir_Click(object sender, EventArgs e)
-        {
-            incluir();
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            excluir();
-        }
-
-        private void btnGravar_Click(object sender, EventArgs e)
-        {
-            salvar();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            cancelar();
-        }
 
         private void btnCamera_Click(object sender, EventArgs e)
         {
@@ -250,19 +198,6 @@ namespace HotelGestor
             imagemDoArquivo();
         }
 
-        private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (fsaveprompt && tbMain.SelectedIndex == 0)
-            {
-                Comum.msgAlert(Comum.MSG_EMEDICAO);
-                e.Cancel = true;
-            }
-            else if (isEmptyDataSet() && !fincluir && tbMain.SelectedIndex == 1)
-            {
-                Comum.msgAlert(Comum.MSG_SEMREGISTRO);
-                e.Cancel = true;
-            }
-        }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {

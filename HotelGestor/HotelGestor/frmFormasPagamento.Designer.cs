@@ -50,10 +50,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
-            // tbMain
-            // 
-            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
-            // 
             // tbCadastro
             // 
             this.tbCadastro.Controls.Add(this.dataGridView1);
@@ -78,30 +74,25 @@
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Location = new System.Drawing.Point(348, 0);
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGravar
             // 
             this.btnGravar.FlatAppearance.BorderSize = 0;
             this.btnGravar.Location = new System.Drawing.Point(261, 0);
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.Location = new System.Drawing.Point(174, 0);
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnIncluir
             // 
             this.btnIncluir.FlatAppearance.BorderSize = 0;
             this.btnIncluir.Location = new System.Drawing.Point(87, 0);
-            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnTransferir
             // 
             this.btnTransferir.FlatAppearance.BorderSize = 0;
-            this.btnTransferir.Click += new System.EventHandler(this.btnTransferir_Click);
             // 
             // cDESCRICAOLabel
             // 
@@ -129,6 +120,7 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
             this.tableAdapterManager.CLIENTETableAdapter = null;
             this.tableAdapterManager.CONSUMOTableAdapter = null;
             this.tableAdapterManager.enderecoTableAdapter = null;
@@ -195,7 +187,6 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Name = "frmFormasPagamento";
             this.Text = "Registro de formas de pagamento";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmFormasPagamento_FormClosing);
             this.Load += new System.EventHandler(this.frmFormasPagamento_Load);
             this.tbMain.ResumeLayout(false);
             this.tbCadastro.ResumeLayout(false);
@@ -212,6 +203,8 @@
 
         }
 
+        
+
         #endregion
 
         private HotelDBDataSet hotelDBDataSet;
@@ -223,5 +216,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn cDESCRICAODataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label label1;
+
+        
     }
 }

@@ -33,14 +33,14 @@
             this.pnFiltros = new System.Windows.Forms.Panel();
             this.tbConsulta = new System.Windows.Forms.TabPage();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
-            this.lbStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.btnSair = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnExcluir = new System.Windows.Forms.Button();
             this.btnIncluir = new System.Windows.Forms.Button();
             this.btnTransferir = new System.Windows.Forms.Button();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lbStatus = new System.Windows.Forms.ToolStripStatusLabel();
             this.tbMain.SuspendLayout();
             this.tbCadastro.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -59,6 +59,7 @@
             this.tbMain.SelectedIndex = 0;
             this.tbMain.Size = new System.Drawing.Size(784, 469);
             this.tbMain.TabIndex = 5;
+            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
             // 
             // tbCadastro
             // 
@@ -112,23 +113,6 @@
             this.panel1.Size = new System.Drawing.Size(784, 70);
             this.panel1.TabIndex = 3;
             // 
-            // statusStrip1
-            // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.lbStatus});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
-            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
-            this.statusStrip1.TabIndex = 4;
-            this.statusStrip1.Text = "statusStrip1";
-            // 
-            // lbStatus
-            // 
-            this.lbStatus.Name = "lbStatus";
-            this.lbStatus.Size = new System.Drawing.Size(12, 17);
-            this.lbStatus.Text = "s";
-            // 
             // btnSair
             // 
             this.btnSair.Dock = System.Windows.Forms.DockStyle.Right;
@@ -161,6 +145,7 @@
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGravar
             // 
@@ -177,6 +162,7 @@
             this.btnGravar.Text = "Gravar";
             this.btnGravar.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnGravar.UseVisualStyleBackColor = true;
+            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnExcluir
             // 
@@ -193,6 +179,7 @@
             this.btnExcluir.Text = "Excluir";
             this.btnExcluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnExcluir.UseVisualStyleBackColor = true;
+            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnIncluir
             // 
@@ -209,6 +196,7 @@
             this.btnIncluir.Text = "Incluir";
             this.btnIncluir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnIncluir.UseVisualStyleBackColor = true;
+            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnTransferir
             // 
@@ -226,6 +214,24 @@
             this.btnTransferir.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.btnTransferir.UseVisualStyleBackColor = true;
             this.btnTransferir.Visible = false;
+            this.btnTransferir.Click += new System.EventHandler(this.btnTransferir_Click);
+            // 
+            // statusStrip1
+            // 
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lbStatus});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Padding = new System.Windows.Forms.Padding(1, 0, 16, 0);
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lbStatus
+            // 
+            this.lbStatus.Name = "lbStatus";
+            this.lbStatus.Size = new System.Drawing.Size(12, 17);
+            this.lbStatus.Text = "s";
             // 
             // frmMainCadastro
             // 
@@ -240,6 +246,7 @@
             this.Name = "frmMainCadastro";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmMainCadastro";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMainCadastro_FormClosing);
             this.tbMain.ResumeLayout(false);
             this.tbCadastro.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

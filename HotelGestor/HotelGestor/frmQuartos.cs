@@ -29,7 +29,7 @@ namespace HotelGestor
         public int SelectId { get { return selectId; } }
         public string SelectDescription { get { return selectDescription; } }
 
-        private void addeventos()
+        public void addeventos()
         {
             cDESCRICAOTextBox.TextChanged += onEdit;
             nANDARNumericUpDown.ValueChanged += onEdit;
@@ -39,17 +39,7 @@ namespace HotelGestor
             nCATEGORIAComboBox.SelectedValueChanged += onEdit;
         }
 
-        private void onEdit(object sender, EventArgs e)
-        {
-            if (!fsaveprompt && tbMain.SelectedIndex == 1)
-            {
-                fsaveprompt = true;
-                buttonStates();
-                lbStatus.Text = Comum.screenStats('e');
-            }
-        }
-
-        public bool isEmptyDataSet()
+        public override bool isEmptyDataset()
         {
             bool saida = true;
             if (hotelDBDataSet.QUARTO.Rows.Count > 0)
@@ -57,17 +47,8 @@ namespace HotelGestor
             return saida;
         }
 
-        public void buttonStates()
-        {
-            btnTransferir.Enabled = !fsaveprompt && !isEmptyDataSet();
-            btnIncluir.Enabled = !fsaveprompt;
-            btnGravar.Enabled = fsaveprompt;
-            btnCancelar.Enabled = fsaveprompt;
-            btnExcluir.Enabled = !fsaveprompt && !isEmptyDataSet();
-            btnSair.Enabled = !fsaveprompt;
-        }
 
-        public void selectMod()
+        public  void selectMod()
         {
             btnTransferir.Visible = true;
             lbStatus.Text = Comum.screenStats('t');
@@ -78,18 +59,7 @@ namespace HotelGestor
             cbFiltroStatus.Enabled = false;
         }
 
-        public bool sair()
-        {
-            bool saida = true;
-            if (fincluir || fsaveprompt)
-            {
-                Comum.msgAlert(Comum.MSG_EMEDICAO);
-                saida = false;
-            }
-            return saida;
-        }
-
-        public void salvar()
+        public override void salvar()
         {
             currentRow = (DataRowView)qUARTOBindingSource.Current;
             currentRow["NVALORBASE"] = Double.Parse(nVALORBASETextBox.Text);
@@ -107,7 +77,7 @@ namespace HotelGestor
             buttonStates();
         }
 
-        public void excluir()
+        public override void excluir()
         {
             lbStatus.Text = Comum.screenStats('d');
             if (Comum.msgExcluir(Comum.MSG_EXCLUIR))
@@ -120,7 +90,7 @@ namespace HotelGestor
             buttonStates();
         }
 
-        public void cancelar()
+        public override void cancelar()
         {
             qUARTOBindingSource.CancelEdit();
             fincluir = false;
@@ -130,7 +100,7 @@ namespace HotelGestor
             buttonStates();
         }
 
-        public void incluir()
+        public override void incluir()
         {
             lbStatus.Text = Comum.screenStats('i');
             fincluir = true;
@@ -141,7 +111,7 @@ namespace HotelGestor
             tbMain.SelectedIndex = 1;
         }
 
-        public void selecionar()
+        public override void selecionar()
         {
             currentRow = (DataRowView)qUARTOBindingSource.Current;
             selectId = (int)currentRow["NIDQUARTO"];
@@ -149,7 +119,7 @@ namespace HotelGestor
             this.Close();
         } 
 
-        public void filtro()
+        public override void filtro()
         {
             string filtro = "";
             if (!txtFiltroDiariaIni.Text.Equals("0,00"))
@@ -198,62 +168,19 @@ namespace HotelGestor
 
         }
 
-        private void btnTransferir_Click(object sender, EventArgs e)
+        public override void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
-            selecionar();
-        }
-
-        private void btnIncluir_Click(object sender, EventArgs e)
-        {
-            incluir();
-        }
-
-        private void btnExcluir_Click(object sender, EventArgs e)
-        {
-            excluir();
-        }
-
-        private void btnGravar_Click(object sender, EventArgs e)
-        {
-            salvar();
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            cancelar();
-        }
-
-        private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            if (fsaveprompt && tbMain.SelectedIndex == 0)
-            {
-                Comum.msgAlert(Comum.MSG_EMEDICAO);
-                e.Cancel = true;
-                return;
-            }
-            else if (isEmptyDataSet() && !fincluir && tbMain.SelectedIndex == 1)
-            {
-                Comum.msgAlert(Comum.MSG_SEMREGISTRO);
-                e.Cancel = true;
-                return;
-            }
             if (tbMain.SelectedIndex == 0)
             {
                 this.cATEGORIAQUARTOTableAdapter.FillToSelect(this.hotelDBDataSet.CATEGORIAQUARTO);
             }
             else
                 this.cATEGORIAQUARTOTableAdapter.Fill(this.hotelDBDataSet.CATEGORIAQUARTO);
-            
         }
 
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             tbMain.SelectedIndex = 1;
-        }
-
-        private void frmQuartos_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            e.Cancel = !sair();
         }
 
         private void btnFiltrar_Click(object sender, EventArgs e)
@@ -308,10 +235,6 @@ namespace HotelGestor
         {
             ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
         }
-
-       
-
-      
 
     }
 }

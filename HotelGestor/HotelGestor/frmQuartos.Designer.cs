@@ -144,30 +144,25 @@
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Location = new System.Drawing.Point(348, 0);
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnGravar
             // 
             this.btnGravar.FlatAppearance.BorderSize = 0;
             this.btnGravar.Location = new System.Drawing.Point(261, 0);
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnExcluir
             // 
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.Location = new System.Drawing.Point(174, 0);
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
             // 
             // btnIncluir
             // 
             this.btnIncluir.FlatAppearance.BorderSize = 0;
             this.btnIncluir.Location = new System.Drawing.Point(87, 0);
-            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
             // 
             // btnTransferir
             // 
             this.btnTransferir.FlatAppearance.BorderSize = 0;
-            this.btnTransferir.Click += new System.EventHandler(this.btnTransferir_Click);
             // 
             // cDESCRICAOLabel
             // 
@@ -600,7 +595,6 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Name = "frmQuartos";
             this.Text = "Registro de quartos";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmQuartos_FormClosing);
             this.Load += new System.EventHandler(this.frmQuartos_Load);
             this.tbMain.ResumeLayout(false);
             this.tbCadastro.ResumeLayout(false);

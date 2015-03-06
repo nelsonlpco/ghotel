@@ -70,10 +70,10 @@ namespace HotelGestor
             {
                 foreach (DataRow row in dt.Rows)
                 {
-                    saida[0] = row[2].ToString();
-                    saida[1] = row[3].ToString();
-                    saida[2] = row[4].ToString();
-                    saida[3] = row[5].ToString();
+                    saida[2] = row[2].ToString();
+                    saida[3] = row[3].ToString();
+                    saida[1] = row[4].ToString();
+                    saida[0] = row[5].ToString();
                 }
             }
             else
@@ -133,14 +133,19 @@ namespace HotelGestor
             saida += Char.ToUpper(entrada[0]);
             for (int i = 1; i < entrada.Length; i++)
             {
-
-                if (entrada[i - 1] == ' ' && ((entrada[i+2] != ' ') && (entrada[i+3] != ' ')))
+                try
                 {
-                    saida += Char.ToUpper(entrada[i]);
-                }
-                else
+                    if (entrada[i - 1] == ' ' && ((entrada[i+2] != ' ') && (entrada[i+3] != ' ')) && !Char.IsDigit(entrada[i]))
+                    {
+                        saida += Char.ToUpper(entrada[i]);
+                    }
+                    else
+                        saida += entrada[i];
+                }catch(Exception e){
                     saida += entrada[i];
+                }
             }
+            
             ((TextBox)Sender).Text = saida;
         }
 

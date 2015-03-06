@@ -143,6 +143,7 @@ namespace HotelGestor
                 fsaveprompt = true;
             }
             buttonStates();
+            cNOMETextBox.Focus();
         }
 
         private void btnIncluir_Click(object sender, EventArgs e)
@@ -183,6 +184,26 @@ namespace HotelGestor
             cUFTextBox.Text = endereco[3];
             cBAIRROTextBox.Text = endereco[1];
             cENDERECOTextBox.Text = endereco[0];
+        }
+
+        private void cNOMETextBox_Leave(object sender, EventArgs e)
+        {
+            Comum.confNomeProprio(sender);
+        }
+
+        private void cINSCTextBox_Leave(object sender, EventArgs e)
+        {
+            Comum.toUpper(sender);
+        }
+
+        private void cCNPJMaskedTextBox_Click(object sender, EventArgs e)
+        {
+            ((MaskedTextBox)sender).SelectionStart = 0;
+        }
+
+        private void cFONEMaskedTextBox_Click(object sender, EventArgs e)
+        {
+            ((MaskedTextBox)sender).SelectionStart = 1;
         }
     }
 }

@@ -34,7 +34,7 @@ namespace HotelGestor
         private void addeventos()
         {
             cDESCRICAOTextBox.TextChanged += onEdit;
-            nVALORITEMNumericUpDown.ValueChanged += onEdit;
+            nVALORITEMTextBox.TextChanged += onEdit;
         }
 
 
@@ -143,6 +143,11 @@ namespace HotelGestor
                 e.Cancel = true;
                 return;
             }
+        }
+
+        private void nVALORITEMTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Comum.moneyMask(sender);
         }
 
     }

@@ -82,6 +82,7 @@
             // 
             this.tbConsulta.Controls.Add(cDESCRICAOLabel);
             this.tbConsulta.Controls.Add(this.cDESCRICAOTextBox);
+            this.tbConsulta.Size = new System.Drawing.Size(776, 448);
             // 
             // tbCadastro
             // 
@@ -97,6 +98,10 @@
             // tbMain
             // 
             this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
             // 
             // cDESCRICAOLabel
             // 
@@ -142,6 +147,7 @@
             this.cDESCRICAOTextBox.Name = "cDESCRICAOTextBox";
             this.cDESCRICAOTextBox.Size = new System.Drawing.Size(426, 23);
             this.cDESCRICAOTextBox.TabIndex = 1;
+            this.cDESCRICAOTextBox.Leave += new System.EventHandler(this.cDESCRICAOTextBox_Leave);
             // 
             // dataGridView1
             // 
@@ -156,7 +162,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 91);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 343);
+            this.dataGridView1.Size = new System.Drawing.Size(770, 353);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
             // 

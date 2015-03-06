@@ -140,5 +140,10 @@ namespace HotelGestor
             }
         }
 
+        private void cDESCRICAOTextBox_Leave(object sender, EventArgs e)
+        {
+            Comum.firstUpper(sender);
+        }
+
     }
 }

@@ -124,6 +124,7 @@
             // btnGravar
             // 
             this.btnGravar.FlatAppearance.BorderSize = 0;
+            this.btnGravar.TabIndex = 0;
             this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
             // 
             // btnExcluir
@@ -263,9 +264,11 @@
             // tableAdapterManager
             // 
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
             this.tableAdapterManager.CLIENTETableAdapter = null;
             this.tableAdapterManager.CONSUMOTableAdapter = null;
             this.tableAdapterManager.enderecoTableAdapter = null;
+            this.tableAdapterManager.FORMASDEPAGAMENTOTableAdapter = null;
             this.tableAdapterManager.HOTELTableAdapter = this.hOTELTableAdapter;
             this.tableAdapterManager.ITEMCONSUMOTableAdapter = null;
             this.tableAdapterManager.QUARTOTableAdapter = null;
@@ -278,7 +281,8 @@
             this.cNOMETextBox.Location = new System.Drawing.Point(148, 41);
             this.cNOMETextBox.Name = "cNOMETextBox";
             this.cNOMETextBox.Size = new System.Drawing.Size(407, 23);
-            this.cNOMETextBox.TabIndex = 3;
+            this.cNOMETextBox.TabIndex = 0;
+            this.cNOMETextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // cCNPJMaskedTextBox
             // 
@@ -287,7 +291,8 @@
             this.cCNPJMaskedTextBox.Mask = "999.999.999/9999-99";
             this.cCNPJMaskedTextBox.Name = "cCNPJMaskedTextBox";
             this.cCNPJMaskedTextBox.Size = new System.Drawing.Size(227, 23);
-            this.cCNPJMaskedTextBox.TabIndex = 5;
+            this.cCNPJMaskedTextBox.TabIndex = 1;
+            this.cCNPJMaskedTextBox.Click += new System.EventHandler(this.cCNPJMaskedTextBox_Click);
             // 
             // cINSCTextBox
             // 
@@ -295,7 +300,8 @@
             this.cINSCTextBox.Location = new System.Drawing.Point(148, 104);
             this.cINSCTextBox.Name = "cINSCTextBox";
             this.cINSCTextBox.Size = new System.Drawing.Size(227, 23);
-            this.cINSCTextBox.TabIndex = 7;
+            this.cINSCTextBox.TabIndex = 2;
+            this.cINSCTextBox.Leave += new System.EventHandler(this.cINSCTextBox_Leave);
             // 
             // cFONEMaskedTextBox
             // 
@@ -304,7 +310,8 @@
             this.cFONEMaskedTextBox.Mask = "(99) 0000-0000";
             this.cFONEMaskedTextBox.Name = "cFONEMaskedTextBox";
             this.cFONEMaskedTextBox.Size = new System.Drawing.Size(132, 23);
-            this.cFONEMaskedTextBox.TabIndex = 9;
+            this.cFONEMaskedTextBox.TabIndex = 3;
+            this.cFONEMaskedTextBox.Click += new System.EventHandler(this.cFONEMaskedTextBox_Click);
             // 
             // cFONE2MaskedTextBox
             // 
@@ -313,7 +320,8 @@
             this.cFONE2MaskedTextBox.Mask = "(99) 0000-0000";
             this.cFONE2MaskedTextBox.Name = "cFONE2MaskedTextBox";
             this.cFONE2MaskedTextBox.Size = new System.Drawing.Size(179, 23);
-            this.cFONE2MaskedTextBox.TabIndex = 11;
+            this.cFONE2MaskedTextBox.TabIndex = 4;
+            this.cFONE2MaskedTextBox.Click += new System.EventHandler(this.cFONEMaskedTextBox_Click);
             // 
             // cFONE3MaskedTextBox
             // 
@@ -322,7 +330,8 @@
             this.cFONE3MaskedTextBox.Mask = "(99)9999-9999";
             this.cFONE3MaskedTextBox.Name = "cFONE3MaskedTextBox";
             this.cFONE3MaskedTextBox.Size = new System.Drawing.Size(132, 23);
-            this.cFONE3MaskedTextBox.TabIndex = 13;
+            this.cFONE3MaskedTextBox.TabIndex = 5;
+            this.cFONE3MaskedTextBox.Click += new System.EventHandler(this.cFONEMaskedTextBox_Click);
             // 
             // cEMAILSTextBox
             // 
@@ -331,7 +340,7 @@
             this.cEMAILSTextBox.Multiline = true;
             this.cEMAILSTextBox.Name = "cEMAILSTextBox";
             this.cEMAILSTextBox.Size = new System.Drawing.Size(550, 109);
-            this.cEMAILSTextBox.TabIndex = 15;
+            this.cEMAILSTextBox.TabIndex = 6;
             // 
             // cCEPMaskedTextBox
             // 
@@ -340,7 +349,8 @@
             this.cCEPMaskedTextBox.Mask = "99999-999";
             this.cCEPMaskedTextBox.Name = "cCEPMaskedTextBox";
             this.cCEPMaskedTextBox.Size = new System.Drawing.Size(100, 23);
-            this.cCEPMaskedTextBox.TabIndex = 17;
+            this.cCEPMaskedTextBox.TabIndex = 7;
+            this.cCEPMaskedTextBox.Click += new System.EventHandler(this.cCNPJMaskedTextBox_Click);
             // 
             // cCIDADETextBox
             // 
@@ -348,7 +358,8 @@
             this.cCIDADETextBox.Location = new System.Drawing.Point(148, 336);
             this.cCIDADETextBox.Name = "cCIDADETextBox";
             this.cCIDADETextBox.Size = new System.Drawing.Size(407, 23);
-            this.cCIDADETextBox.TabIndex = 19;
+            this.cCIDADETextBox.TabIndex = 9;
+            this.cCIDADETextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // cUFTextBox
             // 
@@ -356,7 +367,8 @@
             this.cUFTextBox.Location = new System.Drawing.Point(660, 336);
             this.cUFTextBox.Name = "cUFTextBox";
             this.cUFTextBox.Size = new System.Drawing.Size(38, 23);
-            this.cUFTextBox.TabIndex = 21;
+            this.cUFTextBox.TabIndex = 10;
+            this.cUFTextBox.Leave += new System.EventHandler(this.cINSCTextBox_Leave);
             // 
             // cBAIRROTextBox
             // 
@@ -364,7 +376,8 @@
             this.cBAIRROTextBox.Location = new System.Drawing.Point(148, 366);
             this.cBAIRROTextBox.Name = "cBAIRROTextBox";
             this.cBAIRROTextBox.Size = new System.Drawing.Size(550, 23);
-            this.cBAIRROTextBox.TabIndex = 23;
+            this.cBAIRROTextBox.TabIndex = 11;
+            this.cBAIRROTextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // cENDERECOTextBox
             // 
@@ -372,7 +385,8 @@
             this.cENDERECOTextBox.Location = new System.Drawing.Point(148, 394);
             this.cENDERECOTextBox.Name = "cENDERECOTextBox";
             this.cENDERECOTextBox.Size = new System.Drawing.Size(550, 23);
-            this.cENDERECOTextBox.TabIndex = 25;
+            this.cENDERECOTextBox.TabIndex = 12;
+            this.cENDERECOTextBox.Leave += new System.EventHandler(this.cNOMETextBox_Leave);
             // 
             // lOGOPictureBox
             // 
@@ -380,7 +394,7 @@
             this.lOGOPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.hOTELBindingSource, "LOGO", true));
             this.lOGOPictureBox.Location = new System.Drawing.Point(564, 41);
             this.lOGOPictureBox.Name = "lOGOPictureBox";
-            this.lOGOPictureBox.Size = new System.Drawing.Size(134, 113);
+            this.lOGOPictureBox.Size = new System.Drawing.Size(134, 112);
             this.lOGOPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.lOGOPictureBox.TabIndex = 27;
             this.lOGOPictureBox.TabStop = false;
@@ -389,10 +403,10 @@
             // 
             this.btnArquivo.Image = global::HotelGestor.Properties.Resources.imagfold32x32;
             this.btnArquivo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnArquivo.Location = new System.Drawing.Point(561, 152);
+            this.btnArquivo.Location = new System.Drawing.Point(564, 153);
             this.btnArquivo.Name = "btnArquivo";
-            this.btnArquivo.Size = new System.Drawing.Size(140, 33);
-            this.btnArquivo.TabIndex = 28;
+            this.btnArquivo.Size = new System.Drawing.Size(134, 33);
+            this.btnArquivo.TabIndex = 13;
             this.btnArquivo.Text = "Carregar Logo";
             this.btnArquivo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnArquivo.UseVisualStyleBackColor = true;
@@ -403,7 +417,7 @@
             this.btnBuscaCep.Location = new System.Drawing.Point(254, 306);
             this.btnBuscaCep.Name = "btnBuscaCep";
             this.btnBuscaCep.Size = new System.Drawing.Size(121, 24);
-            this.btnBuscaCep.TabIndex = 56;
+            this.btnBuscaCep.TabIndex = 8;
             this.btnBuscaCep.Text = "Busca Endereço";
             this.btnBuscaCep.UseVisualStyleBackColor = true;
             this.btnBuscaCep.Click += new System.EventHandler(this.btnBuscaCep_Click);
@@ -413,6 +427,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Name = "frmEmpresa";
+            this.Text = "Dados da Empresa";
             this.Load += new System.EventHandler(this.frmEmpresa_Load);
             this.tbMain.ResumeLayout(false);
             this.tbConsulta.ResumeLayout(false);

@@ -171,7 +171,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(78, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 18);
+            this.label1.Size = new System.Drawing.Size(71, 18);
             this.label1.TabIndex = 7;
             this.label1.Text = "Relatórios:";
             // 
@@ -257,6 +257,7 @@
             this.ClientSize = new System.Drawing.Size(784, 562);
             this.Controls.Add(this.reportViewer1);
             this.Name = "frmRelatoriosHospedes";
+            this.Text = "Relatórios de Hóspedes";
             this.Load += new System.EventHandler(this.frmRelatoriosHospedes_Load);
             this.Controls.SetChildIndex(this.panel1, 0);
             this.Controls.SetChildIndex(this.pnFiltros, 0);

@@ -42,9 +42,9 @@
             System.Windows.Forms.Label vVALORTOTALLabel;
             System.Windows.Forms.Label fFORMAPAGAMENTOLabel;
             System.Windows.Forms.Label cOBSERVACAOLabel;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cNOMEDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dESCQUARTODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -137,10 +137,10 @@
             vVALORTOTALLabel = new System.Windows.Forms.Label();
             fFORMAPAGAMENTOLabel = new System.Windows.Forms.Label();
             cOBSERVACAOLabel = new System.Windows.Forms.Label();
-            this.tbMain.SuspendLayout();
-            this.tbCadastro.SuspendLayout();
-            this.tbConsulta.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tbConsulta.SuspendLayout();
+            this.tbCadastro.SuspendLayout();
+            this.tbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
@@ -167,20 +167,6 @@
             this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
-            // tbMain
-            // 
-            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
-            // 
-            // tbCadastro
-            // 
-            this.tbCadastro.Controls.Add(this.dataGridView1);
-            this.tbCadastro.Controls.SetChildIndex(this.pnFiltros, 0);
-            this.tbCadastro.Controls.SetChildIndex(this.dataGridView1, 0);
-            // 
-            // tbConsulta
-            // 
-            this.tbConsulta.Controls.Add(this.tabControl2);
-            // 
             // btnSair
             // 
             this.btnSair.FlatAppearance.BorderSize = 0;
@@ -189,29 +175,48 @@
             // 
             this.btnCancelar.FlatAppearance.BorderSize = 0;
             this.btnCancelar.Location = new System.Drawing.Point(348, 0);
-            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            
             // 
             // btnGravar
             // 
             this.btnGravar.FlatAppearance.BorderSize = 0;
             this.btnGravar.Location = new System.Drawing.Point(261, 0);
-            this.btnGravar.Click += new System.EventHandler(this.btnGravar_Click);
+            
             // 
             // btnExcluir
             // 
             this.btnExcluir.FlatAppearance.BorderSize = 0;
             this.btnExcluir.Location = new System.Drawing.Point(174, 0);
-            this.btnExcluir.Click += new System.EventHandler(this.btnExcluir_Click);
+            
             // 
             // btnIncluir
             // 
             this.btnIncluir.FlatAppearance.BorderSize = 0;
             this.btnIncluir.Location = new System.Drawing.Point(87, 0);
-            this.btnIncluir.Click += new System.EventHandler(this.btnIncluir_Click);
+            
             // 
             // btnTransferir
             // 
             this.btnTransferir.FlatAppearance.BorderSize = 0;
+            // 
+            // tbConsulta
+            // 
+            this.tbConsulta.Controls.Add(this.tabControl2);
+            this.tbConsulta.Size = new System.Drawing.Size(776, 448);
+            // 
+            // tbCadastro
+            // 
+            this.tbCadastro.Controls.Add(this.dataGridView1);
+            this.tbCadastro.Controls.SetChildIndex(this.pnFiltros, 0);
+            this.tbCadastro.Controls.SetChildIndex(this.dataGridView1, 0);
+            // 
+            // tbMain
+            // 
+            this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
             // 
             // nDIARIASLabel
             // 
@@ -349,7 +354,7 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 91);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 343);
+            this.dataGridView1.Size = new System.Drawing.Size(770, 353);
             this.dataGridView1.TabIndex = 1;
             // 
             // cNOMEDataGridViewTextBoxColumn1
@@ -391,8 +396,8 @@
             // vVALORTOTALDataGridViewTextBoxColumn1
             // 
             this.vVALORTOTALDataGridViewTextBoxColumn1.DataPropertyName = "VVALORTOTAL";
-            dataGridViewCellStyle1.Format = "c2";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Format = "c2";
+            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.vVALORTOTALDataGridViewTextBoxColumn1.HeaderText = "Valor";
             this.vVALORTOTALDataGridViewTextBoxColumn1.Name = "vVALORTOTALDataGridViewTextBoxColumn1";
             this.vVALORTOTALDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -567,7 +572,7 @@
             this.tabControl2.Location = new System.Drawing.Point(3, 4);
             this.tabControl2.Name = "tabControl2";
             this.tabControl2.SelectedIndex = 0;
-            this.tabControl2.Size = new System.Drawing.Size(770, 430);
+            this.tabControl2.Size = new System.Drawing.Size(770, 440);
             this.tabControl2.TabIndex = 1;
             // 
             // tabPage3
@@ -579,7 +584,7 @@
             this.tabPage3.Location = new System.Drawing.Point(4, 27);
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage3.Size = new System.Drawing.Size(762, 399);
+            this.tabPage3.Size = new System.Drawing.Size(762, 409);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Check-in";
             this.tabPage3.UseVisualStyleBackColor = true;
@@ -591,7 +596,7 @@
             this.panel3.Controls.Add(this.btnEditarHospedagem);
             this.panel3.Controls.Add(this.button3);
             this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel3.Location = new System.Drawing.Point(3, 284);
+            this.panel3.Location = new System.Drawing.Point(3, 294);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(756, 112);
             this.panel3.TabIndex = 16;
@@ -644,7 +649,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(3, 3);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(756, 393);
+            this.panel2.Size = new System.Drawing.Size(756, 403);
             this.panel2.TabIndex = 15;
             // 
             // txtDescQuarto
@@ -740,7 +745,7 @@
             this.tabConsumo.Location = new System.Drawing.Point(4, 27);
             this.tabConsumo.Name = "tabConsumo";
             this.tabConsumo.Padding = new System.Windows.Forms.Padding(3);
-            this.tabConsumo.Size = new System.Drawing.Size(762, 399);
+            this.tabConsumo.Size = new System.Drawing.Size(762, 409);
             this.tabConsumo.TabIndex = 1;
             this.tabConsumo.Text = "Consumo";
             this.tabConsumo.UseVisualStyleBackColor = true;
@@ -760,7 +765,7 @@
             this.panelCadItens.Enabled = false;
             this.panelCadItens.Location = new System.Drawing.Point(473, 3);
             this.panelCadItens.Name = "panelCadItens";
-            this.panelCadItens.Size = new System.Drawing.Size(286, 393);
+            this.panelCadItens.Size = new System.Drawing.Size(286, 403);
             this.panelCadItens.TabIndex = 10;
             // 
             // txtDescricaoitem
@@ -831,7 +836,7 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(470, 393);
+            this.panel4.Size = new System.Drawing.Size(470, 403);
             this.panel4.TabIndex = 0;
             // 
             // dataGridView2
@@ -842,28 +847,28 @@
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.DDATAHORA});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 58);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(466, 290);
+            this.dataGridView2.Size = new System.Drawing.Size(466, 300);
             this.dataGridView2.TabIndex = 11;
             // 
             // DDATAHORA
@@ -947,7 +952,7 @@
             this.panel5.Controls.Add(this.label1);
             this.panel5.Controls.Add(this.lbtot);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 348);
+            this.panel5.Location = new System.Drawing.Point(0, 358);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(466, 41);
             this.panel5.TabIndex = 2;
@@ -980,7 +985,7 @@
             this.tabCheckOut.Location = new System.Drawing.Point(4, 27);
             this.tabCheckOut.Name = "tabCheckOut";
             this.tabCheckOut.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCheckOut.Size = new System.Drawing.Size(762, 399);
+            this.tabCheckOut.Size = new System.Drawing.Size(762, 409);
             this.tabCheckOut.TabIndex = 2;
             this.tabCheckOut.Text = "Check-out";
             this.tabCheckOut.UseVisualStyleBackColor = true;
@@ -1004,7 +1009,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(756, 293);
+            this.panel7.Size = new System.Drawing.Size(756, 303);
             this.panel7.TabIndex = 28;
             // 
             // nVALORBASENumericUpDown
@@ -1119,7 +1124,7 @@
             this.panel6.Controls.Add(this.btnEncerrar);
             this.panel6.Controls.Add(this.btnFatura);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 296);
+            this.panel6.Location = new System.Drawing.Point(3, 306);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(756, 100);
             this.panel6.TabIndex = 26;
@@ -1160,12 +1165,12 @@
             this.ClientSize = new System.Drawing.Size(784, 561);
             this.Name = "frmHospedagem";
             this.Text = "Hospedagem";
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmHospedagem_FormClosing);
+            
             this.Load += new System.EventHandler(this.frmHospedagem_Load);
-            this.tbMain.ResumeLayout(false);
-            this.tbCadastro.ResumeLayout(false);
-            this.tbConsulta.ResumeLayout(false);
             this.panel1.ResumeLayout(false);
+            this.tbConsulta.ResumeLayout(false);
+            this.tbCadastro.ResumeLayout(false);
+            this.tbMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();

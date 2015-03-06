@@ -31,7 +31,7 @@
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.Label cDESCRICAOLabel;
             System.Windows.Forms.Label nVALORITEMLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvItens = new System.Windows.Forms.DataGridView();
             this.cDESCRICAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nVALORITEMDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -40,9 +40,9 @@
             this.iTEMCONSUMOTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.ITEMCONSUMOTableAdapter();
             this.tableAdapterManager = new HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager();
             this.cDESCRICAOTextBox = new System.Windows.Forms.TextBox();
-            this.nVALORITEMNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.nVALORITEMTextBox = new System.Windows.Forms.TextBox();
             cDESCRICAOLabel = new System.Windows.Forms.Label();
             nVALORITEMLabel = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
@@ -53,7 +53,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMCONSUMOBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nVALORITEMNumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -69,6 +68,7 @@
             // 
             this.btnGravar.FlatAppearance.BorderSize = 0;
             this.btnGravar.Location = new System.Drawing.Point(261, 0);
+            this.btnGravar.TabIndex = 0;
             // 
             // btnExcluir
             // 
@@ -86,10 +86,11 @@
             // 
             // tbConsulta
             // 
+            this.tbConsulta.Controls.Add(this.nVALORITEMTextBox);
             this.tbConsulta.Controls.Add(nVALORITEMLabel);
-            this.tbConsulta.Controls.Add(this.nVALORITEMNumericUpDown);
             this.tbConsulta.Controls.Add(cDESCRICAOLabel);
             this.tbConsulta.Controls.Add(this.cDESCRICAOTextBox);
+            this.tbConsulta.Size = new System.Drawing.Size(776, 448);
             // 
             // tbCadastro
             // 
@@ -105,6 +106,10 @@
             // tbMain
             // 
             this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
             // 
             // cDESCRICAOLabel
             // 
@@ -138,7 +143,7 @@
             this.dgvItens.Location = new System.Drawing.Point(3, 91);
             this.dgvItens.Name = "dgvItens";
             this.dgvItens.ReadOnly = true;
-            this.dgvItens.Size = new System.Drawing.Size(770, 343);
+            this.dgvItens.Size = new System.Drawing.Size(770, 353);
             this.dgvItens.TabIndex = 1;
             this.dgvItens.DoubleClick += new System.EventHandler(this.dgvItens_DoubleClick);
             // 
@@ -153,9 +158,9 @@
             // nVALORITEMDataGridViewTextBoxColumn
             // 
             this.nVALORITEMDataGridViewTextBoxColumn.DataPropertyName = "NVALORITEM";
-            dataGridViewCellStyle1.Format = "C2";
-            dataGridViewCellStyle1.NullValue = null;
-            this.nVALORITEMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Format = "C2";
+            dataGridViewCellStyle2.NullValue = null;
+            this.nVALORITEMDataGridViewTextBoxColumn.DefaultCellStyle = dataGridViewCellStyle2;
             this.nVALORITEMDataGridViewTextBoxColumn.HeaderText = "Valor";
             this.nVALORITEMDataGridViewTextBoxColumn.Name = "nVALORITEMDataGridViewTextBoxColumn";
             this.nVALORITEMDataGridViewTextBoxColumn.ReadOnly = true;
@@ -194,21 +199,7 @@
             this.cDESCRICAOTextBox.Location = new System.Drawing.Point(199, 104);
             this.cDESCRICAOTextBox.Name = "cDESCRICAOTextBox";
             this.cDESCRICAOTextBox.Size = new System.Drawing.Size(458, 23);
-            this.cDESCRICAOTextBox.TabIndex = 1;
-            // 
-            // nVALORITEMNumericUpDown
-            // 
-            this.nVALORITEMNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.iTEMCONSUMOBindingSource, "NVALORITEM", true));
-            this.nVALORITEMNumericUpDown.DecimalPlaces = 2;
-            this.nVALORITEMNumericUpDown.Location = new System.Drawing.Point(199, 178);
-            this.nVALORITEMNumericUpDown.Maximum = new decimal(new int[] {
-            9999999,
-            0,
-            0,
-            0});
-            this.nVALORITEMNumericUpDown.Name = "nVALORITEMNumericUpDown";
-            this.nVALORITEMNumericUpDown.Size = new System.Drawing.Size(120, 23);
-            this.nVALORITEMNumericUpDown.TabIndex = 3;
+            this.cDESCRICAOTextBox.TabIndex = 0;
             // 
             // txtFiltro
             // 
@@ -227,6 +218,15 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Pesquisar Item de consumo:";
             // 
+            // nVALORITEMTextBox
+            // 
+            this.nVALORITEMTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.iTEMCONSUMOBindingSource, "NVALORITEM", true));
+            this.nVALORITEMTextBox.Location = new System.Drawing.Point(199, 175);
+            this.nVALORITEMTextBox.Name = "nVALORITEMTextBox";
+            this.nVALORITEMTextBox.Size = new System.Drawing.Size(196, 23);
+            this.nVALORITEMTextBox.TabIndex = 1;
+            this.nVALORITEMTextBox.TextChanged += new System.EventHandler(this.nVALORITEMTextBox_TextChanged);
+            // 
             // frmItens
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -244,7 +244,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvItens)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.iTEMCONSUMOBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nVALORITEMNumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -258,10 +257,10 @@
         private HotelDBDataSetTableAdapters.ITEMCONSUMOTableAdapter iTEMCONSUMOTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn cDESCRICAODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nVALORITEMDataGridViewTextBoxColumn;
-        private System.Windows.Forms.NumericUpDown nVALORITEMNumericUpDown;
         private System.Windows.Forms.TextBox cDESCRICAOTextBox;
         private HotelDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox txtFiltro;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox nVALORITEMTextBox;
     }
 }

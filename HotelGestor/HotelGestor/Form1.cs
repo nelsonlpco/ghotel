@@ -25,12 +25,7 @@ namespace HotelGestor
             frm.Dispose();
         }
 
-        private void quartosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmQuartos frm = new frmQuartos();
-            frm.ShowDialog();
-            frm.Dispose();
-        }
+    
 
         private void itensParaConsumoToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -85,7 +80,16 @@ namespace HotelGestor
             frm.Dispose();
         }
 
-        private void categoriasToolStripMenuItem_Click(object sender, EventArgs e)
+ 
+
+        private void quartosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            frmQuartos frm = new frmQuartos();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
+
+        private void categoriasToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             frmCategoriaQuarto frm = new frmCategoriaQuarto();
             frm.ShowDialog();

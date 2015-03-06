@@ -128,6 +128,7 @@ namespace HotelGestor.template
             btnCancelar.Enabled = saveprompt;
             btnExcluir.Enabled = !saveprompt && !isEmptyDataset();
             btnSair.Enabled = !saveprompt;
+            btnRelatorio.Enabled = !isEmptyDataset();
         }
 
         

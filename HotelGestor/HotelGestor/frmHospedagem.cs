@@ -275,7 +275,8 @@ namespace HotelGestor
             HotelDBDataSetTableAdapters.QUARTOTableAdapter tbquarto = new HotelDBDataSetTableAdapters.QUARTOTableAdapter();
             tbquarto.FillById(hotelDBDataSet.QUARTO, (int)currentRow["NIDQUARTO"]);
 
-            lbdiaria.Text = hotelDBDataSet.QUARTO.Rows[0]["NVALORBASE"].ToString();
+            DataRow row = hotelDBDataSet.QUARTO.Rows[0];
+            lbVlDiaria.Text = row["NVALORBASE"].ToString();
 
         }
 

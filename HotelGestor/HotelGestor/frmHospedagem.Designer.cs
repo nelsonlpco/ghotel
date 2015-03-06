@@ -123,7 +123,7 @@
             this.ncontroleNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.faturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
+            this.lbVlDiaria = new System.Windows.Forms.Label();
             this.lbdiarias = new System.Windows.Forms.Label();
             this.cobservacaoTextBox = new System.Windows.Forms.TextBox();
             this.nvalottotalTextBox = new System.Windows.Forms.TextBox();
@@ -1108,7 +1108,7 @@
             this.lbdiaria.Controls.Add(this.ncontroleNumericUpDown);
             this.lbdiaria.Controls.Add(this.label7);
             this.lbdiaria.Controls.Add(label6);
-            this.lbdiaria.Controls.Add(this.label5);
+            this.lbdiaria.Controls.Add(this.lbVlDiaria);
             this.lbdiaria.Controls.Add(this.lbdiarias);
             this.lbdiaria.Controls.Add(ncontroleLabel);
             this.lbdiaria.Controls.Add(this.cobservacaoTextBox);
@@ -1151,14 +1151,14 @@
             this.label7.TabIndex = 47;
             this.label7.Text = "0,00";
             // 
-            // label5
+            // lbVlDiaria
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(214, 124);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(34, 18);
-            this.label5.TabIndex = 45;
-            this.label5.Text = "0,00";
+            this.lbVlDiaria.AutoSize = true;
+            this.lbVlDiaria.Location = new System.Drawing.Point(214, 124);
+            this.lbVlDiaria.Name = "lbVlDiaria";
+            this.lbVlDiaria.Size = new System.Drawing.Size(34, 18);
+            this.lbVlDiaria.TabIndex = 45;
+            this.lbVlDiaria.Text = "0,00";
             // 
             // lbdiarias
             // 
@@ -1434,7 +1434,7 @@
         private System.Windows.Forms.TextBox nvalortotalTextBox;
         private System.Windows.Forms.NumericUpDown nqtditemNumericUpDown;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbVlDiaria;
         private System.Windows.Forms.Label lbdiarias;
         private System.Windows.Forms.TextBox cobservacaoTextBox;
         private System.Windows.Forms.TextBox nvalottotalTextBox;

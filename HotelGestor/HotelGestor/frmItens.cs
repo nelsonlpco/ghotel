@@ -29,7 +29,11 @@ namespace HotelGestor
 
         private double selectValue;
 
-        public double SelectValue { get { return selectValue; } }
+        public double SelectValue
+        {
+            get { return selectValue; }
+            set { selectValue = value; }
+        }
 
         private void addeventos()
         {
@@ -106,7 +110,8 @@ namespace HotelGestor
             currentRow = (DataRowView)iTEMCONSUMOBindingSource.Current;
             SelectId = (int)currentRow["NIDITEMCONSUMO"];
             SelectDescription = (string)currentRow["CDESCRICAO"];
-            selectValue = (double)currentRow["NVALORITEM"];
+            
+            SelectValue = Comum.strToDouble(currentRow["NVALORITEM"].ToString());
             this.Close();
         }
 

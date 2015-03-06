@@ -42,11 +42,19 @@
             System.Windows.Forms.Label vVALORTOTALLabel;
             System.Windows.Forms.Label fFORMAPAGAMENTOLabel;
             System.Windows.Forms.Label cOBSERVACAOLabel;
-            System.Windows.Forms.Label nidfaturaLabel;
+            System.Windows.Forms.Label ncontroleLabel;
+            System.Windows.Forms.Label label6;
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dDATAINDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dDATAOUTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nDIARIASDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vVALORTOTALDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hOSPEDAGEMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
             this.DESC_QUARTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NDIARIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -84,47 +92,51 @@
             this.btnBuscaCliente = new System.Windows.Forms.Button();
             this.tabConsumo = new System.Windows.Forms.TabPage();
             this.panelCadItens = new System.Windows.Forms.Panel();
+            this.nvalortotalTextBox = new System.Windows.Forms.TextBox();
+            this.faturaXItensBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.nqtditemNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.txtDescricaoitem = new System.Windows.Forms.TextBox();
             this.btnBuscaItem = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.nVALORBRUTONumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.nQUANTIDADENumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.btnRegistraConsumo = new System.Windows.Forms.Button();
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.DDATAHORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.btnCancelarItem = new System.Windows.Forms.Button();
-            this.btnExcluirItem = new System.Windows.Forms.Button();
-            this.btnAddItem = new System.Windows.Forms.Button();
-            this.panel5 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lbtot = new System.Windows.Forms.Label();
-            this.tabCheckOut = new System.Windows.Forms.TabPage();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.nidfaturaTextBox = new System.Windows.Forms.TextBox();
-            this.lbConsumo = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.fFORMAPAGAMENTOComboBox = new System.Windows.Forms.ComboBox();
-            this.panel6 = new System.Windows.Forms.Panel();
-            this.btnEncerrar = new System.Windows.Forms.Button();
-            this.btnFatura = new System.Windows.Forms.Button();
-            this.hOSPEDAGEMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
+            this.CDESCRICAO = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nqtditem = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nvalorunit = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nvalortotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ddatamovim = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nidfaturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.niditemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nqtditemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nvalorunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nvalortotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faturaXItensBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ddatamovimDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.panel9 = new System.Windows.Forms.Panel();
+            this.btnCancelarItem = new System.Windows.Forms.Button();
+            this.btnExcluirItem = new System.Windows.Forms.Button();
+            this.btnAddItem = new System.Windows.Forms.Button();
+            this.panel5 = new System.Windows.Forms.Panel();
+            this.lbTotalLancamentos = new System.Windows.Forms.Label();
+            this.lbtot = new System.Windows.Forms.Label();
+            this.tabCheckOut = new System.Windows.Forms.TabPage();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.ncontroleTextBox = new System.Windows.Forms.TextBox();
             this.faturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.dDATAINDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDATAOUTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nDIARIASDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vVALORTOTALDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hOSPEDAGEMTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOSPEDAGEMTableAdapter();
+            this.cobservacaoTextBox = new System.Windows.Forms.TextBox();
+            this.nvalottotalTextBox = new System.Windows.Forms.TextBox();
+            this.ndescontoTextBox = new System.Windows.Forms.TextBox();
+            this.lbConsumo = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.fFORMAPAGAMENTOComboBox = new System.Windows.Forms.ComboBox();
             this.fORMASDEPAGAMENTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.panel6 = new System.Windows.Forms.Panel();
+            this.btnEncerrar = new System.Windows.Forms.Button();
+            this.btnFatura = new System.Windows.Forms.Button();
+            this.hOSPEDAGEMTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOSPEDAGEMTableAdapter();
             this.fORMASDEPAGAMENTOTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.FORMASDEPAGAMENTOTableAdapter();
             this.faturaXItensTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.FaturaXItensTableAdapter();
             this.faturaTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.faturaTableAdapter();
@@ -142,12 +154,15 @@
             vVALORTOTALLabel = new System.Windows.Forms.Label();
             fFORMAPAGAMENTOLabel = new System.Windows.Forms.Label();
             cOBSERVACAOLabel = new System.Windows.Forms.Label();
-            nidfaturaLabel = new System.Windows.Forms.Label();
+            ncontroleLabel = new System.Windows.Forms.Label();
+            label6 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tbConsulta.SuspendLayout();
             this.tbCadastro.SuspendLayout();
             this.tbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             this.tbHospedagem.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -155,20 +170,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.nDIARIASNumericUpDown)).BeginInit();
             this.tabConsumo.SuspendLayout();
             this.panelCadItens.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nVALORBRUTONumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nQUANTIDADENumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faturaXItensBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nqtditemNumericUpDown)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabCheckOut.SuspendLayout();
             this.panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faturaXItensBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).BeginInit();
+            this.panel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnSair
@@ -184,6 +196,7 @@
             // 
             this.btnGravar.FlatAppearance.BorderSize = 0;
             this.btnGravar.Location = new System.Drawing.Point(261, 0);
+            this.btnGravar.Visible = false;
             // 
             // btnExcluir
             // 
@@ -221,7 +234,7 @@
             // nDIARIASLabel
             // 
             nDIARIASLabel.AutoSize = true;
-            nDIARIASLabel.Location = new System.Drawing.Point(450, 161);
+            nDIARIASLabel.Location = new System.Drawing.Point(168, 183);
             nDIARIASLabel.Name = "nDIARIASLabel";
             nDIARIASLabel.Size = new System.Drawing.Size(54, 18);
             nDIARIASLabel.TabIndex = 28;
@@ -230,7 +243,7 @@
             // dDATAOUTLabel
             // 
             dDATAOUTLabel.AutoSize = true;
-            dDATAOUTLabel.Location = new System.Drawing.Point(85, 207);
+            dDATAOUTLabel.Location = new System.Drawing.Point(86, 217);
             dDATAOUTLabel.Name = "dDATAOUTLabel";
             dDATAOUTLabel.Size = new System.Drawing.Size(136, 18);
             dDATAOUTLabel.TabIndex = 26;
@@ -248,7 +261,7 @@
             // dDATAINLabel
             // 
             dDATAINLabel.AutoSize = true;
-            dDATAINLabel.Location = new System.Drawing.Point(71, 161);
+            dDATAINLabel.Location = new System.Drawing.Point(72, 148);
             dDATAINLabel.Name = "dDATAINLabel";
             dDATAINLabel.Size = new System.Drawing.Size(150, 18);
             dDATAINLabel.TabIndex = 16;
@@ -257,7 +270,7 @@
             // nIDQUARTOLabel
             // 
             nIDQUARTOLabel.AutoSize = true;
-            nIDQUARTOLabel.Location = new System.Drawing.Point(168, 118);
+            nIDQUARTOLabel.Location = new System.Drawing.Point(169, 109);
             nIDQUARTOLabel.Name = "nIDQUARTOLabel";
             nIDQUARTOLabel.Size = new System.Drawing.Size(53, 18);
             nIDQUARTOLabel.TabIndex = 15;
@@ -266,7 +279,7 @@
             // nVALORBRUTOLabel
             // 
             nVALORBRUTOLabel.AutoSize = true;
-            nVALORBRUTOLabel.Location = new System.Drawing.Point(12, 126);
+            nVALORBRUTOLabel.Location = new System.Drawing.Point(11, 113);
             nVALORBRUTOLabel.Name = "nVALORBRUTOLabel";
             nVALORBRUTOLabel.Size = new System.Drawing.Size(73, 18);
             nVALORBRUTOLabel.TabIndex = 13;
@@ -275,7 +288,7 @@
             // nQUANTIDADELabel
             // 
             nQUANTIDADELabel.AutoSize = true;
-            nQUANTIDADELabel.Location = new System.Drawing.Point(4, 67);
+            nQUANTIDADELabel.Location = new System.Drawing.Point(4, 70);
             nQUANTIDADELabel.Name = "nQUANTIDADELabel";
             nQUANTIDADELabel.Size = new System.Drawing.Size(80, 18);
             nQUANTIDADELabel.TabIndex = 11;
@@ -284,7 +297,7 @@
             // nIDITEMCONSUMOLabel
             // 
             nIDITEMCONSUMOLabel.AutoSize = true;
-            nIDITEMCONSUMOLabel.Location = new System.Drawing.Point(44, 17);
+            nIDITEMCONSUMOLabel.Location = new System.Drawing.Point(44, 34);
             nIDITEMCONSUMOLabel.Name = "nIDITEMCONSUMOLabel";
             nIDITEMCONSUMOLabel.Size = new System.Drawing.Size(40, 18);
             nIDITEMCONSUMOLabel.TabIndex = 10;
@@ -293,7 +306,7 @@
             // nVALORBASELabel
             // 
             nVALORBASELabel.AutoSize = true;
-            nVALORBASELabel.Location = new System.Drawing.Point(84, 135);
+            nVALORBASELabel.Location = new System.Drawing.Point(110, 124);
             nVALORBASELabel.Name = "nVALORBASELabel";
             nVALORBASELabel.Size = new System.Drawing.Size(98, 18);
             nVALORBASELabel.TabIndex = 38;
@@ -302,7 +315,7 @@
             // vVALORDESCONTOLabel
             // 
             vVALORDESCONTOLabel.AutoSize = true;
-            vVALORDESCONTOLabel.Location = new System.Drawing.Point(115, 164);
+            vVALORDESCONTOLabel.Location = new System.Drawing.Point(142, 149);
             vVALORDESCONTOLabel.Name = "vVALORDESCONTOLabel";
             vVALORDESCONTOLabel.Size = new System.Drawing.Size(66, 18);
             vVALORDESCONTOLabel.TabIndex = 31;
@@ -311,7 +324,7 @@
             // vVALORTOTALLabel
             // 
             vVALORTOTALLabel.AutoSize = true;
-            vVALORTOTALLabel.Location = new System.Drawing.Point(108, 193);
+            vVALORTOTALLabel.Location = new System.Drawing.Point(132, 178);
             vVALORTOTALLabel.Name = "vVALORTOTALLabel";
             vVALORTOTALLabel.Size = new System.Drawing.Size(76, 18);
             vVALORTOTALLabel.TabIndex = 29;
@@ -320,7 +333,7 @@
             // fFORMAPAGAMENTOLabel
             // 
             fFORMAPAGAMENTOLabel.AutoSize = true;
-            fFORMAPAGAMENTOLabel.Location = new System.Drawing.Point(45, 26);
+            fFORMAPAGAMENTOLabel.Location = new System.Drawing.Point(71, 45);
             fFORMAPAGAMENTOLabel.Name = "fFORMAPAGAMENTOLabel";
             fFORMAPAGAMENTOLabel.Size = new System.Drawing.Size(137, 18);
             fFORMAPAGAMENTOLabel.TabIndex = 27;
@@ -329,20 +342,29 @@
             // cOBSERVACAOLabel
             // 
             cOBSERVACAOLabel.AutoSize = true;
-            cOBSERVACAOLabel.Location = new System.Drawing.Point(100, 220);
+            cOBSERVACAOLabel.Location = new System.Drawing.Point(127, 205);
             cOBSERVACAOLabel.Name = "cOBSERVACAOLabel";
             cOBSERVACAOLabel.Size = new System.Drawing.Size(81, 18);
             cOBSERVACAOLabel.TabIndex = 26;
             cOBSERVACAOLabel.Text = "Observação:";
             // 
-            // nidfaturaLabel
+            // ncontroleLabel
             // 
-            nidfaturaLabel.AutoSize = true;
-            nidfaturaLabel.Location = new System.Drawing.Point(398, 131);
-            nidfaturaLabel.Name = "nidfaturaLabel";
-            nidfaturaLabel.Size = new System.Drawing.Size(67, 18);
-            nidfaturaLabel.TabIndex = 38;
-            nidfaturaLabel.Text = "nidfatura:";
+            ncontroleLabel.AutoSize = true;
+            ncontroleLabel.Location = new System.Drawing.Point(113, 16);
+            ncontroleLabel.Name = "ncontroleLabel";
+            ncontroleLabel.Size = new System.Drawing.Size(95, 18);
+            ncontroleLabel.TabIndex = 42;
+            ncontroleLabel.Text = "Nº de controle:";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new System.Drawing.Point(286, 124);
+            label6.Name = "label6";
+            label6.Size = new System.Drawing.Size(164, 18);
+            label6.TabIndex = 46;
+            label6.Text = "Valor Total da(s) diaria(s):";
             // 
             // dataGridView1
             // 
@@ -363,6 +385,54 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(770, 353);
             this.dataGridView1.TabIndex = 1;
+            this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // dDATAINDataGridViewTextBoxColumn1
+            // 
+            this.dDATAINDataGridViewTextBoxColumn1.DataPropertyName = "DDATAIN";
+            this.dDATAINDataGridViewTextBoxColumn1.HeaderText = "Entrada";
+            this.dDATAINDataGridViewTextBoxColumn1.Name = "dDATAINDataGridViewTextBoxColumn1";
+            this.dDATAINDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dDATAOUTDataGridViewTextBoxColumn1
+            // 
+            this.dDATAOUTDataGridViewTextBoxColumn1.DataPropertyName = "DDATAOUT";
+            this.dDATAOUTDataGridViewTextBoxColumn1.HeaderText = "Saida";
+            this.dDATAOUTDataGridViewTextBoxColumn1.Name = "dDATAOUTDataGridViewTextBoxColumn1";
+            this.dDATAOUTDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nDIARIASDataGridViewTextBoxColumn1
+            // 
+            this.nDIARIASDataGridViewTextBoxColumn1.DataPropertyName = "NDIARIAS";
+            this.nDIARIASDataGridViewTextBoxColumn1.HeaderText = "Diárias";
+            this.nDIARIASDataGridViewTextBoxColumn1.Name = "nDIARIASDataGridViewTextBoxColumn1";
+            this.nDIARIASDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // vVALORTOTALDataGridViewTextBoxColumn1
+            // 
+            this.vVALORTOTALDataGridViewTextBoxColumn1.DataPropertyName = "VVALORTOTAL";
+            dataGridViewCellStyle3.Format = "c2";
+            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.vVALORTOTALDataGridViewTextBoxColumn1.HeaderText = "Valor";
+            this.vVALORTOTALDataGridViewTextBoxColumn1.Name = "vVALORTOTALDataGridViewTextBoxColumn1";
+            this.vVALORTOTALDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dDATAFECHAMENTODataGridViewTextBoxColumn1
+            // 
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.DataPropertyName = "DDATAFECHAMENTO";
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.HeaderText = "Fechamento";
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.Name = "dDATAFECHAMENTODataGridViewTextBoxColumn1";
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // hOSPEDAGEMBindingSource
+            // 
+            this.hOSPEDAGEMBindingSource.DataMember = "HOSPEDAGEM";
+            this.hOSPEDAGEMBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // hotelDBDataSet
+            // 
+            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
+            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // DESC_QUARTO
             // 
@@ -514,7 +584,7 @@
             this.tbHospedagem.Name = "tbHospedagem";
             this.tbHospedagem.SelectedIndex = 0;
             this.tbHospedagem.Size = new System.Drawing.Size(770, 440);
-            this.tbHospedagem.TabIndex = 1;
+            this.tbHospedagem.TabIndex = 0;
             this.tbHospedagem.SelectedIndexChanged += new System.EventHandler(this.tabControl2_SelectedIndexChanged);
             // 
             // tabPage3
@@ -567,7 +637,7 @@
             this.btnHospedar.Location = new System.Drawing.Point(498, 16);
             this.btnHospedar.Name = "btnHospedar";
             this.btnHospedar.Size = new System.Drawing.Size(230, 80);
-            this.btnHospedar.TabIndex = 12;
+            this.btnHospedar.TabIndex = 0;
             this.btnHospedar.Text = "Hospedar";
             this.btnHospedar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnHospedar.UseVisualStyleBackColor = true;
@@ -598,26 +668,26 @@
             // txtDescQuarto
             // 
             this.txtDescQuarto.Enabled = false;
-            this.txtDescQuarto.Location = new System.Drawing.Point(301, 115);
+            this.txtDescQuarto.Location = new System.Drawing.Point(302, 107);
             this.txtDescQuarto.Name = "txtDescQuarto";
-            this.txtDescQuarto.Size = new System.Drawing.Size(250, 23);
+            this.txtDescQuarto.Size = new System.Drawing.Size(270, 23);
             this.txtDescQuarto.TabIndex = 31;
             // 
             // txtNomeCliente
             // 
             this.txtNomeCliente.Enabled = false;
-            this.txtNomeCliente.Location = new System.Drawing.Point(301, 64);
+            this.txtNomeCliente.Location = new System.Drawing.Point(302, 67);
             this.txtNomeCliente.Name = "txtNomeCliente";
-            this.txtNomeCliente.Size = new System.Drawing.Size(250, 23);
+            this.txtNomeCliente.Size = new System.Drawing.Size(272, 23);
             this.txtNomeCliente.TabIndex = 30;
             // 
             // nDIARIASNumericUpDown
             // 
             this.nDIARIASNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.hOSPEDAGEMBindingSource, "NDIARIAS", true));
-            this.nDIARIASNumericUpDown.Location = new System.Drawing.Point(510, 156);
+            this.nDIARIASNumericUpDown.Location = new System.Drawing.Point(228, 181);
             this.nDIARIASNumericUpDown.Name = "nDIARIASNumericUpDown";
-            this.nDIARIASNumericUpDown.Size = new System.Drawing.Size(99, 23);
-            this.nDIARIASNumericUpDown.TabIndex = 29;
+            this.nDIARIASNumericUpDown.Size = new System.Drawing.Size(202, 23);
+            this.nDIARIASNumericUpDown.TabIndex = 3;
             this.nDIARIASNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nDIARIASNumericUpDown.ValueChanged += new System.EventHandler(this.nDIARIASNumericUpDown_ValueChanged);
             // 
@@ -626,26 +696,26 @@
             this.dDATAINDateTimePicker.CustomFormat = "dd/MM/yyyy - HH:mm:ss";
             this.dDATAINDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.hOSPEDAGEMBindingSource, "DDATAIN", true));
             this.dDATAINDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dDATAINDateTimePicker.Location = new System.Drawing.Point(227, 156);
+            this.dDATAINDateTimePicker.Location = new System.Drawing.Point(228, 146);
             this.dDATAINDateTimePicker.Name = "dDATAINDateTimePicker";
             this.dDATAINDateTimePicker.Size = new System.Drawing.Size(202, 23);
-            this.dDATAINDateTimePicker.TabIndex = 28;
+            this.dDATAINDateTimePicker.TabIndex = 2;
             // 
             // dDATAOUTDateTimePicker
             // 
             this.dDATAOUTDateTimePicker.CustomFormat = "dd/MM/yyyy - HH:mm:ss";
             this.dDATAOUTDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.hOSPEDAGEMBindingSource, "DDATAOUT", true));
             this.dDATAOUTDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dDATAOUTDateTimePicker.Location = new System.Drawing.Point(229, 203);
+            this.dDATAOUTDateTimePicker.Location = new System.Drawing.Point(228, 215);
             this.dDATAOUTDateTimePicker.Name = "dDATAOUTDateTimePicker";
             this.dDATAOUTDateTimePicker.Size = new System.Drawing.Size(200, 23);
-            this.dDATAOUTDateTimePicker.TabIndex = 27;
+            this.dDATAOUTDateTimePicker.TabIndex = 4;
             // 
             // nIDQUARTOTextBox
             // 
             this.nIDQUARTOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hOSPEDAGEMBindingSource, "NIDQUARTO", true));
             this.nIDQUARTOTextBox.Enabled = false;
-            this.nIDQUARTOTextBox.Location = new System.Drawing.Point(227, 115);
+            this.nIDQUARTOTextBox.Location = new System.Drawing.Point(228, 107);
             this.nIDQUARTOTextBox.Name = "nIDQUARTOTextBox";
             this.nIDQUARTOTextBox.Size = new System.Drawing.Size(68, 23);
             this.nIDQUARTOTextBox.TabIndex = 26;
@@ -654,28 +724,28 @@
             // 
             this.nIDCLIENTETextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hOSPEDAGEMBindingSource, "NIDCLIENTE", true));
             this.nIDCLIENTETextBox.Enabled = false;
-            this.nIDCLIENTETextBox.Location = new System.Drawing.Point(227, 64);
+            this.nIDCLIENTETextBox.Location = new System.Drawing.Point(228, 67);
             this.nIDCLIENTETextBox.Name = "nIDCLIENTETextBox";
             this.nIDCLIENTETextBox.Size = new System.Drawing.Size(68, 23);
             this.nIDCLIENTETextBox.TabIndex = 25;
             // 
             // btnBuscaQuarto
             // 
-            this.btnBuscaQuarto.Image = global::HotelGestor.Properties.Resources.Search32x32___Copia;
-            this.btnBuscaQuarto.Location = new System.Drawing.Point(557, 102);
+            this.btnBuscaQuarto.Image = global::HotelGestor.Properties.Resources.Search16x16;
+            this.btnBuscaQuarto.Location = new System.Drawing.Point(577, 103);
             this.btnBuscaQuarto.Name = "btnBuscaQuarto";
-            this.btnBuscaQuarto.Size = new System.Drawing.Size(52, 40);
-            this.btnBuscaQuarto.TabIndex = 22;
+            this.btnBuscaQuarto.Size = new System.Drawing.Size(33, 32);
+            this.btnBuscaQuarto.TabIndex = 1;
             this.btnBuscaQuarto.UseVisualStyleBackColor = true;
             this.btnBuscaQuarto.Click += new System.EventHandler(this.btnBuscaQuarto_Click);
             // 
             // btnBuscaCliente
             // 
-            this.btnBuscaCliente.Image = global::HotelGestor.Properties.Resources.Search32x32___Copia;
-            this.btnBuscaCliente.Location = new System.Drawing.Point(557, 56);
+            this.btnBuscaCliente.Image = global::HotelGestor.Properties.Resources.Search16x16;
+            this.btnBuscaCliente.Location = new System.Drawing.Point(577, 63);
             this.btnBuscaCliente.Name = "btnBuscaCliente";
-            this.btnBuscaCliente.Size = new System.Drawing.Size(52, 40);
-            this.btnBuscaCliente.TabIndex = 21;
+            this.btnBuscaCliente.Size = new System.Drawing.Size(33, 30);
+            this.btnBuscaCliente.TabIndex = 0;
             this.btnBuscaCliente.UseVisualStyleBackColor = true;
             this.btnBuscaCliente.Click += new System.EventHandler(this.btnBuscaCliente_Click);
             // 
@@ -695,14 +765,15 @@
             // 
             // panelCadItens
             // 
+            this.panelCadItens.AutoScroll = true;
             this.panelCadItens.BackColor = System.Drawing.Color.Silver;
+            this.panelCadItens.Controls.Add(this.nvalortotalTextBox);
+            this.panelCadItens.Controls.Add(this.nqtditemNumericUpDown);
             this.panelCadItens.Controls.Add(this.txtDescricaoitem);
             this.panelCadItens.Controls.Add(this.btnBuscaItem);
-            this.panelCadItens.Controls.Add(this.button5);
+            this.panelCadItens.Controls.Add(this.btnRegistraConsumo);
             this.panelCadItens.Controls.Add(nVALORBRUTOLabel);
-            this.panelCadItens.Controls.Add(this.nVALORBRUTONumericUpDown);
             this.panelCadItens.Controls.Add(nQUANTIDADELabel);
-            this.panelCadItens.Controls.Add(this.nQUANTIDADENumericUpDown);
             this.panelCadItens.Controls.Add(nIDITEMCONSUMOLabel);
             this.panelCadItens.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCadItens.Enabled = false;
@@ -711,10 +782,43 @@
             this.panelCadItens.Size = new System.Drawing.Size(286, 403);
             this.panelCadItens.TabIndex = 10;
             // 
+            // nvalortotalTextBox
+            // 
+            this.nvalortotalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaXItensBindingSource, "nvalortotal", true));
+            this.nvalortotalTextBox.Location = new System.Drawing.Point(90, 107);
+            this.nvalortotalTextBox.Name = "nvalortotalTextBox";
+            this.nvalortotalTextBox.ReadOnly = true;
+            this.nvalortotalTextBox.Size = new System.Drawing.Size(191, 23);
+            this.nvalortotalTextBox.TabIndex = 2;
+            // 
+            // faturaXItensBindingSource
+            // 
+            this.faturaXItensBindingSource.DataMember = "FaturaXItens";
+            this.faturaXItensBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // nqtditemNumericUpDown
+            // 
+            this.nqtditemNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.faturaXItensBindingSource, "nqtditem", true));
+            this.nqtditemNumericUpDown.Location = new System.Drawing.Point(90, 68);
+            this.nqtditemNumericUpDown.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nqtditemNumericUpDown.Name = "nqtditemNumericUpDown";
+            this.nqtditemNumericUpDown.Size = new System.Drawing.Size(191, 23);
+            this.nqtditemNumericUpDown.TabIndex = 1;
+            this.nqtditemNumericUpDown.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.nqtditemNumericUpDown.ValueChanged += new System.EventHandler(this.nqtditemNumericUpDown_ValueChanged);
+            // 
             // txtDescricaoitem
             // 
             this.txtDescricaoitem.Enabled = false;
-            this.txtDescricaoitem.Location = new System.Drawing.Point(90, 14);
+            this.txtDescricaoitem.Location = new System.Drawing.Point(90, 33);
             this.txtDescricaoitem.Name = "txtDescricaoitem";
             this.txtDescricaoitem.Size = new System.Drawing.Size(157, 23);
             this.txtDescricaoitem.TabIndex = 17;
@@ -722,53 +826,25 @@
             // btnBuscaItem
             // 
             this.btnBuscaItem.Image = global::HotelGestor.Properties.Resources.Search16x16___Copia;
-            this.btnBuscaItem.Location = new System.Drawing.Point(253, 12);
+            this.btnBuscaItem.Location = new System.Drawing.Point(253, 31);
             this.btnBuscaItem.Name = "btnBuscaItem";
             this.btnBuscaItem.Size = new System.Drawing.Size(28, 25);
-            this.btnBuscaItem.TabIndex = 16;
+            this.btnBuscaItem.TabIndex = 0;
             this.btnBuscaItem.UseVisualStyleBackColor = true;
+            this.btnBuscaItem.Click += new System.EventHandler(this.btnBuscaItem_Click);
             // 
-            // button5
+            // btnRegistraConsumo
             // 
-            this.button5.Image = global::HotelGestor.Properties.Resources.comprar;
-            this.button5.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button5.Location = new System.Drawing.Point(156, 166);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(125, 62);
-            this.button5.TabIndex = 15;
-            this.button5.Text = "Registrar";
-            this.button5.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // nVALORBRUTONumericUpDown
-            // 
-            this.nVALORBRUTONumericUpDown.DecimalPlaces = 2;
-            this.nVALORBRUTONumericUpDown.Location = new System.Drawing.Point(90, 121);
-            this.nVALORBRUTONumericUpDown.Maximum = new decimal(new int[] {
-            999999,
-            0,
-            0,
-            0});
-            this.nVALORBRUTONumericUpDown.Name = "nVALORBRUTONumericUpDown";
-            this.nVALORBRUTONumericUpDown.Size = new System.Drawing.Size(120, 23);
-            this.nVALORBRUTONumericUpDown.TabIndex = 14;
-            // 
-            // nQUANTIDADENumericUpDown
-            // 
-            this.nQUANTIDADENumericUpDown.Location = new System.Drawing.Point(90, 62);
-            this.nQUANTIDADENumericUpDown.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.nQUANTIDADENumericUpDown.Name = "nQUANTIDADENumericUpDown";
-            this.nQUANTIDADENumericUpDown.Size = new System.Drawing.Size(120, 23);
-            this.nQUANTIDADENumericUpDown.TabIndex = 12;
-            this.nQUANTIDADENumericUpDown.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.btnRegistraConsumo.Image = global::HotelGestor.Properties.Resources.comprar;
+            this.btnRegistraConsumo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnRegistraConsumo.Location = new System.Drawing.Point(156, 136);
+            this.btnRegistraConsumo.Name = "btnRegistraConsumo";
+            this.btnRegistraConsumo.Size = new System.Drawing.Size(125, 62);
+            this.btnRegistraConsumo.TabIndex = 3;
+            this.btnRegistraConsumo.Text = "Registrar";
+            this.btnRegistraConsumo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegistraConsumo.UseVisualStyleBackColor = true;
+            this.btnRegistraConsumo.Click += new System.EventHandler(this.btnRegistraConsumo_Click);
             // 
             // panel4
             // 
@@ -790,12 +866,17 @@
             this.dataGridView2.BackgroundColor = System.Drawing.Color.White;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.DDATAHORA,
+            this.CDESCRICAO,
+            this.nqtditem,
+            this.nvalorunit,
+            this.nvalortotal,
+            this.ddatamovim,
             this.nidfaturaDataGridViewTextBoxColumn,
             this.niditemDataGridViewTextBoxColumn,
             this.nqtditemDataGridViewTextBoxColumn,
             this.nvalorunitDataGridViewTextBoxColumn,
-            this.nvalortotalDataGridViewTextBoxColumn});
+            this.nvalortotalDataGridViewTextBoxColumn,
+            this.ddatamovimDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.faturaXItensBindingSource;
             dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
@@ -806,7 +887,7 @@
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 58);
+            this.dataGridView2.Location = new System.Drawing.Point(0, 44);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -818,238 +899,50 @@
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dataGridView2.Size = new System.Drawing.Size(466, 300);
+            this.dataGridView2.Size = new System.Drawing.Size(466, 314);
             this.dataGridView2.TabIndex = 11;
             // 
-            // DDATAHORA
+            // CDESCRICAO
             // 
-            this.DDATAHORA.DataPropertyName = "DDATAHORA";
-            this.DDATAHORA.HeaderText = "Data";
-            this.DDATAHORA.Name = "DDATAHORA";
-            this.DDATAHORA.ReadOnly = true;
+            this.CDESCRICAO.DataPropertyName = "CDESCRICAO";
+            this.CDESCRICAO.HeaderText = "Item";
+            this.CDESCRICAO.Name = "CDESCRICAO";
+            this.CDESCRICAO.ReadOnly = true;
             // 
-            // panel9
+            // nqtditem
             // 
-            this.panel9.BackColor = System.Drawing.Color.PowderBlue;
-            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel9.Controls.Add(this.btnCancelarItem);
-            this.panel9.Controls.Add(this.btnExcluirItem);
-            this.panel9.Controls.Add(this.btnAddItem);
-            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel9.Location = new System.Drawing.Point(0, 0);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(466, 58);
-            this.panel9.TabIndex = 10;
+            this.nqtditem.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.nqtditem.DataPropertyName = "nqtditem";
+            this.nqtditem.HeaderText = "Qtd";
+            this.nqtditem.Name = "nqtditem";
+            this.nqtditem.ReadOnly = true;
+            this.nqtditem.Width = 54;
             // 
-            // btnCancelarItem
+            // nvalorunit
             // 
-            this.btnCancelarItem.BackColor = System.Drawing.Color.Transparent;
-            this.btnCancelarItem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnCancelarItem.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnCancelarItem.FlatAppearance.BorderSize = 0;
-            this.btnCancelarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelarItem.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarItem.Image = global::HotelGestor.Properties.Resources.Cancel32x32;
-            this.btnCancelarItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnCancelarItem.Location = new System.Drawing.Point(142, 0);
-            this.btnCancelarItem.Name = "btnCancelarItem";
-            this.btnCancelarItem.Size = new System.Drawing.Size(71, 56);
-            this.btnCancelarItem.TabIndex = 6;
-            this.btnCancelarItem.Text = "Cancelar";
-            this.btnCancelarItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnCancelarItem.UseVisualStyleBackColor = false;
+            this.nvalorunit.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.nvalorunit.DataPropertyName = "nvalorunit";
+            this.nvalorunit.HeaderText = "Valor";
+            this.nvalorunit.Name = "nvalorunit";
+            this.nvalorunit.ReadOnly = true;
+            this.nvalorunit.Width = 62;
             // 
-            // btnExcluirItem
+            // nvalortotal
             // 
-            this.btnExcluirItem.BackColor = System.Drawing.Color.Transparent;
-            this.btnExcluirItem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnExcluirItem.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnExcluirItem.FlatAppearance.BorderSize = 0;
-            this.btnExcluirItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnExcluirItem.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnExcluirItem.Image = global::HotelGestor.Properties.Resources.delete___Copia;
-            this.btnExcluirItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnExcluirItem.Location = new System.Drawing.Point(71, 0);
-            this.btnExcluirItem.Name = "btnExcluirItem";
-            this.btnExcluirItem.Size = new System.Drawing.Size(71, 56);
-            this.btnExcluirItem.TabIndex = 5;
-            this.btnExcluirItem.Text = "Excluir";
-            this.btnExcluirItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnExcluirItem.UseVisualStyleBackColor = false;
+            this.nvalortotal.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.nvalortotal.DataPropertyName = "nvalortotal";
+            this.nvalortotal.HeaderText = "Vlr. Total";
+            this.nvalortotal.Name = "nvalortotal";
+            this.nvalortotal.ReadOnly = true;
+            this.nvalortotal.Width = 87;
             // 
-            // btnAddItem
+            // ddatamovim
             // 
-            this.btnAddItem.BackColor = System.Drawing.Color.Transparent;
-            this.btnAddItem.Dock = System.Windows.Forms.DockStyle.Left;
-            this.btnAddItem.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.btnAddItem.FlatAppearance.BorderSize = 0;
-            this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAddItem.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAddItem.Image = global::HotelGestor.Properties.Resources.Add32x32;
-            this.btnAddItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnAddItem.Location = new System.Drawing.Point(0, 0);
-            this.btnAddItem.Name = "btnAddItem";
-            this.btnAddItem.Size = new System.Drawing.Size(71, 56);
-            this.btnAddItem.TabIndex = 4;
-            this.btnAddItem.Text = "Incluir";
-            this.btnAddItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnAddItem.UseVisualStyleBackColor = false;
-            // 
-            // panel5
-            // 
-            this.panel5.BackColor = System.Drawing.Color.Silver;
-            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Controls.Add(this.lbtot);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 358);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(466, 41);
-            this.panel5.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(346, 10);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(27, 18);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "0,0";
-            // 
-            // lbtot
-            // 
-            this.lbtot.AutoSize = true;
-            this.lbtot.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.lbtot.Location = new System.Drawing.Point(295, 10);
-            this.lbtot.Name = "lbtot";
-            this.lbtot.Size = new System.Drawing.Size(47, 18);
-            this.lbtot.TabIndex = 0;
-            this.lbtot.Text = "Total :";
-            // 
-            // tabCheckOut
-            // 
-            this.tabCheckOut.Controls.Add(this.panel7);
-            this.tabCheckOut.Controls.Add(this.panel6);
-            this.tabCheckOut.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tabCheckOut.Location = new System.Drawing.Point(4, 27);
-            this.tabCheckOut.Name = "tabCheckOut";
-            this.tabCheckOut.Padding = new System.Windows.Forms.Padding(3);
-            this.tabCheckOut.Size = new System.Drawing.Size(762, 409);
-            this.tabCheckOut.TabIndex = 2;
-            this.tabCheckOut.Text = "Check-out";
-            this.tabCheckOut.UseVisualStyleBackColor = true;
-            // 
-            // panel7
-            // 
-            this.panel7.Controls.Add(nidfaturaLabel);
-            this.panel7.Controls.Add(this.nidfaturaTextBox);
-            this.panel7.Controls.Add(nVALORBASELabel);
-            this.panel7.Controls.Add(this.lbConsumo);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Controls.Add(this.label2);
-            this.panel7.Controls.Add(vVALORDESCONTOLabel);
-            this.panel7.Controls.Add(vVALORTOTALLabel);
-            this.panel7.Controls.Add(fFORMAPAGAMENTOLabel);
-            this.panel7.Controls.Add(this.fFORMAPAGAMENTOComboBox);
-            this.panel7.Controls.Add(cOBSERVACAOLabel);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(756, 308);
-            this.panel7.TabIndex = 28;
-            // 
-            // nidfaturaTextBox
-            // 
-            this.nidfaturaTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "nidfatura", true));
-            this.nidfaturaTextBox.Location = new System.Drawing.Point(471, 128);
-            this.nidfaturaTextBox.Name = "nidfaturaTextBox";
-            this.nidfaturaTextBox.Size = new System.Drawing.Size(100, 23);
-            this.nidfaturaTextBox.TabIndex = 39;
-            // 
-            // lbConsumo
-            // 
-            this.lbConsumo.AutoSize = true;
-            this.lbConsumo.Location = new System.Drawing.Point(181, 71);
-            this.lbConsumo.Name = "lbConsumo";
-            this.lbConsumo.Size = new System.Drawing.Size(34, 18);
-            this.lbConsumo.TabIndex = 37;
-            this.lbConsumo.Text = "0,00";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(80, 70);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 18);
-            this.label4.TabIndex = 36;
-            this.label4.Text = "Total Consumo:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(127, 106);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(54, 18);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Diarias:";
-            // 
-            // fFORMAPAGAMENTOComboBox
-            // 
-            this.fFORMAPAGAMENTOComboBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hOSPEDAGEMBindingSource, "FFORMAPAGAMENTO", true));
-            this.fFORMAPAGAMENTOComboBox.FormattingEnabled = true;
-            this.fFORMAPAGAMENTOComboBox.Location = new System.Drawing.Point(184, 23);
-            this.fFORMAPAGAMENTOComboBox.Name = "fFORMAPAGAMENTOComboBox";
-            this.fFORMAPAGAMENTOComboBox.Size = new System.Drawing.Size(324, 26);
-            this.fFORMAPAGAMENTOComboBox.TabIndex = 30;
-            // 
-            // panel6
-            // 
-            this.panel6.BackColor = System.Drawing.Color.Silver;
-            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panel6.Controls.Add(this.btnEncerrar);
-            this.panel6.Controls.Add(this.btnFatura);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 311);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(756, 100);
-            this.panel6.TabIndex = 26;
-            // 
-            // btnEncerrar
-            // 
-            this.btnEncerrar.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnEncerrar.Image = global::HotelGestor.Properties.Resources.aberto;
-            this.btnEncerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEncerrar.Location = new System.Drawing.Point(355, 18);
-            this.btnEncerrar.Name = "btnEncerrar";
-            this.btnEncerrar.Size = new System.Drawing.Size(136, 62);
-            this.btnEncerrar.TabIndex = 1;
-            this.btnEncerrar.Text = "Encerrar";
-            this.btnEncerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnEncerrar.UseVisualStyleBackColor = true;
-            // 
-            // btnFatura
-            // 
-            this.btnFatura.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnFatura.Image = global::HotelGestor.Properties.Resources.pagamento;
-            this.btnFatura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFatura.Location = new System.Drawing.Point(212, 18);
-            this.btnFatura.Name = "btnFatura";
-            this.btnFatura.Size = new System.Drawing.Size(125, 62);
-            this.btnFatura.TabIndex = 0;
-            this.btnFatura.Text = "Fatura";
-            this.btnFatura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnFatura.UseVisualStyleBackColor = true;
-            // 
-            // hOSPEDAGEMBindingSource
-            // 
-            this.hOSPEDAGEMBindingSource.DataMember = "HOSPEDAGEM";
-            this.hOSPEDAGEMBindingSource.DataSource = this.hotelDBDataSet;
-            // 
-            // hotelDBDataSet
-            // 
-            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
-            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            this.ddatamovim.DataPropertyName = "ddatamovim";
+            this.ddatamovim.HeaderText = "Lançamento";
+            this.ddatamovim.Name = "ddatamovim";
+            this.ddatamovim.ReadOnly = true;
+            this.ddatamovim.Width = 150;
             // 
             // nidfaturaDataGridViewTextBoxColumn
             // 
@@ -1086,61 +979,305 @@
             this.nvalortotalDataGridViewTextBoxColumn.Name = "nvalortotalDataGridViewTextBoxColumn";
             this.nvalortotalDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // faturaXItensBindingSource
+            // ddatamovimDataGridViewTextBoxColumn
             // 
-            this.faturaXItensBindingSource.DataMember = "FaturaXItens";
-            this.faturaXItensBindingSource.DataSource = this.hotelDBDataSet;
+            this.ddatamovimDataGridViewTextBoxColumn.DataPropertyName = "ddatamovim";
+            this.ddatamovimDataGridViewTextBoxColumn.HeaderText = "ddatamovim";
+            this.ddatamovimDataGridViewTextBoxColumn.Name = "ddatamovimDataGridViewTextBoxColumn";
+            this.ddatamovimDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // panel9
+            // 
+            this.panel9.BackColor = System.Drawing.Color.PowderBlue;
+            this.panel9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel9.Controls.Add(this.btnCancelarItem);
+            this.panel9.Controls.Add(this.btnExcluirItem);
+            this.panel9.Controls.Add(this.btnAddItem);
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(466, 44);
+            this.panel9.TabIndex = 10;
+            // 
+            // btnCancelarItem
+            // 
+            this.btnCancelarItem.BackColor = System.Drawing.Color.Transparent;
+            this.btnCancelarItem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnCancelarItem.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnCancelarItem.FlatAppearance.BorderSize = 0;
+            this.btnCancelarItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelarItem.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarItem.Image = global::HotelGestor.Properties.Resources.Cancel16x16___Copia;
+            this.btnCancelarItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnCancelarItem.Location = new System.Drawing.Point(142, 0);
+            this.btnCancelarItem.Name = "btnCancelarItem";
+            this.btnCancelarItem.Size = new System.Drawing.Size(71, 42);
+            this.btnCancelarItem.TabIndex = 6;
+            this.btnCancelarItem.Text = "Cancelar";
+            this.btnCancelarItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnCancelarItem.UseVisualStyleBackColor = false;
+            this.btnCancelarItem.Click += new System.EventHandler(this.btnCancelarItem_Click);
+            // 
+            // btnExcluirItem
+            // 
+            this.btnExcluirItem.BackColor = System.Drawing.Color.Transparent;
+            this.btnExcluirItem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnExcluirItem.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnExcluirItem.FlatAppearance.BorderSize = 0;
+            this.btnExcluirItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnExcluirItem.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnExcluirItem.Image = global::HotelGestor.Properties.Resources.delete16x16;
+            this.btnExcluirItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnExcluirItem.Location = new System.Drawing.Point(71, 0);
+            this.btnExcluirItem.Name = "btnExcluirItem";
+            this.btnExcluirItem.Size = new System.Drawing.Size(71, 42);
+            this.btnExcluirItem.TabIndex = 5;
+            this.btnExcluirItem.Text = "Excluir";
+            this.btnExcluirItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnExcluirItem.UseVisualStyleBackColor = false;
+            this.btnExcluirItem.Click += new System.EventHandler(this.btnExcluirItem_Click);
+            // 
+            // btnAddItem
+            // 
+            this.btnAddItem.BackColor = System.Drawing.Color.Transparent;
+            this.btnAddItem.Dock = System.Windows.Forms.DockStyle.Left;
+            this.btnAddItem.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnAddItem.FlatAppearance.BorderSize = 0;
+            this.btnAddItem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAddItem.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAddItem.Image = global::HotelGestor.Properties.Resources.Add16x16___Copia;
+            this.btnAddItem.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnAddItem.Location = new System.Drawing.Point(0, 0);
+            this.btnAddItem.Name = "btnAddItem";
+            this.btnAddItem.Size = new System.Drawing.Size(71, 42);
+            this.btnAddItem.TabIndex = 0;
+            this.btnAddItem.Text = "Incluir";
+            this.btnAddItem.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnAddItem.UseVisualStyleBackColor = false;
+            this.btnAddItem.Click += new System.EventHandler(this.btnAddItem_Click);
+            // 
+            // panel5
+            // 
+            this.panel5.BackColor = System.Drawing.Color.Silver;
+            this.panel5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel5.Controls.Add(this.lbTotalLancamentos);
+            this.panel5.Controls.Add(this.lbtot);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel5.Location = new System.Drawing.Point(0, 358);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(466, 41);
+            this.panel5.TabIndex = 2;
+            // 
+            // lbTotalLancamentos
+            // 
+            this.lbTotalLancamentos.AutoSize = true;
+            this.lbTotalLancamentos.BackColor = System.Drawing.Color.White;
+            this.lbTotalLancamentos.Location = new System.Drawing.Point(346, 10);
+            this.lbTotalLancamentos.Name = "lbTotalLancamentos";
+            this.lbTotalLancamentos.Size = new System.Drawing.Size(34, 18);
+            this.lbTotalLancamentos.TabIndex = 1;
+            this.lbTotalLancamentos.Text = "0,00";
+            // 
+            // lbtot
+            // 
+            this.lbtot.AutoSize = true;
+            this.lbtot.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lbtot.Location = new System.Drawing.Point(295, 10);
+            this.lbtot.Name = "lbtot";
+            this.lbtot.Size = new System.Drawing.Size(47, 18);
+            this.lbtot.TabIndex = 0;
+            this.lbtot.Text = "Total :";
+            // 
+            // tabCheckOut
+            // 
+            this.tabCheckOut.Controls.Add(this.panel7);
+            this.tabCheckOut.Controls.Add(this.panel6);
+            this.tabCheckOut.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tabCheckOut.Location = new System.Drawing.Point(4, 27);
+            this.tabCheckOut.Name = "tabCheckOut";
+            this.tabCheckOut.Padding = new System.Windows.Forms.Padding(3);
+            this.tabCheckOut.Size = new System.Drawing.Size(762, 409);
+            this.tabCheckOut.TabIndex = 2;
+            this.tabCheckOut.Text = "Check-out";
+            this.tabCheckOut.UseVisualStyleBackColor = true;
+            // 
+            // panel7
+            // 
+            this.panel7.AutoScroll = true;
+            this.panel7.Controls.Add(this.label7);
+            this.panel7.Controls.Add(label6);
+            this.panel7.Controls.Add(this.label5);
+            this.panel7.Controls.Add(this.label3);
+            this.panel7.Controls.Add(ncontroleLabel);
+            this.panel7.Controls.Add(this.ncontroleTextBox);
+            this.panel7.Controls.Add(this.cobservacaoTextBox);
+            this.panel7.Controls.Add(this.nvalottotalTextBox);
+            this.panel7.Controls.Add(this.ndescontoTextBox);
+            this.panel7.Controls.Add(nVALORBASELabel);
+            this.panel7.Controls.Add(this.lbConsumo);
+            this.panel7.Controls.Add(this.label4);
+            this.panel7.Controls.Add(this.label2);
+            this.panel7.Controls.Add(vVALORDESCONTOLabel);
+            this.panel7.Controls.Add(vVALORTOTALLabel);
+            this.panel7.Controls.Add(fFORMAPAGAMENTOLabel);
+            this.panel7.Controls.Add(this.fFORMAPAGAMENTOComboBox);
+            this.panel7.Controls.Add(cOBSERVACAOLabel);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel7.Location = new System.Drawing.Point(3, 3);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(756, 303);
+            this.panel7.TabIndex = 28;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(459, 124);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(34, 18);
+            this.label7.TabIndex = 47;
+            this.label7.Text = "0,00";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(214, 124);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(34, 18);
+            this.label5.TabIndex = 45;
+            this.label5.Text = "0,00";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(214, 101);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(15, 18);
+            this.label3.TabIndex = 44;
+            this.label3.Text = "0";
+            // 
+            // ncontroleTextBox
+            // 
+            this.ncontroleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "ncontrole", true));
+            this.ncontroleTextBox.Location = new System.Drawing.Point(214, 13);
+            this.ncontroleTextBox.Name = "ncontroleTextBox";
+            this.ncontroleTextBox.Size = new System.Drawing.Size(100, 23);
+            this.ncontroleTextBox.TabIndex = 43;
             // 
             // faturaBindingSource
             // 
             this.faturaBindingSource.DataMember = "fatura";
             this.faturaBindingSource.DataSource = this.hotelDBDataSet;
             // 
-            // dDATAINDataGridViewTextBoxColumn1
+            // cobservacaoTextBox
             // 
-            this.dDATAINDataGridViewTextBoxColumn1.DataPropertyName = "DDATAIN";
-            this.dDATAINDataGridViewTextBoxColumn1.HeaderText = "Entrada";
-            this.dDATAINDataGridViewTextBoxColumn1.Name = "dDATAINDataGridViewTextBoxColumn1";
-            this.dDATAINDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.cobservacaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "cobservacao", true));
+            this.cobservacaoTextBox.Location = new System.Drawing.Point(214, 205);
+            this.cobservacaoTextBox.Multiline = true;
+            this.cobservacaoTextBox.Name = "cobservacaoTextBox";
+            this.cobservacaoTextBox.Size = new System.Drawing.Size(344, 86);
+            this.cobservacaoTextBox.TabIndex = 42;
             // 
-            // dDATAOUTDataGridViewTextBoxColumn1
+            // nvalottotalTextBox
             // 
-            this.dDATAOUTDataGridViewTextBoxColumn1.DataPropertyName = "DDATAOUT";
-            this.dDATAOUTDataGridViewTextBoxColumn1.HeaderText = "Saida";
-            this.dDATAOUTDataGridViewTextBoxColumn1.Name = "dDATAOUTDataGridViewTextBoxColumn1";
-            this.dDATAOUTDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.nvalottotalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "nvalottotal", true));
+            this.nvalottotalTextBox.Location = new System.Drawing.Point(214, 175);
+            this.nvalottotalTextBox.Name = "nvalottotalTextBox";
+            this.nvalottotalTextBox.Size = new System.Drawing.Size(100, 23);
+            this.nvalottotalTextBox.TabIndex = 41;
             // 
-            // nDIARIASDataGridViewTextBoxColumn1
+            // ndescontoTextBox
             // 
-            this.nDIARIASDataGridViewTextBoxColumn1.DataPropertyName = "NDIARIAS";
-            this.nDIARIASDataGridViewTextBoxColumn1.HeaderText = "Diárias";
-            this.nDIARIASDataGridViewTextBoxColumn1.Name = "nDIARIASDataGridViewTextBoxColumn1";
-            this.nDIARIASDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.ndescontoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "ndesconto", true));
+            this.ndescontoTextBox.Location = new System.Drawing.Point(214, 146);
+            this.ndescontoTextBox.Name = "ndescontoTextBox";
+            this.ndescontoTextBox.Size = new System.Drawing.Size(100, 23);
+            this.ndescontoTextBox.TabIndex = 40;
             // 
-            // vVALORTOTALDataGridViewTextBoxColumn1
+            // lbConsumo
             // 
-            this.vVALORTOTALDataGridViewTextBoxColumn1.DataPropertyName = "VVALORTOTAL";
-            dataGridViewCellStyle3.Format = "c2";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.vVALORTOTALDataGridViewTextBoxColumn1.HeaderText = "Valor";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.Name = "vVALORTOTALDataGridViewTextBoxColumn1";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.lbConsumo.AutoSize = true;
+            this.lbConsumo.Location = new System.Drawing.Point(214, 78);
+            this.lbConsumo.Name = "lbConsumo";
+            this.lbConsumo.Size = new System.Drawing.Size(34, 18);
+            this.lbConsumo.TabIndex = 37;
+            this.lbConsumo.Text = "0,00";
             // 
-            // dDATAFECHAMENTODataGridViewTextBoxColumn1
+            // label4
             // 
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.DataPropertyName = "DDATAFECHAMENTO";
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.HeaderText = "Fechamento";
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.Name = "dDATAFECHAMENTODataGridViewTextBoxColumn1";
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.ReadOnly = true;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(108, 77);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(100, 18);
+            this.label4.TabIndex = 36;
+            this.label4.Text = "Total Consumo:";
             // 
-            // hOSPEDAGEMTableAdapter
+            // label2
             // 
-            this.hOSPEDAGEMTableAdapter.ClearBeforeFill = true;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(154, 101);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(54, 18);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Diarias:";
+            // 
+            // fFORMAPAGAMENTOComboBox
+            // 
+            this.fFORMAPAGAMENTOComboBox.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.faturaBindingSource, "nformapag", true));
+            this.fFORMAPAGAMENTOComboBox.DataSource = this.fORMASDEPAGAMENTOBindingSource;
+            this.fFORMAPAGAMENTOComboBox.DisplayMember = "CDESCRICAO";
+            this.fFORMAPAGAMENTOComboBox.FormattingEnabled = true;
+            this.fFORMAPAGAMENTOComboBox.Location = new System.Drawing.Point(214, 42);
+            this.fFORMAPAGAMENTOComboBox.Name = "fFORMAPAGAMENTOComboBox";
+            this.fFORMAPAGAMENTOComboBox.Size = new System.Drawing.Size(324, 26);
+            this.fFORMAPAGAMENTOComboBox.TabIndex = 30;
+            this.fFORMAPAGAMENTOComboBox.ValueMember = "NIDPAGFORM";
             // 
             // fORMASDEPAGAMENTOBindingSource
             // 
             this.fORMASDEPAGAMENTOBindingSource.DataMember = "FORMASDEPAGAMENTO";
             this.fORMASDEPAGAMENTOBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // panel6
+            // 
+            this.panel6.BackColor = System.Drawing.Color.Silver;
+            this.panel6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel6.Controls.Add(this.btnEncerrar);
+            this.panel6.Controls.Add(this.btnFatura);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel6.Location = new System.Drawing.Point(3, 306);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(756, 100);
+            this.panel6.TabIndex = 26;
+            // 
+            // btnEncerrar
+            // 
+            this.btnEncerrar.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnEncerrar.Image = global::HotelGestor.Properties.Resources.aberto;
+            this.btnEncerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnEncerrar.Location = new System.Drawing.Point(355, 18);
+            this.btnEncerrar.Name = "btnEncerrar";
+            this.btnEncerrar.Size = new System.Drawing.Size(136, 62);
+            this.btnEncerrar.TabIndex = 1;
+            this.btnEncerrar.Text = "Encerrar";
+            this.btnEncerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnEncerrar.UseVisualStyleBackColor = true;
+            // 
+            // btnFatura
+            // 
+            this.btnFatura.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnFatura.Image = global::HotelGestor.Properties.Resources.pagamento;
+            this.btnFatura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnFatura.Location = new System.Drawing.Point(212, 18);
+            this.btnFatura.Name = "btnFatura";
+            this.btnFatura.Size = new System.Drawing.Size(125, 62);
+            this.btnFatura.TabIndex = 0;
+            this.btnFatura.Text = "Fatura";
+            this.btnFatura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnFatura.UseVisualStyleBackColor = true;
+            // 
+            // hOSPEDAGEMTableAdapter
+            // 
+            this.hOSPEDAGEMTableAdapter.ClearBeforeFill = true;
             // 
             // fORMASDEPAGAMENTOTableAdapter
             // 
@@ -1183,6 +1320,8 @@
             this.tbCadastro.ResumeLayout(false);
             this.tbMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             this.tbHospedagem.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -1192,8 +1331,8 @@
             this.tabConsumo.ResumeLayout(false);
             this.panelCadItens.ResumeLayout(false);
             this.panelCadItens.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.nVALORBRUTONumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.nQUANTIDADENumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faturaXItensBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.nqtditemNumericUpDown)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.panel9.ResumeLayout(false);
@@ -1202,12 +1341,9 @@
             this.tabCheckOut.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faturaXItensBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).EndInit();
+            this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1258,18 +1394,15 @@
         private System.Windows.Forms.Panel panelCadItens;
         private System.Windows.Forms.TextBox txtDescricaoitem;
         private System.Windows.Forms.Button btnBuscaItem;
-        private System.Windows.Forms.Button button5;
-        private System.Windows.Forms.NumericUpDown nVALORBRUTONumericUpDown;
-        private System.Windows.Forms.NumericUpDown nQUANTIDADENumericUpDown;
+        private System.Windows.Forms.Button btnRegistraConsumo;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DDATAHORA;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Button btnCancelarItem;
         private System.Windows.Forms.Button btnExcluirItem;
         private System.Windows.Forms.Button btnAddItem;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lbTotalLancamentos;
         private System.Windows.Forms.Label lbtot;
         private System.Windows.Forms.TabPage tabCheckOut;
         private System.Windows.Forms.Panel panel7;
@@ -1291,14 +1424,28 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dDATAFECHAMENTODataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource faturaXItensBindingSource;
         private HotelDBDataSetTableAdapters.FaturaXItensTableAdapter faturaXItensTableAdapter;
+        private System.Windows.Forms.BindingSource faturaBindingSource;
+        private HotelDBDataSetTableAdapters.faturaTableAdapter faturaTableAdapter;
+        private HotelDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TextBox nvalortotalTextBox;
+        private System.Windows.Forms.NumericUpDown nqtditemNumericUpDown;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox ncontroleTextBox;
+        private System.Windows.Forms.TextBox cobservacaoTextBox;
+        private System.Windows.Forms.TextBox nvalottotalTextBox;
+        private System.Windows.Forms.TextBox ndescontoTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CDESCRICAO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nqtditem;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nvalorunit;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nvalortotal;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ddatamovim;
         private System.Windows.Forms.DataGridViewTextBoxColumn nidfaturaDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn niditemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nqtditemDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nvalorunitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nvalortotalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.BindingSource faturaBindingSource;
-        private HotelDBDataSetTableAdapters.faturaTableAdapter faturaTableAdapter;
-        private HotelDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
-        private System.Windows.Forms.TextBox nidfaturaTextBox;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ddatamovimDataGridViewTextBoxColumn;
     }
 }

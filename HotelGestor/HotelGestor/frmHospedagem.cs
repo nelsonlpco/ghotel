@@ -15,6 +15,10 @@ namespace HotelGestor
             InitializeComponent();
         }
 
+        private double valorbase = 0;
+
+        private bool fadditem = false;
+
         private void selecionarCliente()
         {
             frmHospedes frm = new frmHospedes();
@@ -42,6 +46,20 @@ namespace HotelGestor
             
         }
 
+        public bool isEmptyItens()
+        {
+            bool saida = true;
+            if (hotelDBDataSet.FaturaXItens.Rows.Count > 0)
+                saida = false;
+            return saida;
+        }
+
+        public void buttonItensStats()
+        {
+            btnAddItem.Enabled = !fadditem;
+            btnExcluirItem.Enabled = !fadditem && !isEmptyItens();
+            btnCancelarItem.Enabled = fadditem;
+        }
 
         public override bool isEmptyDataset()
         {
@@ -102,6 +120,78 @@ namespace HotelGestor
             tbMain.SelectedIndex = 1;
         }
 
+        public void buscarItem()
+        {
+            frmItens frm = new frmItens();
+            frm.selectMod();
+            frm.ShowDialog();
+            txtDescricaoitem.Text = frm.SelectDescription;
+            nvalortotalTextBox.Text = String.Format("{0:N}", frm.SelectValue);
+            valorbase = frm.SelectValue;
+            currentRow = (DataRowView)faturaXItensBindingSource.Current;
+            currentRow["niditem"] = frm.SelectId;
+            currentRow["nvalorunit"] = valorbase;
+            frm.Dispose();
+            nqtditemNumericUpDown.Value = 1; 
+        }
+
+        public void atualizaItensFatura()
+        {
+            DataRowView faturaRow = (DataRowView)faturaBindingSource.Current;
+            this.faturaXItensTableAdapter.FillByFatura(this.hotelDBDataSet.FaturaXItens, (int)faturaRow["nidfatura"]);
+            currentRow = (DataRowView)faturaXItensBindingSource.Current;
+            double t = (double)currentRow["TOTAL"];
+            lbTotalLancamentos.Text = string.Format("0:N",t);
+        }
+
+        public void incluirItem()
+        {
+            faturaXItensBindingSource.AddNew();
+            panelCadItens.Enabled = true;
+            buscarItem();
+            fadditem = true;
+            lbStatus.Text = Comum.screenStats('i');
+            buttonItensStats();
+        }
+
+        public void excluirItem()
+        {
+            lbStatus.Text = Comum.screenStats('e');
+            if (Comum.msgExcluir(Comum.MSG_SEMREGISTRO))
+            {
+                currentRow = (DataRowView)faturaXItensBindingSource.Current;
+                faturaXItensTableAdapter.Delete((int) currentRow["nidfatura"],(int) currentRow["niditem"]);
+                atualizaItensFatura();
+            }
+            lbStatus.Text = Comum.screenStats('c');
+            buttonItensStats();
+        }
+
+        public void cancelarItem()
+        {
+            faturaXItensBindingSource.CancelEdit();
+            lbStatus.Text = Comum.screenStats('c');
+            panelCadItens.Enabled = false;
+            fadditem = false;
+            buttonItensStats();
+        }
+
+        public void salvarItem()
+        {
+            DataRowView faturaRow = (DataRowView)faturaBindingSource.Current;
+            currentRow = (DataRowView)faturaXItensBindingSource.Current;
+            currentRow["nidfatura"] = faturaRow["nidfatura"];
+            currentRow["ddatamovim"] = DateTime.Now;
+            faturaXItensBindingSource.EndEdit();
+            faturaXItensTableAdapter.Update(hotelDBDataSet.FaturaXItens);
+            fadditem = false;
+            lbStatus.Text = Comum.screenStats('c');
+            buttonItensStats();
+            panelCadItens.Enabled = false;
+            atualizaItensFatura();
+        }
+
+
         
         public override void filtro()
         {
@@ -157,12 +247,11 @@ namespace HotelGestor
             switch(tbHospedagem.SelectedIndex)
             {
                 case 1 :
-                    currentRow = (DataRowView)faturaBindingSource.Current;
-                    this.faturaXItensTableAdapter.FillByFatura(this.hotelDBDataSet.FaturaXItens,(int) currentRow["nidfatura"]);
-                    break;
                 case 2 :
                     currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
                     this.faturaTableAdapter.FillByHospedagem(this.hotelDBDataSet.fatura, (int)currentRow["NIDHOSPEDAGEM"]);
+                    atualizaItensFatura();
+                    buttonItensStats();
                     break;
             }
         }
@@ -170,6 +259,46 @@ namespace HotelGestor
         private void btnHospedar_Click(object sender, EventArgs e)
         {
             salvar();
+        }
+
+        private void btnBuscaItem_Click(object sender, EventArgs e)
+        {
+            buscarItem();
+        }
+
+        private void nqtditemNumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            if (fadditem)
+            {
+                currentRow = (DataRowView)faturaXItensBindingSource.Current;
+                currentRow["nvalortotal"] = valorbase * (double)nqtditemNumericUpDown.Value;
+                nvalortotalTextBox.Text = string.Format("{0:N}", valorbase * (double)nqtditemNumericUpDown.Value);
+            }
+        }
+
+        private void btnAddItem_Click(object sender, EventArgs e)
+        {
+            incluirItem();
+        }
+
+        private void btnExcluirItem_Click(object sender, EventArgs e)
+        {
+            excluirItem();
+        }
+
+        private void btnCancelarItem_Click(object sender, EventArgs e)
+        {
+            cancelarItem();
+        }
+
+        private void btnRegistraConsumo_Click(object sender, EventArgs e)
+        {
+            salvarItem();
+        }
+
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            tbMain.SelectedIndex = 1;
         }
 
        

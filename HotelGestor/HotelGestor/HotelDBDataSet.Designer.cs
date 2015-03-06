@@ -12039,18 +12039,25 @@ SELECT NIDQUARTO, CDESCRICAO, NNUMERO, NANDAR, NMAXPESSOAS, CESTATUS, NVALORBASE
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
+            this._commandCollection = new global::System.Data.SqlClient.SqlCommand[3];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "select * from quarto";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"SELECT        A.CDESCRICAO AS CATEGORIA, QUARTO.NIDQUARTO, QUARTO.CDESCRICAO, QUARTO.NANDAR, QUARTO.NNUMERO, QUARTO.NMAXPESSOAS, QUARTO.NVALORBASE, QUARTO.CESTATUS, 
+            this._commandCollection[1].CommandText = "SELECT        NIDQUARTO, CDESCRICAO, NNUMERO, NANDAR, NMAXPESSOAS, CESTATUS, NVAL" +
+                "ORBASE, NCATEGORIA\r\nFROM            QUARTO\r\nWHERE        (NIDQUARTO = @idquarto)" +
+                "";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idquarto", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "NIDQUARTO", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
+            this._commandCollection[2] = new global::System.Data.SqlClient.SqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = @"SELECT        A.CDESCRICAO AS CATEGORIA, QUARTO.NIDQUARTO, QUARTO.CDESCRICAO, QUARTO.NANDAR, QUARTO.NNUMERO, QUARTO.NMAXPESSOAS, QUARTO.NVALORBASE, QUARTO.CESTATUS, 
                          QUARTO.NCATEGORIA
 FROM            QUARTO LEFT OUTER JOIN
                          CATEGORIAQUARTO AS A ON A.idcategoria = QUARTO.NCATEGORIA";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12081,8 +12088,34 @@ FROM            QUARTO LEFT OUTER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
-        public virtual int FillToView(HotelDBDataSet.QUARTODataTable dataTable) {
+        public virtual int FillById(HotelDBDataSet.QUARTODataTable dataTable, int idquarto) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idquarto));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual HotelDBDataSet.QUARTODataTable GetDataById(int idquarto) {
+            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idquarto));
+            HotelDBDataSet.QUARTODataTable dataTable = new HotelDBDataSet.QUARTODataTable(true);
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillToView(HotelDBDataSet.QUARTODataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
@@ -12095,7 +12128,7 @@ FROM            QUARTO LEFT OUTER JOIN
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
         public virtual HotelDBDataSet.QUARTODataTable GetDataToView() {
-            this.Adapter.SelectCommand = this.CommandCollection[1];
+            this.Adapter.SelectCommand = this.CommandCollection[2];
             HotelDBDataSet.QUARTODataTable dataTable = new HotelDBDataSet.QUARTODataTable(true);
             this.Adapter.Fill(dataTable);
             return dataTable;

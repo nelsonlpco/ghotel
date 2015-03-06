@@ -257,12 +257,26 @@ namespace HotelGestor
             {
                 case 1 :
                 case 2 :
-                    currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
-                    this.faturaTableAdapter.FillByHospedagem(this.hotelDBDataSet.fatura, (int)currentRow["NIDHOSPEDAGEM"]);
+                    atualizarFatura();
                     atualizaItensFatura();
                     buttonItensStats();
                     break;
             }
+        }
+
+        private void atualizarFatura()
+        {
+            currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            this.faturaTableAdapter.FillByHospedagem(this.hotelDBDataSet.fatura, (int)currentRow["NIDHOSPEDAGEM"]);
+
+            lbConsumo.Text = lbTotalLancamentos.Text;
+            lbdiarias.Text = currentRow["NDIARIAS"].ToString();
+
+            HotelDBDataSetTableAdapters.QUARTOTableAdapter tbquarto = new HotelDBDataSetTableAdapters.QUARTOTableAdapter();
+            tbquarto.FillById(hotelDBDataSet.QUARTO, (int)currentRow["NIDQUARTO"]);
+
+            lbdiaria.Text = hotelDBDataSet.QUARTO.Rows[0]["NVALORBASE"].ToString();
+
         }
 
         private void btnHospedar_Click(object sender, EventArgs e)
@@ -308,6 +322,16 @@ namespace HotelGestor
         private void dataGridView1_DoubleClick(object sender, EventArgs e)
         {
             tbMain.SelectedIndex = 1;
+        }
+
+        private void ndescontoTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Comum.moneyMask(sender);
+        }
+
+        private void nvalottotalTextBox_TextChanged(object sender, EventArgs e)
+        {
+            Comum.moneyMask(sender);
         }
 
        

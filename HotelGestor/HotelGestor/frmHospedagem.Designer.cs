@@ -44,9 +44,9 @@
             System.Windows.Forms.Label cOBSERVACAOLabel;
             System.Windows.Forms.Label ncontroleLabel;
             System.Windows.Forms.Label label6;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dDATAINDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dDATAOUTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,12 +119,12 @@
             this.lbTotalLancamentos = new System.Windows.Forms.Label();
             this.lbtot = new System.Windows.Forms.Label();
             this.tabCheckOut = new System.Windows.Forms.TabPage();
-            this.panel7 = new System.Windows.Forms.Panel();
+            this.lbdiaria = new System.Windows.Forms.Panel();
+            this.ncontroleNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.faturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label7 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.ncontroleTextBox = new System.Windows.Forms.TextBox();
-            this.faturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.lbdiarias = new System.Windows.Forms.Label();
             this.cobservacaoTextBox = new System.Windows.Forms.TextBox();
             this.nvalottotalTextBox = new System.Windows.Forms.TextBox();
             this.ndescontoTextBox = new System.Windows.Forms.TextBox();
@@ -177,7 +177,8 @@
             this.panel9.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabCheckOut.SuspendLayout();
-            this.panel7.SuspendLayout();
+            this.lbdiaria.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
@@ -411,8 +412,8 @@
             // vVALORTOTALDataGridViewTextBoxColumn1
             // 
             this.vVALORTOTALDataGridViewTextBoxColumn1.DataPropertyName = "VVALORTOTAL";
-            dataGridViewCellStyle3.Format = "c2";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle4.Format = "c2";
+            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
             this.vVALORTOTALDataGridViewTextBoxColumn1.HeaderText = "Valor";
             this.vVALORTOTALDataGridViewTextBoxColumn1.Name = "vVALORTOTALDataGridViewTextBoxColumn1";
             this.vVALORTOTALDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -878,26 +879,26 @@
             this.nvalortotalDataGridViewTextBoxColumn,
             this.ddatamovimDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.faturaXItensBindingSource;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 44);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(466, 314);
             this.dataGridView2.TabIndex = 11;
@@ -1090,7 +1091,7 @@
             // 
             // tabCheckOut
             // 
-            this.tabCheckOut.Controls.Add(this.panel7);
+            this.tabCheckOut.Controls.Add(this.lbdiaria);
             this.tabCheckOut.Controls.Add(this.panel6);
             this.tabCheckOut.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCheckOut.Location = new System.Drawing.Point(4, 27);
@@ -1101,32 +1102,45 @@
             this.tabCheckOut.Text = "Check-out";
             this.tabCheckOut.UseVisualStyleBackColor = true;
             // 
-            // panel7
+            // lbdiaria
             // 
-            this.panel7.AutoScroll = true;
-            this.panel7.Controls.Add(this.label7);
-            this.panel7.Controls.Add(label6);
-            this.panel7.Controls.Add(this.label5);
-            this.panel7.Controls.Add(this.label3);
-            this.panel7.Controls.Add(ncontroleLabel);
-            this.panel7.Controls.Add(this.ncontroleTextBox);
-            this.panel7.Controls.Add(this.cobservacaoTextBox);
-            this.panel7.Controls.Add(this.nvalottotalTextBox);
-            this.panel7.Controls.Add(this.ndescontoTextBox);
-            this.panel7.Controls.Add(nVALORBASELabel);
-            this.panel7.Controls.Add(this.lbConsumo);
-            this.panel7.Controls.Add(this.label4);
-            this.panel7.Controls.Add(this.label2);
-            this.panel7.Controls.Add(vVALORDESCONTOLabel);
-            this.panel7.Controls.Add(vVALORTOTALLabel);
-            this.panel7.Controls.Add(fFORMAPAGAMENTOLabel);
-            this.panel7.Controls.Add(this.fFORMAPAGAMENTOComboBox);
-            this.panel7.Controls.Add(cOBSERVACAOLabel);
-            this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel7.Location = new System.Drawing.Point(3, 3);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(756, 303);
-            this.panel7.TabIndex = 28;
+            this.lbdiaria.AutoScroll = true;
+            this.lbdiaria.Controls.Add(this.ncontroleNumericUpDown);
+            this.lbdiaria.Controls.Add(this.label7);
+            this.lbdiaria.Controls.Add(label6);
+            this.lbdiaria.Controls.Add(this.label5);
+            this.lbdiaria.Controls.Add(this.lbdiarias);
+            this.lbdiaria.Controls.Add(ncontroleLabel);
+            this.lbdiaria.Controls.Add(this.cobservacaoTextBox);
+            this.lbdiaria.Controls.Add(this.nvalottotalTextBox);
+            this.lbdiaria.Controls.Add(this.ndescontoTextBox);
+            this.lbdiaria.Controls.Add(nVALORBASELabel);
+            this.lbdiaria.Controls.Add(this.lbConsumo);
+            this.lbdiaria.Controls.Add(this.label4);
+            this.lbdiaria.Controls.Add(this.label2);
+            this.lbdiaria.Controls.Add(vVALORDESCONTOLabel);
+            this.lbdiaria.Controls.Add(vVALORTOTALLabel);
+            this.lbdiaria.Controls.Add(fFORMAPAGAMENTOLabel);
+            this.lbdiaria.Controls.Add(this.fFORMAPAGAMENTOComboBox);
+            this.lbdiaria.Controls.Add(cOBSERVACAOLabel);
+            this.lbdiaria.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lbdiaria.Location = new System.Drawing.Point(3, 3);
+            this.lbdiaria.Name = "lbdiaria";
+            this.lbdiaria.Size = new System.Drawing.Size(756, 303);
+            this.lbdiaria.TabIndex = 28;
+            // 
+            // ncontroleNumericUpDown
+            // 
+            this.ncontroleNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.faturaBindingSource, "ncontrole", true));
+            this.ncontroleNumericUpDown.Location = new System.Drawing.Point(213, 11);
+            this.ncontroleNumericUpDown.Name = "ncontroleNumericUpDown";
+            this.ncontroleNumericUpDown.Size = new System.Drawing.Size(120, 23);
+            this.ncontroleNumericUpDown.TabIndex = 48;
+            // 
+            // faturaBindingSource
+            // 
+            this.faturaBindingSource.DataMember = "fatura";
+            this.faturaBindingSource.DataSource = this.hotelDBDataSet;
             // 
             // label7
             // 
@@ -1146,27 +1160,14 @@
             this.label5.TabIndex = 45;
             this.label5.Text = "0,00";
             // 
-            // label3
+            // lbdiarias
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(214, 101);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(15, 18);
-            this.label3.TabIndex = 44;
-            this.label3.Text = "0";
-            // 
-            // ncontroleTextBox
-            // 
-            this.ncontroleTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "ncontrole", true));
-            this.ncontroleTextBox.Location = new System.Drawing.Point(214, 13);
-            this.ncontroleTextBox.Name = "ncontroleTextBox";
-            this.ncontroleTextBox.Size = new System.Drawing.Size(100, 23);
-            this.ncontroleTextBox.TabIndex = 43;
-            // 
-            // faturaBindingSource
-            // 
-            this.faturaBindingSource.DataMember = "fatura";
-            this.faturaBindingSource.DataSource = this.hotelDBDataSet;
+            this.lbdiarias.AutoSize = true;
+            this.lbdiarias.Location = new System.Drawing.Point(214, 101);
+            this.lbdiarias.Name = "lbdiarias";
+            this.lbdiarias.Size = new System.Drawing.Size(15, 18);
+            this.lbdiarias.TabIndex = 44;
+            this.lbdiarias.Text = "0";
             // 
             // cobservacaoTextBox
             // 
@@ -1184,6 +1185,7 @@
             this.nvalottotalTextBox.Name = "nvalottotalTextBox";
             this.nvalottotalTextBox.Size = new System.Drawing.Size(100, 23);
             this.nvalottotalTextBox.TabIndex = 41;
+            this.nvalottotalTextBox.TextChanged += new System.EventHandler(this.nvalottotalTextBox_TextChanged);
             // 
             // ndescontoTextBox
             // 
@@ -1192,6 +1194,7 @@
             this.ndescontoTextBox.Name = "ndescontoTextBox";
             this.ndescontoTextBox.Size = new System.Drawing.Size(100, 23);
             this.ndescontoTextBox.TabIndex = 40;
+            this.ndescontoTextBox.TextChanged += new System.EventHandler(this.ndescontoTextBox_TextChanged);
             // 
             // lbConsumo
             // 
@@ -1339,8 +1342,9 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabCheckOut.ResumeLayout(false);
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
+            this.lbdiaria.ResumeLayout(false);
+            this.lbdiaria.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
@@ -1405,7 +1409,7 @@
         private System.Windows.Forms.Label lbTotalLancamentos;
         private System.Windows.Forms.Label lbtot;
         private System.Windows.Forms.TabPage tabCheckOut;
-        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Panel lbdiaria;
         private System.Windows.Forms.Label lbConsumo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -1431,8 +1435,7 @@
         private System.Windows.Forms.NumericUpDown nqtditemNumericUpDown;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox ncontroleTextBox;
+        private System.Windows.Forms.Label lbdiarias;
         private System.Windows.Forms.TextBox cobservacaoTextBox;
         private System.Windows.Forms.TextBox nvalottotalTextBox;
         private System.Windows.Forms.TextBox ndescontoTextBox;
@@ -1447,5 +1450,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nvalorunitDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nvalortotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ddatamovimDataGridViewTextBoxColumn;
+        private System.Windows.Forms.NumericUpDown ncontroleNumericUpDown;
     }
 }

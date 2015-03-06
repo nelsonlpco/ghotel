@@ -307,40 +307,6 @@ SELECT idendereco, cep, cidade, uf, bairro, endereco FROM endereco WHERE (idende
               </DbSource>
             </Sources>
           </TableAdapter>
-          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="HOSPEDAGEMTableAdapter" GeneratorDataComponentClassName="HOSPEDAGEMTableAdapter" Name="HOSPEDAGEM" UserDataComponentName="HOSPEDAGEMTableAdapter">
-            <MainSource>
-              <DbSource ConnectionRef="HotelDBConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
-                <SelectCommand>
-                  <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        HOSPEDAGEM.NIDHOSPEDAGEM, HOSPEDAGEM.NIDCLIENTE, HOSPEDAGEM.NIDQUARTO, HOSPEDAGEM.DDATAIN, HOSPEDAGEM.DDATAOUT, HOSPEDAGEM.CESTATUS, HOSPEDAGEM.COBSERVACAO, 
-                         HOSPEDAGEM.FFORMAPAGAMENTO, HOSPEDAGEM.VVALORTOTAL, HOSPEDAGEM.VVALORDESCONTO, HOSPEDAGEM.DDATAFECHAMENTO, HOSPEDAGEM.NDIARIAS, B.CNOME, 
-                         'Numero: ' + CONVERT(varchar(9), C.NNUMERO) + ' Andar: ' + CONVERT(VARCHAR(9), C.NANDAR) + ' Pessoas: ' + CONVERT(varchar(9), C.NMAXPESSOAS) AS DESC_QUARTO
-FROM            HOSPEDAGEM RIGHT OUTER JOIN
-                         CLIENTE AS B ON B.NNUMECLIENTE = HOSPEDAGEM.NIDCLIENTE INNER JOIN
-                         QUARTO AS C ON C.NIDQUARTO = HOSPEDAGEM.NIDQUARTO</CommandText>
-                    <Parameters />
-                  </DbCommand>
-                </SelectCommand>
-              </DbSource>
-            </MainSource>
-            <Mappings>
-              <Mapping SourceColumn="NIDHOSPEDAGEM" DataSetColumn="NIDHOSPEDAGEM" />
-              <Mapping SourceColumn="NIDCLIENTE" DataSetColumn="NIDCLIENTE" />
-              <Mapping SourceColumn="NIDQUARTO" DataSetColumn="NIDQUARTO" />
-              <Mapping SourceColumn="DDATAIN" DataSetColumn="DDATAIN" />
-              <Mapping SourceColumn="DDATAOUT" DataSetColumn="DDATAOUT" />
-              <Mapping SourceColumn="CESTATUS" DataSetColumn="CESTATUS" />
-              <Mapping SourceColumn="COBSERVACAO" DataSetColumn="COBSERVACAO" />
-              <Mapping SourceColumn="FFORMAPAGAMENTO" DataSetColumn="FFORMAPAGAMENTO" />
-              <Mapping SourceColumn="VVALORTOTAL" DataSetColumn="VVALORTOTAL" />
-              <Mapping SourceColumn="VVALORDESCONTO" DataSetColumn="VVALORDESCONTO" />
-              <Mapping SourceColumn="DDATAFECHAMENTO" DataSetColumn="DDATAFECHAMENTO" />
-              <Mapping SourceColumn="NDIARIAS" DataSetColumn="NDIARIAS" />
-              <Mapping SourceColumn="CNOME" DataSetColumn="CNOME" />
-              <Mapping SourceColumn="DESC_QUARTO" DataSetColumn="DESC_QUARTO" />
-            </Mappings>
-            <Sources />
-          </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="ITEMCONSUMOTableAdapter" GeneratorDataComponentClassName="ITEMCONSUMOTableAdapter" Name="ITEMCONSUMO" UserDataComponentName="ITEMCONSUMOTableAdapter">
             <MainSource>
               <DbSource ConnectionRef="HotelDBConnectionString (Settings)" DbObjectName="dbo.ITEMCONSUMO" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -794,6 +760,257 @@ FROM            CATEGORIAQUARTO</CommandText>
               </DbSource>
             </Sources>
           </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="HOSPEDAGEMTableAdapter" GeneratorDataComponentClassName="HOSPEDAGEMTableAdapter" Name="HOSPEDAGEM" UserDataComponentName="HOSPEDAGEMTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HotelDBConnectionString (Settings)" DbObjectName="dbo.HOSPEDAGEM" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[HOSPEDAGEM] WHERE (([NIDHOSPEDAGEM] = @Original_NIDHOSPEDAGEM) AND ([NIDCLIENTE] = @Original_NIDCLIENTE) AND ([NIDQUARTO] = @Original_NIDQUARTO) AND ((@IsNull_DDATAIN = 1 AND [DDATAIN] IS NULL) OR ([DDATAIN] = @Original_DDATAIN)) AND ((@IsNull_DDATAOUT = 1 AND [DDATAOUT] IS NULL) OR ([DDATAOUT] = @Original_DDATAOUT)) AND ((@IsNull_CESTATUS = 1 AND [CESTATUS] IS NULL) OR ([CESTATUS] = @Original_CESTATUS)) AND ((@IsNull_FFORMAPAGAMENTO = 1 AND [FFORMAPAGAMENTO] IS NULL) OR ([FFORMAPAGAMENTO] = @Original_FFORMAPAGAMENTO)) AND ((@IsNull_VVALORTOTAL = 1 AND [VVALORTOTAL] IS NULL) OR ([VVALORTOTAL] = @Original_VVALORTOTAL)) AND ((@IsNull_VVALORDESCONTO = 1 AND [VVALORDESCONTO] IS NULL) OR ([VVALORDESCONTO] = @Original_VVALORDESCONTO)) AND ((@IsNull_DDATAFECHAMENTO = 1 AND [DDATAFECHAMENTO] IS NULL) OR ([DDATAFECHAMENTO] = @Original_DDATAFECHAMENTO)) AND ((@IsNull_NDIARIAS = 1 AND [NDIARIAS] IS NULL) OR ([NDIARIAS] = @Original_NDIARIAS)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NIDHOSPEDAGEM" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDHOSPEDAGEM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NIDCLIENTE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDCLIENTE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NIDQUARTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDQUARTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DDATAIN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DDATAIN" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DDATAIN" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAIN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DDATAOUT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DDATAOUT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DDATAOUT" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAOUT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CESTATUS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CESTATUS" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CESTATUS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CESTATUS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FFORMAPAGAMENTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FFORMAPAGAMENTO" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_FFORMAPAGAMENTO" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="FFORMAPAGAMENTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_VVALORTOTAL" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="VVALORTOTAL" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_VVALORTOTAL" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="VVALORTOTAL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_VVALORDESCONTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="VVALORDESCONTO" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_VVALORDESCONTO" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="VVALORDESCONTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DDATAFECHAMENTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DDATAFECHAMENTO" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DDATAFECHAMENTO" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAFECHAMENTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NDIARIAS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NDIARIAS" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NDIARIAS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NDIARIAS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[HOSPEDAGEM] ([NIDCLIENTE], [NIDQUARTO], [DDATAIN], [DDATAOUT], [CESTATUS], [COBSERVACAO], [FFORMAPAGAMENTO], [VVALORTOTAL], [VVALORDESCONTO], [DDATAFECHAMENTO], [NDIARIAS]) VALUES (@NIDCLIENTE, @NIDQUARTO, @DDATAIN, @DDATAOUT, @CESTATUS, @COBSERVACAO, @FFORMAPAGAMENTO, @VVALORTOTAL, @VVALORDESCONTO, @DDATAFECHAMENTO, @NDIARIAS);
+SELECT NIDHOSPEDAGEM, NIDCLIENTE, NIDQUARTO, DDATAIN, DDATAOUT, CESTATUS, COBSERVACAO, FFORMAPAGAMENTO, VVALORTOTAL, VVALORDESCONTO, DDATAFECHAMENTO, NDIARIAS FROM HOSPEDAGEM WHERE (NIDHOSPEDAGEM = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NIDCLIENTE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDCLIENTE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NIDQUARTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDQUARTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DDATAIN" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAIN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DDATAOUT" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAOUT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CESTATUS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CESTATUS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@COBSERVACAO" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="COBSERVACAO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@FFORMAPAGAMENTO" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="FFORMAPAGAMENTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@VVALORTOTAL" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="VVALORTOTAL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@VVALORDESCONTO" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="VVALORDESCONTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DDATAFECHAMENTO" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAFECHAMENTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NDIARIAS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NDIARIAS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT NIDHOSPEDAGEM, NIDCLIENTE, NIDQUARTO, DDATAIN, DDATAOUT, CESTATUS, COBSERVACAO, FFORMAPAGAMENTO, VVALORTOTAL, VVALORDESCONTO, DDATAFECHAMENTO, NDIARIAS FROM dbo.HOSPEDAGEM</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[HOSPEDAGEM] SET [NIDCLIENTE] = @NIDCLIENTE, [NIDQUARTO] = @NIDQUARTO, [DDATAIN] = @DDATAIN, [DDATAOUT] = @DDATAOUT, [CESTATUS] = @CESTATUS, [COBSERVACAO] = @COBSERVACAO, [FFORMAPAGAMENTO] = @FFORMAPAGAMENTO, [VVALORTOTAL] = @VVALORTOTAL, [VVALORDESCONTO] = @VVALORDESCONTO, [DDATAFECHAMENTO] = @DDATAFECHAMENTO, [NDIARIAS] = @NDIARIAS WHERE (([NIDHOSPEDAGEM] = @Original_NIDHOSPEDAGEM) AND ([NIDCLIENTE] = @Original_NIDCLIENTE) AND ([NIDQUARTO] = @Original_NIDQUARTO) AND ((@IsNull_DDATAIN = 1 AND [DDATAIN] IS NULL) OR ([DDATAIN] = @Original_DDATAIN)) AND ((@IsNull_DDATAOUT = 1 AND [DDATAOUT] IS NULL) OR ([DDATAOUT] = @Original_DDATAOUT)) AND ((@IsNull_CESTATUS = 1 AND [CESTATUS] IS NULL) OR ([CESTATUS] = @Original_CESTATUS)) AND ((@IsNull_FFORMAPAGAMENTO = 1 AND [FFORMAPAGAMENTO] IS NULL) OR ([FFORMAPAGAMENTO] = @Original_FFORMAPAGAMENTO)) AND ((@IsNull_VVALORTOTAL = 1 AND [VVALORTOTAL] IS NULL) OR ([VVALORTOTAL] = @Original_VVALORTOTAL)) AND ((@IsNull_VVALORDESCONTO = 1 AND [VVALORDESCONTO] IS NULL) OR ([VVALORDESCONTO] = @Original_VVALORDESCONTO)) AND ((@IsNull_DDATAFECHAMENTO = 1 AND [DDATAFECHAMENTO] IS NULL) OR ([DDATAFECHAMENTO] = @Original_DDATAFECHAMENTO)) AND ((@IsNull_NDIARIAS = 1 AND [NDIARIAS] IS NULL) OR ([NDIARIAS] = @Original_NDIARIAS)));
+SELECT NIDHOSPEDAGEM, NIDCLIENTE, NIDQUARTO, DDATAIN, DDATAOUT, CESTATUS, COBSERVACAO, FFORMAPAGAMENTO, VVALORTOTAL, VVALORDESCONTO, DDATAFECHAMENTO, NDIARIAS FROM HOSPEDAGEM WHERE (NIDHOSPEDAGEM = @NIDHOSPEDAGEM)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NIDCLIENTE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDCLIENTE" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NIDQUARTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDQUARTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DDATAIN" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAIN" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DDATAOUT" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAOUT" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@CESTATUS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CESTATUS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@COBSERVACAO" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="COBSERVACAO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@FFORMAPAGAMENTO" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="FFORMAPAGAMENTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@VVALORTOTAL" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="VVALORTOTAL" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@VVALORDESCONTO" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="VVALORDESCONTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@DDATAFECHAMENTO" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAFECHAMENTO" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@NDIARIAS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NDIARIAS" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NIDHOSPEDAGEM" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDHOSPEDAGEM" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NIDCLIENTE" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDCLIENTE" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NIDQUARTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NIDQUARTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DDATAIN" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DDATAIN" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DDATAIN" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAIN" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DDATAOUT" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DDATAOUT" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DDATAOUT" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAOUT" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_CESTATUS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="CESTATUS" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_CESTATUS" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="CESTATUS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_FFORMAPAGAMENTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="FFORMAPAGAMENTO" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@Original_FFORMAPAGAMENTO" Precision="0" ProviderType="VarChar" Scale="0" Size="0" SourceColumn="FFORMAPAGAMENTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_VVALORTOTAL" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="VVALORTOTAL" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_VVALORTOTAL" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="VVALORTOTAL" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_VVALORDESCONTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="VVALORDESCONTO" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Currency" Direction="Input" ParameterName="@Original_VVALORDESCONTO" Precision="0" ProviderType="Money" Scale="0" Size="0" SourceColumn="VVALORDESCONTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_DDATAFECHAMENTO" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="DDATAFECHAMENTO" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_DDATAFECHAMENTO" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="DDATAFECHAMENTO" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_NDIARIAS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NDIARIAS" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_NDIARIAS" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="NDIARIAS" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="NIDHOSPEDAGEM" ColumnName="NIDHOSPEDAGEM" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@NIDHOSPEDAGEM" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="NIDHOSPEDAGEM" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NIDHOSPEDAGEM" DataSetColumn="NIDHOSPEDAGEM" />
+              <Mapping SourceColumn="NIDCLIENTE" DataSetColumn="NIDCLIENTE" />
+              <Mapping SourceColumn="NIDQUARTO" DataSetColumn="NIDQUARTO" />
+              <Mapping SourceColumn="DDATAIN" DataSetColumn="DDATAIN" />
+              <Mapping SourceColumn="DDATAOUT" DataSetColumn="DDATAOUT" />
+              <Mapping SourceColumn="CESTATUS" DataSetColumn="CESTATUS" />
+              <Mapping SourceColumn="COBSERVACAO" DataSetColumn="COBSERVACAO" />
+              <Mapping SourceColumn="FFORMAPAGAMENTO" DataSetColumn="FFORMAPAGAMENTO" />
+              <Mapping SourceColumn="VVALORTOTAL" DataSetColumn="VVALORTOTAL" />
+              <Mapping SourceColumn="VVALORDESCONTO" DataSetColumn="VVALORDESCONTO" />
+              <Mapping SourceColumn="DDATAFECHAMENTO" DataSetColumn="DDATAFECHAMENTO" />
+              <Mapping SourceColumn="NDIARIAS" DataSetColumn="NDIARIAS" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="faturaTableAdapter" GeneratorDataComponentClassName="faturaTableAdapter" Name="fatura" UserDataComponentName="faturaTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HotelDBConnectionString (Settings)" DbObjectName="dbo.fatura" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <DeleteCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>DELETE FROM [dbo].[fatura] WHERE (([nidfatura] = @Original_nidfatura) AND ((@IsNull_ncontrole = 1 AND [ncontrole] IS NULL) OR ([ncontrole] = @Original_ncontrole)) AND ([nidhospedagem] = @Original_nidhospedagem) AND ([nnumecliente] = @Original_nnumecliente) AND ((@IsNull_nformapag = 1 AND [nformapag] IS NULL) OR ([nformapag] = @Original_nformapag)) AND ((@IsNull_ddataabertura = 1 AND [ddataabertura] IS NULL) OR ([ddataabertura] = @Original_ddataabertura)) AND ((@IsNull_ddatafechamento = 1 AND [ddatafechamento] IS NULL) OR ([ddatafechamento] = @Original_ddatafechamento)) AND ((@IsNull_ndesconto = 1 AND [ndesconto] IS NULL) OR ([ndesconto] = @Original_ndesconto)) AND ((@IsNull_nvalottotal = 1 AND [nvalottotal] IS NULL) OR ([nvalottotal] = @Original_nvalottotal)))</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nidfatura" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nidfatura" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ncontrole" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ncontrole" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ncontrole" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ncontrole" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nidhospedagem" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nidhospedagem" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nnumecliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nnumecliente" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nformapag" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nformapag" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nformapag" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nformapag" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ddataabertura" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ddataabertura" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ddataabertura" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ddataabertura" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ddatafechamento" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ddatafechamento" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ddatafechamento" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ddatafechamento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ndesconto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ndesconto" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_ndesconto" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ndesconto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nvalottotal" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nvalottotal" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_nvalottotal" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="nvalottotal" SourceColumnNullMapping="false" SourceVersion="Original" />
+                    </Parameters>
+                  </DbCommand>
+                </DeleteCommand>
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[fatura] ([ncontrole], [nidhospedagem], [nnumecliente], [nformapag], [ddataabertura], [ddatafechamento], [ndesconto], [nvalottotal], [cobservacao]) VALUES (@ncontrole, @nidhospedagem, @nnumecliente, @nformapag, @ddataabertura, @ddatafechamento, @ndesconto, @nvalottotal, @cobservacao);
+SELECT nidfatura, ncontrole, nidhospedagem, nnumecliente, nformapag, ddataabertura, ddatafechamento, ndesconto, nvalottotal, cobservacao FROM fatura WHERE (nidfatura = SCOPE_IDENTITY())</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ncontrole" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ncontrole" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nidhospedagem" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nidhospedagem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nnumecliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nnumecliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nformapag" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nformapag" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ddataabertura" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ddataabertura" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ddatafechamento" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ddatafechamento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ndesconto" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ndesconto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@nvalottotal" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="nvalottotal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@cobservacao" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="cobservacao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT nidfatura, ncontrole, nidhospedagem, nnumecliente, nformapag, ddataabertura, ddatafechamento, ndesconto, nvalottotal, cobservacao FROM dbo.fatura</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+                <UpdateCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>UPDATE [dbo].[fatura] SET [ncontrole] = @ncontrole, [nidhospedagem] = @nidhospedagem, [nnumecliente] = @nnumecliente, [nformapag] = @nformapag, [ddataabertura] = @ddataabertura, [ddatafechamento] = @ddatafechamento, [ndesconto] = @ndesconto, [nvalottotal] = @nvalottotal, [cobservacao] = @cobservacao WHERE (([nidfatura] = @Original_nidfatura) AND ((@IsNull_ncontrole = 1 AND [ncontrole] IS NULL) OR ([ncontrole] = @Original_ncontrole)) AND ([nidhospedagem] = @Original_nidhospedagem) AND ([nnumecliente] = @Original_nnumecliente) AND ((@IsNull_nformapag = 1 AND [nformapag] IS NULL) OR ([nformapag] = @Original_nformapag)) AND ((@IsNull_ddataabertura = 1 AND [ddataabertura] IS NULL) OR ([ddataabertura] = @Original_ddataabertura)) AND ((@IsNull_ddatafechamento = 1 AND [ddatafechamento] IS NULL) OR ([ddatafechamento] = @Original_ddatafechamento)) AND ((@IsNull_ndesconto = 1 AND [ndesconto] IS NULL) OR ([ndesconto] = @Original_ndesconto)) AND ((@IsNull_nvalottotal = 1 AND [nvalottotal] IS NULL) OR ([nvalottotal] = @Original_nvalottotal)));
+SELECT nidfatura, ncontrole, nidhospedagem, nnumecliente, nformapag, ddataabertura, ddatafechamento, ndesconto, nvalottotal, cobservacao FROM fatura WHERE (nidfatura = @nidfatura)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@ncontrole" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ncontrole" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nidhospedagem" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nidhospedagem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nnumecliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nnumecliente" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nformapag" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nformapag" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ddataabertura" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ddataabertura" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@ddatafechamento" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ddatafechamento" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@ndesconto" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ndesconto" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@nvalottotal" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="nvalottotal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="AnsiString" Direction="Input" ParameterName="@cobservacao" Precision="0" ProviderType="Text" Scale="0" Size="0" SourceColumn="cobservacao" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nidfatura" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nidfatura" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ncontrole" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ncontrole" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_ncontrole" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ncontrole" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nidhospedagem" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nidhospedagem" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nnumecliente" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nnumecliente" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nformapag" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nformapag" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@Original_nformapag" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nformapag" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ddataabertura" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ddataabertura" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ddataabertura" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ddataabertura" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ddatafechamento" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ddatafechamento" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="DateTime" Direction="Input" ParameterName="@Original_ddatafechamento" Precision="0" ProviderType="DateTime" Scale="0" Size="0" SourceColumn="ddatafechamento" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_ndesconto" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="ndesconto" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_ndesconto" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="ndesconto" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@IsNull_nvalottotal" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nvalottotal" SourceColumnNullMapping="true" SourceVersion="Original" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@Original_nvalottotal" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="nvalottotal" SourceColumnNullMapping="false" SourceVersion="Original" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="nidfatura" ColumnName="nidfatura" DataSourceName="" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@nidfatura" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="nidfatura" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </UpdateCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nidfatura" DataSetColumn="nidfatura" />
+              <Mapping SourceColumn="ncontrole" DataSetColumn="ncontrole" />
+              <Mapping SourceColumn="nidhospedagem" DataSetColumn="nidhospedagem" />
+              <Mapping SourceColumn="nnumecliente" DataSetColumn="nnumecliente" />
+              <Mapping SourceColumn="nformapag" DataSetColumn="nformapag" />
+              <Mapping SourceColumn="ddataabertura" DataSetColumn="ddataabertura" />
+              <Mapping SourceColumn="ddatafechamento" DataSetColumn="ddatafechamento" />
+              <Mapping SourceColumn="ndesconto" DataSetColumn="ndesconto" />
+              <Mapping SourceColumn="nvalottotal" DataSetColumn="nvalottotal" />
+              <Mapping SourceColumn="cobservacao" DataSetColumn="cobservacao" />
+            </Mappings>
+            <Sources>
+              <DbSource ConnectionRef="HotelDBConnectionString (Settings)" DbObjectName="dbo.fatura" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="FillByHospedagem" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetDataByHospedagem" GeneratorSourceName="FillByHospedagem" GetMethodModifier="Public" GetMethodName="GetDataByHospedagem" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataByHospedagem" UserSourceName="FillByHospedagem">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT nidfatura, ncontrole, nidhospedagem, nnumecliente, nformapag, ddataabertura, ddatafechamento, ndesconto, nvalottotal, cobservacao FROM dbo.fatura where nidhospedagem = @hospedagem</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="hospedagem" ColumnName="nidhospedagem" DataSourceName="[C:\USERS\ZZ\SOURCE\REPOS\GHOTEL\HOTELGESTOR\HOTELGESTOR\DATABASE\HOTELDB.MDF].dbo.fatura" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@hospedagem" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="nidhospedagem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </Sources>
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="FaturaXItensTableAdapter" GeneratorDataComponentClassName="FaturaXItensTableAdapter" Name="FaturaXItens" UserDataComponentName="FaturaXItensTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="HotelDBConnectionString (Settings)" DbObjectName="dbo.FaturaXItens" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetData" UserSourceName="Fill">
+                <InsertCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>INSERT INTO [dbo].[FaturaXItens] ([nidfatura], [niditem], [nqtditem], [nvalorunit], [nvalortotal]) VALUES (@nidfatura, @niditem, @nqtditem, @nvalorunit, @nvalortotal)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nidfatura" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nidfatura" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="false" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@niditem" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="niditem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Int32" Direction="Input" ParameterName="@nqtditem" Precision="0" ProviderType="Int" Scale="0" Size="0" SourceColumn="nqtditem" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@nvalorunit" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="nvalorunit" SourceColumnNullMapping="false" SourceVersion="Current" />
+                      <Parameter AllowDbNull="true" AutogeneratedName="" DataSourceName="" DbType="Decimal" Direction="Input" ParameterName="@nvalortotal" Precision="12" ProviderType="Decimal" Scale="2" Size="0" SourceColumn="nvalortotal" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </InsertCommand>
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT nidfatura, niditem, nqtditem, nvalorunit, nvalortotal FROM dbo.FaturaXItens</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="nidfatura" DataSetColumn="nidfatura" />
+              <Mapping SourceColumn="niditem" DataSetColumn="niditem" />
+              <Mapping SourceColumn="nqtditem" DataSetColumn="nqtditem" />
+              <Mapping SourceColumn="nvalorunit" DataSetColumn="nvalorunit" />
+              <Mapping SourceColumn="nvalortotal" DataSetColumn="nvalortotal" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
         </Tables>
         <Sources />
       </DataSource>
@@ -944,56 +1161,6 @@ FROM            CATEGORIAQUARTO</CommandText>
                 <xs:simpleType>
                   <xs:restriction base="xs:string">
                     <xs:maxLength value="60" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="HOSPEDAGEM" msprop:Generator_TableClassName="HOSPEDAGEMDataTable" msprop:Generator_TableVarName="tableHOSPEDAGEM" msprop:Generator_TablePropName="HOSPEDAGEM" msprop:Generator_RowDeletingName="HOSPEDAGEMRowDeleting" msprop:Generator_RowChangingName="HOSPEDAGEMRowChanging" msprop:Generator_RowEvHandlerName="HOSPEDAGEMRowChangeEventHandler" msprop:Generator_RowDeletedName="HOSPEDAGEMRowDeleted" msprop:Generator_UserTableName="HOSPEDAGEM" msprop:Generator_RowChangedName="HOSPEDAGEMRowChanged" msprop:Generator_RowEvArgName="HOSPEDAGEMRowChangeEvent" msprop:Generator_RowClassName="HOSPEDAGEMRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="NIDHOSPEDAGEM" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNIDHOSPEDAGEM" msprop:Generator_ColumnPropNameInRow="NIDHOSPEDAGEM" msprop:Generator_ColumnPropNameInTable="NIDHOSPEDAGEMColumn" msprop:Generator_UserColumnName="NIDHOSPEDAGEM" type="xs:int" />
-              <xs:element name="NIDCLIENTE" msprop:Generator_ColumnVarNameInTable="columnNIDCLIENTE" msprop:Generator_ColumnPropNameInRow="NIDCLIENTE" msprop:Generator_ColumnPropNameInTable="NIDCLIENTEColumn" msprop:Generator_UserColumnName="NIDCLIENTE" type="xs:int" minOccurs="0" />
-              <xs:element name="NIDQUARTO" msprop:Generator_ColumnVarNameInTable="columnNIDQUARTO" msprop:Generator_ColumnPropNameInRow="NIDQUARTO" msprop:Generator_ColumnPropNameInTable="NIDQUARTOColumn" msprop:Generator_UserColumnName="NIDQUARTO" type="xs:int" minOccurs="0" />
-              <xs:element name="DDATAIN" msprop:Generator_ColumnVarNameInTable="columnDDATAIN" msprop:Generator_ColumnPropNameInRow="DDATAIN" msprop:Generator_ColumnPropNameInTable="DDATAINColumn" msprop:Generator_UserColumnName="DDATAIN" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="DDATAOUT" msprop:Generator_ColumnVarNameInTable="columnDDATAOUT" msprop:Generator_ColumnPropNameInRow="DDATAOUT" msprop:Generator_ColumnPropNameInTable="DDATAOUTColumn" msprop:Generator_UserColumnName="DDATAOUT" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="CESTATUS" msprop:Generator_ColumnVarNameInTable="columnCESTATUS" msprop:Generator_ColumnPropNameInRow="CESTATUS" msprop:Generator_ColumnPropNameInTable="CESTATUSColumn" msprop:Generator_UserColumnName="CESTATUS" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="1" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="COBSERVACAO" msprop:Generator_ColumnVarNameInTable="columnCOBSERVACAO" msprop:Generator_ColumnPropNameInRow="COBSERVACAO" msprop:Generator_ColumnPropNameInTable="COBSERVACAOColumn" msprop:Generator_UserColumnName="COBSERVACAO" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="2147483647" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="FFORMAPAGAMENTO" msprop:Generator_ColumnVarNameInTable="columnFFORMAPAGAMENTO" msprop:Generator_ColumnPropNameInRow="FFORMAPAGAMENTO" msprop:Generator_ColumnPropNameInTable="FFORMAPAGAMENTOColumn" msprop:Generator_UserColumnName="FFORMAPAGAMENTO" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="VVALORTOTAL" msprop:Generator_ColumnVarNameInTable="columnVVALORTOTAL" msprop:Generator_ColumnPropNameInRow="VVALORTOTAL" msprop:Generator_ColumnPropNameInTable="VVALORTOTALColumn" msprop:Generator_UserColumnName="VVALORTOTAL" type="xs:decimal" minOccurs="0" />
-              <xs:element name="VVALORDESCONTO" msprop:Generator_ColumnVarNameInTable="columnVVALORDESCONTO" msprop:Generator_ColumnPropNameInRow="VVALORDESCONTO" msprop:Generator_ColumnPropNameInTable="VVALORDESCONTOColumn" msprop:Generator_UserColumnName="VVALORDESCONTO" type="xs:decimal" minOccurs="0" />
-              <xs:element name="DDATAFECHAMENTO" msprop:Generator_ColumnVarNameInTable="columnDDATAFECHAMENTO" msprop:Generator_ColumnPropNameInRow="DDATAFECHAMENTO" msprop:Generator_ColumnPropNameInTable="DDATAFECHAMENTOColumn" msprop:Generator_UserColumnName="DDATAFECHAMENTO" type="xs:dateTime" minOccurs="0" />
-              <xs:element name="NDIARIAS" msprop:Generator_ColumnVarNameInTable="columnNDIARIAS" msprop:Generator_ColumnPropNameInRow="NDIARIAS" msprop:Generator_ColumnPropNameInTable="NDIARIASColumn" msprop:Generator_UserColumnName="NDIARIAS" type="xs:int" minOccurs="0" />
-              <xs:element name="CNOME" msprop:Generator_ColumnVarNameInTable="columnCNOME" msprop:Generator_ColumnPropNameInRow="CNOME" msprop:Generator_ColumnPropNameInTable="CNOMEColumn" msprop:Generator_UserColumnName="CNOME" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="50" />
-                  </xs:restriction>
-                </xs:simpleType>
-              </xs:element>
-              <xs:element name="DESC_QUARTO" msdata:ReadOnly="true" msprop:Generator_ColumnVarNameInTable="columnDESC_QUARTO" msprop:Generator_ColumnPropNameInRow="DESC_QUARTO" msprop:Generator_ColumnPropNameInTable="DESC_QUARTOColumn" msprop:Generator_UserColumnName="DESC_QUARTO" minOccurs="0">
-                <xs:simpleType>
-                  <xs:restriction base="xs:string">
-                    <xs:maxLength value="53" />
                   </xs:restriction>
                 </xs:simpleType>
               </xs:element>
@@ -1212,6 +1379,75 @@ FROM            CATEGORIAQUARTO</CommandText>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="HOSPEDAGEM" msprop:Generator_TableClassName="HOSPEDAGEMDataTable" msprop:Generator_TableVarName="tableHOSPEDAGEM" msprop:Generator_RowChangedName="HOSPEDAGEMRowChanged" msprop:Generator_TablePropName="HOSPEDAGEM" msprop:Generator_RowDeletingName="HOSPEDAGEMRowDeleting" msprop:Generator_RowChangingName="HOSPEDAGEMRowChanging" msprop:Generator_RowEvHandlerName="HOSPEDAGEMRowChangeEventHandler" msprop:Generator_RowDeletedName="HOSPEDAGEMRowDeleted" msprop:Generator_RowClassName="HOSPEDAGEMRow" msprop:Generator_UserTableName="HOSPEDAGEM" msprop:Generator_RowEvArgName="HOSPEDAGEMRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NIDHOSPEDAGEM" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnNIDHOSPEDAGEM" msprop:Generator_ColumnPropNameInRow="NIDHOSPEDAGEM" msprop:Generator_ColumnPropNameInTable="NIDHOSPEDAGEMColumn" msprop:Generator_UserColumnName="NIDHOSPEDAGEM" type="xs:int" />
+              <xs:element name="NIDCLIENTE" msprop:Generator_ColumnVarNameInTable="columnNIDCLIENTE" msprop:Generator_ColumnPropNameInRow="NIDCLIENTE" msprop:Generator_ColumnPropNameInTable="NIDCLIENTEColumn" msprop:Generator_UserColumnName="NIDCLIENTE" type="xs:int" />
+              <xs:element name="NIDQUARTO" msprop:Generator_ColumnVarNameInTable="columnNIDQUARTO" msprop:Generator_ColumnPropNameInRow="NIDQUARTO" msprop:Generator_ColumnPropNameInTable="NIDQUARTOColumn" msprop:Generator_UserColumnName="NIDQUARTO" type="xs:int" />
+              <xs:element name="DDATAIN" msprop:Generator_ColumnVarNameInTable="columnDDATAIN" msprop:Generator_ColumnPropNameInRow="DDATAIN" msprop:Generator_ColumnPropNameInTable="DDATAINColumn" msprop:Generator_UserColumnName="DDATAIN" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="DDATAOUT" msprop:Generator_ColumnVarNameInTable="columnDDATAOUT" msprop:Generator_ColumnPropNameInRow="DDATAOUT" msprop:Generator_ColumnPropNameInTable="DDATAOUTColumn" msprop:Generator_UserColumnName="DDATAOUT" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="CESTATUS" msprop:Generator_ColumnVarNameInTable="columnCESTATUS" msprop:Generator_ColumnPropNameInRow="CESTATUS" msprop:Generator_ColumnPropNameInTable="CESTATUSColumn" msprop:Generator_UserColumnName="CESTATUS" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="1" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="COBSERVACAO" msprop:Generator_ColumnVarNameInTable="columnCOBSERVACAO" msprop:Generator_ColumnPropNameInRow="COBSERVACAO" msprop:Generator_ColumnPropNameInTable="COBSERVACAOColumn" msprop:Generator_UserColumnName="COBSERVACAO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="FFORMAPAGAMENTO" msprop:Generator_ColumnVarNameInTable="columnFFORMAPAGAMENTO" msprop:Generator_ColumnPropNameInRow="FFORMAPAGAMENTO" msprop:Generator_ColumnPropNameInTable="FFORMAPAGAMENTOColumn" msprop:Generator_UserColumnName="FFORMAPAGAMENTO" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="50" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="VVALORTOTAL" msprop:Generator_ColumnVarNameInTable="columnVVALORTOTAL" msprop:Generator_ColumnPropNameInRow="VVALORTOTAL" msprop:Generator_ColumnPropNameInTable="VVALORTOTALColumn" msprop:Generator_UserColumnName="VVALORTOTAL" type="xs:decimal" minOccurs="0" />
+              <xs:element name="VVALORDESCONTO" msprop:Generator_ColumnVarNameInTable="columnVVALORDESCONTO" msprop:Generator_ColumnPropNameInRow="VVALORDESCONTO" msprop:Generator_ColumnPropNameInTable="VVALORDESCONTOColumn" msprop:Generator_UserColumnName="VVALORDESCONTO" type="xs:decimal" minOccurs="0" />
+              <xs:element name="DDATAFECHAMENTO" msprop:Generator_ColumnVarNameInTable="columnDDATAFECHAMENTO" msprop:Generator_ColumnPropNameInRow="DDATAFECHAMENTO" msprop:Generator_ColumnPropNameInTable="DDATAFECHAMENTOColumn" msprop:Generator_UserColumnName="DDATAFECHAMENTO" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="NDIARIAS" msprop:Generator_ColumnVarNameInTable="columnNDIARIAS" msprop:Generator_ColumnPropNameInRow="NDIARIAS" msprop:Generator_ColumnPropNameInTable="NDIARIASColumn" msprop:Generator_UserColumnName="NDIARIAS" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="fatura" msprop:Generator_TableClassName="faturaDataTable" msprop:Generator_TableVarName="tablefatura" msprop:Generator_RowChangedName="faturaRowChanged" msprop:Generator_TablePropName="fatura" msprop:Generator_RowDeletingName="faturaRowDeleting" msprop:Generator_RowChangingName="faturaRowChanging" msprop:Generator_RowEvHandlerName="faturaRowChangeEventHandler" msprop:Generator_RowDeletedName="faturaRowDeleted" msprop:Generator_RowClassName="faturaRow" msprop:Generator_UserTableName="fatura" msprop:Generator_RowEvArgName="faturaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nidfatura" msdata:ReadOnly="true" msdata:AutoIncrement="true" msdata:AutoIncrementSeed="-1" msdata:AutoIncrementStep="-1" msprop:Generator_ColumnVarNameInTable="columnnidfatura" msprop:Generator_ColumnPropNameInRow="nidfatura" msprop:Generator_ColumnPropNameInTable="nidfaturaColumn" msprop:Generator_UserColumnName="nidfatura" type="xs:int" />
+              <xs:element name="ncontrole" msprop:Generator_ColumnVarNameInTable="columnncontrole" msprop:Generator_ColumnPropNameInRow="ncontrole" msprop:Generator_ColumnPropNameInTable="ncontroleColumn" msprop:Generator_UserColumnName="ncontrole" type="xs:int" minOccurs="0" />
+              <xs:element name="nidhospedagem" msprop:Generator_ColumnVarNameInTable="columnnidhospedagem" msprop:Generator_ColumnPropNameInRow="nidhospedagem" msprop:Generator_ColumnPropNameInTable="nidhospedagemColumn" msprop:Generator_UserColumnName="nidhospedagem" type="xs:int" />
+              <xs:element name="nnumecliente" msprop:Generator_ColumnVarNameInTable="columnnnumecliente" msprop:Generator_ColumnPropNameInRow="nnumecliente" msprop:Generator_ColumnPropNameInTable="nnumeclienteColumn" msprop:Generator_UserColumnName="nnumecliente" type="xs:int" />
+              <xs:element name="nformapag" msprop:Generator_ColumnVarNameInTable="columnnformapag" msprop:Generator_ColumnPropNameInRow="nformapag" msprop:Generator_ColumnPropNameInTable="nformapagColumn" msprop:Generator_UserColumnName="nformapag" type="xs:int" minOccurs="0" />
+              <xs:element name="ddataabertura" msprop:Generator_ColumnVarNameInTable="columnddataabertura" msprop:Generator_ColumnPropNameInRow="ddataabertura" msprop:Generator_ColumnPropNameInTable="ddataaberturaColumn" msprop:Generator_UserColumnName="ddataabertura" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ddatafechamento" msprop:Generator_ColumnVarNameInTable="columnddatafechamento" msprop:Generator_ColumnPropNameInRow="ddatafechamento" msprop:Generator_ColumnPropNameInTable="ddatafechamentoColumn" msprop:Generator_UserColumnName="ddatafechamento" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ndesconto" msprop:Generator_ColumnVarNameInTable="columnndesconto" msprop:Generator_ColumnPropNameInRow="ndesconto" msprop:Generator_ColumnPropNameInTable="ndescontoColumn" msprop:Generator_UserColumnName="ndesconto" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nvalottotal" msprop:Generator_ColumnVarNameInTable="columnnvalottotal" msprop:Generator_ColumnPropNameInRow="nvalottotal" msprop:Generator_ColumnPropNameInTable="nvalottotalColumn" msprop:Generator_UserColumnName="nvalottotal" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cobservacao" msprop:Generator_ColumnVarNameInTable="columncobservacao" msprop:Generator_ColumnPropNameInRow="cobservacao" msprop:Generator_ColumnPropNameInTable="cobservacaoColumn" msprop:Generator_UserColumnName="cobservacao" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="FaturaXItens" msprop:Generator_TableClassName="FaturaXItensDataTable" msprop:Generator_TableVarName="tableFaturaXItens" msprop:Generator_RowChangedName="FaturaXItensRowChanged" msprop:Generator_TablePropName="FaturaXItens" msprop:Generator_RowDeletingName="FaturaXItensRowDeleting" msprop:Generator_RowChangingName="FaturaXItensRowChanging" msprop:Generator_RowEvHandlerName="FaturaXItensRowChangeEventHandler" msprop:Generator_RowDeletedName="FaturaXItensRowDeleted" msprop:Generator_RowClassName="FaturaXItensRow" msprop:Generator_UserTableName="FaturaXItens" msprop:Generator_RowEvArgName="FaturaXItensRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nidfatura" msprop:Generator_ColumnVarNameInTable="columnnidfatura" msprop:Generator_ColumnPropNameInRow="nidfatura" msprop:Generator_ColumnPropNameInTable="nidfaturaColumn" msprop:Generator_UserColumnName="nidfatura" type="xs:int" />
+              <xs:element name="niditem" msprop:Generator_ColumnVarNameInTable="columnniditem" msprop:Generator_ColumnPropNameInRow="niditem" msprop:Generator_ColumnPropNameInTable="niditemColumn" msprop:Generator_UserColumnName="niditem" type="xs:int" />
+              <xs:element name="nqtditem" msprop:Generator_ColumnVarNameInTable="columnnqtditem" msprop:Generator_ColumnPropNameInRow="nqtditem" msprop:Generator_ColumnPropNameInTable="nqtditemColumn" msprop:Generator_UserColumnName="nqtditem" type="xs:int" minOccurs="0" />
+              <xs:element name="nvalorunit" msprop:Generator_ColumnVarNameInTable="columnnvalorunit" msprop:Generator_ColumnPropNameInRow="nvalorunit" msprop:Generator_ColumnPropNameInTable="nvalorunitColumn" msprop:Generator_UserColumnName="nvalorunit" type="xs:decimal" minOccurs="0" />
+              <xs:element name="nvalortotal" msprop:Generator_ColumnVarNameInTable="columnnvalortotal" msprop:Generator_ColumnPropNameInRow="nvalortotal" msprop:Generator_ColumnPropNameInTable="nvalortotalColumn" msprop:Generator_UserColumnName="nvalortotal" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
     <xs:unique name="Constraint1" msdata:PrimaryKey="true">
@@ -1225,10 +1461,6 @@ FROM            CATEGORIAQUARTO</CommandText>
     <xs:unique name="endereco_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:endereco" />
       <xs:field xpath="mstns:idendereco" />
-    </xs:unique>
-    <xs:unique name="HOSPEDAGEM_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
-      <xs:selector xpath=".//mstns:HOSPEDAGEM" />
-      <xs:field xpath="mstns:NIDHOSPEDAGEM" />
     </xs:unique>
     <xs:unique name="ITEMCONSUMO_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
       <xs:selector xpath=".//mstns:ITEMCONSUMO" />
@@ -1254,10 +1486,24 @@ FROM            CATEGORIAQUARTO</CommandText>
       <xs:selector xpath=".//mstns:CATEGORIAQUARTO" />
       <xs:field xpath="mstns:idcategoria" />
     </xs:unique>
+    <xs:unique name="HOSPEDAGEM_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:HOSPEDAGEM" />
+      <xs:field xpath="mstns:NIDHOSPEDAGEM" />
+    </xs:unique>
+    <xs:unique name="fatura_Constraint1" msdata:ConstraintName="Constraint1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:fatura" />
+      <xs:field xpath="mstns:nidfatura" />
+    </xs:unique>
   </xs:element>
   <xs:annotation>
     <xs:appinfo>
-      <msdata:Relationship name="FK_HOSPEDAGEM_CLIENTE" msdata:parent="CLIENTE" msdata:child="HOSPEDAGEM" msdata:parentkey="NNUMECLIENTE" msdata:childkey="NIDCLIENTE" msprop:Generator_UserChildTable="HOSPEDAGEM" msprop:Generator_ChildPropName="GetHOSPEDAGEMRows" msprop:Generator_UserRelationName="FK_HOSPEDAGEM_CLIENTE" msprop:Generator_ParentPropName="CLIENTERow" msprop:Generator_RelationVarName="relationFK_HOSPEDAGEM_CLIENTE" msprop:Generator_UserParentTable="CLIENTE" />
+      <msdata:Relationship name="FK_HOSPEDAGEM_CLIENTE" msdata:parent="CLIENTE" msdata:child="HOSPEDAGEM" msdata:parentkey="NNUMECLIENTE" msdata:childkey="NIDCLIENTE" msprop:Generator_UserChildTable="HOSPEDAGEM" msprop:Generator_ChildPropName="GetHOSPEDAGEMRows" msprop:Generator_UserRelationName="FK_HOSPEDAGEM_CLIENTE" msprop:Generator_RelationVarName="relationFK_HOSPEDAGEM_CLIENTE" msprop:Generator_UserParentTable="CLIENTE" msprop:Generator_ParentPropName="CLIENTERow" />
+      <msdata:Relationship name="FK_HOSPEDAGEM_QUARTO" msdata:parent="QUARTO" msdata:child="HOSPEDAGEM" msdata:parentkey="NIDQUARTO" msdata:childkey="NIDQUARTO" msprop:Generator_UserChildTable="HOSPEDAGEM" msprop:Generator_ChildPropName="GetHOSPEDAGEMRows" msprop:Generator_UserRelationName="FK_HOSPEDAGEM_QUARTO" msprop:Generator_RelationVarName="relationFK_HOSPEDAGEM_QUARTO" msprop:Generator_UserParentTable="QUARTO" msprop:Generator_ParentPropName="QUARTORow" />
+      <msdata:Relationship name="fk_fatura_cliente" msdata:parent="CLIENTE" msdata:child="fatura" msdata:parentkey="NNUMECLIENTE" msdata:childkey="nnumecliente" msprop:Generator_UserChildTable="fatura" msprop:Generator_ChildPropName="GetfaturaRows" msprop:Generator_UserRelationName="fk_fatura_cliente" msprop:Generator_RelationVarName="relationfk_fatura_cliente" msprop:Generator_UserParentTable="CLIENTE" msprop:Generator_ParentPropName="CLIENTERow" />
+      <msdata:Relationship name="fk_fatura_formpag" msdata:parent="FORMASDEPAGAMENTO" msdata:child="fatura" msdata:parentkey="NIDPAGFORM" msdata:childkey="nformapag" msprop:Generator_UserChildTable="fatura" msprop:Generator_ChildPropName="GetfaturaRows" msprop:Generator_UserRelationName="fk_fatura_formpag" msprop:Generator_RelationVarName="relationfk_fatura_formpag" msprop:Generator_UserParentTable="FORMASDEPAGAMENTO" msprop:Generator_ParentPropName="FORMASDEPAGAMENTORow" />
+      <msdata:Relationship name="fk_fatura_hospedagem" msdata:parent="HOSPEDAGEM" msdata:child="fatura" msdata:parentkey="NIDHOSPEDAGEM" msdata:childkey="nidhospedagem" msprop:Generator_UserChildTable="fatura" msprop:Generator_ChildPropName="GetfaturaRows" msprop:Generator_UserRelationName="fk_fatura_hospedagem" msprop:Generator_RelationVarName="relationfk_fatura_hospedagem" msprop:Generator_UserParentTable="HOSPEDAGEM" msprop:Generator_ParentPropName="HOSPEDAGEMRow" />
+      <msdata:Relationship name="fk_fatura_iten" msdata:parent="fatura" msdata:child="FaturaXItens" msdata:parentkey="nidfatura" msdata:childkey="nidfatura" msprop:Generator_UserChildTable="FaturaXItens" msprop:Generator_ChildPropName="GetFaturaXItensRows" msprop:Generator_UserRelationName="fk_fatura_iten" msprop:Generator_RelationVarName="relationfk_fatura_iten" msprop:Generator_UserParentTable="fatura" msprop:Generator_ParentPropName="faturaRow" />
+      <msdata:Relationship name="fk_iten_fatura" msdata:parent="ITEMCONSUMO" msdata:child="FaturaXItens" msdata:parentkey="NIDITEMCONSUMO" msdata:childkey="niditem" msprop:Generator_UserChildTable="FaturaXItens" msprop:Generator_ChildPropName="GetFaturaXItensRows" msprop:Generator_UserRelationName="fk_iten_fatura" msprop:Generator_RelationVarName="relationfk_iten_fatura" msprop:Generator_UserParentTable="ITEMCONSUMO" msprop:Generator_ParentPropName="ITEMCONSUMORow" />
     </xs:appinfo>
   </xs:annotation>
 </xs:schema>

@@ -62,13 +62,10 @@ namespace HotelGestor
         public override void salvar()
         {
             currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
-
             hOSPEDAGEMBindingSource.EndEdit();
-            //hOSPEDAGEMTableAdapter.Update(hotelDBDataSet.HOSPEDAGEM);
+            hOSPEDAGEMTableAdapter.Update(hotelDBDataSet.HOSPEDAGEM);
             SavePrompt = false;
             IsInclude = false;
-            lbStatus.Text = Comum.screenStats('c');
-            tbMain.SelectedIndex = 0;
             buttonStates();
         }
 
@@ -116,6 +113,10 @@ namespace HotelGestor
 
         private void frmHospedagem_Load(object sender, EventArgs e)
         {
+            
+            
+            // TODO: This line of code loads data into the 'hotelDBDataSet.FaturaXItens' table. You can move, or remove it, as needed.
+            this.faturaXItensTableAdapter.Fill(this.hotelDBDataSet.FaturaXItens);
             // TODO: This line of code loads data into the 'hotelDBDataSet.FORMASDEPAGAMENTO' table. You can move, or remove it, as needed.
             this.fORMASDEPAGAMENTOTableAdapter.Fill(this.hotelDBDataSet.FORMASDEPAGAMENTO);
             // TODO: This line of code loads data into the 'hotelDBDataSet.HOSPEDAGEM' table. You can move, or remove it, as needed.
@@ -153,6 +154,22 @@ namespace HotelGestor
                 e.Cancel = true;
             }
         }
+
+        private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (tbHospedagem.SelectedIndex == 2)
+            {
+                currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+                this.faturaTableAdapter.FillByHospedagem(this.hotelDBDataSet.fatura, (int)currentRow["NIDHOSPEDAGEM"]);
+            }
+        }
+
+        private void btnHospedar_Click(object sender, EventArgs e)
+        {
+            salvar();
+        }
+
+       
 
     }
 }

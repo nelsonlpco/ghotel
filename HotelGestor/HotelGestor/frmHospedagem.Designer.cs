@@ -43,17 +43,10 @@
             System.Windows.Forms.Label fFORMAPAGAMENTOLabel;
             System.Windows.Forms.Label cOBSERVACAOLabel;
             System.Windows.Forms.Label nidfaturaLabel;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.dDATAINDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDATAOUTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nDIARIASDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vVALORTOTALDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hOSPEDAGEMBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
             this.DESC_QUARTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CNOME = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.NDIARIAS = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -74,7 +67,6 @@
             this.nDIARIASDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNOMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dESCQUARTODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.hOSPEDAGEMTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOSPEDAGEMTableAdapter();
             this.tbHospedagem = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -100,12 +92,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.DDATAHORA = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nidfaturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.niditemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nqtditemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nvalorunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nvalortotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.faturaXItensBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel9 = new System.Windows.Forms.Panel();
             this.btnCancelarItem = new System.Windows.Forms.Button();
             this.btnExcluirItem = new System.Windows.Forms.Button();
@@ -116,7 +102,6 @@
             this.tabCheckOut = new System.Windows.Forms.TabPage();
             this.panel7 = new System.Windows.Forms.Panel();
             this.nidfaturaTextBox = new System.Windows.Forms.TextBox();
-            this.faturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.lbConsumo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -124,6 +109,21 @@
             this.panel6 = new System.Windows.Forms.Panel();
             this.btnEncerrar = new System.Windows.Forms.Button();
             this.btnFatura = new System.Windows.Forms.Button();
+            this.hOSPEDAGEMBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
+            this.nidfaturaDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.niditemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nqtditemDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nvalorunitDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nvalortotalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.faturaXItensBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.faturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.dDATAINDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dDATAOUTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nDIARIASDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.vVALORTOTALDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.hOSPEDAGEMTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOSPEDAGEMTableAdapter();
             this.fORMASDEPAGAMENTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fORMASDEPAGAMENTOTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.FORMASDEPAGAMENTOTableAdapter();
             this.faturaXItensTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.FaturaXItensTableAdapter();
@@ -148,8 +148,6 @@
             this.tbCadastro.SuspendLayout();
             this.tbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             this.tbHospedagem.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -161,13 +159,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.nQUANTIDADENumericUpDown)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faturaXItensBindingSource)).BeginInit();
             this.panel9.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabCheckOut.SuspendLayout();
             this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faturaXItensBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -364,53 +364,6 @@
             this.dataGridView1.Size = new System.Drawing.Size(770, 353);
             this.dataGridView1.TabIndex = 1;
             // 
-            // dDATAINDataGridViewTextBoxColumn1
-            // 
-            this.dDATAINDataGridViewTextBoxColumn1.DataPropertyName = "DDATAIN";
-            this.dDATAINDataGridViewTextBoxColumn1.HeaderText = "Entrada";
-            this.dDATAINDataGridViewTextBoxColumn1.Name = "dDATAINDataGridViewTextBoxColumn1";
-            this.dDATAINDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dDATAOUTDataGridViewTextBoxColumn1
-            // 
-            this.dDATAOUTDataGridViewTextBoxColumn1.DataPropertyName = "DDATAOUT";
-            this.dDATAOUTDataGridViewTextBoxColumn1.HeaderText = "Saida";
-            this.dDATAOUTDataGridViewTextBoxColumn1.Name = "dDATAOUTDataGridViewTextBoxColumn1";
-            this.dDATAOUTDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // nDIARIASDataGridViewTextBoxColumn1
-            // 
-            this.nDIARIASDataGridViewTextBoxColumn1.DataPropertyName = "NDIARIAS";
-            this.nDIARIASDataGridViewTextBoxColumn1.HeaderText = "Diárias";
-            this.nDIARIASDataGridViewTextBoxColumn1.Name = "nDIARIASDataGridViewTextBoxColumn1";
-            this.nDIARIASDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // vVALORTOTALDataGridViewTextBoxColumn1
-            // 
-            this.vVALORTOTALDataGridViewTextBoxColumn1.DataPropertyName = "VVALORTOTAL";
-            dataGridViewCellStyle4.Format = "c2";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
-            this.vVALORTOTALDataGridViewTextBoxColumn1.HeaderText = "Valor";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.Name = "vVALORTOTALDataGridViewTextBoxColumn1";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dDATAFECHAMENTODataGridViewTextBoxColumn1
-            // 
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.DataPropertyName = "DDATAFECHAMENTO";
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.HeaderText = "Fechamento";
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.Name = "dDATAFECHAMENTODataGridViewTextBoxColumn1";
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // hOSPEDAGEMBindingSource
-            // 
-            this.hOSPEDAGEMBindingSource.DataMember = "HOSPEDAGEM";
-            this.hOSPEDAGEMBindingSource.DataSource = this.hotelDBDataSet;
-            // 
-            // hotelDBDataSet
-            // 
-            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
-            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
             // DESC_QUARTO
             // 
             this.DESC_QUARTO.DataPropertyName = "DESC_QUARTO";
@@ -550,10 +503,6 @@
             this.dESCQUARTODataGridViewTextBoxColumn.HeaderText = "DESC_QUARTO";
             this.dESCQUARTODataGridViewTextBoxColumn.Name = "dESCQUARTODataGridViewTextBoxColumn";
             this.dESCQUARTODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // hOSPEDAGEMTableAdapter
-            // 
-            this.hOSPEDAGEMTableAdapter.ClearBeforeFill = true;
             // 
             // tbHospedagem
             // 
@@ -848,26 +797,26 @@
             this.nvalorunitDataGridViewTextBoxColumn,
             this.nvalortotalDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.faturaXItensBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 58);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(466, 300);
             this.dataGridView2.TabIndex = 11;
@@ -878,46 +827,6 @@
             this.DDATAHORA.HeaderText = "Data";
             this.DDATAHORA.Name = "DDATAHORA";
             this.DDATAHORA.ReadOnly = true;
-            // 
-            // nidfaturaDataGridViewTextBoxColumn
-            // 
-            this.nidfaturaDataGridViewTextBoxColumn.DataPropertyName = "nidfatura";
-            this.nidfaturaDataGridViewTextBoxColumn.HeaderText = "nidfatura";
-            this.nidfaturaDataGridViewTextBoxColumn.Name = "nidfaturaDataGridViewTextBoxColumn";
-            this.nidfaturaDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // niditemDataGridViewTextBoxColumn
-            // 
-            this.niditemDataGridViewTextBoxColumn.DataPropertyName = "niditem";
-            this.niditemDataGridViewTextBoxColumn.HeaderText = "niditem";
-            this.niditemDataGridViewTextBoxColumn.Name = "niditemDataGridViewTextBoxColumn";
-            this.niditemDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nqtditemDataGridViewTextBoxColumn
-            // 
-            this.nqtditemDataGridViewTextBoxColumn.DataPropertyName = "nqtditem";
-            this.nqtditemDataGridViewTextBoxColumn.HeaderText = "nqtditem";
-            this.nqtditemDataGridViewTextBoxColumn.Name = "nqtditemDataGridViewTextBoxColumn";
-            this.nqtditemDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nvalorunitDataGridViewTextBoxColumn
-            // 
-            this.nvalorunitDataGridViewTextBoxColumn.DataPropertyName = "nvalorunit";
-            this.nvalorunitDataGridViewTextBoxColumn.HeaderText = "nvalorunit";
-            this.nvalorunitDataGridViewTextBoxColumn.Name = "nvalorunitDataGridViewTextBoxColumn";
-            this.nvalorunitDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nvalortotalDataGridViewTextBoxColumn
-            // 
-            this.nvalortotalDataGridViewTextBoxColumn.DataPropertyName = "nvalortotal";
-            this.nvalortotalDataGridViewTextBoxColumn.HeaderText = "nvalortotal";
-            this.nvalortotalDataGridViewTextBoxColumn.Name = "nvalortotalDataGridViewTextBoxColumn";
-            this.nvalortotalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // faturaXItensBindingSource
-            // 
-            this.faturaXItensBindingSource.DataMember = "FaturaXItens";
-            this.faturaXItensBindingSource.DataSource = this.hotelDBDataSet;
             // 
             // panel9
             // 
@@ -1047,7 +956,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel7.Location = new System.Drawing.Point(3, 3);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(756, 303);
+            this.panel7.Size = new System.Drawing.Size(756, 308);
             this.panel7.TabIndex = 28;
             // 
             // nidfaturaTextBox
@@ -1057,11 +966,6 @@
             this.nidfaturaTextBox.Name = "nidfaturaTextBox";
             this.nidfaturaTextBox.Size = new System.Drawing.Size(100, 23);
             this.nidfaturaTextBox.TabIndex = 39;
-            // 
-            // faturaBindingSource
-            // 
-            this.faturaBindingSource.DataMember = "fatura";
-            this.faturaBindingSource.DataSource = this.hotelDBDataSet;
             // 
             // lbConsumo
             // 
@@ -1106,7 +1010,7 @@
             this.panel6.Controls.Add(this.btnEncerrar);
             this.panel6.Controls.Add(this.btnFatura);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 306);
+            this.panel6.Location = new System.Drawing.Point(3, 311);
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(756, 100);
             this.panel6.TabIndex = 26;
@@ -1136,6 +1040,102 @@
             this.btnFatura.Text = "Fatura";
             this.btnFatura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFatura.UseVisualStyleBackColor = true;
+            // 
+            // hOSPEDAGEMBindingSource
+            // 
+            this.hOSPEDAGEMBindingSource.DataMember = "HOSPEDAGEM";
+            this.hOSPEDAGEMBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // hotelDBDataSet
+            // 
+            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
+            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // nidfaturaDataGridViewTextBoxColumn
+            // 
+            this.nidfaturaDataGridViewTextBoxColumn.DataPropertyName = "nidfatura";
+            this.nidfaturaDataGridViewTextBoxColumn.HeaderText = "nidfatura";
+            this.nidfaturaDataGridViewTextBoxColumn.Name = "nidfaturaDataGridViewTextBoxColumn";
+            this.nidfaturaDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // niditemDataGridViewTextBoxColumn
+            // 
+            this.niditemDataGridViewTextBoxColumn.DataPropertyName = "niditem";
+            this.niditemDataGridViewTextBoxColumn.HeaderText = "niditem";
+            this.niditemDataGridViewTextBoxColumn.Name = "niditemDataGridViewTextBoxColumn";
+            this.niditemDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nqtditemDataGridViewTextBoxColumn
+            // 
+            this.nqtditemDataGridViewTextBoxColumn.DataPropertyName = "nqtditem";
+            this.nqtditemDataGridViewTextBoxColumn.HeaderText = "nqtditem";
+            this.nqtditemDataGridViewTextBoxColumn.Name = "nqtditemDataGridViewTextBoxColumn";
+            this.nqtditemDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nvalorunitDataGridViewTextBoxColumn
+            // 
+            this.nvalorunitDataGridViewTextBoxColumn.DataPropertyName = "nvalorunit";
+            this.nvalorunitDataGridViewTextBoxColumn.HeaderText = "nvalorunit";
+            this.nvalorunitDataGridViewTextBoxColumn.Name = "nvalorunitDataGridViewTextBoxColumn";
+            this.nvalorunitDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // nvalortotalDataGridViewTextBoxColumn
+            // 
+            this.nvalortotalDataGridViewTextBoxColumn.DataPropertyName = "nvalortotal";
+            this.nvalortotalDataGridViewTextBoxColumn.HeaderText = "nvalortotal";
+            this.nvalortotalDataGridViewTextBoxColumn.Name = "nvalortotalDataGridViewTextBoxColumn";
+            this.nvalortotalDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // faturaXItensBindingSource
+            // 
+            this.faturaXItensBindingSource.DataMember = "FaturaXItens";
+            this.faturaXItensBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // faturaBindingSource
+            // 
+            this.faturaBindingSource.DataMember = "fatura";
+            this.faturaBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // dDATAINDataGridViewTextBoxColumn1
+            // 
+            this.dDATAINDataGridViewTextBoxColumn1.DataPropertyName = "DDATAIN";
+            this.dDATAINDataGridViewTextBoxColumn1.HeaderText = "Entrada";
+            this.dDATAINDataGridViewTextBoxColumn1.Name = "dDATAINDataGridViewTextBoxColumn1";
+            this.dDATAINDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dDATAOUTDataGridViewTextBoxColumn1
+            // 
+            this.dDATAOUTDataGridViewTextBoxColumn1.DataPropertyName = "DDATAOUT";
+            this.dDATAOUTDataGridViewTextBoxColumn1.HeaderText = "Saida";
+            this.dDATAOUTDataGridViewTextBoxColumn1.Name = "dDATAOUTDataGridViewTextBoxColumn1";
+            this.dDATAOUTDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // nDIARIASDataGridViewTextBoxColumn1
+            // 
+            this.nDIARIASDataGridViewTextBoxColumn1.DataPropertyName = "NDIARIAS";
+            this.nDIARIASDataGridViewTextBoxColumn1.HeaderText = "Diárias";
+            this.nDIARIASDataGridViewTextBoxColumn1.Name = "nDIARIASDataGridViewTextBoxColumn1";
+            this.nDIARIASDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // vVALORTOTALDataGridViewTextBoxColumn1
+            // 
+            this.vVALORTOTALDataGridViewTextBoxColumn1.DataPropertyName = "VVALORTOTAL";
+            dataGridViewCellStyle3.Format = "c2";
+            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
+            this.vVALORTOTALDataGridViewTextBoxColumn1.HeaderText = "Valor";
+            this.vVALORTOTALDataGridViewTextBoxColumn1.Name = "vVALORTOTALDataGridViewTextBoxColumn1";
+            this.vVALORTOTALDataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // dDATAFECHAMENTODataGridViewTextBoxColumn1
+            // 
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.DataPropertyName = "DDATAFECHAMENTO";
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.HeaderText = "Fechamento";
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.Name = "dDATAFECHAMENTODataGridViewTextBoxColumn1";
+            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.ReadOnly = true;
+            // 
+            // hOSPEDAGEMTableAdapter
+            // 
+            this.hOSPEDAGEMTableAdapter.ClearBeforeFill = true;
             // 
             // fORMASDEPAGAMENTOBindingSource
             // 
@@ -1183,8 +1183,6 @@
             this.tbCadastro.ResumeLayout(false);
             this.tbMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             this.tbHospedagem.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -1198,15 +1196,17 @@
             ((System.ComponentModel.ISupportInitialize)(this.nQUANTIDADENumericUpDown)).EndInit();
             this.panel4.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.faturaXItensBindingSource)).EndInit();
             this.panel9.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabCheckOut.ResumeLayout(false);
             this.panel7.ResumeLayout(false);
             this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faturaXItensBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

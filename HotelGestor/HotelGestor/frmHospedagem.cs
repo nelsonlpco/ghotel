@@ -114,9 +114,6 @@ namespace HotelGestor
         private void frmHospedagem_Load(object sender, EventArgs e)
         {
             
-            
-            // TODO: This line of code loads data into the 'hotelDBDataSet.FaturaXItens' table. You can move, or remove it, as needed.
-            this.faturaXItensTableAdapter.Fill(this.hotelDBDataSet.FaturaXItens);
             // TODO: This line of code loads data into the 'hotelDBDataSet.FORMASDEPAGAMENTO' table. You can move, or remove it, as needed.
             this.fORMASDEPAGAMENTOTableAdapter.Fill(this.hotelDBDataSet.FORMASDEPAGAMENTO);
             // TODO: This line of code loads data into the 'hotelDBDataSet.HOSPEDAGEM' table. You can move, or remove it, as needed.
@@ -157,10 +154,16 @@ namespace HotelGestor
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tbHospedagem.SelectedIndex == 2)
+            switch(tbHospedagem.SelectedIndex)
             {
-                currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
-                this.faturaTableAdapter.FillByHospedagem(this.hotelDBDataSet.fatura, (int)currentRow["NIDHOSPEDAGEM"]);
+                case 1 :
+                    currentRow = (DataRowView)faturaBindingSource.Current;
+                    this.faturaXItensTableAdapter.FillByFatura(this.hotelDBDataSet.FaturaXItens,(int) currentRow["nidfatura"]);
+                    break;
+                case 2 :
+                    currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+                    this.faturaTableAdapter.FillByHospedagem(this.hotelDBDataSet.fatura, (int)currentRow["NIDHOSPEDAGEM"]);
+                    break;
             }
         }
 

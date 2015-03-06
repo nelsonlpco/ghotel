@@ -517,7 +517,7 @@ namespace HotelGestor {
             base.Tables.Add(this.tableHOSPEDAGEM);
             this.tablefatura = new faturaDataTable();
             base.Tables.Add(this.tablefatura);
-            this.tableFaturaXItens = new FaturaXItensDataTable(false);
+            this.tableFaturaXItens = new FaturaXItensDataTable();
             base.Tables.Add(this.tableFaturaXItens);
             this.relationFK_HOSPEDAGEM_CLIENTE = new global::System.Data.DataRelation("FK_HOSPEDAGEM_CLIENTE", new global::System.Data.DataColumn[] {
                         this.tableCLIENTE.NNUMECLIENTEColumn}, new global::System.Data.DataColumn[] {
@@ -680,7 +680,6 @@ namespace HotelGestor {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitExpressions() {
             this.QUARTO.STATUSColumn.Expression = "IIF([CESTATUS] = \'L\', \'Livre\',IIF([CESTATUS] = \'O\',\'Ocupado\',\'Reservado\'))";
-            this.FaturaXItens.TOTALColumn.Expression = "SUM([NVALORTOTAL])";
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -4798,23 +4797,12 @@ namespace HotelGestor {
             
             private global::System.Data.DataColumn columnddatamovim;
             
-            private global::System.Data.DataColumn columnTOTAL;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FaturaXItensDataTable() : 
-                    this(false) {
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FaturaXItensDataTable(bool initExpressions) {
+            public FaturaXItensDataTable() {
                 this.TableName = "FaturaXItens";
                 this.BeginInit();
                 this.InitClass();
-                if ((initExpressions == true)) {
-                    this.InitExpressions();
-                }
                 this.EndInit();
             }
             
@@ -4892,14 +4880,6 @@ namespace HotelGestor {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn TOTALColumn {
-                get {
-                    return this.columnTOTAL;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -4935,29 +4915,6 @@ namespace HotelGestor {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public FaturaXItensRow AddFaturaXItensRow(faturaRow parentfaturaRowByfk_fatura_iten, ITEMCONSUMORow parentITEMCONSUMORowByfk_iten_fatura, int nqtditem, decimal nvalorunit, decimal nvalortotal, System.DateTime ddatamovim, string TOTAL) {
-                FaturaXItensRow rowFaturaXItensRow = ((FaturaXItensRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        null,
-                        null,
-                        nqtditem,
-                        nvalorunit,
-                        nvalortotal,
-                        ddatamovim,
-                        TOTAL};
-                if ((parentfaturaRowByfk_fatura_iten != null)) {
-                    columnValuesArray[0] = parentfaturaRowByfk_fatura_iten[0];
-                }
-                if ((parentITEMCONSUMORowByfk_iten_fatura != null)) {
-                    columnValuesArray[1] = parentITEMCONSUMORowByfk_iten_fatura[0];
-                }
-                rowFaturaXItensRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowFaturaXItensRow);
-                return rowFaturaXItensRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public FaturaXItensRow AddFaturaXItensRow(faturaRow parentfaturaRowByfk_fatura_iten, ITEMCONSUMORow parentITEMCONSUMORowByfk_iten_fatura, int nqtditem, decimal nvalorunit, decimal nvalortotal, System.DateTime ddatamovim) {
                 FaturaXItensRow rowFaturaXItensRow = ((FaturaXItensRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
@@ -4966,8 +4923,7 @@ namespace HotelGestor {
                         nqtditem,
                         nvalorunit,
                         nvalortotal,
-                        ddatamovim,
-                        null};
+                        ddatamovim};
                 if ((parentfaturaRowByfk_fatura_iten != null)) {
                     columnValuesArray[0] = parentfaturaRowByfk_fatura_iten[0];
                 }
@@ -5002,7 +4958,6 @@ namespace HotelGestor {
                 this.columnnvalorunit = base.Columns["nvalorunit"];
                 this.columnnvalortotal = base.Columns["nvalortotal"];
                 this.columnddatamovim = base.Columns["ddatamovim"];
-                this.columnTOTAL = base.Columns["TOTAL"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5020,11 +4975,8 @@ namespace HotelGestor {
                 base.Columns.Add(this.columnnvalortotal);
                 this.columnddatamovim = new global::System.Data.DataColumn("ddatamovim", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnddatamovim);
-                this.columnTOTAL = new global::System.Data.DataColumn("TOTAL", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTOTAL);
                 this.columnnidfatura.AllowDBNull = false;
                 this.columnniditem.AllowDBNull = false;
-                this.columnTOTAL.ReadOnly = true;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5043,12 +4995,6 @@ namespace HotelGestor {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
                 return typeof(FaturaXItensRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            private void InitExpressions() {
-                this.TOTALColumn.Expression = "SUM([NVALORTOTAL])";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -7731,22 +7677,6 @@ namespace HotelGestor {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string TOTAL {
-                get {
-                    try {
-                        return ((string)(this[this.tableFaturaXItens.TOTALColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'TOTAL\' in table \'FaturaXItens\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableFaturaXItens.TOTALColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public faturaRow faturaRow {
                 get {
                     return ((faturaRow)(this.GetParentRow(this.Table.ParentRelations["fk_fatura_iten"])));
@@ -7813,18 +7743,6 @@ namespace HotelGestor {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetddatamovimNull() {
                 this[this.tableFaturaXItens.ddatamovimColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsTOTALNull() {
-                return this.IsNull(this.tableFaturaXItens.TOTALColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetTOTALNull() {
-                this[this.tableFaturaXItens.TOTALColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -11758,13 +11676,11 @@ SELECT NIDHOTEL, CNOME, CCNPJ, CINSC, CFONE, CFONE2, CFONE3, CEMAILS, CCEP, CCID
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM [dbo].[FORMASDEPAGAMENTO] WHERE (([NIDPAGFORM] = @Original_NIDPAGFORM" +
-                ") AND ((@IsNull_CDESCRICAO = 1 AND [CDESCRICAO] IS NULL) OR ([CDESCRICAO] = @Ori" +
-                "ginal_CDESCRICAO)))";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM FaturaXItens\r\nWHERE        (nidfatura = @fatura) AND (niditem = @item" +
+                ")";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_NIDPAGFORM", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "NIDPAGFORM", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@IsNull_CDESCRICAO", global::System.Data.SqlDbType.Int, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CDESCRICAO", global::System.Data.DataRowVersion.Original, true, null, "", "", ""));
-            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@Original_CDESCRICAO", global::System.Data.SqlDbType.VarChar, 0, global::System.Data.ParameterDirection.Input, 0, 0, "CDESCRICAO", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fatura", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "nidfatura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
+            this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "niditem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.InsertCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.InsertCommand.Connection = this.Connection;
             this._adapter.InsertCommand.CommandText = "INSERT INTO [dbo].[FORMASDEPAGAMENTO] ([CDESCRICAO]) VALUES (@CDESCRICAO);\r\nSELEC" +
@@ -11858,16 +11774,9 @@ SELECT NIDPAGFORM, CDESCRICAO FROM FORMASDEPAGAMENTO WHERE (NIDPAGFORM = @NIDPAG
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(int Original_NIDPAGFORM, string Original_CDESCRICAO) {
-            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(Original_NIDPAGFORM));
-            if ((Original_CDESCRICAO == null)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(1));
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((object)(0));
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(Original_CDESCRICAO));
-            }
+        public virtual int Delete(int fatura, int item) {
+            this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(fatura));
+            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(item));
             global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
             if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13954,7 +13863,7 @@ SELECT nidfatura, ncontrole, nidhospedagem, nnumecliente, nformapag, ddataabertu
             this._adapter.TableMappings.Add(tableMapping);
             this._adapter.DeleteCommand = new global::System.Data.SqlClient.SqlCommand();
             this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE [DBO].[FaturaXItens] where nidfatura = @fatura and niditem = @item";
+            this._adapter.DeleteCommand.CommandText = "DELETE FROM [DBO].[FaturaXItens] where nidfatura = @fatura and niditem = @item";
             this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@fatura", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "nidfatura", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
             this._adapter.DeleteCommand.Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@item", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "niditem", global::System.Data.DataRowVersion.Original, false, null, "", "", ""));
@@ -13985,18 +13894,16 @@ SELECT nidfatura, ncontrole, nidhospedagem, nnumecliente, nformapag, ddataabertu
             this._commandCollection = new global::System.Data.SqlClient.SqlCommand[2];
             this._commandCollection[0] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        nidfatura, niditem, nqtditem, nvalorunit, nvalortotal, ddatamovim\r\n" +
-                "FROM            FaturaXItens\r\n";
+            this._commandCollection[0].CommandText = "SELECT nidfatura, niditem, nqtditem, nvalorunit, nvalortotal, ddatamovim FROM Fat" +
+                "uraXItens";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::System.Data.SqlClient.SqlCommand();
             this._commandCollection[1].Connection = this.Connection;
             this._commandCollection[1].CommandText = @"SELECT        FaturaXItens.nidfatura, FaturaXItens.niditem, FaturaXItens.nqtditem, FaturaXItens.nvalorunit, FaturaXItens.nvalortotal, FaturaXItens.ddatamovim, 
-                         ITEMCONSUMO.CDESCRICAO, ITEMCONSUMO.NVALORITEM, SUM(FaturaXItens.nvalortotal) AS TOTAL
+                         ITEMCONSUMO.CDESCRICAO, ITEMCONSUMO.NVALORITEM
 FROM            FaturaXItens RIGHT OUTER JOIN
                          ITEMCONSUMO ON FaturaXItens.niditem = ITEMCONSUMO.NIDITEMCONSUMO
-WHERE        (FaturaXItens.nidfatura = @idfatura)
-GROUP BY FaturaXItens.nidfatura, FaturaXItens.niditem, FaturaXItens.nqtditem, FaturaXItens.nvalorunit, FaturaXItens.nvalortotal, FaturaXItens.ddatamovim, 
-                         ITEMCONSUMO.CDESCRICAO, ITEMCONSUMO.NVALORITEM";
+WHERE        (FaturaXItens.nidfatura = @idfatura)";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1].Parameters.Add(new global::System.Data.SqlClient.SqlParameter("@idfatura", global::System.Data.SqlDbType.Int, 4, global::System.Data.ParameterDirection.Input, 0, 0, "nidfatura", global::System.Data.DataRowVersion.Current, false, null, "", "", ""));
         }
@@ -14020,7 +13927,7 @@ GROUP BY FaturaXItens.nidfatura, FaturaXItens.niditem, FaturaXItens.nqtditem, Fa
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual HotelDBDataSet.FaturaXItensDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            HotelDBDataSet.FaturaXItensDataTable dataTable = new HotelDBDataSet.FaturaXItensDataTable(true);
+            HotelDBDataSet.FaturaXItensDataTable dataTable = new HotelDBDataSet.FaturaXItensDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }
@@ -14046,7 +13953,7 @@ GROUP BY FaturaXItens.nidfatura, FaturaXItens.niditem, FaturaXItens.nqtditem, Fa
         public virtual HotelDBDataSet.FaturaXItensDataTable GetDataByFatura(int idfatura) {
             this.Adapter.SelectCommand = this.CommandCollection[1];
             this.Adapter.SelectCommand.Parameters[0].Value = ((int)(idfatura));
-            HotelDBDataSet.FaturaXItensDataTable dataTable = new HotelDBDataSet.FaturaXItensDataTable(true);
+            HotelDBDataSet.FaturaXItensDataTable dataTable = new HotelDBDataSet.FaturaXItensDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
         }

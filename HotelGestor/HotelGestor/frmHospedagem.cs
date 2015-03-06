@@ -46,6 +46,16 @@ namespace HotelGestor
             
         }
 
+        private double totalListado()
+        {
+            double saida = 0;
+            foreach (DataRow row in hotelDBDataSet.FaturaXItens.Rows)
+            {
+                saida += Comum.strToDouble(row["NVALORTOTAL"].ToString());
+            }
+            return saida;
+        }
+
         public bool isEmptyItens()
         {
             bool saida = true;
@@ -139,9 +149,7 @@ namespace HotelGestor
         {
             DataRowView faturaRow = (DataRowView)faturaBindingSource.Current;
             this.faturaXItensTableAdapter.FillByFatura(this.hotelDBDataSet.FaturaXItens, (int)faturaRow["nidfatura"]);
-            currentRow = (DataRowView)faturaXItensBindingSource.Current;
-            double t = (double)currentRow["TOTAL"];
-            lbTotalLancamentos.Text = string.Format("0:N",t);
+            lbTotalLancamentos.Text = string.Format("{0:N}", totalListado());
         }
 
         public void incluirItem()
@@ -160,7 +168,8 @@ namespace HotelGestor
             if (Comum.msgExcluir(Comum.MSG_SEMREGISTRO))
             {
                 currentRow = (DataRowView)faturaXItensBindingSource.Current;
-                faturaXItensTableAdapter.Delete((int) currentRow["nidfatura"],(int) currentRow["niditem"]);
+                currentRow.Delete();
+                faturaXItensTableAdapter.Update(hotelDBDataSet.FaturaXItens);
                 atualizaItensFatura();
             }
             lbStatus.Text = Comum.screenStats('c');

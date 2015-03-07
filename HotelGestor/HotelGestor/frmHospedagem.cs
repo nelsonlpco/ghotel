@@ -10,10 +10,17 @@ namespace HotelGestor
 {
     public partial class frmHospedagem : HotelGestor.template.frmMainCadastro
     {
+        private HotelDBDataSetTableAdapters.QUARTOTableAdapter quartoTba;
+        private HotelDBDataSetTableAdapters.CLIENTETableAdapter clientetb;
+
         public frmHospedagem()
         {
             InitializeComponent();
+            quartoTba = new HotelDBDataSetTableAdapters.QUARTOTableAdapter();
+            clientetb = new HotelDBDataSetTableAdapters.CLIENTETableAdapter();
         }
+
+
 
         private double valorbase = 0;
 
@@ -90,11 +97,21 @@ namespace HotelGestor
         public override void salvar()
         {
             currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            currentRow["CESTATUS"] = "A";
             hOSPEDAGEMBindingSource.EndEdit();
             hOSPEDAGEMTableAdapter.Update(hotelDBDataSet.HOSPEDAGEM);
             SavePrompt = false;
             IsInclude = false;
             buttonStates();
+            tableControlHandler();
+        }
+
+        public void editar()
+        {
+            currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            currentRow["CESTATUS"] = "E";
+            SavePrompt = true;
+            tableControlHandler();
         }
 
         public override void excluir()
@@ -126,8 +143,46 @@ namespace HotelGestor
             IsInclude = true;
             SavePrompt = true;
             hOSPEDAGEMBindingSource.AddNew();
+            currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            currentRow["CESTATUS"] = "E";
             buttonStates();
+            tableControlHandler();
             tbMain.SelectedIndex = 1;
+        }
+
+        public void carregaDescricao()
+        {
+            DataRowView hospedagem = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            try
+            {  
+              
+                HotelDBDataSet.QUARTORow quarto   = quartoTba.GetDataById((int)hospedagem["NIDQUARTO"])[0];
+                HotelDBDataSet.CLIENTERow cliente = clientetb.GetDataById((int)hospedagem["NIDCLIENTE"])[0];
+                txtNomeCliente.Text = cliente.CNOME;
+                txtDescQuarto.Text = String.Format("{0} - Andar: {1} - Numero: {2}", quarto.CDESCRICAO, quarto.NANDAR, quarto.NNUMERO);
+            }
+            catch
+            {
+                txtNomeCliente.Text = "";
+                txtDescQuarto.Text = "";
+            }
+        }
+
+
+        public void fecharFatura()
+        {
+            currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            currentRow["CESTATUS"] = "F";
+            currentRow["DDATAFECHAMENTO"] = System.DateTime.Now;
+
+            DataRowView fatura = (DataRowView)faturaBindingSource.Current;
+            fatura["ddatafechamento"] = System.DateTime.Now;
+
+
+            tableAdapterManager.UpdateAll(hotelDBDataSet);
+
+            tableControlHandler();
+            
         }
 
         public void buscarItem()
@@ -217,7 +272,9 @@ namespace HotelGestor
             this.fORMASDEPAGAMENTOTableAdapter.Fill(this.hotelDBDataSet.FORMASDEPAGAMENTO);
             // TODO: This line of code loads data into the 'hotelDBDataSet.HOSPEDAGEM' table. You can move, or remove it, as needed.
             this.hOSPEDAGEMTableAdapter.Fill(this.hotelDBDataSet.HOSPEDAGEM);
-
+            tableControlHandler();
+            buttonStates();
+            carregaDescricao();
         }
 
         private void btnBuscaCliente_Click(object sender, EventArgs e)
@@ -239,6 +296,7 @@ namespace HotelGestor
         
         private void tbMain_Selecting(object sender, TabControlCancelEventArgs e)
         {
+            tableControlHandler();
             if (SavePrompt && tbMain.SelectedIndex == 0)
             {
                 Comum.msgAlert(Comum.MSG_EMEDICAO);
@@ -249,10 +307,12 @@ namespace HotelGestor
                 Comum.msgAlert(Comum.MSG_SEMREGISTRO);
                 e.Cancel = true;
             }
+            
         }
 
         private void tabControl2_SelectedIndexChanged(object sender, EventArgs e)
         {
+            tableControlHandler();
             switch(tbHospedagem.SelectedIndex)
             {
                 case 1 :
@@ -271,12 +331,20 @@ namespace HotelGestor
 
             lbConsumo.Text = lbTotalLancamentos.Text;
             lbdiarias.Text = currentRow["NDIARIAS"].ToString();
-
+            
             HotelDBDataSetTableAdapters.QUARTOTableAdapter tbquarto = new HotelDBDataSetTableAdapters.QUARTOTableAdapter();
             tbquarto.FillById(hotelDBDataSet.QUARTO, (int)currentRow["NIDQUARTO"]);
 
             DataRow row = hotelDBDataSet.QUARTO.Rows[0];
             lbVlDiaria.Text = row["NVALORBASE"].ToString();
+
+            lbTotalDiarias.Text = String.Format("{0:N}",(int.Parse(lbdiarias.Text.ToString()) * double.Parse(lbVlDiaria.Text.ToString())));
+
+            double total = Double.Parse(lbTotalDiarias.Text.ToString()) + double.Parse(lbConsumo.Text.ToString());
+
+            DataRowView fatura = (DataRowView)faturaBindingSource.Current;
+            fatura["NVALOTTOTAL"] = total;
+            nvalortotalTextBox1.Text =  string.Format("{0:N}", total);
 
         }
 
@@ -332,9 +400,99 @@ namespace HotelGestor
 
         private void nvalottotalTextBox_TextChanged(object sender, EventArgs e)
         {
-            Comum.moneyMask(sender);
+            //Comum.moneyMask(sender);
         }
 
+
+        private void tableControlHandler()
+        {
+            DataRowView dt = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            char status = (string.IsNullOrEmpty(dt["CESTATUS"].ToString()) ? 'E' : dt["CESTATUS"].ToString()[0]);
+            switch (status)
+            {
+                case 'F':
+                    this.btnHospedar.Image = global::HotelGestor.Properties.Resources.trancado;
+                    this.btnHospedar.Text = "Hospedado";
+                    this.btnHospedar.Enabled = false;
+    
+                    this.btnEditarHospedagem.Enabled = false;
+
+                    panel2.Enabled = false;
+                    panel2.BackColor = Color.Silver;
+
+                    panel4.Enabled = false;
+
+                    pnCheckout.Enabled = false;
+                    pnCheckout.BackColor = Color.Silver;
+                    btnFatura.Enabled = true;
+                    btnEncerrar.Enabled = false;
+
+                break;
+                case 'A':
+                    if (!tbHospedagem.TabPages.Contains(tabConsumo))
+                    {
+                        tbHospedagem.TabPages.Add(tabConsumo);
+                        tbHospedagem.TabPages.Add(tabCheckOut);
+                        this.btnHospedar.Image = global::HotelGestor.Properties.Resources.trancado;
+                        this.btnHospedar.Text = "Hospedado";
+                        this.btnHospedar.Enabled = false;
+
+                        this.btnEditarHospedagem.Enabled = true;
+
+                        panel2.Enabled = false;
+                        panel2.BackColor = Color.Silver;
+                        panel4.Enabled = true;
+                        pnCheckout.Enabled = true;
+                        pnCheckout.BackColor = Color.White;
+                        btnFatura.Enabled = false;
+                        btnEncerrar.Enabled = true;
+                    }
+                    else
+                    {
+                        this.btnHospedar.Image = global::HotelGestor.Properties.Resources.trancado;
+                        this.btnHospedar.Text = "Hospedado";
+                        this.btnHospedar.Enabled = false;
+                        panel2.Enabled = false;
+                        panel2.BackColor = Color.Silver;
+                        this.btnEditarHospedagem.Enabled = true;
+
+                        panel4.Enabled = true;
+                        pnCheckout.Enabled = true;
+                        pnCheckout.BackColor = Color.White;
+                        btnFatura.Enabled = false;
+                        btnEncerrar.Enabled = true;
+                    }
+                break;
+                default:
+                    tbHospedagem.TabPages.Remove(tabConsumo);
+                    tbHospedagem.TabPages.Remove(tabCheckOut);
+                    this.btnHospedar.Image = global::HotelGestor.Properties.Resources.aberto;
+                    this.btnHospedar.Enabled = true;
+                    this.btnEditarHospedagem.Enabled = false;
+                    panel2.Enabled = true;
+                    panel2.BackColor = Color.White;
+                break;
+            }
+
+
+        }
+
+        private void btnEncerrar_Click(object sender, EventArgs e)
+        {
+            fecharFatura();
+        }
+
+        private void btnEditarHospedagem_Click(object sender, EventArgs e)
+        {
+            editar();
+        }
+
+        private void ndescontoTextBox_Leave(object sender, EventArgs e)
+        {
+            string total = string.IsNullOrEmpty(nvalortotalTextBox.Text) ? "0" : nvalortotalTextBox.Text;
+            string desconto = string.IsNullOrEmpty(ndescontoTextBox.Text) ? "0" : ndescontoTextBox.Text;
+            nvalortotalTextBox.Text = string.Format("{0:N}", double.Parse(total) - double.Parse(desconto));
+        }
        
 
     }

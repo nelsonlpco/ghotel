@@ -12,6 +12,16 @@ using System.Windows.Forms;
 
 namespace HotelGestor
 {
+
+    enum HOSPEDAGEM_STATS
+    {
+        ABERTA = 1,
+        EDEICAO = 2,
+        FECHADA
+    };
+
+
+
     class Comum
     {
         public static string EMPRESA = "Gestor Hoteleiro";

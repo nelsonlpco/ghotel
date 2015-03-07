@@ -44,9 +44,9 @@
             System.Windows.Forms.Label cOBSERVACAOLabel;
             System.Windows.Forms.Label ncontroleLabel;
             System.Windows.Forms.Label label6;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dDATAINDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dDATAOUTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -119,14 +119,14 @@
             this.lbTotalLancamentos = new System.Windows.Forms.Label();
             this.lbtot = new System.Windows.Forms.Label();
             this.tabCheckOut = new System.Windows.Forms.TabPage();
-            this.lbdiaria = new System.Windows.Forms.Panel();
+            this.pnCheckout = new System.Windows.Forms.Panel();
+            this.nvalortotalTextBox1 = new System.Windows.Forms.TextBox();
             this.ncontroleNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.faturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.label7 = new System.Windows.Forms.Label();
+            this.lbTotalDiarias = new System.Windows.Forms.Label();
             this.lbVlDiaria = new System.Windows.Forms.Label();
             this.lbdiarias = new System.Windows.Forms.Label();
             this.cobservacaoTextBox = new System.Windows.Forms.TextBox();
-            this.nvalottotalTextBox = new System.Windows.Forms.TextBox();
             this.ndescontoTextBox = new System.Windows.Forms.TextBox();
             this.lbConsumo = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -177,7 +177,7 @@
             this.panel9.SuspendLayout();
             this.panel5.SuspendLayout();
             this.tabCheckOut.SuspendLayout();
-            this.lbdiaria.SuspendLayout();
+            this.pnCheckout.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).BeginInit();
@@ -282,7 +282,7 @@
             nVALORBRUTOLabel.AutoSize = true;
             nVALORBRUTOLabel.Location = new System.Drawing.Point(11, 113);
             nVALORBRUTOLabel.Name = "nVALORBRUTOLabel";
-            nVALORBRUTOLabel.Size = new System.Drawing.Size(73, 18);
+            nVALORBRUTOLabel.Size = new System.Drawing.Size(72, 18);
             nVALORBRUTOLabel.TabIndex = 13;
             nVALORBRUTOLabel.Text = "Valor total:";
             // 
@@ -309,7 +309,7 @@
             nVALORBASELabel.AutoSize = true;
             nVALORBASELabel.Location = new System.Drawing.Point(110, 124);
             nVALORBASELabel.Name = "nVALORBASELabel";
-            nVALORBASELabel.Size = new System.Drawing.Size(98, 18);
+            nVALORBASELabel.Size = new System.Drawing.Size(97, 18);
             nVALORBASELabel.TabIndex = 38;
             nVALORBASELabel.Text = "Valor da diaria:";
             // 
@@ -327,7 +327,7 @@
             vVALORTOTALLabel.AutoSize = true;
             vVALORTOTALLabel.Location = new System.Drawing.Point(132, 178);
             vVALORTOTALLabel.Name = "vVALORTOTALLabel";
-            vVALORTOTALLabel.Size = new System.Drawing.Size(76, 18);
+            vVALORTOTALLabel.Size = new System.Drawing.Size(73, 18);
             vVALORTOTALLabel.TabIndex = 29;
             vVALORTOTALLabel.Text = "Valor Total:";
             // 
@@ -336,7 +336,7 @@
             fFORMAPAGAMENTOLabel.AutoSize = true;
             fFORMAPAGAMENTOLabel.Location = new System.Drawing.Point(71, 45);
             fFORMAPAGAMENTOLabel.Name = "fFORMAPAGAMENTOLabel";
-            fFORMAPAGAMENTOLabel.Size = new System.Drawing.Size(137, 18);
+            fFORMAPAGAMENTOLabel.Size = new System.Drawing.Size(136, 18);
             fFORMAPAGAMENTOLabel.TabIndex = 27;
             fFORMAPAGAMENTOLabel.Text = "Forma de Pagamento:";
             // 
@@ -363,7 +363,7 @@
             label6.AutoSize = true;
             label6.Location = new System.Drawing.Point(286, 124);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(164, 18);
+            label6.Size = new System.Drawing.Size(161, 18);
             label6.TabIndex = 46;
             label6.Text = "Valor Total da(s) diaria(s):";
             // 
@@ -412,8 +412,8 @@
             // vVALORTOTALDataGridViewTextBoxColumn1
             // 
             this.vVALORTOTALDataGridViewTextBoxColumn1.DataPropertyName = "VVALORTOTAL";
-            dataGridViewCellStyle4.Format = "c2";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle3.Format = "c2";
+            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
             this.vVALORTOTALDataGridViewTextBoxColumn1.HeaderText = "Valor";
             this.vVALORTOTALDataGridViewTextBoxColumn1.Name = "vVALORTOTALDataGridViewTextBoxColumn1";
             this.vVALORTOTALDataGridViewTextBoxColumn1.ReadOnly = true;
@@ -628,6 +628,7 @@
             this.btnEditarHospedagem.Text = "Editar";
             this.btnEditarHospedagem.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEditarHospedagem.UseVisualStyleBackColor = true;
+            this.btnEditarHospedagem.Click += new System.EventHandler(this.btnEditarHospedagem_Click);
             // 
             // btnHospedar
             // 
@@ -879,26 +880,26 @@
             this.nvalortotalDataGridViewTextBoxColumn,
             this.ddatamovimDataGridViewTextBoxColumn});
             this.dataGridView2.DataSource = this.faturaXItensBindingSource;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView2.Location = new System.Drawing.Point(0, 44);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.IndianRed;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.IndianRed;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dataGridView2.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dataGridView2.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView2.Size = new System.Drawing.Size(466, 314);
             this.dataGridView2.TabIndex = 11;
@@ -926,7 +927,7 @@
             this.nvalorunit.HeaderText = "Valor";
             this.nvalorunit.Name = "nvalorunit";
             this.nvalorunit.ReadOnly = true;
-            this.nvalorunit.Width = 62;
+            this.nvalorunit.Width = 61;
             // 
             // nvalortotal
             // 
@@ -935,7 +936,7 @@
             this.nvalortotal.HeaderText = "Vlr. Total";
             this.nvalortotal.Name = "nvalortotal";
             this.nvalortotal.ReadOnly = true;
-            this.nvalortotal.Width = 87;
+            this.nvalortotal.Width = 83;
             // 
             // ddatamovim
             // 
@@ -1085,13 +1086,13 @@
             this.lbtot.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lbtot.Location = new System.Drawing.Point(295, 10);
             this.lbtot.Name = "lbtot";
-            this.lbtot.Size = new System.Drawing.Size(47, 18);
+            this.lbtot.Size = new System.Drawing.Size(45, 18);
             this.lbtot.TabIndex = 0;
             this.lbtot.Text = "Total :";
             // 
             // tabCheckOut
             // 
-            this.tabCheckOut.Controls.Add(this.lbdiaria);
+            this.tabCheckOut.Controls.Add(this.pnCheckout);
             this.tabCheckOut.Controls.Add(this.panel6);
             this.tabCheckOut.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tabCheckOut.Location = new System.Drawing.Point(4, 27);
@@ -1102,32 +1103,42 @@
             this.tabCheckOut.Text = "Check-out";
             this.tabCheckOut.UseVisualStyleBackColor = true;
             // 
-            // lbdiaria
+            // pnCheckout
             // 
-            this.lbdiaria.AutoScroll = true;
-            this.lbdiaria.Controls.Add(this.ncontroleNumericUpDown);
-            this.lbdiaria.Controls.Add(this.label7);
-            this.lbdiaria.Controls.Add(label6);
-            this.lbdiaria.Controls.Add(this.lbVlDiaria);
-            this.lbdiaria.Controls.Add(this.lbdiarias);
-            this.lbdiaria.Controls.Add(ncontroleLabel);
-            this.lbdiaria.Controls.Add(this.cobservacaoTextBox);
-            this.lbdiaria.Controls.Add(this.nvalottotalTextBox);
-            this.lbdiaria.Controls.Add(this.ndescontoTextBox);
-            this.lbdiaria.Controls.Add(nVALORBASELabel);
-            this.lbdiaria.Controls.Add(this.lbConsumo);
-            this.lbdiaria.Controls.Add(this.label4);
-            this.lbdiaria.Controls.Add(this.label2);
-            this.lbdiaria.Controls.Add(vVALORDESCONTOLabel);
-            this.lbdiaria.Controls.Add(vVALORTOTALLabel);
-            this.lbdiaria.Controls.Add(fFORMAPAGAMENTOLabel);
-            this.lbdiaria.Controls.Add(this.fFORMAPAGAMENTOComboBox);
-            this.lbdiaria.Controls.Add(cOBSERVACAOLabel);
-            this.lbdiaria.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lbdiaria.Location = new System.Drawing.Point(3, 3);
-            this.lbdiaria.Name = "lbdiaria";
-            this.lbdiaria.Size = new System.Drawing.Size(756, 303);
-            this.lbdiaria.TabIndex = 28;
+            this.pnCheckout.AutoScroll = true;
+            this.pnCheckout.Controls.Add(this.nvalortotalTextBox1);
+            this.pnCheckout.Controls.Add(this.ncontroleNumericUpDown);
+            this.pnCheckout.Controls.Add(this.lbTotalDiarias);
+            this.pnCheckout.Controls.Add(label6);
+            this.pnCheckout.Controls.Add(this.lbVlDiaria);
+            this.pnCheckout.Controls.Add(this.lbdiarias);
+            this.pnCheckout.Controls.Add(ncontroleLabel);
+            this.pnCheckout.Controls.Add(this.cobservacaoTextBox);
+            this.pnCheckout.Controls.Add(this.ndescontoTextBox);
+            this.pnCheckout.Controls.Add(nVALORBASELabel);
+            this.pnCheckout.Controls.Add(this.lbConsumo);
+            this.pnCheckout.Controls.Add(this.label4);
+            this.pnCheckout.Controls.Add(this.label2);
+            this.pnCheckout.Controls.Add(vVALORDESCONTOLabel);
+            this.pnCheckout.Controls.Add(vVALORTOTALLabel);
+            this.pnCheckout.Controls.Add(fFORMAPAGAMENTOLabel);
+            this.pnCheckout.Controls.Add(this.fFORMAPAGAMENTOComboBox);
+            this.pnCheckout.Controls.Add(cOBSERVACAOLabel);
+            this.pnCheckout.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pnCheckout.Location = new System.Drawing.Point(3, 3);
+            this.pnCheckout.Name = "pnCheckout";
+            this.pnCheckout.Size = new System.Drawing.Size(756, 303);
+            this.pnCheckout.TabIndex = 28;
+            // 
+            // nvalortotalTextBox1
+            // 
+            this.nvalortotalTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaXItensBindingSource, "nvalortotal", true));
+            this.nvalortotalTextBox1.Location = new System.Drawing.Point(214, 176);
+            this.nvalortotalTextBox1.Name = "nvalortotalTextBox1";
+            this.nvalortotalTextBox1.Size = new System.Drawing.Size(100, 23);
+            this.nvalortotalTextBox1.TabIndex = 49;
+            this.nvalortotalTextBox1.Text = "222";
+            this.nvalortotalTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // ncontroleNumericUpDown
             // 
@@ -1142,14 +1153,14 @@
             this.faturaBindingSource.DataMember = "fatura";
             this.faturaBindingSource.DataSource = this.hotelDBDataSet;
             // 
-            // label7
+            // lbTotalDiarias
             // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(459, 124);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(34, 18);
-            this.label7.TabIndex = 47;
-            this.label7.Text = "0,00";
+            this.lbTotalDiarias.AutoSize = true;
+            this.lbTotalDiarias.Location = new System.Drawing.Point(459, 124);
+            this.lbTotalDiarias.Name = "lbTotalDiarias";
+            this.lbTotalDiarias.Size = new System.Drawing.Size(34, 18);
+            this.lbTotalDiarias.TabIndex = 47;
+            this.lbTotalDiarias.Text = "0,00";
             // 
             // lbVlDiaria
             // 
@@ -1178,15 +1189,6 @@
             this.cobservacaoTextBox.Size = new System.Drawing.Size(344, 86);
             this.cobservacaoTextBox.TabIndex = 42;
             // 
-            // nvalottotalTextBox
-            // 
-            this.nvalottotalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "nvalottotal", true));
-            this.nvalottotalTextBox.Location = new System.Drawing.Point(214, 175);
-            this.nvalottotalTextBox.Name = "nvalottotalTextBox";
-            this.nvalottotalTextBox.Size = new System.Drawing.Size(100, 23);
-            this.nvalottotalTextBox.TabIndex = 41;
-            this.nvalottotalTextBox.TextChanged += new System.EventHandler(this.nvalottotalTextBox_TextChanged);
-            // 
             // ndescontoTextBox
             // 
             this.ndescontoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "ndesconto", true));
@@ -1194,7 +1196,9 @@
             this.ndescontoTextBox.Name = "ndescontoTextBox";
             this.ndescontoTextBox.Size = new System.Drawing.Size(100, 23);
             this.ndescontoTextBox.TabIndex = 40;
+            this.ndescontoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.ndescontoTextBox.TextChanged += new System.EventHandler(this.ndescontoTextBox_TextChanged);
+            this.ndescontoTextBox.Leave += new System.EventHandler(this.ndescontoTextBox_Leave);
             // 
             // lbConsumo
             // 
@@ -1210,7 +1214,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(108, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 18);
+            this.label4.Size = new System.Drawing.Size(98, 18);
             this.label4.TabIndex = 36;
             this.label4.Text = "Total Consumo:";
             // 
@@ -1264,6 +1268,7 @@
             this.btnEncerrar.Text = "Encerrar";
             this.btnEncerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnEncerrar.UseVisualStyleBackColor = true;
+            this.btnEncerrar.Click += new System.EventHandler(this.btnEncerrar_Click);
             // 
             // btnFatura
             // 
@@ -1299,7 +1304,6 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
             this.tableAdapterManager.CLIENTETableAdapter = null;
-            this.tableAdapterManager.CONSUMOTableAdapter = null;
             this.tableAdapterManager.enderecoTableAdapter = null;
             this.tableAdapterManager.faturaTableAdapter = this.faturaTableAdapter;
             this.tableAdapterManager.FaturaXItensTableAdapter = this.faturaXItensTableAdapter;
@@ -1342,8 +1346,8 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.tabCheckOut.ResumeLayout(false);
-            this.lbdiaria.ResumeLayout(false);
-            this.lbdiaria.PerformLayout();
+            this.pnCheckout.ResumeLayout(false);
+            this.pnCheckout.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).EndInit();
@@ -1409,7 +1413,7 @@
         private System.Windows.Forms.Label lbTotalLancamentos;
         private System.Windows.Forms.Label lbtot;
         private System.Windows.Forms.TabPage tabCheckOut;
-        private System.Windows.Forms.Panel lbdiaria;
+        private System.Windows.Forms.Panel pnCheckout;
         private System.Windows.Forms.Label lbConsumo;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
@@ -1433,11 +1437,10 @@
         private HotelDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
         private System.Windows.Forms.TextBox nvalortotalTextBox;
         private System.Windows.Forms.NumericUpDown nqtditemNumericUpDown;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lbTotalDiarias;
         private System.Windows.Forms.Label lbVlDiaria;
         private System.Windows.Forms.Label lbdiarias;
         private System.Windows.Forms.TextBox cobservacaoTextBox;
-        private System.Windows.Forms.TextBox nvalottotalTextBox;
         private System.Windows.Forms.TextBox ndescontoTextBox;
         private System.Windows.Forms.DataGridViewTextBoxColumn CDESCRICAO;
         private System.Windows.Forms.DataGridViewTextBoxColumn nqtditem;
@@ -1451,5 +1454,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nvalortotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ddatamovimDataGridViewTextBoxColumn;
         private System.Windows.Forms.NumericUpDown ncontroleNumericUpDown;
+        private System.Windows.Forms.TextBox nvalortotalTextBox1;
     }
 }

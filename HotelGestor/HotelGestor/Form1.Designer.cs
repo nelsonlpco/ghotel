@@ -85,7 +85,6 @@
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
             this.tableAdapterManager.CLIENTETableAdapter = null;
-            this.tableAdapterManager.CONSUMOTableAdapter = null;
             this.tableAdapterManager.enderecoTableAdapter = null;
             this.tableAdapterManager.FORMASDEPAGAMENTOTableAdapter = null;
             this.tableAdapterManager.HOTELTableAdapter = this.hOTELTableAdapter;

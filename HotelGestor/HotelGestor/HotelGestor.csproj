@@ -202,6 +202,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="relatorios\fatura\fatura1.rdlc" />
     <EmbeddedResource Include="relatorios\frmView.resx">
       <DependentUpon>frmView.cs</DependentUpon>
     </EmbeddedResource>

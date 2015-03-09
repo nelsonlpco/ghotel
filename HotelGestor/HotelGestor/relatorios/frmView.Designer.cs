@@ -30,39 +30,22 @@
         {
             this.components = new System.ComponentModel.Container();
             Microsoft.Reporting.WinForms.ReportDataSource reportDataSource1 = new Microsoft.Reporting.WinForms.ReportDataSource();
-            this.hOTELBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
+            Microsoft.Reporting.WinForms.ReportDataSource reportDataSource2 = new Microsoft.Reporting.WinForms.ReportDataSource();
             this.rpv = new Microsoft.Reporting.WinForms.ReportViewer();
-            this.hOTELTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOTELTableAdapter();
-            ((System.ComponentModel.ISupportInitialize)(this.hOTELBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             this.SuspendLayout();
-            // 
-            // hOTELBindingSource
-            // 
-            this.hOTELBindingSource.DataMember = "HOTEL";
-            this.hOTELBindingSource.DataSource = this.hotelDBDataSet;
-            // 
-            // hotelDBDataSet
-            // 
-            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
-            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // rpv
             // 
             this.rpv.Dock = System.Windows.Forms.DockStyle.Fill;
-            reportDataSource1.Name = "DataSet1";
-            reportDataSource1.Value = this.hOTELBindingSource;
+            reportDataSource1.Name = "dsHotel";
+            reportDataSource2.Name = "dsHospede";
             this.rpv.LocalReport.DataSources.Add(reportDataSource1);
-            this.rpv.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.listadehospedes.rdlc";
+            this.rpv.LocalReport.DataSources.Add(reportDataSource2);
+            this.rpv.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.fichaHospede.rdlc";
             this.rpv.Location = new System.Drawing.Point(0, 0);
             this.rpv.Name = "rpv";
             this.rpv.Size = new System.Drawing.Size(784, 562);
             this.rpv.TabIndex = 0;
-            // 
-            // hOTELTableAdapter
-            // 
-            this.hOTELTableAdapter.ClearBeforeFill = true;
             // 
             // frmView
             // 
@@ -74,8 +57,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmView";
             this.Load += new System.EventHandler(this.frmView_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.hOTELBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -83,8 +64,5 @@
         #endregion
 
         private Microsoft.Reporting.WinForms.ReportViewer rpv;
-        private HotelDBDataSet hotelDBDataSet;
-        private System.Windows.Forms.BindingSource hOTELBindingSource;
-        private HotelDBDataSetTableAdapters.HOTELTableAdapter hOTELTableAdapter;
     }
 }

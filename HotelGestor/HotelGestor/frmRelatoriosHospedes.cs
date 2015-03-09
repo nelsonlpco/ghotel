@@ -1,4 +1,5 @@
 ﻿using HotelGestor.relatorios.hospedes;
+using Microsoft.Reporting.WinForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,21 +25,30 @@ namespace HotelGestor
             this.cLIENTETableAdapter.Fill(this.hotelDBDataSet.CLIENTE);
 
             cbRelatorios.SelectedIndex = 0;
-
-            this.reportViewer1.RefreshReport();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+            frmView frm = new frmView();
+            List<ReportDataSource> lista = new List<ReportDataSource>();
             switch (cbRelatorios.SelectedIndex)
             {
-                case 0: this.reportViewer1.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.listadehospedes.rdlc";
+                case 0:
+                    lista.Clear();
+                    lista.Add(new ReportDataSource("dsHotel", HOTELBindingSource));
+                    lista.Add(new ReportDataSource("dsHospede", this.cLIENTEBindingSource));
+                    frm.setReport("listadehospedes.rdlc", lista);
                     break;
-                case 1: this.reportViewer1.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes.fichaHospede.rdlc";
+                case 1: 
+                    lista.Clear();
+                    lista.Add(new ReportDataSource("dsHotel", HOTELBindingSource));
+                    lista.Add(new ReportDataSource("dsHospede", this.cLIENTEBindingSource));
+                    frm.setReport("fichaHospede.rdlc", lista);
                     break;
             }
-            
-            this.reportViewer1.RefreshReport();
+
+            frm.ShowDialog();
+            frm.Dispose();
         }
     }
 }

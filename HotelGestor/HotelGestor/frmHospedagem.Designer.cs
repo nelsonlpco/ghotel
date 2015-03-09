@@ -120,9 +120,9 @@
             this.lbtot = new System.Windows.Forms.Label();
             this.tabCheckOut = new System.Windows.Forms.TabPage();
             this.pnCheckout = new System.Windows.Forms.Panel();
-            this.nvalortotalTextBox1 = new System.Windows.Forms.TextBox();
-            this.ncontroleNumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.nvalottotalTextBox = new System.Windows.Forms.TextBox();
             this.faturaBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.ncontroleNumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.lbTotalDiarias = new System.Windows.Forms.Label();
             this.lbVlDiaria = new System.Windows.Forms.Label();
             this.lbdiarias = new System.Windows.Forms.Label();
@@ -178,8 +178,8 @@
             this.panel5.SuspendLayout();
             this.tabCheckOut.SuspendLayout();
             this.pnCheckout.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
             this.SuspendLayout();
@@ -307,7 +307,7 @@
             // nVALORBASELabel
             // 
             nVALORBASELabel.AutoSize = true;
-            nVALORBASELabel.Location = new System.Drawing.Point(110, 124);
+            nVALORBASELabel.Location = new System.Drawing.Point(111, 124);
             nVALORBASELabel.Name = "nVALORBASELabel";
             nVALORBASELabel.Size = new System.Drawing.Size(97, 18);
             nVALORBASELabel.TabIndex = 38;
@@ -325,7 +325,7 @@
             // vVALORTOTALLabel
             // 
             vVALORTOTALLabel.AutoSize = true;
-            vVALORTOTALLabel.Location = new System.Drawing.Point(132, 178);
+            vVALORTOTALLabel.Location = new System.Drawing.Point(135, 178);
             vVALORTOTALLabel.Name = "vVALORTOTALLabel";
             vVALORTOTALLabel.Size = new System.Drawing.Size(73, 18);
             vVALORTOTALLabel.TabIndex = 29;
@@ -334,7 +334,7 @@
             // fFORMAPAGAMENTOLabel
             // 
             fFORMAPAGAMENTOLabel.AutoSize = true;
-            fFORMAPAGAMENTOLabel.Location = new System.Drawing.Point(71, 45);
+            fFORMAPAGAMENTOLabel.Location = new System.Drawing.Point(72, 45);
             fFORMAPAGAMENTOLabel.Name = "fFORMAPAGAMENTOLabel";
             fFORMAPAGAMENTOLabel.Size = new System.Drawing.Size(136, 18);
             fFORMAPAGAMENTOLabel.TabIndex = 27;
@@ -361,7 +361,7 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(286, 124);
+            label6.Location = new System.Drawing.Point(315, 124);
             label6.Name = "label6";
             label6.Size = new System.Drawing.Size(161, 18);
             label6.TabIndex = 46;
@@ -1106,7 +1106,7 @@
             // pnCheckout
             // 
             this.pnCheckout.AutoScroll = true;
-            this.pnCheckout.Controls.Add(this.nvalortotalTextBox1);
+            this.pnCheckout.Controls.Add(this.nvalottotalTextBox);
             this.pnCheckout.Controls.Add(this.ncontroleNumericUpDown);
             this.pnCheckout.Controls.Add(this.lbTotalDiarias);
             this.pnCheckout.Controls.Add(label6);
@@ -1127,18 +1127,24 @@
             this.pnCheckout.Dock = System.Windows.Forms.DockStyle.Fill;
             this.pnCheckout.Location = new System.Drawing.Point(3, 3);
             this.pnCheckout.Name = "pnCheckout";
-            this.pnCheckout.Size = new System.Drawing.Size(756, 303);
+            this.pnCheckout.Size = new System.Drawing.Size(756, 307);
             this.pnCheckout.TabIndex = 28;
             // 
-            // nvalortotalTextBox1
+            // nvalottotalTextBox
             // 
-            this.nvalortotalTextBox1.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaXItensBindingSource, "nvalortotal", true));
-            this.nvalortotalTextBox1.Location = new System.Drawing.Point(214, 176);
-            this.nvalortotalTextBox1.Name = "nvalortotalTextBox1";
-            this.nvalortotalTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.nvalortotalTextBox1.TabIndex = 49;
-            this.nvalortotalTextBox1.Text = "222";
-            this.nvalortotalTextBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nvalottotalTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "nvalottotal", true));
+            this.nvalottotalTextBox.Location = new System.Drawing.Point(213, 176);
+            this.nvalottotalTextBox.Name = "nvalottotalTextBox";
+            this.nvalottotalTextBox.ReadOnly = true;
+            this.nvalottotalTextBox.Size = new System.Drawing.Size(189, 23);
+            this.nvalottotalTextBox.TabIndex = 51;
+            this.nvalottotalTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.nvalottotalTextBox.TextChanged += new System.EventHandler(this.nvalottotalTextBox_TextChanged_1);
+            // 
+            // faturaBindingSource
+            // 
+            this.faturaBindingSource.DataMember = "fatura";
+            this.faturaBindingSource.DataSource = this.hotelDBDataSet;
             // 
             // ncontroleNumericUpDown
             // 
@@ -1148,15 +1154,10 @@
             this.ncontroleNumericUpDown.Size = new System.Drawing.Size(120, 23);
             this.ncontroleNumericUpDown.TabIndex = 48;
             // 
-            // faturaBindingSource
-            // 
-            this.faturaBindingSource.DataMember = "fatura";
-            this.faturaBindingSource.DataSource = this.hotelDBDataSet;
-            // 
             // lbTotalDiarias
             // 
             this.lbTotalDiarias.AutoSize = true;
-            this.lbTotalDiarias.Location = new System.Drawing.Point(459, 124);
+            this.lbTotalDiarias.Location = new System.Drawing.Point(475, 124);
             this.lbTotalDiarias.Name = "lbTotalDiarias";
             this.lbTotalDiarias.Size = new System.Drawing.Size(34, 18);
             this.lbTotalDiarias.TabIndex = 47;
@@ -1165,7 +1166,7 @@
             // lbVlDiaria
             // 
             this.lbVlDiaria.AutoSize = true;
-            this.lbVlDiaria.Location = new System.Drawing.Point(214, 124);
+            this.lbVlDiaria.Location = new System.Drawing.Point(232, 124);
             this.lbVlDiaria.Name = "lbVlDiaria";
             this.lbVlDiaria.Size = new System.Drawing.Size(34, 18);
             this.lbVlDiaria.TabIndex = 45;
@@ -1174,7 +1175,7 @@
             // lbdiarias
             // 
             this.lbdiarias.AutoSize = true;
-            this.lbdiarias.Location = new System.Drawing.Point(214, 101);
+            this.lbdiarias.Location = new System.Drawing.Point(213, 101);
             this.lbdiarias.Name = "lbdiarias";
             this.lbdiarias.Size = new System.Drawing.Size(15, 18);
             this.lbdiarias.TabIndex = 44;
@@ -1183,7 +1184,7 @@
             // cobservacaoTextBox
             // 
             this.cobservacaoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "cobservacao", true));
-            this.cobservacaoTextBox.Location = new System.Drawing.Point(214, 205);
+            this.cobservacaoTextBox.Location = new System.Drawing.Point(213, 205);
             this.cobservacaoTextBox.Multiline = true;
             this.cobservacaoTextBox.Name = "cobservacaoTextBox";
             this.cobservacaoTextBox.Size = new System.Drawing.Size(344, 86);
@@ -1192,18 +1193,20 @@
             // ndescontoTextBox
             // 
             this.ndescontoTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.faturaBindingSource, "ndesconto", true));
-            this.ndescontoTextBox.Location = new System.Drawing.Point(214, 146);
+            this.ndescontoTextBox.Location = new System.Drawing.Point(213, 146);
             this.ndescontoTextBox.Name = "ndescontoTextBox";
-            this.ndescontoTextBox.Size = new System.Drawing.Size(100, 23);
+            this.ndescontoTextBox.Size = new System.Drawing.Size(188, 23);
             this.ndescontoTextBox.TabIndex = 40;
+            this.ndescontoTextBox.Text = "0,00";
             this.ndescontoTextBox.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
+            this.ndescontoTextBox.Click += new System.EventHandler(this.ndescontoTextBox_Click);
             this.ndescontoTextBox.TextChanged += new System.EventHandler(this.ndescontoTextBox_TextChanged);
             this.ndescontoTextBox.Leave += new System.EventHandler(this.ndescontoTextBox_Leave);
             // 
             // lbConsumo
             // 
             this.lbConsumo.AutoSize = true;
-            this.lbConsumo.Location = new System.Drawing.Point(214, 78);
+            this.lbConsumo.Location = new System.Drawing.Point(213, 78);
             this.lbConsumo.Name = "lbConsumo";
             this.lbConsumo.Size = new System.Drawing.Size(34, 18);
             this.lbConsumo.TabIndex = 37;
@@ -1212,7 +1215,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(108, 77);
+            this.label4.Location = new System.Drawing.Point(110, 77);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(98, 18);
             this.label4.TabIndex = 36;
@@ -1233,9 +1236,9 @@
             this.fFORMAPAGAMENTOComboBox.DataSource = this.fORMASDEPAGAMENTOBindingSource;
             this.fFORMAPAGAMENTOComboBox.DisplayMember = "CDESCRICAO";
             this.fFORMAPAGAMENTOComboBox.FormattingEnabled = true;
-            this.fFORMAPAGAMENTOComboBox.Location = new System.Drawing.Point(214, 42);
+            this.fFORMAPAGAMENTOComboBox.Location = new System.Drawing.Point(213, 42);
             this.fFORMAPAGAMENTOComboBox.Name = "fFORMAPAGAMENTOComboBox";
-            this.fFORMAPAGAMENTOComboBox.Size = new System.Drawing.Size(324, 26);
+            this.fFORMAPAGAMENTOComboBox.Size = new System.Drawing.Size(345, 26);
             this.fFORMAPAGAMENTOComboBox.TabIndex = 30;
             this.fFORMAPAGAMENTOComboBox.ValueMember = "NIDPAGFORM";
             // 
@@ -1251,9 +1254,9 @@
             this.panel6.Controls.Add(this.btnEncerrar);
             this.panel6.Controls.Add(this.btnFatura);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel6.Location = new System.Drawing.Point(3, 306);
+            this.panel6.Location = new System.Drawing.Point(3, 310);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(756, 100);
+            this.panel6.Size = new System.Drawing.Size(756, 96);
             this.panel6.TabIndex = 26;
             // 
             // btnEncerrar
@@ -1261,9 +1264,9 @@
             this.btnEncerrar.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnEncerrar.Image = global::HotelGestor.Properties.Resources.aberto;
             this.btnEncerrar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnEncerrar.Location = new System.Drawing.Point(355, 18);
+            this.btnEncerrar.Location = new System.Drawing.Point(395, 5);
             this.btnEncerrar.Name = "btnEncerrar";
-            this.btnEncerrar.Size = new System.Drawing.Size(136, 62);
+            this.btnEncerrar.Size = new System.Drawing.Size(162, 73);
             this.btnEncerrar.TabIndex = 1;
             this.btnEncerrar.Text = "Encerrar";
             this.btnEncerrar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1275,9 +1278,9 @@
             this.btnFatura.Font = new System.Drawing.Font("Trebuchet MS", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnFatura.Image = global::HotelGestor.Properties.Resources.pagamento;
             this.btnFatura.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnFatura.Location = new System.Drawing.Point(212, 18);
+            this.btnFatura.Location = new System.Drawing.Point(212, 5);
             this.btnFatura.Name = "btnFatura";
-            this.btnFatura.Size = new System.Drawing.Size(125, 62);
+            this.btnFatura.Size = new System.Drawing.Size(149, 73);
             this.btnFatura.TabIndex = 0;
             this.btnFatura.Text = "Fatura";
             this.btnFatura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -1348,8 +1351,8 @@
             this.tabCheckOut.ResumeLayout(false);
             this.pnCheckout.ResumeLayout(false);
             this.pnCheckout.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.faturaBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -1454,6 +1457,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn nvalortotalDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn ddatamovimDataGridViewTextBoxColumn;
         private System.Windows.Forms.NumericUpDown ncontroleNumericUpDown;
-        private System.Windows.Forms.TextBox nvalortotalTextBox1;
+        private System.Windows.Forms.TextBox nvalottotalTextBox;
     }
 }

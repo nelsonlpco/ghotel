@@ -116,14 +116,22 @@ namespace HotelGestor
 
         public override void excluir()
         {
+            currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            if ((char)currentRow["CESTATUS"] == 'F')
+            {
+                Comum.msgAlert("Não é possivel excluir hospedagens encerradas!");
+                return;
+            }
             lbStatus.Text = Comum.screenStats('d');
+            Comum.msgAlert("Excluir a hospedagem implica em exclusão dos consumos e fatura!");
             if (Comum.msgExcluir(Comum.MSG_EXCLUIR))
             {
-                currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+                
                 currentRow.Delete();
-                //hOSPEDAGEMTableAdapter.Update(hotelDBDataSet.ITEMCONSUMO);
+                tableAdapterManager.UpdateAll(hotelDBDataSet);   
             }
             lbStatus.Text = Comum.screenStats('c');
+            tbMain.SelectedIndex = 0;
             buttonStates();
         }
 
@@ -145,6 +153,7 @@ namespace HotelGestor
             hOSPEDAGEMBindingSource.AddNew();
             currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
             currentRow["CESTATUS"] = "E";
+            currentRow["DDATAIN"] = DateTime.Now;
             buttonStates();
             tableControlHandler();
             tbMain.SelectedIndex = 1;
@@ -327,6 +336,8 @@ namespace HotelGestor
         private void atualizarFatura()
         {
             currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            if (currentRow == null)
+                return;
             this.faturaTableAdapter.FillByHospedagem(this.hotelDBDataSet.fatura, (int)currentRow["NIDHOSPEDAGEM"]);
 
             lbConsumo.Text = lbTotalLancamentos.Text;
@@ -344,13 +355,14 @@ namespace HotelGestor
 
             DataRowView fatura = (DataRowView)faturaBindingSource.Current;
             fatura["NVALOTTOTAL"] = total;
-            nvalortotalTextBox1.Text =  string.Format("{0:N}", total);
+            nvalottotalTextBox.Text = string.Format("{0:N}", total);
 
         }
 
         private void btnHospedar_Click(object sender, EventArgs e)
         {
-            salvar();
+            if(validaCampos())
+                salvar();
         }
 
         private void btnBuscaItem_Click(object sender, EventArgs e)
@@ -407,6 +419,8 @@ namespace HotelGestor
         private void tableControlHandler()
         {
             DataRowView dt = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            if (dt == null)
+                return;
             char status = (string.IsNullOrEmpty(dt["CESTATUS"].ToString()) ? 'E' : dt["CESTATUS"].ToString()[0]);
             switch (status)
             {
@@ -489,9 +503,49 @@ namespace HotelGestor
 
         private void ndescontoTextBox_Leave(object sender, EventArgs e)
         {
-            string total = string.IsNullOrEmpty(nvalortotalTextBox.Text) ? "0" : nvalortotalTextBox.Text;
+            string total = string.IsNullOrEmpty(nvalottotalTextBox.Text) ? "0" : nvalottotalTextBox.Text;
             string desconto = string.IsNullOrEmpty(ndescontoTextBox.Text) ? "0" : ndescontoTextBox.Text;
-            nvalortotalTextBox.Text = string.Format("{0:N}", double.Parse(total) - double.Parse(desconto));
+            nvalottotalTextBox.Text = string.Format("{0:N}", double.Parse(total) - double.Parse(desconto));
+        }
+
+        private void nvalottotalTextBox_TextChanged_1(object sender, EventArgs e)
+        {
+            Comum.moneyMask(sender);
+        }
+
+        private void ndescontoTextBox_Click(object sender, EventArgs e)
+        {
+            ((TextBox)sender).SelectionStart = ((TextBox)sender).Text.Length;
+        }
+
+        private Boolean validaCampos()
+        {
+            bool saida = true;
+
+            currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            if (currentRow["NIDCLIENTE"] == null)
+            {
+                Comum.msgAlert("Por favor selecione um hóspede!");
+                return false;
+            }
+            if (currentRow["NIDQUARTO"] == null)
+            {
+                Comum.msgAlert("Por favor selecionem um quarto!");
+                return false;
+            }
+            if (nDIARIASNumericUpDown.Value <= 0)
+            {
+                Comum.msgAlert("Informe ao menos uma diaria!");
+                return false;
+            }
+
+            if (dDATAINDateTimePicker.Value > dDATAOUTDateTimePicker.Value)
+            {
+                Comum.msgAlert("A data de saida deve ser superior a de entrada!");
+                return false;
+            }
+
+            return saida;
         }
        
 

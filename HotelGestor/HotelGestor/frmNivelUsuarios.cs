@@ -8,9 +8,9 @@ using System.Windows.Forms;
 
 namespace HotelGestor
 {
-    public partial class frmCategoriaQuarto : HotelGestor.template.frmMainCadastro
+    public partial class frmNivelUsuarios : HotelGestor.template.frmMainCadastro
     {
-        public frmCategoriaQuarto()
+        public frmNivelUsuarios()
         {
             InitializeComponent();
             addeventos();
@@ -19,20 +19,29 @@ namespace HotelGestor
 
         private DataRowView currentRow;
 
-        private void addeventos()
+        private double selectValue;
+
+        public double SelectValue
         {
-            cDESCRICAOTextBox.TextChanged += onEdit;
+            get { return selectValue; }
+            set { selectValue = value; }
         }
 
-       
+        private void addeventos()
+        {
+            cdescricaoTextBox.TextChanged += onEdit;
+            nnivelTextBox.TextChanged += onEdit;
+        }
+
 
         public override bool isEmptyDataset()
         {
             bool saida = true;
-            if (hotelDBDataSet.CATEGORIAQUARTO.Rows.Count > 0)
+            if (hotelDBDataSet.ATORES.Rows.Count > 0)
                 saida = false;
             return saida;
         }
+
 
         public void selectMod()
         {
@@ -40,12 +49,13 @@ namespace HotelGestor
             lbStatus.Text = Comum.screenStats('t');
         }
 
+
         public override void salvar()
         {
-            currentRow = (DataRowView)cATEGORIAQUARTOBindingSource.Current;
+            currentRow = (DataRowView)aTORESBindingSource.Current;
 
-            cATEGORIAQUARTOBindingSource.EndEdit();
-            cATEGORIAQUARTOTableAdapter.Update(hotelDBDataSet.CATEGORIAQUARTO);
+            aTORESBindingSource.EndEdit();
+            aTORESTableAdapter.Update(hotelDBDataSet.ATORES);
             SavePrompt = false;
             IsInclude = false;
             lbStatus.Text = Comum.screenStats('c');
@@ -58,18 +68,18 @@ namespace HotelGestor
             lbStatus.Text = Comum.screenStats('d');
             if (Comum.msgExcluir(Comum.MSG_EXCLUIR))
             {
-                currentRow = (DataRowView)cATEGORIAQUARTOBindingSource.Current;
+                currentRow = (DataRowView)aTORESBindingSource.Current;
                 try
                 {
                     currentRow.Delete();
-                    cATEGORIAQUARTOTableAdapter.Update(hotelDBDataSet.CATEGORIAQUARTO);
+                    aTORESTableAdapter.Update(hotelDBDataSet.ATORES);
                 }
                 catch (Exception ex)
                 {
-                    Comum.msgAlert("Não é possivle excluir esta categoria pois pertence a algum quarto!");
-                    cATEGORIAQUARTOTableAdapter.Fill(hotelDBDataSet.CATEGORIAQUARTO);
+                    Comum.msgAlert("Este item não pode ser excluido, pois faz parte de alguma movimentação!");
+                    aTORESTableAdapter.Fill(hotelDBDataSet.ATORES);
                 }
-                
+
             }
             lbStatus.Text = Comum.screenStats('c');
             buttonStates();
@@ -77,7 +87,7 @@ namespace HotelGestor
 
         public override void cancelar()
         {
-            cATEGORIAQUARTOBindingSource.CancelEdit();
+            aTORESBindingSource.CancelEdit();
             IsInclude = false;
             SavePrompt = false;
             lbStatus.Text = Comum.screenStats('c');
@@ -90,41 +100,39 @@ namespace HotelGestor
             lbStatus.Text = Comum.screenStats('i');
             IsInclude = true;
             SavePrompt = true;
-            cATEGORIAQUARTOBindingSource.AddNew();
-            cDESCRICAOTextBox.Focus();
+            aTORESBindingSource.AddNew();
+            cdescricaoTextBox.Focus();
             buttonStates();
             tbMain.SelectedIndex = 1;
         }
 
         public override void selecionar()
         {
-            currentRow = (DataRowView)cATEGORIAQUARTOBindingSource.Current;
-            SelectId = (int)currentRow["idcategoria"];
+            currentRow = (DataRowView)aTORESBindingSource.Current;
+            SelectId = (int)currentRow["idator"];
             SelectDescription = (string)currentRow["CDESCRICAO"];
+
+            SelectValue = Comum.strToDouble(currentRow["nnivel"].ToString());
             this.Close();
         }
 
-        public void filtro()
+        public override void filtro()
         {
             string filtro = string.Format(" CDESCRICAO like '%{0}%'", txtFiltro.Text);
 
-            cATEGORIAQUARTOBindingSource.Filter = filtro;
+            aTORESBindingSource.Filter = filtro;
 
         }
 
-        private void frmCategoriaQuarto_Load(object sender, EventArgs e)
+
+        private void frmNivelUsuarios_Load(object sender, EventArgs e)
         {
-            // TODO: This line of code loads data into the 'hotelDBDataSet.CATEGORIAQUARTO' table. You can move, or remove it, as needed.
-            this.cATEGORIAQUARTOTableAdapter.Fill(this.hotelDBDataSet.CATEGORIAQUARTO);
-            buttonStates();
+            // TODO: This line of code loads data into the 'hotelDBDataSet.ATORES' table. You can move, or remove it, as needed.
+            this.aTORESTableAdapter.Fill(this.hotelDBDataSet.ATORES);
 
         }
 
 
-        private void dataGridView1_DoubleClick(object sender, EventArgs e)
-        {
-            tbMain.SelectedIndex = 1;
-        }
 
         private void txtFiltro_TextChanged(object sender, EventArgs e)
         {
@@ -147,5 +155,16 @@ namespace HotelGestor
             }
         }
 
+        private void dataGridView1_DoubleClick(object sender, EventArgs e)
+        {
+            tbMain.SelectedIndex = 1;
+        }
+
+        private void cdescricaoTextBox_Leave(object sender, EventArgs e)
+        {
+            Comum.firstUpper(sender);
+        }
+
+      
     }
 }

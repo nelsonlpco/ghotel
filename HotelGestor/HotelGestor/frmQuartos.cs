@@ -75,8 +75,17 @@ namespace HotelGestor
             if (Comum.msgExcluir(Comum.MSG_EXCLUIR))
             {
                 currentRow = (DataRowView)qUARTOBindingSource.Current;
-                currentRow.Delete();
-                qUARTOTableAdapter.Update(hotelDBDataSet.QUARTO);
+                try
+                {
+                    currentRow.Delete();
+                    qUARTOTableAdapter.Update(hotelDBDataSet.QUARTO);
+                }
+                catch (Exception ex)
+                {
+                    Comum.msgAlert("Não é possivel excluir este quarto pois o mesmo possui histórico!");
+                    qUARTOTableAdapter.Fill(hotelDBDataSet.QUARTO);
+                }
+                
             }
             lbStatus.Text = Comum.screenStats('c');
             buttonStates();

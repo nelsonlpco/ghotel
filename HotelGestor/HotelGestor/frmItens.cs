@@ -77,8 +77,17 @@ namespace HotelGestor
             if (Comum.msgExcluir(Comum.MSG_EXCLUIR))
             {
                 currentRow = (DataRowView)iTEMCONSUMOBindingSource.Current;
-                currentRow.Delete();
-                iTEMCONSUMOTableAdapter.Update(hotelDBDataSet.ITEMCONSUMO);
+                try
+                {
+                    currentRow.Delete();
+                    iTEMCONSUMOTableAdapter.Update(hotelDBDataSet.ITEMCONSUMO);
+                }
+                catch (Exception ex)
+                {
+                    Comum.msgAlert("Este item não pode ser excluido, pois faz parte de alguma movimentação!");
+                    iTEMCONSUMOTableAdapter.Fill(hotelDBDataSet.ITEMCONSUMO);
+                }
+                
             }
             lbStatus.Text = Comum.screenStats('c');
             buttonStates();

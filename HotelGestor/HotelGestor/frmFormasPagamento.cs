@@ -62,8 +62,16 @@ namespace HotelGestor
             if (Comum.msgExcluir(Comum.MSG_EXCLUIR))
             {
                 currentRow = (DataRowView)fORMASDEPAGAMENTOBindingSource.Current;
-                currentRow.Delete();
-                fORMASDEPAGAMENTOTableAdapter.Update(hotelDBDataSet.FORMASDEPAGAMENTO);
+                try
+                {
+                    currentRow.Delete();
+                    fORMASDEPAGAMENTOTableAdapter.Update(hotelDBDataSet.FORMASDEPAGAMENTO);
+                }
+                catch (Exception ex)
+                {
+                    Comum.msgAlert("Não é possivel excluir esta forma de pagamento pois a mesma faz parte de alguma movimentação!");
+                    fORMASDEPAGAMENTOTableAdapter.Fill(hotelDBDataSet.FORMASDEPAGAMENTO);
+                }
             }
             lbStatus.Text = Comum.screenStats('c');
             buttonStates();

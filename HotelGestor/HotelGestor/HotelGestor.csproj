@@ -81,6 +81,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCadUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCadUsuarios.Designer.cs">
+      <DependentUpon>frmCadUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCategoriaQuarto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -116,6 +122,18 @@
     </Compile>
     <Compile Include="frmItens.Designer.cs">
       <DependentUpon>frmItens.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmNivelUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNivelUsuarios.Designer.cs">
+      <DependentUpon>frmNivelUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="frmQuartos.cs">
       <SubType>Form</SubType>
@@ -189,6 +207,9 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCadUsuarios.resx">
+      <DependentUpon>frmCadUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCategoriaQuarto.resx">
       <DependentUpon>frmCategoriaQuarto.cs</DependentUpon>
     </EmbeddedResource>
@@ -206,6 +227,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmItens.resx">
       <DependentUpon>frmItens.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmNivelUsuarios.resx">
+      <DependentUpon>frmNivelUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmQuartos.resx">
       <DependentUpon>frmQuartos.cs</DependentUpon>

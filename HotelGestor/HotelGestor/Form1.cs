@@ -39,19 +39,7 @@ namespace HotelGestor
             Close();
         }
 
-        private void empresaToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmEmpresa frm = new frmEmpresa();
-            frm.ShowDialog();
-            frm.Dispose();
-            this.hOTELTableAdapter.Fill(this.hotelDBDataSet.HOTEL);
-            DataRowView row = (DataRowView)hOTELBindingSource.Current;
-            if (row != null)
-            {
-                Comum.EMPRESA = (string)row["CNOME"];
-            }
-            this.Text = Comum.EMPRESA;
-        }
+        
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -99,6 +87,20 @@ namespace HotelGestor
         private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             frmRelatoriosHospedes frm = new frmRelatoriosHospedes();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCadUsuarios frm = new frmCadUsuarios();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
+
+        private void niveisToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmNivelUsuarios frm = new frmNivelUsuarios();
             frm.ShowDialog();
             frm.Dispose();
         }

@@ -30,12 +30,12 @@
         {
             this.components = new System.ComponentModel.Container();
             this.cbRelatorios = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox2 = new System.Windows.Forms.MaskedTextBox();
+            this.txtNome = new System.Windows.Forms.TextBox();
+            this.txtDnIni = new System.Windows.Forms.MaskedTextBox();
+            this.txtDnFim = new System.Windows.Forms.MaskedTextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.maskedTextBox3 = new System.Windows.Forms.MaskedTextBox();
-            this.maskedTextBox4 = new System.Windows.Forms.MaskedTextBox();
+            this.txtDtCadFim = new System.Windows.Forms.MaskedTextBox();
+            this.txtDtCadIni = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,9 +44,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
-            this.cLIENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cLIENTETableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.CLIENTETableAdapter();
             this.nNUMECLIENTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNOMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -63,11 +60,14 @@
             this.cFONE2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cEMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fOTODataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
+            this.cLIENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
+            this.cLIENTETableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.CLIENTETableAdapter();
             this.panel1.SuspendLayout();
             this.pnFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -83,12 +83,12 @@
             this.pnFiltros.Controls.Add(this.label3);
             this.pnFiltros.Controls.Add(this.label2);
             this.pnFiltros.Controls.Add(this.label1);
-            this.pnFiltros.Controls.Add(this.maskedTextBox3);
-            this.pnFiltros.Controls.Add(this.maskedTextBox4);
+            this.pnFiltros.Controls.Add(this.txtDtCadFim);
+            this.pnFiltros.Controls.Add(this.txtDtCadIni);
             this.pnFiltros.Controls.Add(this.button1);
-            this.pnFiltros.Controls.Add(this.maskedTextBox2);
-            this.pnFiltros.Controls.Add(this.maskedTextBox1);
-            this.pnFiltros.Controls.Add(this.textBox1);
+            this.pnFiltros.Controls.Add(this.txtDnFim);
+            this.pnFiltros.Controls.Add(this.txtDnIni);
+            this.pnFiltros.Controls.Add(this.txtNome);
             this.pnFiltros.Controls.Add(this.cbRelatorios);
             this.pnFiltros.Size = new System.Drawing.Size(784, 131);
             // 
@@ -96,39 +96,37 @@
             // 
             this.cbRelatorios.FormattingEnabled = true;
             this.cbRelatorios.Items.AddRange(new object[] {
-            "Lista de Hóspedes.",
             "Ficha do Hóspede.",
-            "Lista de Aniversáriantes.",
-            "Histórico do Hóspede."});
+            "Lista de Hóspedes."});
             this.cbRelatorios.Location = new System.Drawing.Point(156, 6);
             this.cbRelatorios.Name = "cbRelatorios";
             this.cbRelatorios.Size = new System.Drawing.Size(407, 26);
             this.cbRelatorios.TabIndex = 0;
             // 
-            // textBox1
+            // txtNome
             // 
-            this.textBox1.Location = new System.Drawing.Point(156, 38);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(407, 23);
-            this.textBox1.TabIndex = 1;
+            this.txtNome.Location = new System.Drawing.Point(156, 38);
+            this.txtNome.Name = "txtNome";
+            this.txtNome.Size = new System.Drawing.Size(407, 23);
+            this.txtNome.TabIndex = 1;
             // 
-            // maskedTextBox1
+            // txtDnIni
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(156, 67);
-            this.maskedTextBox1.Mask = "00/00/0000";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 23);
-            this.maskedTextBox1.TabIndex = 2;
-            this.maskedTextBox1.ValidatingType = typeof(System.DateTime);
+            this.txtDnIni.Location = new System.Drawing.Point(156, 67);
+            this.txtDnIni.Mask = "00/00/0000";
+            this.txtDnIni.Name = "txtDnIni";
+            this.txtDnIni.Size = new System.Drawing.Size(100, 23);
+            this.txtDnIni.TabIndex = 2;
+            this.txtDnIni.ValidatingType = typeof(System.DateTime);
             // 
-            // maskedTextBox2
+            // txtDnFim
             // 
-            this.maskedTextBox2.Location = new System.Drawing.Point(296, 67);
-            this.maskedTextBox2.Mask = "00/00/0000";
-            this.maskedTextBox2.Name = "maskedTextBox2";
-            this.maskedTextBox2.Size = new System.Drawing.Size(100, 23);
-            this.maskedTextBox2.TabIndex = 3;
-            this.maskedTextBox2.ValidatingType = typeof(System.DateTime);
+            this.txtDnFim.Location = new System.Drawing.Point(296, 67);
+            this.txtDnFim.Mask = "00/00/0000";
+            this.txtDnFim.Name = "txtDnFim";
+            this.txtDnFim.Size = new System.Drawing.Size(100, 23);
+            this.txtDnFim.TabIndex = 3;
+            this.txtDnFim.ValidatingType = typeof(System.DateTime);
             // 
             // button1
             // 
@@ -140,31 +138,32 @@
             this.button1.TabIndex = 4;
             this.button1.Text = "Filtrar";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // maskedTextBox3
+            // txtDtCadFim
             // 
-            this.maskedTextBox3.Location = new System.Drawing.Point(296, 96);
-            this.maskedTextBox3.Mask = "00/00/0000";
-            this.maskedTextBox3.Name = "maskedTextBox3";
-            this.maskedTextBox3.Size = new System.Drawing.Size(100, 23);
-            this.maskedTextBox3.TabIndex = 6;
-            this.maskedTextBox3.ValidatingType = typeof(System.DateTime);
+            this.txtDtCadFim.Location = new System.Drawing.Point(296, 96);
+            this.txtDtCadFim.Mask = "00/00/0000";
+            this.txtDtCadFim.Name = "txtDtCadFim";
+            this.txtDtCadFim.Size = new System.Drawing.Size(100, 23);
+            this.txtDtCadFim.TabIndex = 6;
+            this.txtDtCadFim.ValidatingType = typeof(System.DateTime);
             // 
-            // maskedTextBox4
+            // txtDtCadIni
             // 
-            this.maskedTextBox4.Location = new System.Drawing.Point(156, 96);
-            this.maskedTextBox4.Mask = "00/00/0000";
-            this.maskedTextBox4.Name = "maskedTextBox4";
-            this.maskedTextBox4.Size = new System.Drawing.Size(100, 23);
-            this.maskedTextBox4.TabIndex = 5;
-            this.maskedTextBox4.ValidatingType = typeof(System.DateTime);
+            this.txtDtCadIni.Location = new System.Drawing.Point(156, 96);
+            this.txtDtCadIni.Mask = "00/00/0000";
+            this.txtDtCadIni.Name = "txtDtCadIni";
+            this.txtDtCadIni.Size = new System.Drawing.Size(100, 23);
+            this.txtDtCadIni.TabIndex = 5;
+            this.txtDtCadIni.ValidatingType = typeof(System.DateTime);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(78, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(71, 18);
+            this.label1.Size = new System.Drawing.Size(72, 18);
             this.label1.TabIndex = 7;
             this.label1.Text = "Relatórios:";
             // 
@@ -255,20 +254,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(784, 349);
             this.dataGridView1.TabIndex = 9;
-            // 
-            // hotelDBDataSet
-            // 
-            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
-            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cLIENTEBindingSource
-            // 
-            this.cLIENTEBindingSource.DataMember = "CLIENTE";
-            this.cLIENTEBindingSource.DataSource = this.hotelDBDataSet;
-            // 
-            // cLIENTETableAdapter
-            // 
-            this.cLIENTETableAdapter.ClearBeforeFill = true;
             // 
             // nNUMECLIENTEDataGridViewTextBoxColumn
             // 
@@ -382,6 +367,20 @@
             this.fOTODataGridViewImageColumn.Name = "fOTODataGridViewImageColumn";
             this.fOTODataGridViewImageColumn.ReadOnly = true;
             // 
+            // cLIENTEBindingSource
+            // 
+            this.cLIENTEBindingSource.DataMember = "CLIENTE";
+            this.cLIENTEBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // hotelDBDataSet
+            // 
+            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
+            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cLIENTETableAdapter
+            // 
+            this.cLIENTETableAdapter.ClearBeforeFill = true;
+            // 
             // frmRelatoriosHospedes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -397,8 +396,8 @@
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -412,12 +411,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox3;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox4;
+        private System.Windows.Forms.MaskedTextBox txtDtCadFim;
+        private System.Windows.Forms.MaskedTextBox txtDtCadIni;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox2;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.MaskedTextBox txtDnFim;
+        private System.Windows.Forms.MaskedTextBox txtDnIni;
+        private System.Windows.Forms.TextBox txtNome;
         private System.Windows.Forms.ComboBox cbRelatorios;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.DataGridView dataGridView1;

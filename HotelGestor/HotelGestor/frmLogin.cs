@@ -13,6 +13,8 @@ namespace HotelGestor
     public partial class frmLogin : Form
     {
         public bool valida;
+        public string usuario;
+        public int id;
 
         public frmLogin()
         {
@@ -25,6 +27,9 @@ namespace HotelGestor
             uSUARIOSTableAdapter.FillBy(hotelDBDataSet.USUARIOS, login, senha);
             if (hotelDBDataSet.USUARIOS.Rows.Count > 0)
             {
+                DataRow row = hotelDBDataSet.USUARIOS.Rows[0];
+                usuario = (string)row["CNOME"];
+                id      = (int) row["IDUSUARIO"];
                 return true;
             }
             return false;
@@ -43,7 +48,18 @@ namespace HotelGestor
         private void button2_Click(object sender, EventArgs e)
         {
             valida = validausuario(txtLogin.Text, txtSenha.Text);
-            Close();
+            if (!valida)
+            {
+                Comum.msgAlert("Login ou Senha invalidos!");
+                txtLogin.Clear();
+                txtSenha.Clear();
+                txtLogin.Focus();
+            }
+            else
+            {
+                Close();
+            }
+                
         }
     }
 }

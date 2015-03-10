@@ -36,19 +36,13 @@ namespace HotelGestor
             switch (cbRelatorios.SelectedIndex)
             {
                 case 0:
-                    lista.Clear();
-                    //lista.Add(new ReportDataSource("dsHotel", HOTELBindingSource));
-                    //lista.Add(new ReportDataSource("dsHospede", this.cLIENTEBindingSource));
-                    frm.setReport("listadehospedes.rdlc", lista, 0);
-                    break;
-                case 1:
                     DataRowView row = (DataRowView) cLIENTEBindingSource.Current;
                     lista.Clear();
-                   // lista.Add(new ReportDataSource("dsHotel", HOTELBindingSource));
-                   // lista.Add(new ReportDataSource("dsHospede", this.cLIENTEBindingSource ));
-
-
                     frm.setReport("fichaHospede.rdlc", lista, (int)row["NNUMECLIENTE"]);
+                    break;
+                case 1:
+                    lista.Clear();
+                    frm.setReport("listadehospedes.rdlc", lista, 0);
                     break;
             }
             
@@ -58,5 +52,52 @@ namespace HotelGestor
 
 
         public System.Collections.IEnumerable HOTELBindingSource { get; set; }
+
+        public string filtro() {
+            string filtro = "";
+            if (!string.IsNullOrEmpty(txtNome.Text))
+            {
+                filtro = string.Format(" CNOME LIKE '%{0}%'", txtNome.Text);
+            }
+            
+            if(!string.IsNullOrEmpty(filtro) && txtDnIni.Text!= "  /  /")
+            {
+                filtro += " and ";
+            }
+            if (txtDnIni.Text != "  /  /")
+            {
+                filtro += " DDATANASC >= "+txtDnIni.Text;
+            }
+            if (!string.IsNullOrEmpty(filtro) && txtDnFim.Text != "  /  /") 
+            {
+                filtro += " and ";
+            }
+            if(txtDnFim.Text != "  /  /")
+            {
+                filtro += " DDATANASC <= "+txtDnFim.Text;
+            }
+            if (!string.IsNullOrEmpty(filtro) && txtDtCadIni.Text != "  /  /") 
+            {
+                filtro += " and ";
+            }
+            if(txtDtCadIni.Text != "  /  /")
+            {
+                filtro += " DDATACADASTRO >= "+txtDtCadIni.Text;
+            }
+            if (!string.IsNullOrEmpty(filtro) && txtDtCadFim.Text != "  /  /") 
+            {
+                filtro += " and ";
+            }
+            if(txtDtCadFim.Text != "  /  /")
+            {
+                filtro += " DDATACADASTRO <= "+txtDtCadFim.Text;
+            }
+            return filtro;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            cLIENTEBindingSource.Filter = filtro();
+        }
     }
 }

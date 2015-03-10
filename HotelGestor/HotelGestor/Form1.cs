@@ -12,6 +12,9 @@ namespace HotelGestor
 {
     public partial class Form1 : Form
     {
+        private string usuario;
+        private int idusuario;
+        
         public Form1()
         {
             InitializeComponent();
@@ -61,6 +64,9 @@ namespace HotelGestor
                 frml.Dispose();
                 this.Close();
             }
+            usuario = frml.usuario;
+            idusuario = frml.id;
+            lbUsuarioLogado.Text = usuario;
             frml.Dispose();
         }
 

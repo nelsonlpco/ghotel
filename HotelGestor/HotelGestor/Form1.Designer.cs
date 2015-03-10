@@ -35,6 +35,7 @@
             this.hotelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.niveisToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formasDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.itensParaConsumoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripSeparator();
@@ -53,11 +54,13 @@
             this.hOTELTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOTELTableAdapter();
             this.tableAdapterManager = new HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager();
             this.lOGOPictureBox = new System.Windows.Forms.PictureBox();
-            this.backupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.lbUsuarioLogado = new System.Windows.Forms.ToolStripStatusLabel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTELBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOGOPictureBox)).BeginInit();
+            this.statusStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -123,6 +126,14 @@
             this.niveisToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.niveisToolStripMenuItem.Text = "&Niveis";
             this.niveisToolStripMenuItem.Click += new System.EventHandler(this.niveisToolStripMenuItem_Click);
+            // 
+            // backupToolStripMenuItem
+            // 
+            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
+            this.backupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.backupToolStripMenuItem.Text = "&Backup";
+            this.backupToolStripMenuItem.Visible = false;
+            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
             // 
             // formasDePagamentoToolStripMenuItem
             // 
@@ -268,18 +279,28 @@
             this.lOGOPictureBox.TabIndex = 3;
             this.lOGOPictureBox.TabStop = false;
             // 
-            // backupToolStripMenuItem
+            // statusStrip1
             // 
-            this.backupToolStripMenuItem.Name = "backupToolStripMenuItem";
-            this.backupToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.backupToolStripMenuItem.Text = "&Backup";
-            this.backupToolStripMenuItem.Click += new System.EventHandler(this.backupToolStripMenuItem_Click);
+            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.lbUsuarioLogado});
+            this.statusStrip1.Location = new System.Drawing.Point(0, 539);
+            this.statusStrip1.Name = "statusStrip1";
+            this.statusStrip1.Size = new System.Drawing.Size(784, 22);
+            this.statusStrip1.TabIndex = 4;
+            this.statusStrip1.Text = "statusStrip1";
+            // 
+            // lbUsuarioLogado
+            // 
+            this.lbUsuarioLogado.Name = "lbUsuarioLogado";
+            this.lbUsuarioLogado.Size = new System.Drawing.Size(47, 17);
+            this.lbUsuarioLogado.Text = "Usuário";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
+            this.Controls.Add(this.statusStrip1);
             this.Controls.Add(this.lOGOPictureBox);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
@@ -293,6 +314,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTELBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.lOGOPictureBox)).EndInit();
+            this.statusStrip1.ResumeLayout(false);
+            this.statusStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -325,6 +348,8 @@
         private System.Windows.Forms.ToolStripMenuItem hotelToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem niveisToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem backupToolStripMenuItem;
+        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.ToolStripStatusLabel lbUsuarioLogado;
     }
 }
 

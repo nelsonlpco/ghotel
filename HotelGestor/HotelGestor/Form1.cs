@@ -95,5 +95,12 @@ namespace HotelGestor
             frm.ShowDialog();
             frm.Dispose();
         }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRelatoriosHospedes frm = new frmRelatoriosHospedes();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
     }
 }

@@ -138,14 +138,35 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="HotelDbsRelatorios.cs">
+      <DependentUpon>HotelDbsRelatorios.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="HotelDbsRelatorios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>HotelDbsRelatorios.xsd</DependentUpon>
+    </Compile>
     <Compile Include="IDao.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="relatorios\fatura\frmViewFatura.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="relatorios\fatura\frmViewFatura.Designer.cs">
+      <DependentUpon>frmViewFatura.cs</DependentUpon>
+    </Compile>
     <Compile Include="relatorios\frmView.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="relatorios\frmView.Designer.cs">
       <DependentUpon>frmView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="relatorios\hospedes\frmViewRolsClientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="relatorios\hospedes\frmViewRolsClientes.Designer.cs">
+      <DependentUpon>frmViewRolsClientes.cs</DependentUpon>
     </Compile>
     <Compile Include="template\frmBaseRelatorios.cs">
       <SubType>Form</SubType>
@@ -203,10 +224,16 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="relatorios\fatura\fatura1.rdlc" />
+    <EmbeddedResource Include="relatorios\fatura\frmViewFatura.resx">
+      <DependentUpon>frmViewFatura.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="relatorios\frmView.resx">
       <DependentUpon>frmView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="relatorios\hospedes\fichaHospede.rdlc" />
+    <EmbeddedResource Include="relatorios\hospedes\frmViewRolsClientes.resx">
+      <DependentUpon>frmViewRolsClientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="relatorios\hospedes\listadehospedes.rdlc" />
     <EmbeddedResource Include="template\frmBaseRelatorios.resx">
       <DependentUpon>frmBaseRelatorios.cs</DependentUpon>
@@ -227,6 +254,17 @@
     </None>
     <None Include="HotelDBDataSet.xss">
       <DependentUpon>HotelDBDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="HotelDbsRelatorios.xsc">
+      <DependentUpon>HotelDbsRelatorios.xsd</DependentUpon>
+    </None>
+    <None Include="HotelDbsRelatorios.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>HotelDbsRelatorios.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="HotelDbsRelatorios.xss">
+      <DependentUpon>HotelDbsRelatorios.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

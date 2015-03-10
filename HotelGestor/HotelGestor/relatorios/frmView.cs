@@ -19,22 +19,27 @@ namespace HotelGestor.relatorios.hospedes
             InitializeComponent();
         }
 
-        public void setReport(string report, List<ReportDataSource> dslist)
+        public void setReport(string report, List<ReportDataSource> dslist, int id)
         {
             this.rpv.LocalReport.ReportEmbeddedResource = "HotelGestor.relatorios.hospedes."+report;
             // TODO: This line of code loads data into the 'hotelDBDataSet.HOTEL' table. You can move, or remove it, as needed.
-
-            foreach (ReportDataSource ds in dslist )
+            
+            //this.rpv.LocalReport.DataSources.Clear();
+          /*  foreach (ReportDataSource ds in dslist )
             {
                 this.rpv.LocalReport.DataSources.Add(ds);
             }
-            
 
+            */
+            //this.rpv.LocalReport.SetParameters(parametros);
+            this.cLIENTETableAdapter.Fill(hotelDbsRelatorios.CLIENTE, id);            
             this.rpv.RefreshReport();
         }
 
         private void frmView_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'hotelDbsRelatorios.HOTEL' table. You can move, or remove it, as needed.
+            this.hOTELTableAdapter.Fill(this.hotelDbsRelatorios.HOTEL);
             // TODO: This line of code loads data into the 'hotelDBDataSet.HOTEL' table. You can move, or remove it, as needed.
 
         }

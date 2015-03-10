@@ -29,10 +29,6 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.HOTELBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
-            this.cLIENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.cLIENTETableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.CLIENTETableAdapter();
             this.cbRelatorios = new System.Windows.Forms.ComboBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
@@ -47,8 +43,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.HOTELTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOTELTableAdapter();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
+            this.cLIENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cLIENTETableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.CLIENTETableAdapter();
             this.nNUMECLIENTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cNOMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cCPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -67,10 +65,9 @@
             this.fOTODataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel1.SuspendLayout();
             this.pnFiltros.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HOTELBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -94,25 +91,6 @@
             this.pnFiltros.Controls.Add(this.textBox1);
             this.pnFiltros.Controls.Add(this.cbRelatorios);
             this.pnFiltros.Size = new System.Drawing.Size(784, 131);
-            // 
-            // HOTELBindingSource
-            // 
-            this.HOTELBindingSource.DataMember = "HOTEL";
-            this.HOTELBindingSource.DataSource = this.hotelDBDataSet;
-            // 
-            // hotelDBDataSet
-            // 
-            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
-            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // cLIENTEBindingSource
-            // 
-            this.cLIENTEBindingSource.DataMember = "CLIENTE";
-            this.cLIENTEBindingSource.DataSource = this.hotelDBDataSet;
-            // 
-            // cLIENTETableAdapter
-            // 
-            this.cLIENTETableAdapter.ClearBeforeFill = true;
             // 
             // cbRelatorios
             // 
@@ -247,10 +225,6 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // HOTELTableAdapter
-            // 
-            this.HOTELTableAdapter.ClearBeforeFill = true;
-            // 
             // dataGridView1
             // 
             this.dataGridView1.AllowUserToAddRows = false;
@@ -281,6 +255,20 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(784, 349);
             this.dataGridView1.TabIndex = 9;
+            // 
+            // hotelDBDataSet
+            // 
+            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
+            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // cLIENTEBindingSource
+            // 
+            this.cLIENTEBindingSource.DataMember = "CLIENTE";
+            this.cLIENTEBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // cLIENTETableAdapter
+            // 
+            this.cLIENTETableAdapter.ClearBeforeFill = true;
             // 
             // nNUMECLIENTEDataGridViewTextBoxColumn
             // 
@@ -408,10 +396,9 @@
             this.panel1.ResumeLayout(false);
             this.pnFiltros.ResumeLayout(false);
             this.pnFiltros.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.HOTELBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -419,9 +406,6 @@
 
         #endregion
 
-        private HotelDBDataSet hotelDBDataSet;
-        private System.Windows.Forms.BindingSource cLIENTEBindingSource;
-        private HotelDBDataSetTableAdapters.CLIENTETableAdapter cLIENTETableAdapter;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
@@ -436,9 +420,10 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox cbRelatorios;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.BindingSource HOTELBindingSource;
-        private HotelDBDataSetTableAdapters.HOTELTableAdapter HOTELTableAdapter;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private HotelDBDataSet hotelDBDataSet;
+        private System.Windows.Forms.BindingSource cLIENTEBindingSource;
+        private HotelDBDataSetTableAdapters.CLIENTETableAdapter cLIENTETableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn nNUMECLIENTEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNOMEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cCPFDataGridViewTextBoxColumn;

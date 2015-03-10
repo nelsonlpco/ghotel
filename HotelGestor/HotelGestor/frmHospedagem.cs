@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HotelGestor.relatorios.fatura;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -102,6 +103,9 @@ namespace HotelGestor
             hOSPEDAGEMTableAdapter.Update(hotelDBDataSet.HOSPEDAGEM);
             SavePrompt = false;
             IsInclude = false;
+
+            qUARTOTableAdapter.UpdateStatus("O", (int)currentRow["NIDQUARTO"], (int)currentRow["NIDQUARTO"]);
+
             buttonStates();
             tableControlHandler();
         }
@@ -128,6 +132,7 @@ namespace HotelGestor
             {
                 
                 currentRow.Delete();
+                qUARTOTableAdapter.UpdateStatus("L", (int)currentRow["NIDQUARTO"], (int)currentRow["NIDQUARTO"]);
                 tableAdapterManager.UpdateAll(hotelDBDataSet);   
             }
             lbStatus.Text = Comum.screenStats('c');
@@ -189,6 +194,8 @@ namespace HotelGestor
 
 
             tableAdapterManager.UpdateAll(hotelDBDataSet);
+
+            qUARTOTableAdapter.UpdateStatus("L", (int)currentRow["NIDQUARTO"], (int)currentRow["NIDQUARTO"]);
 
             tableControlHandler();
             
@@ -276,6 +283,8 @@ namespace HotelGestor
 
         private void frmHospedagem_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'hotelDBDataSet.QUARTO' table. You can move, or remove it, as needed.
+            this.qUARTOTableAdapter.Fill(this.hotelDBDataSet.QUARTO);
             
             // TODO: This line of code loads data into the 'hotelDBDataSet.FORMASDEPAGAMENTO' table. You can move, or remove it, as needed.
             this.fORMASDEPAGAMENTOTableAdapter.Fill(this.hotelDBDataSet.FORMASDEPAGAMENTO);
@@ -546,6 +555,17 @@ namespace HotelGestor
             }
 
             return saida;
+        }
+
+        private void btnFatura_Click(object sender, EventArgs e)
+        {
+            frmViewFatura frm = new frmViewFatura();
+            
+            currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
+            frm.frmCarregaFatura((int)currentRow["NIDHOSPEDAGEM"]);
+
+            frm.ShowDialog();
+            frm.Dispose();
         }
        
 

@@ -141,6 +141,8 @@
             this.faturaXItensTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.FaturaXItensTableAdapter();
             this.faturaTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.faturaTableAdapter();
             this.tableAdapterManager = new HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager();
+            this.qUARTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.qUARTOTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.QUARTOTableAdapter();
             nDIARIASLabel = new System.Windows.Forms.Label();
             dDATAOUTLabel = new System.Windows.Forms.Label();
             nIDCLIENTELabel = new System.Windows.Forms.Label();
@@ -182,6 +184,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.qUARTOBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -1285,6 +1288,7 @@
             this.btnFatura.Text = "Fatura";
             this.btnFatura.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnFatura.UseVisualStyleBackColor = true;
+            this.btnFatura.Click += new System.EventHandler(this.btnFatura_Click);
             // 
             // hOSPEDAGEMTableAdapter
             // 
@@ -1317,6 +1321,15 @@
             this.tableAdapterManager.QUARTOTableAdapter = null;
             this.tableAdapterManager.UpdateOrder = HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
             this.tableAdapterManager.USUARIOSTableAdapter = null;
+            // 
+            // qUARTOBindingSource
+            // 
+            this.qUARTOBindingSource.DataMember = "QUARTO";
+            this.qUARTOBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // qUARTOTableAdapter
+            // 
+            this.qUARTOTableAdapter.ClearBeforeFill = true;
             // 
             // frmHospedagem
             // 
@@ -1355,6 +1368,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.ncontroleNumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.qUARTOBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1458,5 +1472,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ddatamovimDataGridViewTextBoxColumn;
         private System.Windows.Forms.NumericUpDown ncontroleNumericUpDown;
         private System.Windows.Forms.TextBox nvalottotalTextBox;
+        private System.Windows.Forms.BindingSource qUARTOBindingSource;
+        private HotelDBDataSetTableAdapters.QUARTOTableAdapter qUARTOTableAdapter;
     }
 }

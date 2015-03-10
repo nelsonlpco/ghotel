@@ -30,11 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
-            this.hOTELBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.hOTELTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOTELTableAdapter();
-            this.tableAdapterManager = new HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager();
-            this.lOGOPictureBox = new System.Windows.Forms.PictureBox();
             this.cadastrosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.empresaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.formasDePagamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -48,6 +43,13 @@
             this.sairToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.atendimentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hospedagemToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
+            this.hOTELBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.hOTELTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.HOTELTableAdapter();
+            this.tableAdapterManager = new HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager();
+            this.lOGOPictureBox = new System.Windows.Forms.PictureBox();
+            this.relatóriosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.hotelDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOTELBindingSource)).BeginInit();
@@ -59,50 +61,13 @@
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cadastrosToolStripMenuItem,
-            this.atendimentoToolStripMenuItem});
+            this.atendimentoToolStripMenuItem,
+            this.relatóriosToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(784, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
-            // 
-            // hotelDBDataSet
-            // 
-            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
-            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
-            // 
-            // hOTELBindingSource
-            // 
-            this.hOTELBindingSource.DataMember = "HOTEL";
-            this.hOTELBindingSource.DataSource = this.hotelDBDataSet;
-            // 
-            // hOTELTableAdapter
-            // 
-            this.hOTELTableAdapter.ClearBeforeFill = true;
-            // 
-            // tableAdapterManager
-            // 
-            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
-            this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
-            this.tableAdapterManager.CLIENTETableAdapter = null;
-            this.tableAdapterManager.enderecoTableAdapter = null;
-            this.tableAdapterManager.FORMASDEPAGAMENTOTableAdapter = null;
-            this.tableAdapterManager.HOTELTableAdapter = this.hOTELTableAdapter;
-            this.tableAdapterManager.ITEMCONSUMOTableAdapter = null;
-            this.tableAdapterManager.QUARTOTableAdapter = null;
-            this.tableAdapterManager.UpdateOrder = HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
-            this.tableAdapterManager.USUARIOSTableAdapter = null;
-            // 
-            // lOGOPictureBox
-            // 
-            this.lOGOPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.hOTELBindingSource, "LOGO", true));
-            this.lOGOPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lOGOPictureBox.Location = new System.Drawing.Point(0, 24);
-            this.lOGOPictureBox.Name = "lOGOPictureBox";
-            this.lOGOPictureBox.Size = new System.Drawing.Size(784, 537);
-            this.lOGOPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
-            this.lOGOPictureBox.TabIndex = 3;
-            this.lOGOPictureBox.TabStop = false;
             // 
             // cadastrosToolStripMenuItem
             // 
@@ -209,9 +174,67 @@
             // 
             this.hospedagemToolStripMenuItem.Image = global::HotelGestor.Properties.Resources.checkin;
             this.hospedagemToolStripMenuItem.Name = "hospedagemToolStripMenuItem";
-            this.hospedagemToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.hospedagemToolStripMenuItem.Size = new System.Drawing.Size(145, 22);
             this.hospedagemToolStripMenuItem.Text = "&Hospedagem";
             this.hospedagemToolStripMenuItem.Click += new System.EventHandler(this.hospedagemToolStripMenuItem_Click);
+            // 
+            // hotelDBDataSet
+            // 
+            this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
+            this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+            // 
+            // hOTELBindingSource
+            // 
+            this.hOTELBindingSource.DataMember = "HOTEL";
+            this.hOTELBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // hOTELTableAdapter
+            // 
+            this.hOTELTableAdapter.ClearBeforeFill = true;
+            // 
+            // tableAdapterManager
+            // 
+            this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
+            this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
+            this.tableAdapterManager.CLIENTETableAdapter = null;
+            this.tableAdapterManager.enderecoTableAdapter = null;
+            this.tableAdapterManager.faturaTableAdapter = null;
+            this.tableAdapterManager.FaturaXItensTableAdapter = null;
+            this.tableAdapterManager.FORMASDEPAGAMENTOTableAdapter = null;
+            this.tableAdapterManager.HOSPEDAGEMTableAdapter = null;
+            this.tableAdapterManager.HOTELTableAdapter = this.hOTELTableAdapter;
+            this.tableAdapterManager.ITEMCONSUMOTableAdapter = null;
+            this.tableAdapterManager.QUARTOTableAdapter = null;
+            this.tableAdapterManager.UpdateOrder = HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager.UpdateOrderOption.InsertUpdateDelete;
+            this.tableAdapterManager.USUARIOSTableAdapter = null;
+            // 
+            // lOGOPictureBox
+            // 
+            this.lOGOPictureBox.DataBindings.Add(new System.Windows.Forms.Binding("Image", this.hOTELBindingSource, "LOGO", true));
+            this.lOGOPictureBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lOGOPictureBox.Location = new System.Drawing.Point(0, 24);
+            this.lOGOPictureBox.Name = "lOGOPictureBox";
+            this.lOGOPictureBox.Size = new System.Drawing.Size(784, 537);
+            this.lOGOPictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
+            this.lOGOPictureBox.TabIndex = 3;
+            this.lOGOPictureBox.TabStop = false;
+            // 
+            // relatóriosToolStripMenuItem
+            // 
+            this.relatóriosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem});
+            this.relatóriosToolStripMenuItem.Image = global::HotelGestor.Properties.Resources.report48x48;
+            this.relatóriosToolStripMenuItem.Name = "relatóriosToolStripMenuItem";
+            this.relatóriosToolStripMenuItem.Size = new System.Drawing.Size(87, 20);
+            this.relatóriosToolStripMenuItem.Text = "&Relatórios";
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Image = global::HotelGestor.Properties.Resources.hospede;
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Text = "&Clientes";
+            this.clientesToolStripMenuItem.Click += new System.EventHandler(this.clientesToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -257,6 +280,8 @@
         private System.Windows.Forms.ToolStripMenuItem formasDePagamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem categoriasToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem quartosToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem relatóriosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
     }
 }
 

@@ -150,8 +150,18 @@ namespace HotelGestor
             if (Comum.msgExcluir(Comum.MSG_EXCLUIR))
             {
                 currentRow = (DataRowView)cLIENTEBindingSource.Current;
-                currentRow.Delete();
-                cLIENTETableAdapter.Update(hotelDBDataSet.CLIENTE);
+                try
+                {
+                    currentRow.Delete();
+                    cLIENTETableAdapter.Update(hotelDBDataSet.CLIENTE);
+                }
+                catch (Exception ex)
+                {
+                    Comum.msgAlert("Não é possivel excluir o hóspede pois o mesmo possuiu histórico de hospedagens!");
+                    cLIENTETableAdapter.Fill(hotelDBDataSet.CLIENTE);
+                        
+                }
+                
             }
             lbStatus.Text = Comum.screenStats('c');
             buttonStates();

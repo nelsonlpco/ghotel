@@ -857,7 +857,7 @@
         </Paragraphs>
         <rd:DefaultName>Textbox9</rd:DefaultName>
         <Top>8.42115cm</Top>
-        <Left>2.71981cm</Left>
+        <Left>2.16961cm</Left>
         <Height>0.6cm</Height>
         <Width>2.39957cm</Width>
         <ZIndex>28</ZIndex>
@@ -939,18 +939,54 @@
           <PaddingBottom>2pt</PaddingBottom>
         </Style>
       </Textbox>
+      <Textbox Name="CNOME2">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>=First(Fields!CNOME.Value, "dsHospede")</Value>
+                <Style />
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>CNOME2</rd:DefaultName>
+        <Top>12.7972cm</Top>
+        <Left>4.00732cm</Left>
+        <Height>0.6cm</Height>
+        <Width>8.7103cm</Width>
+        <ZIndex>31</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line5">
+        <Top>12.62081cm</Top>
+        <Left>4.00732cm</Left>
+        <Height>0cm</Height>
+        <Width>8.72606cm</Width>
+        <ZIndex>32</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
-    <Height>3.94331in</Height>
+    <Height>5.46199in</Height>
     <Style>
       <Border>
         <Style>None</Style>
       </Border>
-      <LeftBorder>
-        <Style>Solid</Style>
-      </LeftBorder>
-      <RightBorder>
-        <Style>Solid</Style>
-      </RightBorder>
     </Style>
   </Body>
   <Width>7.11583in</Width>
@@ -1125,7 +1161,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>2.54cm</Height>
+      <Height>1.98966cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -1139,48 +1175,6 @@
               <Color>LightGrey</Color>
               <Style>Solid</Style>
               <Width>5pt</Width>
-            </Border>
-          </Style>
-        </Line>
-        <Textbox Name="CNOME2">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!CNOME.Value, "dsHospede")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>CNOME2</rd:DefaultName>
-          <Top>1.07569cm</Top>
-          <Left>7.62659cm</Left>
-          <Height>0.6cm</Height>
-          <Width>7.72605cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Line Name="Line5">
-          <Top>0.8993cm</Top>
-          <Left>7.62659cm</Left>
-          <Height>0cm</Height>
-          <Width>8.09106cm</Width>
-          <ZIndex>2</ZIndex>
-          <Style>
-            <Border>
-              <Style>Solid</Style>
             </Border>
           </Style>
         </Line>
@@ -1199,11 +1193,11 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CCIDADE1</rd:DefaultName>
-          <Top>1.07569cm</Top>
-          <Left>1.17502cm</Left>
+          <Top>0.40541cm</Top>
+          <Left>3.71433cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
-          <ZIndex>3</ZIndex>
+          <Width>3.92875cm</Width>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1221,10 +1215,6 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>- </Value>
-                  <Style />
-                </TextRun>
-                <TextRun>
                   <Value>=DateString()</Value>
                   <Style />
                 </TextRun>
@@ -1233,11 +1223,41 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox3</rd:DefaultName>
-          <Top>1.07569cm</Top>
-          <Left>3.85141cm</Left>
+          <Top>0.40541cm</Top>
+          <Left>10.46058cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.03233cm</Width>
-          <ZIndex>4</ZIndex>
+          <Width>3.43462cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="CUF1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!CUF.Value, "dsHotel")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style />
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>CUF1</rd:DefaultName>
+          <Top>0.40541cm</Top>
+          <Left>7.78419cm</Left>
+          <Height>0.6cm</Height>
+          <Width>2.5cm</Width>
+          <ZIndex>3</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1257,27 +1277,27 @@
     </PageFooter>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>
-    <LeftMargin>2cm</LeftMargin>
-    <RightMargin>2cm</RightMargin>
-    <TopMargin>2cm</TopMargin>
-    <BottomMargin>2cm</BottomMargin>
+    <LeftMargin>1cm</LeftMargin>
+    <RightMargin>1cm</RightMargin>
+    <TopMargin>1cm</TopMargin>
+    <BottomMargin>1cm</BottomMargin>
     <ColumnSpacing>0.13cm</ColumnSpacing>
     <Style />
   </Page>
   <AutoRefresh>0</AutoRefresh>
   <DataSources>
-    <DataSource Name="HotelDBDataSet">
+    <DataSource Name="HotelDbsRelatorios">
       <ConnectionProperties>
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>42020e3b-75c7-4820-8e13-04abe810e1f8</rd:DataSourceID>
+      <rd:DataSourceID>6cde5ce2-3d06-4e26-87b2-4a2d14c9d2c7</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
     <DataSet Name="dsHotel">
       <Query>
-        <DataSourceName>HotelDBDataSet</DataSourceName>
+        <DataSourceName>HotelDbsRelatorios</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1339,8 +1359,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>HotelDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\zz\Source\Repos\ghotel\HotelGestor\HotelGestor\HotelDBDataSet.xsd</rd:SchemaPath>
+        <rd:DataSetName>HotelDbsRelatorios</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\nelson\Source\Repos\HotelErp\HotelGestor\HotelGestor\HotelDbsRelatorios.xsd</rd:SchemaPath>
         <rd:TableName>HOTEL</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>
@@ -1349,7 +1369,7 @@
     </DataSet>
     <DataSet Name="dsHospede">
       <Query>
-        <DataSourceName>HotelDBDataSet</DataSourceName>
+        <DataSourceName>HotelDbsRelatorios</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
@@ -1419,8 +1439,8 @@
         </Field>
       </Fields>
       <rd:DataSetInfo>
-        <rd:DataSetName>HotelDBDataSet</rd:DataSetName>
-        <rd:SchemaPath>C:\Users\zz\Source\Repos\ghotel\HotelGestor\HotelGestor\HotelDBDataSet.xsd</rd:SchemaPath>
+        <rd:DataSetName>HotelDbsRelatorios</rd:DataSetName>
+        <rd:SchemaPath>C:\Users\nelson\Source\Repos\HotelErp\HotelGestor\HotelGestor\HotelDbsRelatorios.xsd</rd:SchemaPath>
         <rd:TableName>CLIENTE</rd:TableName>
         <rd:TableAdapterFillMethod>Fill</rd:TableAdapterFillMethod>
         <rd:TableAdapterGetDataMethod>GetData</rd:TableAdapterGetDataMethod>

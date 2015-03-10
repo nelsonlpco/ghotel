@@ -752,7 +752,7 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>=Sum(Fields!nvalottotal.Value, "dsHOSPEDAGEM")</Value>
+                <Value>=FormatCurrency(Sum(Fields!nvalottotal.Value, "dsHOSPEDAGEM"))</Value>
                 <Style />
               </TextRun>
             </TextRuns>
@@ -1413,14 +1413,16 @@
                 <Style />
               </TextRun>
             </TextRuns>
-            <Style />
+            <Style>
+              <TextAlign>Right</TextAlign>
+            </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox6</rd:DefaultName>
         <Top>8.59529cm</Top>
-        <Left>10.74124cm</Left>
+        <Left>8.87138cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.35208cm</Width>
+        <Width>2.39691cm</Width>
         <ZIndex>35</ZIndex>
         <Style>
           <Border>
@@ -1452,9 +1454,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox31</rd:DefaultName>
         <Top>8.59529cm</Top>
-        <Left>6.28147cm</Left>
+        <Left>4.41161cm</Left>
         <Height>0.6cm</Height>
-        <Width>4.35208cm</Width>
+        <Width>4.24672cm</Width>
         <ZIndex>36</ZIndex>
         <Style>
           <Border>
@@ -1742,7 +1744,9 @@
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>CCIDADE</rd:DefaultName>
@@ -1797,13 +1801,15 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value />
+                  <Value>=Globals!PageNumber</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Left</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
@@ -1829,20 +1835,22 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>Pág.</Value>
+                  <Value>Pág.:</Value>
                   <Style>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox12</rd:DefaultName>
           <Top>0.335cm</Top>
-          <Left>10.01936cm</Left>
+          <Left>11.28936cm</Left>
           <Height>0.6cm</Height>
-          <Width>0.88063cm</Width>
+          <Width>1.24893cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>

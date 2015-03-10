@@ -285,7 +285,7 @@
             nVALORBRUTOLabel.AutoSize = true;
             nVALORBRUTOLabel.Location = new System.Drawing.Point(11, 113);
             nVALORBRUTOLabel.Name = "nVALORBRUTOLabel";
-            nVALORBRUTOLabel.Size = new System.Drawing.Size(72, 18);
+            nVALORBRUTOLabel.Size = new System.Drawing.Size(73, 18);
             nVALORBRUTOLabel.TabIndex = 13;
             nVALORBRUTOLabel.Text = "Valor total:";
             // 
@@ -312,7 +312,7 @@
             nVALORBASELabel.AutoSize = true;
             nVALORBASELabel.Location = new System.Drawing.Point(111, 124);
             nVALORBASELabel.Name = "nVALORBASELabel";
-            nVALORBASELabel.Size = new System.Drawing.Size(97, 18);
+            nVALORBASELabel.Size = new System.Drawing.Size(98, 18);
             nVALORBASELabel.TabIndex = 38;
             nVALORBASELabel.Text = "Valor da diaria:";
             // 
@@ -330,7 +330,7 @@
             vVALORTOTALLabel.AutoSize = true;
             vVALORTOTALLabel.Location = new System.Drawing.Point(135, 178);
             vVALORTOTALLabel.Name = "vVALORTOTALLabel";
-            vVALORTOTALLabel.Size = new System.Drawing.Size(73, 18);
+            vVALORTOTALLabel.Size = new System.Drawing.Size(76, 18);
             vVALORTOTALLabel.TabIndex = 29;
             vVALORTOTALLabel.Text = "Valor Total:";
             // 
@@ -339,7 +339,7 @@
             fFORMAPAGAMENTOLabel.AutoSize = true;
             fFORMAPAGAMENTOLabel.Location = new System.Drawing.Point(72, 45);
             fFORMAPAGAMENTOLabel.Name = "fFORMAPAGAMENTOLabel";
-            fFORMAPAGAMENTOLabel.Size = new System.Drawing.Size(136, 18);
+            fFORMAPAGAMENTOLabel.Size = new System.Drawing.Size(137, 18);
             fFORMAPAGAMENTOLabel.TabIndex = 27;
             fFORMAPAGAMENTOLabel.Text = "Forma de Pagamento:";
             // 
@@ -366,7 +366,7 @@
             label6.AutoSize = true;
             label6.Location = new System.Drawing.Point(315, 124);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(161, 18);
+            label6.Size = new System.Drawing.Size(164, 18);
             label6.TabIndex = 46;
             label6.Text = "Valor Total da(s) diaria(s):";
             // 
@@ -930,7 +930,7 @@
             this.nvalorunit.HeaderText = "Valor";
             this.nvalorunit.Name = "nvalorunit";
             this.nvalorunit.ReadOnly = true;
-            this.nvalorunit.Width = 61;
+            this.nvalorunit.Width = 62;
             // 
             // nvalortotal
             // 
@@ -939,7 +939,7 @@
             this.nvalortotal.HeaderText = "Vlr. Total";
             this.nvalortotal.Name = "nvalortotal";
             this.nvalortotal.ReadOnly = true;
-            this.nvalortotal.Width = 83;
+            this.nvalortotal.Width = 87;
             // 
             // ddatamovim
             // 
@@ -1089,7 +1089,7 @@
             this.lbtot.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lbtot.Location = new System.Drawing.Point(295, 10);
             this.lbtot.Name = "lbtot";
-            this.lbtot.Size = new System.Drawing.Size(45, 18);
+            this.lbtot.Size = new System.Drawing.Size(47, 18);
             this.lbtot.TabIndex = 0;
             this.lbtot.Text = "Total :";
             // 
@@ -1220,7 +1220,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(110, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(98, 18);
+            this.label4.Size = new System.Drawing.Size(100, 18);
             this.label4.TabIndex = 36;
             this.label4.Text = "Total Consumo:";
             // 

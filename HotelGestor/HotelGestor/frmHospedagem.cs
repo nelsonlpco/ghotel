@@ -121,7 +121,7 @@ namespace HotelGestor
         public override void excluir()
         {
             currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
-            if ((char)currentRow["CESTATUS"] == 'F')
+            if ((string)currentRow["CESTATUS"] == "F")
             {
                 Comum.msgAlert("Não é possivel excluir hospedagens encerradas!");
                 return;
@@ -192,10 +192,9 @@ namespace HotelGestor
             DataRowView fatura = (DataRowView)faturaBindingSource.Current;
             fatura["ddatafechamento"] = System.DateTime.Now;
 
+            qUARTOTableAdapter.UpdateStatus("L", (int)currentRow["NIDQUARTO"], (int)currentRow["NIDQUARTO"]);
 
             tableAdapterManager.UpdateAll(hotelDBDataSet);
-
-            qUARTOTableAdapter.UpdateStatus("L", (int)currentRow["NIDQUARTO"], (int)currentRow["NIDQUARTO"]);
 
             tableControlHandler();
             
@@ -449,6 +448,7 @@ namespace HotelGestor
                     pnCheckout.BackColor = Color.Silver;
                     btnFatura.Enabled = true;
                     btnEncerrar.Enabled = false;
+                    btnEncerrar.Image = global::HotelGestor.Properties.Resources.trancado;
 
                 break;
                 case 'A':

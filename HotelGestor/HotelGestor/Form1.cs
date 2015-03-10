@@ -52,6 +52,16 @@ namespace HotelGestor
             }
 
             this.Text = Comum.EMPRESA;
+
+            frmLogin frml = new frmLogin();
+            frml.ShowDialog();
+            frml.Dispose();
+            if (!frml.valida)
+            {
+                frml.Dispose();
+                this.Close();
+            }
+            frml.Dispose();
         }
 
         private void formasDePagamentoToolStripMenuItem_Click(object sender, EventArgs e)

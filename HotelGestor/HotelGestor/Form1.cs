@@ -114,5 +114,12 @@ namespace HotelGestor
             frm.ShowDialog();
             frm.Dispose();
         }
+
+        private void backupToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBackup frm = new frmBackup();
+            frm.ShowDialog();
+            frm.Dispose();
+        }
     }
 }

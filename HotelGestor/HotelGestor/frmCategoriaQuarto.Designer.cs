@@ -33,9 +33,9 @@
             this.txtFiltro = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.cDESCRICAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cATEGORIAQUARTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
+            this.cDESCRICAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cATEGORIAQUARTOTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.CATEGORIAQUARTOTableAdapter();
             this.tableAdapterManager = new HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager();
             this.cDESCRICAOTextBox = new System.Windows.Forms.TextBox();
@@ -80,8 +80,9 @@
             // 
             // tbConsulta
             // 
-            this.tbConsulta.Controls.Add(cDESCRICAOLabel);
             this.tbConsulta.Controls.Add(this.cDESCRICAOTextBox);
+            this.tbConsulta.Controls.Add(cDESCRICAOLabel);
+            this.tbConsulta.Size = new System.Drawing.Size(776, 448);
             // 
             // tbCadastro
             // 
@@ -97,6 +98,10 @@
             // tbMain
             // 
             this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
+            // 
+            // btnRelatorio
+            // 
+            this.btnRelatorio.FlatAppearance.BorderSize = 0;
             // 
             // cDESCRICAOLabel
             // 
@@ -137,17 +142,9 @@
             this.dataGridView1.Location = new System.Drawing.Point(3, 91);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 343);
+            this.dataGridView1.Size = new System.Drawing.Size(770, 353);
             this.dataGridView1.TabIndex = 2;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
-            // 
-            // cDESCRICAODataGridViewTextBoxColumn
-            // 
-            this.cDESCRICAODataGridViewTextBoxColumn.DataPropertyName = "CDESCRICAO";
-            this.cDESCRICAODataGridViewTextBoxColumn.HeaderText = "Categoria";
-            this.cDESCRICAODataGridViewTextBoxColumn.Name = "cDESCRICAODataGridViewTextBoxColumn";
-            this.cDESCRICAODataGridViewTextBoxColumn.ReadOnly = true;
-            this.cDESCRICAODataGridViewTextBoxColumn.Width = 500;
             // 
             // cATEGORIAQUARTOBindingSource
             // 
@@ -159,18 +156,29 @@
             this.hotelDBDataSet.DataSetName = "HotelDBDataSet";
             this.hotelDBDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
+            // cDESCRICAODataGridViewTextBoxColumn
+            // 
+            this.cDESCRICAODataGridViewTextBoxColumn.DataPropertyName = "CDESCRICAO";
+            this.cDESCRICAODataGridViewTextBoxColumn.HeaderText = "Categoria";
+            this.cDESCRICAODataGridViewTextBoxColumn.Name = "cDESCRICAODataGridViewTextBoxColumn";
+            this.cDESCRICAODataGridViewTextBoxColumn.ReadOnly = true;
+            this.cDESCRICAODataGridViewTextBoxColumn.Width = 500;
+            // 
             // cATEGORIAQUARTOTableAdapter
             // 
             this.cATEGORIAQUARTOTableAdapter.ClearBeforeFill = true;
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.ATORESTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = this.cATEGORIAQUARTOTableAdapter;
             this.tableAdapterManager.CLIENTETableAdapter = null;
-            
             this.tableAdapterManager.enderecoTableAdapter = null;
+            this.tableAdapterManager.faturaTableAdapter = null;
+            this.tableAdapterManager.FaturaXItensTableAdapter = null;
             this.tableAdapterManager.FORMASDEPAGAMENTOTableAdapter = null;
+            this.tableAdapterManager.HOSPEDAGEMTableAdapter = null;
             this.tableAdapterManager.HOTELTableAdapter = null;
             this.tableAdapterManager.ITEMCONSUMOTableAdapter = null;
             this.tableAdapterManager.QUARTOTableAdapter = null;
@@ -180,10 +188,11 @@
             // cDESCRICAOTextBox
             // 
             this.cDESCRICAOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.cATEGORIAQUARTOBindingSource, "CDESCRICAO", true));
-            this.cDESCRICAOTextBox.Location = new System.Drawing.Point(224, 182);
+            this.cDESCRICAOTextBox.Location = new System.Drawing.Point(208, 180);
+            this.cDESCRICAOTextBox.MaxLength = 50;
             this.cDESCRICAOTextBox.Name = "cDESCRICAOTextBox";
-            this.cDESCRICAOTextBox.Size = new System.Drawing.Size(413, 23);
-            this.cDESCRICAOTextBox.TabIndex = 1;
+            this.cDESCRICAOTextBox.Size = new System.Drawing.Size(411, 23);
+            this.cDESCRICAOTextBox.TabIndex = 2;
             // 
             // frmCategoriaQuarto
             // 
@@ -216,7 +225,7 @@
         private System.Windows.Forms.BindingSource cATEGORIAQUARTOBindingSource;
         private HotelDBDataSetTableAdapters.CATEGORIAQUARTOTableAdapter cATEGORIAQUARTOTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn cDESCRICAODataGridViewTextBoxColumn;
-        private System.Windows.Forms.TextBox cDESCRICAOTextBox;
         private HotelDBDataSetTableAdapters.TableAdapterManager tableAdapterManager;
+        private System.Windows.Forms.TextBox cDESCRICAOTextBox;
     }
 }

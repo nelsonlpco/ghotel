@@ -37,6 +37,11 @@ namespace HotelGestor
             {
                 case 0:
                     DataRowView row = (DataRowView) cLIENTEBindingSource.Current;
+                    if (row == null)
+                    {
+                        Comum.msgAlert("Sem Registros");
+                        return;
+                    }
                     lista.Clear();
                     frm.setReport("fichaHospede.rdlc", lista, (int)row["NNUMECLIENTE"]);
                     break;

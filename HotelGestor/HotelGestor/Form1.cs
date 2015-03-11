@@ -127,5 +127,21 @@ namespace HotelGestor
             frm.ShowDialog();
             frm.Dispose();
         }
+
+        private void hotelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEmpresa frm = new frmEmpresa();
+            frm.ShowDialog();
+            frm.Dispose();
+
+            this.hOTELTableAdapter.Fill(this.hotelDBDataSet.HOTEL);
+            DataRowView row = (DataRowView)hOTELBindingSource.Current;
+            if (row != null)
+            {
+                Comum.EMPRESA = (string)row["CNOME"];
+            }
+
+            this.Text = Comum.EMPRESA;
+        }
     }
 }

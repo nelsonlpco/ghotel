@@ -22,27 +22,30 @@ namespace HotelGestor
         }
 
 
-
         private double valorbase = 0;
 
         private bool fadditem = false;
 
         private void selecionarCliente()
         {
+            currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
             frmHospedes frm = new frmHospedes();
             frm.selectMod();
             frm.ShowDialog();
             nIDCLIENTETextBox.Text = string.Format("{0}",frm.SelectId);
+            currentRow["NIDCLIENTE"] = frm.SelectId;
             txtNomeCliente.Text = frm.SelectDescription;
             frm.Dispose();
         }
 
         private void selecionarQuarto()
         {
+            currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
             frmQuartos frm = new frmQuartos();
             frm.selectMod();
             frm.ShowDialog();
             nIDQUARTOTextBox.Text = string.Format("{0}", frm.SelectId);
+            currentRow["NIDQUARTO"] = frm.SelectId;
             txtDescQuarto.Text = frm.SelectDescription;
             frm.Dispose();
         }
@@ -150,6 +153,8 @@ namespace HotelGestor
             buttonStates();
         }
 
+        
+
         public override void incluir()
         {
             lbStatus.Text = Comum.screenStats('i');
@@ -159,9 +164,17 @@ namespace HotelGestor
             currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
             currentRow["CESTATUS"] = "E";
             currentRow["DDATAIN"] = DateTime.Now;
+            currentRow["DDATAOUT"] = currentRow["DDATAIN"];
+            dDATAINDateTimePicker.Value = (DateTime) currentRow["DDATAIN"];
+            dDATAOUTDateTimePicker.Value =(DateTime) currentRow["DDATAIN"];
+            nDIARIASNumericUpDown.Value = 0;
             buttonStates();
             tableControlHandler();
             tbMain.SelectedIndex = 1;
+            txtDescQuarto.Clear();
+            txtNomeCliente.Clear();
+            nIDCLIENTETextBox.Clear();
+            nIDQUARTOTextBox.Clear();
         }
 
         public void carregaDescricao()
@@ -187,17 +200,11 @@ namespace HotelGestor
         {
             currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
             currentRow["CESTATUS"] = "F";
-            currentRow["DDATAFECHAMENTO"] = System.DateTime.Now;
-
             DataRowView fatura = (DataRowView)faturaBindingSource.Current;
             fatura["ddatafechamento"] = System.DateTime.Now;
-
             qUARTOTableAdapter.UpdateStatus("L", (int)currentRow["NIDQUARTO"], (int)currentRow["NIDQUARTO"]);
-
             tableAdapterManager.UpdateAll(hotelDBDataSet);
-
             tableControlHandler();
-            
         }
 
         public void buscarItem()
@@ -261,6 +268,7 @@ namespace HotelGestor
             currentRow = (DataRowView)faturaXItensBindingSource.Current;
             currentRow["nidfatura"] = faturaRow["nidfatura"];
             currentRow["ddatamovim"] = DateTime.Now;
+            currentRow["nqtditem"] = nqtditemNumericUpDown.Value;
             faturaXItensBindingSource.EndEdit();
             faturaXItensTableAdapter.Update(hotelDBDataSet.FaturaXItens);
             fadditem = false;
@@ -282,13 +290,14 @@ namespace HotelGestor
 
         private void frmHospedagem_Load(object sender, EventArgs e)
         {
+            // TODO: This line of code loads data into the 'hotelDBDataSet.CLIENTE' table. You can move, or remove it, as needed.
+            this.cLIENTETableAdapter.Fill(this.hotelDBDataSet.CLIENTE);
             // TODO: This line of code loads data into the 'hotelDBDataSet.QUARTO' table. You can move, or remove it, as needed.
             this.qUARTOTableAdapter.Fill(this.hotelDBDataSet.QUARTO);
-            
             // TODO: This line of code loads data into the 'hotelDBDataSet.FORMASDEPAGAMENTO' table. You can move, or remove it, as needed.
             this.fORMASDEPAGAMENTOTableAdapter.Fill(this.hotelDBDataSet.FORMASDEPAGAMENTO);
             // TODO: This line of code loads data into the 'hotelDBDataSet.HOSPEDAGEM' table. You can move, or remove it, as needed.
-            this.hOSPEDAGEMTableAdapter.Fill(this.hotelDBDataSet.HOSPEDAGEM);
+            this.hOSPEDAGEMTableAdapter.FillForView(this.hotelDBDataSet.HOSPEDAGEM);
             tableControlHandler();
             buttonStates();
             carregaDescricao();
@@ -301,6 +310,14 @@ namespace HotelGestor
 
         private void btnBuscaQuarto_Click(object sender, EventArgs e)
         {
+
+            if (dDATAINDateTimePicker.Value.ToLocalTime().Equals(dDATAOUTDateTimePicker.Value.ToLocalTime())
+                ||
+                dDATAINDateTimePicker.Value.ToLocalTime() > dDATAOUTDateTimePicker.Value.ToLocalTime() )
+            {
+                Comum.msgAlert("Informe um periodo de hospedagem valido!");
+                return;
+            }
             selecionarQuarto();
         }
 
@@ -532,12 +549,12 @@ namespace HotelGestor
             bool saida = true;
 
             currentRow = (DataRowView)hOSPEDAGEMBindingSource.Current;
-            if (currentRow["NIDCLIENTE"] == null)
+            if (string.IsNullOrEmpty(currentRow["NIDCLIENTE"].ToString()))
             {
                 Comum.msgAlert("Por favor selecione um hóspede!");
                 return false;
             }
-            if (currentRow["NIDQUARTO"] == null)
+            if (string.IsNullOrEmpty(currentRow["NIDQUARTO"].ToString()))
             {
                 Comum.msgAlert("Por favor selecionem um quarto!");
                 return false;
@@ -548,7 +565,7 @@ namespace HotelGestor
                 return false;
             }
 
-            if (dDATAINDateTimePicker.Value > dDATAOUTDateTimePicker.Value)
+            if (dDATAINDateTimePicker.Value.ToLocalTime() > dDATAOUTDateTimePicker.Value.ToLocalTime())
             {
                 Comum.msgAlert("A data de saida deve ser superior a de entrada!");
                 return false;
@@ -566,6 +583,60 @@ namespace HotelGestor
 
             frm.ShowDialog();
             frm.Dispose();
+        }
+
+        public void filtrar()
+        {
+            string filtro = "";
+            if (!String.IsNullOrEmpty(txtFiltroHospede.Text))
+            {
+                filtro = "NIDCLIENTE = 0 ";
+                HotelDBDataSet.CLIENTERow row = null;
+                try
+                {
+                    for (int i = 0; i < cLIENTETableAdapter.GetDataByNome(txtFiltroHospede.Text).Rows.Count; i++)
+                    {
+                        if (i == 0)
+                            filtro = "";
+                        if (i > 0)
+                            filtro += " OR ";
+                        row = cLIENTETableAdapter.GetDataByNome(txtFiltroHospede.Text)[i];
+                        filtro += string.Format("NIDCLIENTE = {0} ", row.NNUMECLIENTE.ToString());
+                    }
+
+                }
+                catch (Exception ex)
+                {
+
+                }
+            }
+            if (txtFiltroDataIn.Text != "  /  /")
+            {
+                if (!String.IsNullOrEmpty(filtro))
+                    filtro += " AND ";
+                filtro += string.Format(" DDATAIN >= '{0}'", txtFiltroDataIn.Text);
+            }
+            if (txtFiletroDataOut.Text != "  /  /")
+            {
+                if (!String.IsNullOrEmpty(filtro))
+                    filtro += " AND ";
+                filtro += string.Format(" DDATAIN <= '{0}'", txtFiletroDataOut.Text);
+            }
+
+            if (chHospAbertas.Checked && !string.IsNullOrEmpty(filtro))
+            {
+                filtro += " AND ";
+            }
+            if (chHospAbertas.Checked)
+            {
+                filtro += string.Format("  CESTATUS =  '{0}'", "A");
+            }
+            hOSPEDAGEMBindingSource.Filter = filtro;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            filtrar();
         }
        
 

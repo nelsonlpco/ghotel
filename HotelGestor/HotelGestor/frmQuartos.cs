@@ -48,6 +48,7 @@ namespace HotelGestor
             btnGravar.Visible = false;
             btnExcluir.Visible = false;
             cbFiltroStatus.Enabled = false;
+            filtro();
         }
 
         public override void salvar()
@@ -164,8 +165,11 @@ namespace HotelGestor
             // TODO: This line of code loads data into the 'hotelDBDataSet.QUARTO' table. You can move, or remove it, as needed.
             this.qUARTOTableAdapter.FillToView(this.hotelDBDataSet.QUARTO);
             buttonStates();
-            if(btnTransferir.Visible)
+            if (btnTransferir.Visible)
+            {
                 cbFiltroStatus.SelectedIndex = 1;
+                filtro();
+            }
             else
                 cbFiltroStatus.SelectedIndex = 0;
 

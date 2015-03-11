@@ -1214,9 +1214,9 @@
       </Textbox>
       <Line Name="Line2">
         <Top>0.88532cm</Top>
-        <Left>3.14707cm</Left>
+        <Left>3.05182cm</Left>
         <Height>0cm</Height>
-        <Width>11.99854cm</Width>
+        <Width>12.14671cm</Width>
         <ZIndex>27</ZIndex>
         <Style>
           <Border>
@@ -1228,9 +1228,9 @@
       </Line>
       <Line Name="Line3">
         <Top>3.56129cm</Top>
-        <Left>3.19828cm</Left>
+        <Left>2.88078cm</Left>
         <Height>0cm</Height>
-        <Width>12.00025cm</Width>
+        <Width>12.21254cm</Width>
         <ZIndex>28</ZIndex>
         <Style>
           <Border>

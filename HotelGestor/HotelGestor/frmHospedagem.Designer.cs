@@ -44,15 +44,14 @@
             System.Windows.Forms.Label cOBSERVACAOLabel;
             System.Windows.Forms.Label ncontroleLabel;
             System.Windows.Forms.Label label6;
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.HOSPEDE = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.QUARTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dDATAINDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dDATAOUTDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nDIARIASDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.vVALORTOTALDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.hOSPEDAGEMBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
             this.DESC_QUARTO = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -143,6 +142,16 @@
             this.tableAdapterManager = new HotelGestor.HotelDBDataSetTableAdapters.TableAdapterManager();
             this.qUARTOBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.qUARTOTableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.QUARTOTableAdapter();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.txtFiletroDataOut = new System.Windows.Forms.MaskedTextBox();
+            this.txtFiltroDataIn = new System.Windows.Forms.MaskedTextBox();
+            this.txtFiltroHospede = new System.Windows.Forms.TextBox();
+            this.cLIENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.cLIENTETableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.CLIENTETableAdapter();
+            this.chHospAbertas = new System.Windows.Forms.CheckBox();
             nDIARIASLabel = new System.Windows.Forms.Label();
             dDATAOUTLabel = new System.Windows.Forms.Label();
             nIDCLIENTELabel = new System.Windows.Forms.Label();
@@ -161,6 +170,7 @@
             this.panel1.SuspendLayout();
             this.tbConsulta.SuspendLayout();
             this.tbCadastro.SuspendLayout();
+            this.pnFiltros.SuspendLayout();
             this.tbMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).BeginInit();
@@ -185,6 +195,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).BeginInit();
             this.panel6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.qUARTOBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // btnSair
@@ -227,6 +238,19 @@
             this.tbCadastro.Controls.SetChildIndex(this.pnFiltros, 0);
             this.tbCadastro.Controls.SetChildIndex(this.dataGridView1, 0);
             // 
+            // pnFiltros
+            // 
+            this.pnFiltros.AutoScroll = true;
+            this.pnFiltros.Controls.Add(this.chHospAbertas);
+            this.pnFiltros.Controls.Add(this.label3);
+            this.pnFiltros.Controls.Add(this.label7);
+            this.pnFiltros.Controls.Add(this.label8);
+            this.pnFiltros.Controls.Add(this.button1);
+            this.pnFiltros.Controls.Add(this.txtFiletroDataOut);
+            this.pnFiltros.Controls.Add(this.txtFiltroDataIn);
+            this.pnFiltros.Controls.Add(this.txtFiltroHospede);
+            this.pnFiltros.Size = new System.Drawing.Size(770, 114);
+            // 
             // tbMain
             // 
             this.tbMain.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbMain_Selecting);
@@ -238,7 +262,7 @@
             // nDIARIASLabel
             // 
             nDIARIASLabel.AutoSize = true;
-            nDIARIASLabel.Location = new System.Drawing.Point(168, 183);
+            nDIARIASLabel.Location = new System.Drawing.Point(168, 137);
             nDIARIASLabel.Name = "nDIARIASLabel";
             nDIARIASLabel.Size = new System.Drawing.Size(54, 18);
             nDIARIASLabel.TabIndex = 28;
@@ -247,7 +271,7 @@
             // dDATAOUTLabel
             // 
             dDATAOUTLabel.AutoSize = true;
-            dDATAOUTLabel.Location = new System.Drawing.Point(86, 217);
+            dDATAOUTLabel.Location = new System.Drawing.Point(86, 171);
             dDATAOUTLabel.Name = "dDATAOUTLabel";
             dDATAOUTLabel.Size = new System.Drawing.Size(136, 18);
             dDATAOUTLabel.TabIndex = 26;
@@ -265,7 +289,7 @@
             // dDATAINLabel
             // 
             dDATAINLabel.AutoSize = true;
-            dDATAINLabel.Location = new System.Drawing.Point(72, 148);
+            dDATAINLabel.Location = new System.Drawing.Point(72, 102);
             dDATAINLabel.Name = "dDATAINLabel";
             dDATAINLabel.Size = new System.Drawing.Size(150, 18);
             dDATAINLabel.TabIndex = 16;
@@ -274,7 +298,7 @@
             // nIDQUARTOLabel
             // 
             nIDQUARTOLabel.AutoSize = true;
-            nIDQUARTOLabel.Location = new System.Drawing.Point(169, 109);
+            nIDQUARTOLabel.Location = new System.Drawing.Point(169, 207);
             nIDQUARTOLabel.Name = "nIDQUARTOLabel";
             nIDQUARTOLabel.Size = new System.Drawing.Size(53, 18);
             nIDQUARTOLabel.TabIndex = 15;
@@ -285,7 +309,7 @@
             nVALORBRUTOLabel.AutoSize = true;
             nVALORBRUTOLabel.Location = new System.Drawing.Point(11, 113);
             nVALORBRUTOLabel.Name = "nVALORBRUTOLabel";
-            nVALORBRUTOLabel.Size = new System.Drawing.Size(73, 18);
+            nVALORBRUTOLabel.Size = new System.Drawing.Size(72, 18);
             nVALORBRUTOLabel.TabIndex = 13;
             nVALORBRUTOLabel.Text = "Valor total:";
             // 
@@ -312,7 +336,7 @@
             nVALORBASELabel.AutoSize = true;
             nVALORBASELabel.Location = new System.Drawing.Point(111, 124);
             nVALORBASELabel.Name = "nVALORBASELabel";
-            nVALORBASELabel.Size = new System.Drawing.Size(98, 18);
+            nVALORBASELabel.Size = new System.Drawing.Size(97, 18);
             nVALORBASELabel.TabIndex = 38;
             nVALORBASELabel.Text = "Valor da diaria:";
             // 
@@ -330,7 +354,7 @@
             vVALORTOTALLabel.AutoSize = true;
             vVALORTOTALLabel.Location = new System.Drawing.Point(135, 178);
             vVALORTOTALLabel.Name = "vVALORTOTALLabel";
-            vVALORTOTALLabel.Size = new System.Drawing.Size(76, 18);
+            vVALORTOTALLabel.Size = new System.Drawing.Size(73, 18);
             vVALORTOTALLabel.TabIndex = 29;
             vVALORTOTALLabel.Text = "Valor Total:";
             // 
@@ -339,7 +363,7 @@
             fFORMAPAGAMENTOLabel.AutoSize = true;
             fFORMAPAGAMENTOLabel.Location = new System.Drawing.Point(72, 45);
             fFORMAPAGAMENTOLabel.Name = "fFORMAPAGAMENTOLabel";
-            fFORMAPAGAMENTOLabel.Size = new System.Drawing.Size(137, 18);
+            fFORMAPAGAMENTOLabel.Size = new System.Drawing.Size(136, 18);
             fFORMAPAGAMENTOLabel.TabIndex = 27;
             fFORMAPAGAMENTOLabel.Text = "Forma de Pagamento:";
             // 
@@ -366,7 +390,7 @@
             label6.AutoSize = true;
             label6.Location = new System.Drawing.Point(315, 124);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(164, 18);
+            label6.Size = new System.Drawing.Size(161, 18);
             label6.TabIndex = 46;
             label6.Text = "Valor Total da(s) diaria(s):";
             // 
@@ -377,19 +401,35 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.HOSPEDE,
+            this.QUARTO,
             this.dDATAINDataGridViewTextBoxColumn1,
             this.dDATAOUTDataGridViewTextBoxColumn1,
-            this.nDIARIASDataGridViewTextBoxColumn1,
-            this.vVALORTOTALDataGridViewTextBoxColumn1,
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1});
+            this.nDIARIASDataGridViewTextBoxColumn1});
             this.dataGridView1.DataSource = this.hOSPEDAGEMBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 91);
+            this.dataGridView1.Location = new System.Drawing.Point(3, 118);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.ReadOnly = true;
-            this.dataGridView1.Size = new System.Drawing.Size(770, 353);
+            this.dataGridView1.Size = new System.Drawing.Size(770, 326);
             this.dataGridView1.TabIndex = 1;
             this.dataGridView1.DoubleClick += new System.EventHandler(this.dataGridView1_DoubleClick);
+            // 
+            // HOSPEDE
+            // 
+            this.HOSPEDE.DataPropertyName = "HOSPEDE";
+            this.HOSPEDE.HeaderText = "Hóspede";
+            this.HOSPEDE.Name = "HOSPEDE";
+            this.HOSPEDE.ReadOnly = true;
+            this.HOSPEDE.Width = 250;
+            // 
+            // QUARTO
+            // 
+            this.QUARTO.DataPropertyName = "QUARTO";
+            this.QUARTO.HeaderText = "Quarto";
+            this.QUARTO.Name = "QUARTO";
+            this.QUARTO.ReadOnly = true;
+            this.QUARTO.Width = 150;
             // 
             // dDATAINDataGridViewTextBoxColumn1
             // 
@@ -411,22 +451,6 @@
             this.nDIARIASDataGridViewTextBoxColumn1.HeaderText = "Diárias";
             this.nDIARIASDataGridViewTextBoxColumn1.Name = "nDIARIASDataGridViewTextBoxColumn1";
             this.nDIARIASDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // vVALORTOTALDataGridViewTextBoxColumn1
-            // 
-            this.vVALORTOTALDataGridViewTextBoxColumn1.DataPropertyName = "VVALORTOTAL";
-            dataGridViewCellStyle3.Format = "c2";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.DefaultCellStyle = dataGridViewCellStyle3;
-            this.vVALORTOTALDataGridViewTextBoxColumn1.HeaderText = "Valor";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.Name = "vVALORTOTALDataGridViewTextBoxColumn1";
-            this.vVALORTOTALDataGridViewTextBoxColumn1.ReadOnly = true;
-            // 
-            // dDATAFECHAMENTODataGridViewTextBoxColumn1
-            // 
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.DataPropertyName = "DDATAFECHAMENTO";
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.HeaderText = "Fechamento";
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.Name = "dDATAFECHAMENTODataGridViewTextBoxColumn1";
-            this.dDATAFECHAMENTODataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // hOSPEDAGEMBindingSource
             // 
@@ -673,7 +697,7 @@
             // txtDescQuarto
             // 
             this.txtDescQuarto.Enabled = false;
-            this.txtDescQuarto.Location = new System.Drawing.Point(302, 107);
+            this.txtDescQuarto.Location = new System.Drawing.Point(302, 205);
             this.txtDescQuarto.Name = "txtDescQuarto";
             this.txtDescQuarto.Size = new System.Drawing.Size(270, 23);
             this.txtDescQuarto.TabIndex = 31;
@@ -689,10 +713,10 @@
             // nDIARIASNumericUpDown
             // 
             this.nDIARIASNumericUpDown.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.hOSPEDAGEMBindingSource, "NDIARIAS", true));
-            this.nDIARIASNumericUpDown.Location = new System.Drawing.Point(228, 181);
+            this.nDIARIASNumericUpDown.Location = new System.Drawing.Point(228, 135);
             this.nDIARIASNumericUpDown.Name = "nDIARIASNumericUpDown";
             this.nDIARIASNumericUpDown.Size = new System.Drawing.Size(202, 23);
-            this.nDIARIASNumericUpDown.TabIndex = 3;
+            this.nDIARIASNumericUpDown.TabIndex = 5;
             this.nDIARIASNumericUpDown.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.nDIARIASNumericUpDown.ValueChanged += new System.EventHandler(this.nDIARIASNumericUpDown_ValueChanged);
             // 
@@ -701,26 +725,26 @@
             this.dDATAINDateTimePicker.CustomFormat = "dd/MM/yyyy - HH:mm:ss";
             this.dDATAINDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.hOSPEDAGEMBindingSource, "DDATAIN", true));
             this.dDATAINDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dDATAINDateTimePicker.Location = new System.Drawing.Point(228, 146);
+            this.dDATAINDateTimePicker.Location = new System.Drawing.Point(228, 100);
             this.dDATAINDateTimePicker.Name = "dDATAINDateTimePicker";
             this.dDATAINDateTimePicker.Size = new System.Drawing.Size(202, 23);
-            this.dDATAINDateTimePicker.TabIndex = 2;
+            this.dDATAINDateTimePicker.TabIndex = 6;
             // 
             // dDATAOUTDateTimePicker
             // 
             this.dDATAOUTDateTimePicker.CustomFormat = "dd/MM/yyyy - HH:mm:ss";
             this.dDATAOUTDateTimePicker.DataBindings.Add(new System.Windows.Forms.Binding("Value", this.hOSPEDAGEMBindingSource, "DDATAOUT", true));
             this.dDATAOUTDateTimePicker.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dDATAOUTDateTimePicker.Location = new System.Drawing.Point(228, 215);
+            this.dDATAOUTDateTimePicker.Location = new System.Drawing.Point(228, 169);
             this.dDATAOUTDateTimePicker.Name = "dDATAOUTDateTimePicker";
             this.dDATAOUTDateTimePicker.Size = new System.Drawing.Size(200, 23);
-            this.dDATAOUTDateTimePicker.TabIndex = 4;
+            this.dDATAOUTDateTimePicker.TabIndex = 7;
             // 
             // nIDQUARTOTextBox
             // 
             this.nIDQUARTOTextBox.DataBindings.Add(new System.Windows.Forms.Binding("Text", this.hOSPEDAGEMBindingSource, "NIDQUARTO", true));
             this.nIDQUARTOTextBox.Enabled = false;
-            this.nIDQUARTOTextBox.Location = new System.Drawing.Point(228, 107);
+            this.nIDQUARTOTextBox.Location = new System.Drawing.Point(228, 205);
             this.nIDQUARTOTextBox.Name = "nIDQUARTOTextBox";
             this.nIDQUARTOTextBox.Size = new System.Drawing.Size(68, 23);
             this.nIDQUARTOTextBox.TabIndex = 26;
@@ -737,10 +761,10 @@
             // btnBuscaQuarto
             // 
             this.btnBuscaQuarto.Image = global::HotelGestor.Properties.Resources.Search16x16;
-            this.btnBuscaQuarto.Location = new System.Drawing.Point(577, 103);
+            this.btnBuscaQuarto.Location = new System.Drawing.Point(577, 201);
             this.btnBuscaQuarto.Name = "btnBuscaQuarto";
             this.btnBuscaQuarto.Size = new System.Drawing.Size(33, 32);
-            this.btnBuscaQuarto.TabIndex = 1;
+            this.btnBuscaQuarto.TabIndex = 8;
             this.btnBuscaQuarto.UseVisualStyleBackColor = true;
             this.btnBuscaQuarto.Click += new System.EventHandler(this.btnBuscaQuarto_Click);
             // 
@@ -750,7 +774,7 @@
             this.btnBuscaCliente.Location = new System.Drawing.Point(577, 63);
             this.btnBuscaCliente.Name = "btnBuscaCliente";
             this.btnBuscaCliente.Size = new System.Drawing.Size(33, 30);
-            this.btnBuscaCliente.TabIndex = 0;
+            this.btnBuscaCliente.TabIndex = 4;
             this.btnBuscaCliente.UseVisualStyleBackColor = true;
             this.btnBuscaCliente.Click += new System.EventHandler(this.btnBuscaCliente_Click);
             // 
@@ -930,7 +954,7 @@
             this.nvalorunit.HeaderText = "Valor";
             this.nvalorunit.Name = "nvalorunit";
             this.nvalorunit.ReadOnly = true;
-            this.nvalorunit.Width = 62;
+            this.nvalorunit.Width = 61;
             // 
             // nvalortotal
             // 
@@ -939,7 +963,7 @@
             this.nvalortotal.HeaderText = "Vlr. Total";
             this.nvalortotal.Name = "nvalortotal";
             this.nvalortotal.ReadOnly = true;
-            this.nvalortotal.Width = 87;
+            this.nvalortotal.Width = 83;
             // 
             // ddatamovim
             // 
@@ -1089,7 +1113,7 @@
             this.lbtot.BackColor = System.Drawing.Color.WhiteSmoke;
             this.lbtot.Location = new System.Drawing.Point(295, 10);
             this.lbtot.Name = "lbtot";
-            this.lbtot.Size = new System.Drawing.Size(47, 18);
+            this.lbtot.Size = new System.Drawing.Size(45, 18);
             this.lbtot.TabIndex = 0;
             this.lbtot.Text = "Total :";
             // 
@@ -1220,7 +1244,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(110, 77);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(100, 18);
+            this.label4.Size = new System.Drawing.Size(98, 18);
             this.label4.TabIndex = 36;
             this.label4.Text = "Total Consumo:";
             // 
@@ -1308,6 +1332,7 @@
             // 
             // tableAdapterManager
             // 
+            this.tableAdapterManager.ATORESTableAdapter = null;
             this.tableAdapterManager.BackupDataSetBeforeUpdate = false;
             this.tableAdapterManager.CATEGORIAQUARTOTableAdapter = null;
             this.tableAdapterManager.CLIENTETableAdapter = null;
@@ -1331,6 +1356,90 @@
             // 
             this.qUARTOTableAdapter.ClearBeforeFill = true;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(273, 49);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(40, 18);
+            this.label3.TabIndex = 21;
+            this.label3.Text = "Saida";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(72, 49);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(89, 18);
+            this.label7.TabIndex = 20;
+            this.label7.Text = "Data Entrada:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(61, 17);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(100, 18);
+            this.label8.TabIndex = 19;
+            this.label8.Text = "Nome Hóspede:";
+            // 
+            // button1
+            // 
+            this.button1.Image = global::HotelGestor.Properties.Resources.Search32x32;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(428, 47);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(145, 52);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Filtrar";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtFiletroDataOut
+            // 
+            this.txtFiletroDataOut.Location = new System.Drawing.Point(322, 47);
+            this.txtFiletroDataOut.Mask = "00/00/0000";
+            this.txtFiletroDataOut.Name = "txtFiletroDataOut";
+            this.txtFiletroDataOut.Size = new System.Drawing.Size(100, 23);
+            this.txtFiletroDataOut.TabIndex = 15;
+            this.txtFiletroDataOut.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtFiltroDataIn
+            // 
+            this.txtFiltroDataIn.Location = new System.Drawing.Point(167, 47);
+            this.txtFiltroDataIn.Mask = "00/00/0000";
+            this.txtFiltroDataIn.Name = "txtFiltroDataIn";
+            this.txtFiltroDataIn.Size = new System.Drawing.Size(100, 23);
+            this.txtFiltroDataIn.TabIndex = 14;
+            this.txtFiltroDataIn.ValidatingType = typeof(System.DateTime);
+            // 
+            // txtFiltroHospede
+            // 
+            this.txtFiltroHospede.Location = new System.Drawing.Point(167, 15);
+            this.txtFiltroHospede.Name = "txtFiltroHospede";
+            this.txtFiltroHospede.Size = new System.Drawing.Size(407, 23);
+            this.txtFiltroHospede.TabIndex = 13;
+            // 
+            // cLIENTEBindingSource
+            // 
+            this.cLIENTEBindingSource.DataMember = "CLIENTE";
+            this.cLIENTEBindingSource.DataSource = this.hotelDBDataSet;
+            // 
+            // cLIENTETableAdapter
+            // 
+            this.cLIENTETableAdapter.ClearBeforeFill = true;
+            // 
+            // chHospAbertas
+            // 
+            this.chHospAbertas.AutoSize = true;
+            this.chHospAbertas.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.chHospAbertas.Location = new System.Drawing.Point(167, 85);
+            this.chHospAbertas.Name = "chHospAbertas";
+            this.chHospAbertas.Size = new System.Drawing.Size(152, 22);
+            this.chHospAbertas.TabIndex = 22;
+            this.chHospAbertas.Text = "Hospedagens Abertas";
+            this.chHospAbertas.UseVisualStyleBackColor = true;
+            // 
             // frmHospedagem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 18F);
@@ -1341,6 +1450,8 @@
             this.panel1.ResumeLayout(false);
             this.tbConsulta.ResumeLayout(false);
             this.tbCadastro.ResumeLayout(false);
+            this.pnFiltros.ResumeLayout(false);
+            this.pnFiltros.PerformLayout();
             this.tbMain.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.hOSPEDAGEMBindingSource)).EndInit();
@@ -1369,6 +1480,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.fORMASDEPAGAMENTOBindingSource)).EndInit();
             this.panel6.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.qUARTOBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.cLIENTEBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1442,9 +1554,6 @@
         private HotelDBDataSetTableAdapters.FORMASDEPAGAMENTOTableAdapter fORMASDEPAGAMENTOTableAdapter;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNOMEDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dESCQUARTODataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dDATAINDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dDATAOUTDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nDIARIASDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn vVALORTOTALDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dDATAFECHAMENTODataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource faturaXItensBindingSource;
@@ -1474,5 +1583,20 @@
         private System.Windows.Forms.TextBox nvalottotalTextBox;
         private System.Windows.Forms.BindingSource qUARTOBindingSource;
         private HotelDBDataSetTableAdapters.QUARTOTableAdapter qUARTOTableAdapter;
+        private System.Windows.Forms.DataGridViewTextBoxColumn HOSPEDE;
+        private System.Windows.Forms.DataGridViewTextBoxColumn QUARTO;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dDATAINDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dDATAOUTDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nDIARIASDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox txtFiletroDataOut;
+        private System.Windows.Forms.MaskedTextBox txtFiltroDataIn;
+        private System.Windows.Forms.TextBox txtFiltroHospede;
+        private System.Windows.Forms.BindingSource cLIENTEBindingSource;
+        private HotelDBDataSetTableAdapters.CLIENTETableAdapter cLIENTETableAdapter;
+        private System.Windows.Forms.CheckBox chHospAbertas;
     }
 }

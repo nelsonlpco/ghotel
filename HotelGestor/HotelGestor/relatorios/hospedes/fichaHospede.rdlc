@@ -1178,36 +1178,6 @@
             </Border>
           </Style>
         </Line>
-        <Textbox Name="CCIDADE1">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>=First(Fields!CCIDADE.Value, "dsHospede")</Value>
-                  <Style />
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>CCIDADE1</rd:DefaultName>
-          <Top>0.40541cm</Top>
-          <Left>3.71433cm</Left>
-          <Height>0.6cm</Height>
-          <Width>3.92875cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
         <Textbox Name="Textbox3">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
@@ -1227,7 +1197,7 @@
           <Left>10.46058cm</Left>
           <Height>0.6cm</Height>
           <Width>3.43462cm</Width>
-          <ZIndex>2</ZIndex>
+          <ZIndex>1</ZIndex>
           <Style>
             <Border>
               <Style>None</Style>
@@ -1254,9 +1224,41 @@
           </Paragraphs>
           <rd:DefaultName>CUF1</rd:DefaultName>
           <Top>0.40541cm</Top>
-          <Left>7.78419cm</Left>
+          <Left>6.76182cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>3.52237cm</Width>
+          <ZIndex>2</ZIndex>
+          <Style>
+            <Border>
+              <Style>None</Style>
+            </Border>
+            <PaddingLeft>2pt</PaddingLeft>
+            <PaddingRight>2pt</PaddingRight>
+            <PaddingTop>2pt</PaddingTop>
+            <PaddingBottom>2pt</PaddingBottom>
+          </Style>
+        </Textbox>
+        <Textbox Name="CCIDADE1">
+          <CanGrow>true</CanGrow>
+          <KeepTogether>true</KeepTogether>
+          <Paragraphs>
+            <Paragraph>
+              <TextRuns>
+                <TextRun>
+                  <Value>=First(Fields!CCIDADE.Value, "dsHotel")</Value>
+                  <Style />
+                </TextRun>
+              </TextRuns>
+              <Style>
+                <TextAlign>Right</TextAlign>
+              </Style>
+            </Paragraph>
+          </Paragraphs>
+          <rd:DefaultName>CCIDADE1</rd:DefaultName>
+          <Top>0.40541cm</Top>
+          <Left>1.17502cm</Left>
+          <Height>0.6cm</Height>
+          <Width>5.38869cm</Width>
           <ZIndex>3</ZIndex>
           <Style>
             <Border>

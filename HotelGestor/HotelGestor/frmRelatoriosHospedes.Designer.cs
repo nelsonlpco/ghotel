@@ -44,25 +44,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.nNUMECLIENTEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cNOMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCPFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cRGDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDATANASCDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dDATACADASTRODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cOBSERVACAODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCEPDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cCIDADEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cUFDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cRUADataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cBAIRRODataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cFONEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cFONE2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cEMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fOTODataGridViewImageColumn = new System.Windows.Forms.DataGridViewImageColumn();
             this.cLIENTEBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.hotelDBDataSet = new HotelGestor.HotelDBDataSet();
             this.cLIENTETableAdapter = new HotelGestor.HotelDBDataSetTableAdapters.CLIENTETableAdapter();
+            this.cNOMEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFONEDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cFONE2DataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cEMAILDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.pnFiltros.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
@@ -163,7 +151,7 @@
             this.label1.AutoSize = true;
             this.label1.Location = new System.Drawing.Point(78, 14);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(72, 18);
+            this.label1.Size = new System.Drawing.Size(71, 18);
             this.label1.TabIndex = 7;
             this.label1.Text = "Relatórios:";
             // 
@@ -231,22 +219,10 @@
             this.dataGridView1.AutoGenerateColumns = false;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nNUMECLIENTEDataGridViewTextBoxColumn,
             this.cNOMEDataGridViewTextBoxColumn,
-            this.cCPFDataGridViewTextBoxColumn,
-            this.cRGDataGridViewTextBoxColumn,
-            this.dDATANASCDataGridViewTextBoxColumn,
-            this.dDATACADASTRODataGridViewTextBoxColumn,
-            this.cOBSERVACAODataGridViewTextBoxColumn,
-            this.cCEPDataGridViewTextBoxColumn,
-            this.cCIDADEDataGridViewTextBoxColumn,
-            this.cUFDataGridViewTextBoxColumn,
-            this.cRUADataGridViewTextBoxColumn,
-            this.cBAIRRODataGridViewTextBoxColumn,
             this.cFONEDataGridViewTextBoxColumn,
             this.cFONE2DataGridViewTextBoxColumn,
-            this.cEMAILDataGridViewTextBoxColumn,
-            this.fOTODataGridViewImageColumn});
+            this.cEMAILDataGridViewTextBoxColumn});
             this.dataGridView1.DataSource = this.cLIENTEBindingSource;
             this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridView1.Location = new System.Drawing.Point(0, 191);
@@ -254,118 +230,6 @@
             this.dataGridView1.ReadOnly = true;
             this.dataGridView1.Size = new System.Drawing.Size(784, 349);
             this.dataGridView1.TabIndex = 9;
-            // 
-            // nNUMECLIENTEDataGridViewTextBoxColumn
-            // 
-            this.nNUMECLIENTEDataGridViewTextBoxColumn.DataPropertyName = "NNUMECLIENTE";
-            this.nNUMECLIENTEDataGridViewTextBoxColumn.HeaderText = "NNUMECLIENTE";
-            this.nNUMECLIENTEDataGridViewTextBoxColumn.Name = "nNUMECLIENTEDataGridViewTextBoxColumn";
-            this.nNUMECLIENTEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cNOMEDataGridViewTextBoxColumn
-            // 
-            this.cNOMEDataGridViewTextBoxColumn.DataPropertyName = "CNOME";
-            this.cNOMEDataGridViewTextBoxColumn.HeaderText = "CNOME";
-            this.cNOMEDataGridViewTextBoxColumn.Name = "cNOMEDataGridViewTextBoxColumn";
-            this.cNOMEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cCPFDataGridViewTextBoxColumn
-            // 
-            this.cCPFDataGridViewTextBoxColumn.DataPropertyName = "CCPF";
-            this.cCPFDataGridViewTextBoxColumn.HeaderText = "CCPF";
-            this.cCPFDataGridViewTextBoxColumn.Name = "cCPFDataGridViewTextBoxColumn";
-            this.cCPFDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cRGDataGridViewTextBoxColumn
-            // 
-            this.cRGDataGridViewTextBoxColumn.DataPropertyName = "CRG";
-            this.cRGDataGridViewTextBoxColumn.HeaderText = "CRG";
-            this.cRGDataGridViewTextBoxColumn.Name = "cRGDataGridViewTextBoxColumn";
-            this.cRGDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dDATANASCDataGridViewTextBoxColumn
-            // 
-            this.dDATANASCDataGridViewTextBoxColumn.DataPropertyName = "DDATANASC";
-            this.dDATANASCDataGridViewTextBoxColumn.HeaderText = "DDATANASC";
-            this.dDATANASCDataGridViewTextBoxColumn.Name = "dDATANASCDataGridViewTextBoxColumn";
-            this.dDATANASCDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dDATACADASTRODataGridViewTextBoxColumn
-            // 
-            this.dDATACADASTRODataGridViewTextBoxColumn.DataPropertyName = "DDATACADASTRO";
-            this.dDATACADASTRODataGridViewTextBoxColumn.HeaderText = "DDATACADASTRO";
-            this.dDATACADASTRODataGridViewTextBoxColumn.Name = "dDATACADASTRODataGridViewTextBoxColumn";
-            this.dDATACADASTRODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cOBSERVACAODataGridViewTextBoxColumn
-            // 
-            this.cOBSERVACAODataGridViewTextBoxColumn.DataPropertyName = "COBSERVACAO";
-            this.cOBSERVACAODataGridViewTextBoxColumn.HeaderText = "COBSERVACAO";
-            this.cOBSERVACAODataGridViewTextBoxColumn.Name = "cOBSERVACAODataGridViewTextBoxColumn";
-            this.cOBSERVACAODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cCEPDataGridViewTextBoxColumn
-            // 
-            this.cCEPDataGridViewTextBoxColumn.DataPropertyName = "CCEP";
-            this.cCEPDataGridViewTextBoxColumn.HeaderText = "CCEP";
-            this.cCEPDataGridViewTextBoxColumn.Name = "cCEPDataGridViewTextBoxColumn";
-            this.cCEPDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cCIDADEDataGridViewTextBoxColumn
-            // 
-            this.cCIDADEDataGridViewTextBoxColumn.DataPropertyName = "CCIDADE";
-            this.cCIDADEDataGridViewTextBoxColumn.HeaderText = "CCIDADE";
-            this.cCIDADEDataGridViewTextBoxColumn.Name = "cCIDADEDataGridViewTextBoxColumn";
-            this.cCIDADEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cUFDataGridViewTextBoxColumn
-            // 
-            this.cUFDataGridViewTextBoxColumn.DataPropertyName = "CUF";
-            this.cUFDataGridViewTextBoxColumn.HeaderText = "CUF";
-            this.cUFDataGridViewTextBoxColumn.Name = "cUFDataGridViewTextBoxColumn";
-            this.cUFDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cRUADataGridViewTextBoxColumn
-            // 
-            this.cRUADataGridViewTextBoxColumn.DataPropertyName = "CRUA";
-            this.cRUADataGridViewTextBoxColumn.HeaderText = "CRUA";
-            this.cRUADataGridViewTextBoxColumn.Name = "cRUADataGridViewTextBoxColumn";
-            this.cRUADataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cBAIRRODataGridViewTextBoxColumn
-            // 
-            this.cBAIRRODataGridViewTextBoxColumn.DataPropertyName = "CBAIRRO";
-            this.cBAIRRODataGridViewTextBoxColumn.HeaderText = "CBAIRRO";
-            this.cBAIRRODataGridViewTextBoxColumn.Name = "cBAIRRODataGridViewTextBoxColumn";
-            this.cBAIRRODataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cFONEDataGridViewTextBoxColumn
-            // 
-            this.cFONEDataGridViewTextBoxColumn.DataPropertyName = "CFONE";
-            this.cFONEDataGridViewTextBoxColumn.HeaderText = "CFONE";
-            this.cFONEDataGridViewTextBoxColumn.Name = "cFONEDataGridViewTextBoxColumn";
-            this.cFONEDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cFONE2DataGridViewTextBoxColumn
-            // 
-            this.cFONE2DataGridViewTextBoxColumn.DataPropertyName = "CFONE2";
-            this.cFONE2DataGridViewTextBoxColumn.HeaderText = "CFONE2";
-            this.cFONE2DataGridViewTextBoxColumn.Name = "cFONE2DataGridViewTextBoxColumn";
-            this.cFONE2DataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // cEMAILDataGridViewTextBoxColumn
-            // 
-            this.cEMAILDataGridViewTextBoxColumn.DataPropertyName = "CEMAIL";
-            this.cEMAILDataGridViewTextBoxColumn.HeaderText = "CEMAIL";
-            this.cEMAILDataGridViewTextBoxColumn.Name = "cEMAILDataGridViewTextBoxColumn";
-            this.cEMAILDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fOTODataGridViewImageColumn
-            // 
-            this.fOTODataGridViewImageColumn.DataPropertyName = "FOTO";
-            this.fOTODataGridViewImageColumn.HeaderText = "FOTO";
-            this.fOTODataGridViewImageColumn.Name = "fOTODataGridViewImageColumn";
-            this.fOTODataGridViewImageColumn.ReadOnly = true;
             // 
             // cLIENTEBindingSource
             // 
@@ -380,6 +244,36 @@
             // cLIENTETableAdapter
             // 
             this.cLIENTETableAdapter.ClearBeforeFill = true;
+            // 
+            // cNOMEDataGridViewTextBoxColumn
+            // 
+            this.cNOMEDataGridViewTextBoxColumn.DataPropertyName = "CNOME";
+            this.cNOMEDataGridViewTextBoxColumn.HeaderText = "Nome";
+            this.cNOMEDataGridViewTextBoxColumn.Name = "cNOMEDataGridViewTextBoxColumn";
+            this.cNOMEDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cNOMEDataGridViewTextBoxColumn.Width = 250;
+            // 
+            // cFONEDataGridViewTextBoxColumn
+            // 
+            this.cFONEDataGridViewTextBoxColumn.DataPropertyName = "CFONE";
+            this.cFONEDataGridViewTextBoxColumn.HeaderText = "Telefone";
+            this.cFONEDataGridViewTextBoxColumn.Name = "cFONEDataGridViewTextBoxColumn";
+            this.cFONEDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cFONE2DataGridViewTextBoxColumn
+            // 
+            this.cFONE2DataGridViewTextBoxColumn.DataPropertyName = "CFONE2";
+            this.cFONE2DataGridViewTextBoxColumn.HeaderText = "Telefone 2";
+            this.cFONE2DataGridViewTextBoxColumn.Name = "cFONE2DataGridViewTextBoxColumn";
+            this.cFONE2DataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // cEMAILDataGridViewTextBoxColumn
+            // 
+            this.cEMAILDataGridViewTextBoxColumn.DataPropertyName = "CEMAIL";
+            this.cEMAILDataGridViewTextBoxColumn.HeaderText = "E-mail";
+            this.cEMAILDataGridViewTextBoxColumn.Name = "cEMAILDataGridViewTextBoxColumn";
+            this.cEMAILDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cEMAILDataGridViewTextBoxColumn.Width = 250;
             // 
             // frmRelatoriosHospedes
             // 
@@ -423,21 +317,9 @@
         private HotelDBDataSet hotelDBDataSet;
         private System.Windows.Forms.BindingSource cLIENTEBindingSource;
         private HotelDBDataSetTableAdapters.CLIENTETableAdapter cLIENTETableAdapter;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nNUMECLIENTEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cNOMEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCPFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cRGDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dDATANASCDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dDATACADASTRODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cOBSERVACAODataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCEPDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cCIDADEDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cUFDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cRUADataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cBAIRRODataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cFONEDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cFONE2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cEMAILDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewImageColumn fOTODataGridViewImageColumn;
     }
 }

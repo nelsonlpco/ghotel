@@ -6,6 +6,9 @@
 }
 
 namespace HotelGestor.HotelDBDataSetTableAdapters {
+    partial class HOSPEDAGEMTableAdapter
+    {
+    }
     
     
     public partial class QUARTOTableAdapter {

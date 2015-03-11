@@ -110,6 +110,7 @@
             this.hotelToolStripMenuItem.Name = "hotelToolStripMenuItem";
             this.hotelToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.hotelToolStripMenuItem.Text = "&Hotel";
+            this.hotelToolStripMenuItem.Click += new System.EventHandler(this.hotelToolStripMenuItem_Click);
             // 
             // usuariosToolStripMenuItem
             // 
